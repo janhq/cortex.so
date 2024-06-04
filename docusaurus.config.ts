@@ -11,6 +11,8 @@ const config: Config = {
     "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
   favicon: "img/favicon.ico",
 
+  staticDirectories: ["static"],
+
   plugins: [
     "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
@@ -32,10 +34,11 @@ const config: Config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  themes: ["live-codeblock"],
+  themes: ["live-codeblock", "@docusaurus/theme-mermaid"],
 
   markdown: {
     format: "detect",
+    mermaid: true,
   },
 
   // GitHub pages deployment config.
@@ -60,12 +63,19 @@ const config: Config = {
       {
         docs: {
           beforeDefaultRemarkPlugins: [
-            [remarkCodeHike, { theme: "github-dark", showCopyButton: true }],
+            [
+              remarkCodeHike,
+              {
+                theme: "dark-plus",
+                showCopyButton: true,
+                skipLanguages: ["mermaid"],
+              },
+            ],
           ],
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/janhq/cortex/",
+          editUrl: "https://github.com/janhq/cortex/tree/main/",
         },
         theme: {
           customCss: [
@@ -114,7 +124,7 @@ const config: Config = {
         {
           type: "doc",
           position: "left",
-          docId: "introduction",
+          docId: "overview",
           label: "Documentation",
         },
         {
