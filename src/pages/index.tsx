@@ -7,13 +7,8 @@ const Home = () => {
   return (
     <Layout title="Homepage">
       <main>
-        <div className="container">
-          <p className="text-red-700">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Distinctio, quia nemo deleniti eos placeat, voluptatibus, facilis
-            voluptatum ipsam rem cum sapiente praesentium iusto laudantium!
-            Illum quia atque quam impedit sequi.
-          </p>
+        <div className="container mt-8">
+          <p>Cortex is under construction</p>
         </div>
       </main>
     </Layout>
