@@ -6,7 +6,7 @@ const config: Config = {
     container: false,
   },
   darkMode: ["class", '[data-theme="dark"]'],
-  content: ["./src/**/*.{jsx,tsx,html}"],
+  content: ["./src/**/*.{jsx,tsx,html,md}"],
   theme: {
     container: {
       center: true,
@@ -24,7 +24,6 @@ const config: Config = {
         "Helvetica",
         "sans-serif",
       ],
-      serif: ["PPEditorialNew"],
     },
     extend: {},
   },

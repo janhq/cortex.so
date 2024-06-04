@@ -6,7 +6,9 @@ import { remarkCodeHike } from "@code-hike/mdx";
 
 const config: Config = {
   title: "Cortex",
-  tagline: "Cortex",
+  titleDelimiter: "-",
+  tagline:
+    "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
   favicon: "img/favicon.ico",
 
   plugins: [
@@ -29,7 +31,11 @@ const config: Config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  themes: ["mdx-v2"],
+  themes: ["live-codeblock"],
+
+  markdown: {
+    format: "detect",
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -53,7 +59,7 @@ const config: Config = {
       {
         docs: {
           beforeDefaultRemarkPlugins: [
-            [remarkCodeHike, { theme: "github-dark" }],
+            [remarkCodeHike, { theme: "github-dark", showCopyButton: true }],
           ],
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
@@ -71,37 +77,67 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
+    metadata: [
+      {
+        name: "description",
+        content:
+          "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
+      },
+    ],
+
+    headTags: [
+      // Declare some json-ld structured data
+      {
+        tagName: "script",
+        attributes: {
+          type: "application/ld+json",
+        },
+        innerHTML: JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Organization",
+          name: "Cortex",
+          url: "https://cortex.jan.ai/",
+          logo: "https://cortex.jan.ai/img/logos/Meta-Open-Source.svg",
+        }),
+      },
+    ],
+
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "Cortex",
       logo: {
-        alt: "My Site Logo",
+        alt: "Cortex Logo",
         src: "img/logo.svg",
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          type: "doc",
           position: "left",
-          label: "Tutorial",
+          docId: "introduction",
+          label: "Documentation",
         },
         {
-          href: "https://github.com/janhq/cortex",
-          label: "GitHub",
+          href: "https://github.com/facebook/docusaurus",
           position: "right",
+          className: "header-discord-link",
+          "aria-label": "Discord",
+        },
+        {
+          href: "https://github.com/facebook/docusaurus",
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
         },
       ],
     },
     footer: {
-      style: "dark",
       links: [
         {
           title: "Docs",
           items: [
             {
               label: "Tutorial",
-              to: "/docs/intro",
+              to: "/",
             },
           ],
         },
