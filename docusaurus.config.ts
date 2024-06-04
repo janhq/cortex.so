@@ -117,13 +117,13 @@ const config: Config = {
           label: "Documentation",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://discord.gg/FTk2MvZwJH",
           position: "right",
           className: "header-discord-link",
           "aria-label": "Discord",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/janhq/cortex",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",
