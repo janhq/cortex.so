@@ -1,0 +1,114 @@
+---
+title: Mac Installation
+description: Install Cortex CLI on Mac.
+slug: 'mac'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+## Prerequisites
+
+### Dependencies
+
+Before installation, ensure that you have installed the following:
+
+- **Node.js**: Required for running the installation.
+- **NPM**: Needed to manage packages.
+
+:::info
+The **CPU instruction sets** are not required for the initial installation of Cortex. This dependency will be automatically installed during the Cortex initialization if they are not already on your system.
+:::
+
+### Hardware
+
+Ensure that your system meets the following requirements to run Cortex:
+
+
+<Tabs>
+  <TabItem value="Mac Intel CPU" label="Mac Intel CPU" default>
+  </TabItem>
+  <TabItem value="Mac Apple Silicon" label="Mac Apple Silicon">
+  </TabItem>
+</Tabs>
+
+
+<Tabs>
+  <TabItem value="Operating System" label="Operating System" default>
+    - MacOSX 13.6 or higher.
+  </TabItem>
+  <TabItem value="Memory" label="Memory">
+    - 8GB for running up to 3B models.
+    - 16GB for running up to 7B models.
+    - 32GB for running up to 13B models.
+  </TabItem>
+  <TabItem value="Disk" label="Disk">
+    - At least 10GB for app and model download.
+  </TabItem>
+</Tabs>
+
+
+## Cortex Installation
+
+To install Cortex, follow the steps below:
+
+### Step 1: Install Cortex
+
+Run the following command to install Cortex globally on your machine:
+
+:::info
+Install NPM on your machine before proceeding with this step.
+:::
+
+```sh
+# Install globally on your system
+npm i -g @janhq/cortex
+```
+:::info
+Cortex automatically detects your CPU and GPU, downloading the appropriate CPU instruction sets and required dependencies to optimize GPU performance.
+:::
+
+### Step 2: Verify the Installation
+
+1. After installation, you can verify that Cortex is installed correctly by getting help information.
+
+```sh
+# Get the help information
+cortex -h
+```
+2. Cortex is ready to use!
+## Build from Source
+
+To install Cortex from the source, follow the steps below:
+
+1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
+2. Navigate to the `cortex-js` folder.
+3. Open the terminal and run the following command to build the Cortex project:
+
+```sh
+npx nest build
+```
+
+4. Make the `command.js` executable:
+
+```sh
+chmod +x '[path-to]/cortex/cortex-js/dist/src/command.js'
+```
+
+5. Link the package globally:
+
+```sh
+npm link
+```
+6. Initialize Cortex by following the steps [here](/docs/instalation/mac#build-from-source).
+## Uninstall Cortex
+
+Run the following command to uninstall Cortex globally on your machine:
+```sh
+# Uninstall globally using NPM
+npm uninstall -g @janhq/cortex
+```

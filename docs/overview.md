@@ -1,8 +1,10 @@
 ---
+title: Overview
+description: Cortex Overview.
 slug: /
 ---
 
-# Introduction
+# Cortex
 
 :::warning
 🚧 Cortex is under construction.
