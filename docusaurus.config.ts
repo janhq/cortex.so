@@ -12,6 +12,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   plugins: [
+    "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",
@@ -69,7 +70,7 @@ const config: Config = {
         theme: {
           customCss: [
             require.resolve("@code-hike/mdx/styles.css"),
-            "./src/css/custom.css",
+            "./src/styles/main.scss",
           ],
         },
       } satisfies Preset.Options,
