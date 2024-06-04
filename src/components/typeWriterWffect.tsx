@@ -1,5 +1,3 @@
-"use client";
-
 import { twMerge } from "tailwind-merge";
 import { motion as m, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
