@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import type { ScalarOptions } from '@scalar/docusaurus'
 
 import { remarkCodeHike } from "@code-hike/mdx";
 
@@ -26,6 +27,19 @@ const config: Config = {
         },
       };
     },
+    [
+      '@scalar/docusaurus',
+      {
+        label: 'API Reference',
+        route: '/api-reference',
+        configuration: {
+          spec: {
+            url: 'https://raw.githubusercontent.com/janhq/cortex-web/main/static/openapi/jan.json',
+          },
+          hideModels: true,
+        },
+      } as ScalarOptions,
+    ],
   ],
 
   // Set the production url of your site here
