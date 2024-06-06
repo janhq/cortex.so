@@ -29,3 +29,9 @@ html[data-theme="dark"] {
   --ifm-background-color: #111;
   --ifm-toc-border-color: transparent;
 }
+
+.openai-coverage {
+  p {
+    margin-bottom: 0;
+  }
+}

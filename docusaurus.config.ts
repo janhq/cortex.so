@@ -5,13 +5,44 @@ import type { ScalarOptions } from "@scalar/docusaurus";
 
 import { remarkCodeHike } from "@code-hike/mdx";
 
+async function fetchDataDaily(date: string) {
+  const response = await fetch(
+    `https://delta.jan.ai/openai-api-collection-test/${date}.json`
+  );
+  if (!response.ok) {
+    return {};
+  }
+  const data = await response.json();
+  return data;
+}
+
+function generateDates(startDate: string, numberOfDays: number): string[] {
+  const dates: string[] = [];
+  const start = new Date(startDate);
+
+  for (let i = 0; i < numberOfDays; i++) {
+    const date = new Date(start);
+    date.setDate(start.getDate() - i);
+    const formattedDate = `${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}-${date
+      .getDate()
+      .toString()
+      .padStart(2, "0")}-${date.getFullYear()}`;
+    dates.push(formattedDate);
+  }
+
+  return dates;
+}
+
+const dateArray = generateDates("06-21-2024", 30);
+
 const config: Config = {
   title: "Cortex",
   titleDelimiter: "-",
   tagline:
     "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
   favicon: "img/favicons/favicon.ico",
-
   staticDirectories: ["static"],
 
   plugins: [
@@ -24,6 +55,39 @@ const config: Config = {
           postcssOptions.plugins.push(require("tailwindcss"));
           postcssOptions.plugins.push(require("autoprefixer"));
           return postcssOptions;
+        },
+      };
+    },
+    async function getDataOAITotalCoverage(context, options) {
+      return {
+        name: "oai-total-coverage",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+          const fetchTotalCoverage = await fetch(
+            "https://delta.jan.ai/openai-api-collection-test/total-coverage.json"
+          );
+          const totalCoverage = await fetchTotalCoverage.json();
+          setGlobalData(totalCoverage);
+        },
+      };
+    },
+    async function getDataOAIDaily(context, options) {
+      return {
+        name: "oai-daily-report",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+
+          let results = [];
+          for (let date of dateArray) {
+            try {
+              let data = await fetchDataDaily(date);
+              results.push({ date: date, ...data });
+            } catch (error) {
+              results.push({ date: date });
+            }
+          }
+
+          setGlobalData(results as []);
         },
       };
     },
