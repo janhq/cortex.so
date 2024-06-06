@@ -1,9 +1,9 @@
 import React from "react";
-import { formatDate } from "date-fns";
-import { enUS } from "date-fns/locale";
+
 import { usePluginData } from "@docusaurus/useGlobalData";
 
 import * as Tooltip from "@radix-ui/react-tooltip";
+import { getMonthName } from "@site/src/utils";
 
 interface DateObject {
   date: string;
@@ -139,11 +139,7 @@ export default function OAICoverage() {
               className="flex w-2 md:w-3 xl:w-5 h-8 items-center justify-center"
             >
               <div className="relative h-full flex flex-col justify-end items-center">
-                {firstDate && (
-                  <p className="text-xs">
-                    {formatDate(new Date(x.date), "LLLL", { locale: enUS })}
-                  </p>
-                )}
+                {firstDate && <p className="text-xs">{getMonthName(x.date)}</p>}
                 <p className="hidden lg:block text-xs">
                   {x.date.split("-")[1].replace(/^0/, "")}
                 </p>
