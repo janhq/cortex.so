@@ -36,6 +36,7 @@ const config: Config = {
           spec: {
             url: 'https://raw.githubusercontent.com/janhq/cortex-web/main/static/openapi/jan.json',
           },
+          hideModels: true,
         },
       } as ScalarOptions,
     ],
