@@ -70,7 +70,7 @@ const TypewriterEffect = ({
   return (
     <div
       className={twMerge(
-        "text-2xl lg:text-4xl font-bold text-center inline-flex",
+        "text-2xl lg:text-2xl text-center inline-flex",
         className
       )}
     >

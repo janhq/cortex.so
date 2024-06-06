@@ -1,0 +1,147 @@
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-animation: zoom 2s infinite;
+  -moz-animation: zoom 2s infinite;
+  -o-animation: zoom 2s infinite;
+  animation: zoom 2s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background: url(../../static/img/home/stars1.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.stars:nth-child(2) {
+  background: url(../../static/img/home/stars2.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 500ms;
+  -moz-animation-delay: 500ms;
+  -o-animation-delay: 500ms;
+  animation-delay: 500ms;
+}
+.stars:nth-child(3) {
+  background: url(../../static/img/home/stars3.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.stars:nth-child(4) {
+  background: url(../../static/img/home/stars4.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 1500ms;
+  -moz-animation-delay: 1500ms;
+  -o-animation-delay: 1500ms;
+  animation-delay: 1500ms;
+}
+.stars:nth-child(5) {
+  background: url(../../static/img/home/stars1.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.stars:nth-child(6) {
+  background: url(../../static/img/home/stars2.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 2500ms;
+  -moz-animation-delay: 2500ms;
+  -o-animation-delay: 2500ms;
+  animation-delay: 2500ms;
+}
+.stars:nth-child(7) {
+  background: url(../../static/img/home/stars3.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  -o-animation-delay: 3s;
+  animation-delay: 3s;
+}
+.stars:nth-child(8) {
+  background: url(../../static/img/home/stars4.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 3500ms;
+  -moz-animation-delay: 3500ms;
+  -o-animation-delay: 3500ms;
+  animation-delay: 3500ms;
+}
+.stars:nth-child(9) {
+  background: url(../../static/img/home/stars1.png) no-repeat center center
+    fixed;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-animation-timing-function: ease-in;
+    -moz-animation-timing-function: ease-in;
+    -o-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    -webkit-transform: scale(2.8);
+    -moz-transform: scale(2.8);
+    -ms-transform: scale(2.8);
+    -o-transform: scale(2.8);
+    transform: scale(2.8);
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(3.5);
+    -moz-transform: scale(3.5);
+    -ms-transform: scale(3.5);
+    -o-transform: scale(3.5);
+    transform: scale(3.5);
+  }
+}
+
+.start-bar {
+  background: #c0c0c0;
+  height: 36px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 4px;
+  z-index: 999999999;
+  justify-content: space-between;
+  box-shadow: 0 -2px #fffdfc, 0 -4px #cce9eb;
+}
+
+.windows-box-shadow {
+  box-shadow: -2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white,
+    -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181,
+    2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black,
+    4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black;
+}
