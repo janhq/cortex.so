@@ -9,7 +9,8 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   /* Custom */
-  --ifm-navbar-background-color: #fff;
+  --ifm-navbar-background-color: transparent;
+  // --ifm-navbar-background-color: #fff;
   --ifm-background-color: #fff;
   --ifm-toc-border-color: transparent;
 }
@@ -25,7 +26,8 @@ html[data-theme="dark"] {
   --ifm-color-primary-lightest: #7ba0f0;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   /* Custom */
-  --ifm-navbar-background-color: #111;
+  --ifm-navbar-background-color: transparent;
+  // --ifm-navbar-background-color: #111;
   --ifm-background-color: #111;
   --ifm-toc-border-color: transparent;
 }
@@ -33,5 +35,49 @@ html[data-theme="dark"] {
 .openai-coverage {
   p {
     margin-bottom: 0;
+  }
+}
+
+.plugin-pages {
+  background: linear-gradient(
+      183deg,
+      rgba(141, 35, 46, 0.5) 1%,
+      rgba(141, 35, 46, 0) 60%
+    ),
+    linear-gradient(
+      250deg,
+      rgba(141, 35, 46, 0) 21%,
+      rgba(141, 35, 46, 0.2) 20%,
+      rgba(11, 35, 47, 0.2) 50%
+    ),
+    linear-gradient(
+      250deg,
+      rgba(141, 35, 46, 0) 23%,
+      rgba(141, 35, 46, 0.2) 20%,
+      rgba(11, 35, 47, 0.2) 50%
+    ),
+    linear-gradient(
+      250deg,
+      rgba(141, 35, 46, 0) 25%,
+      rgba(141, 35, 46, 0.2) 20%,
+      rgba(11, 35, 47, 0.2) 50%
+    ),
+    repeating-linear-gradient(
+      179deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 3px,
+      rgba(0, 0, 0, 0.1) 3px,
+      rgba(0, 0, 0, 0.1) 5px
+    );
+
+  background-color: #0b232f;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .navbar {
+    border: none;
+  }
+  .footer {
+    background-color: transparent;
   }
 }
