@@ -16,7 +16,7 @@ The following guide details Cortex's core components, providing insights and ins
 
 ## Architecture
 
-![Architecture](/img/architecture.png)
+![Architecture](/img/docs/architecture.png)
 
 ### Main Components
 

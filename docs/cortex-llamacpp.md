@@ -74,14 +74,14 @@ The main components include:
 - `llama.cpp`: submodule from the `llama.cpp` repository that provides the core functionality for embeddings and inferences.
 - `llama server context`: a wrapper offers a simpler and more user-friendly interface for `llama.cpp` APIs
 
-![Cortex llamacpp architecture](/img/cortex-llamacpp-arch.png)
+![Cortex llamacpp architecture](/img/docs/cortex-llamacpp-arch.png)
 
 ### Communication Protocols:
 
 - `Streaming`: Responses are processed and returned one token at a time.
 - `RESTful`: The response is processed as a whole. After the llama server context completes the entire process, it returns a single result back to cortex.cpp.
 
-![Cortex llamacpp architecture](/img/cortex-llamacpp-act.png)
+![Cortex llamacpp architecture](/img/docs/cortex-llamacpp-act.png)
 
 ## Code Structure
 

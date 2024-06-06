@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import type { ScalarOptions } from '@scalar/docusaurus'
+import type { ScalarOptions } from "@scalar/docusaurus";
 
 import { remarkCodeHike } from "@code-hike/mdx";
 
@@ -10,7 +10,7 @@ const config: Config = {
   titleDelimiter: "-",
   tagline:
     "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicons/favicon.ico",
 
   staticDirectories: ["static"],
 
@@ -28,13 +28,13 @@ const config: Config = {
       };
     },
     [
-      '@scalar/docusaurus',
+      "@scalar/docusaurus",
       {
-        label: 'API Reference',
-        route: '/api-reference',
+        label: "API Reference",
+        route: "/api-reference",
         configuration: {
           spec: {
-            url: 'https://raw.githubusercontent.com/janhq/cortex-web/main/static/openapi/jan.json',
+            url: "https://raw.githubusercontent.com/janhq/cortex-web/main/static/openapi/jan.json",
           },
           hideModels: true,
         },
@@ -122,17 +122,18 @@ const config: Config = {
           "@type": "Organization",
           name: "Cortex",
           url: "https://cortex.jan.ai/",
-          logo: "https://cortex.jan.ai/img/logos/Meta-Open-Source.svg",
+          logo: "https://cortex.jan.ai/img/logos/cortex-logo.svg",
         }),
       },
     ],
 
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/cortex-social-card.png",
     navbar: {
-      title: "Cortex",
       logo: {
         alt: "Cortex Logo",
-        src: "img/logo.svg",
+        src: "img/logos/cortex-logo.svg",
+        srcDark: "img/logos/cortex-logo-dark.svg",
+        width: 116,
       },
       items: [
         {

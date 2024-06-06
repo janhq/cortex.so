@@ -10,6 +10,8 @@ slug: /
 🚧 Cortex is under construction.
 :::
 
+![Cortex Cover Image](/img/docs/cortex-cover.png)
+
 Cortex is an [OpenAI compatible](https://platform.openai.com/docs/introduction), local AI server that developers can use to build LLM apps. It can be used as a standalone server, or imported as a library.
 
 Cortex currently supports two inference engines:
