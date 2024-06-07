@@ -29,9 +29,9 @@ const sidebars: SidebarsConfig = {
       },
       collapsed: true,
       items: [
-        { type: "doc", id: "instalation/mac", label: "Mac" },
-        { type: "doc", id: "instalation/windows", label: "Windows" },
-        { type: "doc", id: "instalation/linux", label: "Linux" },
+        { type: "doc", id: "installation/mac", label: "Mac" },
+        { type: "doc", id: "installation/windows", label: "Windows" },
+        { type: "doc", id: "installation/linux", label: "Linux" },
       ],
     },
 
@@ -52,7 +52,7 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "text-generation", label: "Text Generation" },
-
+    { type: "doc", id: "model-operations", label: "Model Operations" },
     {
       type: "html",
       value: "COMMAND LINE",
@@ -60,60 +60,60 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Cortex",
+      label: "Cortex CLI",
       collapsed: true,
       link: { type: "doc", id: "cli/index" },
       items: [
-        { type: "doc", id: "cli/init", label: "Cortex Init" },
-        { type: "doc", id: "cli/pull", label: "Cortex Pull" },
-        { type: "doc", id: "cli/run", label: "Cortex Run" },
+        { type: "doc", id: "cli/init", label: "cortex init" },
+        { type: "doc", id: "cli/pull", label: "cortex pull" },
+        { type: "doc", id: "cli/run", label: "cortex run" },
         {
           type: "category",
-          label: "Cortex Models",
+          label: "cortex models",
           collapsed: true,
           link: { type: "doc", id: "cli/models/index" },
           items: [
             {
               type: "doc",
               id: "cli/models/download",
-              label: "Cortex Models Pull",
+              label: "pull",
             },
             {
               type: "doc",
               id: "cli/models/list",
-              label: "Cortex Models List",
+              label: "list",
             },
             {
               type: "doc",
               id: "cli/models/get",
-              label: "Cortex Models Get",
+              label: "get",
             },
             {
               type: "doc",
               id: "cli/models/update",
-              label: "Cortex Models Update",
+              label: "update",
             },
             {
               type: "doc",
               id: "cli/models/start",
-              label: "Cortex Models Start",
+              label: "start",
             },
             {
               type: "doc",
               id: "cli/models/stop",
-              label: "Cortex Models Stop",
+              label: "stop",
             },
             {
               type: "doc",
               id: "cli/models/remove",
-              label: "Cortex Models Remove",
+              label: "remove",
             },
           ],
         },
-        { type: "doc", id: "cli/ps", label: "Cortex PS" },
-        { type: "doc", id: "cli/chat", label: "Cortex Chat" },
-        { type: "doc", id: "cli/kill", label: "Cortex Kill" },
-        { type: "doc", id: "cli/serve", label: "Cortex Serve" },
+        { type: "doc", id: "cli/ps", label: "cortex ps" },
+        { type: "doc", id: "cli/chat", label: "cortex chat" },
+        { type: "doc", id: "cli/kill", label: "cortex kill" },
+        { type: "doc", id: "cli/serve", label: "cortex serve" },
       ],
     },
 
