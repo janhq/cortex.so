@@ -29,9 +29,9 @@ const sidebars: SidebarsConfig = {
       },
       collapsed: true,
       items: [
-        { type: "doc", id: "instalation/mac", label: "Mac" },
-        { type: "doc", id: "instalation/windows", label: "Windows" },
-        { type: "doc", id: "instalation/linux", label: "Linux" },
+        { type: "doc", id: "installation/mac", label: "Mac" },
+        { type: "doc", id: "installation/windows", label: "Windows" },
+        { type: "doc", id: "installation/linux", label: "Linux" },
       ],
     },
 
@@ -52,7 +52,7 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "text-generation", label: "Text Generation" },
-
+    { type: "doc", id: "model-operations", label: "Model Operations" },
     {
       type: "html",
       value: "COMMAND LINE",
@@ -60,7 +60,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Cortex",
+      label: "Cortex CLI",
       collapsed: true,
       link: { type: "doc", id: "cli/index" },
       items: [

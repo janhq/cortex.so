@@ -1,0 +1,88 @@
+---
+title: Model Operations
+description: Model Operations
+slug: "model-operations"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+Cortex's Chat API is compatible with OpenAI’s [Models](https://platform.openai.com/docs/api-reference/models) endpoint. It is a drop-in replacement for model management.
+
+In addition to the [Model API](https://platform.openai.com/docs/api-reference/models), Cortex exposes lower level operations for managing models like downloading models from a model hub and model loading.
+
+## Usage
+
+<Tabs>
+  <TabItem  value="CLI" label="CLI" default>
+    ```bash 
+    cortex models pull <repo_name-or-filepath>
+    cortex models start
+    cortex models stop
+    ```
+  </TabItem>
+  <TabItem value="Javascript" label="Javascript">
+  </TabItem>
+  <TabItem value="CURL" label="CURL">
+  </TabItem>
+</Tabs>
+
+**Read more:**
+
+- [Model Object](http://localhost:3000/api-reference#tag/models/get/models/{id})
+- [Model API](http://localhost:3000/api-reference#tag/models/post/models)
+- Model CLI
+
+## Capabilities
+
+### Model Hub
+
+Cortex is compatible with 3rd party model hubs like [Hugging Face Hub](https://huggingface.co/models). 
+
+To make the experience easier, Cortex has curated a list of models and their configurations.
+
+**Available hubs**
+- https://huggingface.co/cortexhub 
+
+
+### Model Settings
+
+Cortex looks for a `model.yaml` to run models. Otherwise it is generated from model metadata. The yaml files are flat, portable and contains all the parameters needed to run models.
+
+**Example `model.yaml`**
+```yaml
+# Cortex state
+name: llama3
+version: 1
+files: [ ... ]
+
+# Markup Language
+prompt_template: ...
+pre_prompt: ...
+stop: ...
+
+# Results Preferences
+top_p: ...
+temperature: ...
+frequency_penalty: ...
+presence_penalty: ...
+max_tokens: ...
+stream: true
+
+# Engine Settings
+ngl: ...
+ctx_len: ...
+n_parallel: ...
+cpu_threads: ...
+engine: cortex.llamacpp 
+```
+
+### Model Settings Templates
+
+Cortex provides a small set of model settings templates for popular model architectures, like `ChatML`.
+
+You can apply the templates to any model.
