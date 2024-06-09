@@ -197,7 +197,7 @@ const config: Config = {
         alt: "Cortex Logo",
         src: "img/logos/cortex-logo.svg",
         srcDark: "img/logos/cortex-logo-dark.svg",
-        width: 116,
+        width: 100,
       },
       items: [
         {

@@ -67,7 +67,7 @@ const Home = () => {
             <div className="flex items-center gap-8 xl:gap-10 mt-12">
               <div className="relative w-full text-left rounded-xl  text-white bg-neutral-900 dark:border-neutral-800 border-neutral-200 border h-[400px] overflow-hidden">
                 <div className="p-8 pb-0">
-                  <h3 className="mb-1">API</h3>
+                  <h3 className="mb-1 font-semibold">API</h3>
                   <p className="mb-0 text-white/60">
                     compatible endpoints like{" "}
                     <code className="bg-neutral-800">/chat</code>{" "}
@@ -80,7 +80,7 @@ const Home = () => {
               </div>
               <div className="w-full text-left rounded-xl  text-white bg-neutral-900 dark:border-neutral-800 border-neutral-200 border h-[400px] overflow-hidden">
                 <div className="p-8 pb-0">
-                  <h3 className="mb-1">Client Libraries</h3>
+                  <h3 className="mb-1 font-semibold">Client Libraries</h3>
                   <p className="mb-0 text-white/60">
                     Typescript and python libraries. Change 1 line of code to
                     make your app run.
@@ -90,7 +90,7 @@ const Home = () => {
               </div>
               <div className="w-full text-left rounded-xl  text-white bg-neutral-900 dark:border-neutral-800 border-neutral-200 border h-[400px] overflow-hidden">
                 <div className="p-8 pb-0">
-                  <h3 className="mb-1">CLI</h3>
+                  <h3 className="mb-1 font-semibold">CLI</h3>
                   <p className="mb-0 text-white/60">
                     Docker/Ollama inspired CLI interface for easy local
                     development
@@ -108,7 +108,7 @@ const Home = () => {
             <h1 className="font-semibold">
               Runs AI locally & easily on any hardware.
             </h1>
-            <p className="mx-auto w-full lg:w-1/2">
+            <p className="mx-auto w-full lg:w-1/2 text-black/60 dark:text-white/60">
               Cortex is multi engine and cross platform, offering multiple
               inference engines to run models securely and performantly from
               development to production.
@@ -116,19 +116,34 @@ const Home = () => {
           </div>
           <div className="flex gap-20 justify-center items-center mt-20 w-10/12 mx-auto">
             <div className="text-center">
-              <FilesIcon size={32} className="mb-2" />
-              <h3 className="mb-1">Multi format</h3>
-              <p>Cortex supports GGUF, ONNX, and TensorRT-LLM.</p>
+              <FilesIcon
+                size={32}
+                className="mb-2 text-black/60 dark:text-white/60"
+              />
+              <h3 className="mb-1 font-semibold">Multi format</h3>
+              <p className="text-black/60 dark:text-white/60">
+                Cortex supports GGUF, ONNX, and TensorRT-LLM.
+              </p>
             </div>
             <div className="text-center">
-              <CpuIcon size={32} className="mb-2" />
-              <h3 className="mb-1">Multi GPUS</h3>
-              <p>Cortex runs LLMs on stacked GPUs.</p>
+              <CpuIcon
+                size={32}
+                className="mb-2 text-black/60 dark:text-white/60"
+              />
+              <h3 className="mb-1 font-semibold">Multi GPUS</h3>
+              <p className="text-black/60 dark:text-white/60">
+                Cortex runs LLMs on stacked GPUs.
+              </p>
             </div>
             <div className="text-center">
-              <HexagonIcon size={32} className="mb-2" />
-              <h3 className="mb-1">Multi Node</h3>
-              <p>Cortex can be deployed to your multi node infrastructure.</p>
+              <HexagonIcon
+                size={32}
+                className="mb-2 text-black/60 dark:text-white/60"
+              />
+              <h3 className="mb-1 font-semibold">Multi Node</h3>
+              <p className="text-black/60 dark:text-white/60">
+                Cortex can be deployed to your multi node infrastructure.
+              </p>
             </div>
           </div>
         </div>
