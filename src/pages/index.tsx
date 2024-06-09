@@ -1,13 +1,14 @@
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import { FaGithub } from "react-icons/fa";
+import { CpuIcon, FilesIcon, HexagonIcon } from "lucide-react";
 
 const Home = () => {
   return (
     <Layout title="Homepage">
       <main>
         {/* Hero section */}
-        <div className="pt-40 pb-20 text-center dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative -mt-[60px]">
+        <div className="pt-32 pb-20 text-center dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative -mt-[60px]">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-[var(--ifm-background-color)] bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
           <div className="container relative z-50">
             <div className="border border-solid py-2 px-4 inline-block rounded-md mb-8 bg-indigo-600 relative z-40 border-indigo-500">
@@ -113,16 +114,19 @@ const Home = () => {
               development to production.
             </p>
           </div>
-          <div className="flex gap-20 mt-20 w-10/12 mx-auto">
+          <div className="flex gap-20 justify-center items-center mt-20 w-10/12 mx-auto">
             <div className="text-center">
+              <FilesIcon size={32} className="mb-2" />
               <h3 className="mb-1">Multi format</h3>
               <p>Cortex supports GGUF, ONNX, and TensorRT-LLM.</p>
             </div>
             <div className="text-center">
+              <CpuIcon size={32} className="mb-2" />
               <h3 className="mb-1">Multi GPUS</h3>
               <p>Cortex runs LLMs on stacked GPUs.</p>
             </div>
             <div className="text-center">
+              <HexagonIcon size={32} className="mb-2" />
               <h3 className="mb-1">Multi Node</h3>
               <p>Cortex can be deployed to your multi node infrastructure.</p>
             </div>

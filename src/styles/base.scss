@@ -40,11 +40,15 @@ html[data-theme="dark"] {
 
 .plugin-pages {
   .navbar {
-    background-color: transparent;
+    // background-color: transparent;
     border: none;
   }
 }
 
 img {
   pointer-events: none;
+}
+
+svg {
+  stroke-width: 1;
 }
