@@ -51,13 +51,19 @@ const sidebars: SidebarsConfig = {
       value: "CAPABILITIES",
       className: "sidebar-divider",
     },
-    { type: "doc", id: "text-generation", label: "Text Generation" },
+    { type: "doc", id: "chat-completions", label: "Chat Completions" },
+    { type: "doc", id: "embeddings", label: "Embeddings" },
     { type: "doc", id: "model-operations", label: "Model Operations" },
     {
       type: "html",
-      value: "COMMAND LINE",
+      value: "ARCHITECTURE",
       className: "sidebar-divider",
     },
+    { type: "doc", id: "architecture", label: "Cortex" },
+    { type: "doc", id: "cortex-cpp", label: "Cortex.cpp" },
+    { type: "doc", id: "cortex-llamacpp", label: "Cortex.llamacpp" },
+  ],
+  cli: [
     {
       type: "category",
       label: "Cortex CLI",
@@ -116,16 +122,7 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "cli/serve", label: "cortex serve" },
       ],
     },
-
-    {
-      type: "html",
-      value: "ARCHITECTURE",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "architecture", label: "Cortex" },
-    { type: "doc", id: "cortex-cpp", label: "Cortex.cpp" },
-    { type: "doc", id: "cortex-llamacpp", label: "Cortex.llamacpp" },
-  ],
+  ]
 };
 
 export default sidebars;

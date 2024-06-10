@@ -1,6 +1,7 @@
 ---
 title: Command Line Interface
 description: Cortex CLI.
+slug: /cli
 ---
 
 :::warning

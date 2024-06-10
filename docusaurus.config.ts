@@ -206,6 +206,7 @@ const config: Config = {
           docId: "overview",
           label: "Documentation",
         },
+        {to: 'docs/cli', label: 'CLI Reference', position: 'left'},
         {
           href: "https://discord.gg/FTk2MvZwJH",
           position: "right",
