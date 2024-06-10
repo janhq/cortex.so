@@ -92,11 +92,14 @@ export default function OAICoverage() {
               sideOffset={5}
             >
               <div className="mb-1">
-                Passing: {(block.total * block?.passingRate) / 100 || 0}
+                Passing:{" "}
+                {Math.round((block.total * block?.passingRate) / 100) || 0}
               </div>
               <div>
-                Failing:
-                {block.total - (block.total * block?.passingRate) / 100}
+                Failing:&nbsp;
+                {Math.round(
+                  block.total - (block.total * block?.passingRate) / 100
+                )}
               </div>
               <Tooltip.Arrow className="fill-black dark:fill-white" />
             </Tooltip.Content>
@@ -119,7 +122,6 @@ export default function OAICoverage() {
             className="dark:text-black text-white select-none rounded-lg bg-black dark:bg-white px-3 py-2 text-sm leading-none will-change-[transform,opacity]"
             sideOffset={5}
           >
-            <div className="mb-1">Total: {block?.total || 0}</div>
             <div className="mb-1">
               Passing:{" "}
               {Math.round((block.total * block?.passingRate) / 100) || 0}
