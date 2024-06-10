@@ -1,0 +1,157 @@
+---
+title: Chat Completions
+description: Chat Completions Feature.
+slug: "text-generation"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+Cortex's Chat API is compatible with OpenAI’s [Chat Completions](https://platform.openai.com/docs/api-reference/chat) endpoint. It is a drop-in replacement for local inference.
+
+For local inference, Cortex is [multi-engine](#multiple-local-engines) and supports the following model formats:
+
+- `GGUF`: A generalizable LLM format that runs across CPUs and GPUs. Cortex implements a GGUF runtime through [llama.cpp](https://github.com/ggerganov/llama.cpp/).
+- `TensorRT`: A production-ready, enterprise-grade LLM format optimized for fast inference on NVIDIA GPUs. Cortex implements a TensorRT runtime through [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM).
+
+Cortex routes requests to multiple APIs for remote inference while providing a single, easy-to-use, OpenAI-compatible endpoint.
+
+## Usage
+
+<Tabs>
+  <TabItem  value="CLI" label="CLI" default>
+    ```bash 
+    # Streaming 
+    cortex chat --model janhq/TinyLlama-1.1B-Chat-v1.0-GGUF
+    ```
+  </TabItem>
+  <TabItem value="CURL" label="CURL">
+  ### Single Request Example
+  To send a single query to your chosen LLM, use the following in your request:
+  ```curl
+  curl http://localhost:1337/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello"
+      },
+    ],
+    "model": "",
+    "stream": true,
+    "max_tokens": 1,
+    "stop": [
+        null
+    ],
+    "frequency_penalty": 1,
+    "presence_penalty": 1,
+    "temperature": 1,
+    "top_p": 1
+  }'
+
+  ```
+  ### Dialog Request Example
+  For ongoing conversations or multiple queries, structure a multi-turn conversation as follows:
+  ```curl
+  curl http://localhost:1337/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant."
+      },
+      {
+        "role": "user",
+        "content": "Who won the world series in 2020?"
+      },
+      {
+        "role": "assistant",
+        "content": "The Los Angeles Dodgers won the World Series in 2020."
+      },
+      {
+        "role": "user",
+        "content": "Where was it played?"
+      }
+    ],
+    "model": "",
+    "stream": true,
+    "max_tokens": 1,
+    "stop": [
+        null
+    ],
+    "frequency_penalty": 1,
+    "presence_penalty": 1,
+    "temperature": 1,
+    "top_p": 1
+  }'
+
+  ```
+  ### Endpoint Response
+  Below are examples of the chat completions endpoint response from the Cortex server:
+  ```curl
+  {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Hello, how may I assist you this evening?",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1700215278,
+  "id": "sofpJrnBGUnchO8QhA0s",
+  "model": "_",
+  "object": "chat.completion",
+  "system_fingerprint": "_",
+  "usage": {
+    "completion_tokens": 13,
+    "prompt_tokens": 90,
+    "total_tokens": 103
+  }
+}
+  ```
+  </TabItem>
+</Tabs>
+## Capabilities
+
+### Multiple Local Engines
+
+Cortex scales applications from prototype to production, running on CPU-only laptops with llama.cpp and GPU-accelerated with TensorRT-LLM.
+
+To configure each engine, refer to:
+
+- Use llama.cpp
+- Use tensorrt-llm
+
+Learn more about our engine architecture:
+
+- cortex.cpp
+- cortex.llamacpp
+- cortex.tensorRTLLM
+
+### Multiple Remote APIs
+
+Cortex also acts as an aggregator for remote inference requests from a single endpoint. Currently, Cortex supports:
+
+- OpenAI
+- Groq
+- Cohere
+- Anthropic
+- MistralAI
+- Martian
+- OpenRouter
+
+:::note
+Learn more about Chat Completions capabilities:
+- [Chat Completions API Reference](/api-reference#tag/inference/post/chat/completions).
+- [Chat Completions CLI command](/docs/cli/chat).
+:::

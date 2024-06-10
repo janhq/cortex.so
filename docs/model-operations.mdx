@@ -28,14 +28,71 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
   <TabItem value="Javascript" label="Javascript">
   </TabItem>
   <TabItem value="CURL" label="CURL">
+  ## Load Models
+    Cortex provides two ways to load your local model into the Cortex server.
+
+    You can load the model using the CLI or the CURL following command:
+
+      ### Request
+      To load a model, use the following in your request:
+      ```curl
+        curl -X POST "http://localhost:1337/models/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}/start" \
+        -H "Content-Type: application/json" \
+        -d '{
+        "ctx_len": 512,
+        "ngl": 4,
+        "embedding": true,
+        "n_parallel": 2,
+        "cpu_threads": 8,
+        "prompt_template": "Hello, this is a predefined text",
+        "system_prompt": "System prompt text",
+        "ai_prompt": "AI specific prompt text",
+        "user_prompt": "User provided prompt text",
+        "llama_model_path": "/path/to/llama/model",
+        "mmproj": "Projection matrix details",
+        "cont_batching": true,
+        "vision_model": false,
+        "text_model": true
+        }'
+
+
+
+      ```
+      ### Endpoint Response
+      Below are examples of the `start model` endpoint response from the Cortex server:
+      ```curl
+    {
+      "message": "Model started successfully",
+      "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
+    }
+
+      ```
+
+    ## Unload Models
+    Cortex provides two ways to unload your local model from the Cortex server.
+
+    You can unload the model using the CLI or the CURL following command:
+
+      ### Request
+      To unload a model, use the following in your request:
+      ```curl
+        curl --request POST \
+        --url http://localhost:1337/models/janhq/TinyLlama-1.1B-Chat-v1.0-GGUF/stop
+
+
+
+      ```
+      ### Endpoint Response
+      Below are examples of the `stop model` endpoint response from the Cortex server:
+      ```curl
+    {
+      "message": "Model stopped successfully",
+      "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
+    }
+
+      ```
   </TabItem>
 </Tabs>
-
-**Read more:**
-
-- [Model Object](http://localhost:3000/api-reference#tag/models/get/models/{id})
-- [Model API](http://localhost:3000/api-reference#tag/models/post/models)
-- Model CLI
 
 ## Capabilities
 
@@ -86,3 +143,10 @@ engine: cortex.llamacpp
 Cortex provides a small set of model settings templates for popular model architectures, like `ChatML`.
 
 You can apply the templates to any model.
+
+:::note
+Learn more about Models capabilities:
+- [Model Object](/api-reference#tag/models/get/models/{id})
+- [Model API](/api-reference#tag/models/post/models)
+- [Model CLI](/docs/cli/models/)
+:::
