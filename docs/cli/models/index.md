@@ -28,6 +28,6 @@ cortex models stop MODEL_ID
 
 ## Options
 
-```
-  -h, --help     display help for command
-```
+| Option            | Description                              | Required |
+|-------------------|------------------------------------------|-------------------|
+| `-h, --help`      | Display help for command.                 | No         |

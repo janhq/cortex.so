@@ -24,10 +24,10 @@ cortex run MODEL_ID
 
 ### Options
 
-```
-  -t, --thread <thread_id>  Thread Id. If not provided, will create new thread
-  -h, --help                display help for command
-```
+| Option                      | Description                                                      | Required |
+|-----------------------------|------------------------------------------------------------------|-------------------|
+| `-t, --thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified. | No          |
+| `-h, --help`                | Display help information for the command.                         | No          |
 
 ## Command Chain
 

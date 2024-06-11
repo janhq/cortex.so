@@ -19,14 +19,15 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex chat --model MODEL_ID
+cortex chat --model MODEL_ID "Hello World"
 ```
 
 ### Options
 
-```
-  -t, --thread <thread_id>  Thread Id. If not provided, will create new thread
-  -m, --message <message>   Message to send to the model
-  -a, --attach              Attach to interactive chat session (default: false)
-  -h, --help                display help for command
-```
+| Option                      | Description                                                                                         | Required |
+|-----------------------------|-----------------------------------------------------------------------------------------------------|-------------------|
+| `-t, --thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified.                         | No          |
+| `-m, --message <message>`   | Message to send to the model.          | Yes          |
+| `-a, --attach`              | Attach to an interactive chat session. Default value is `false`.                                    | No          |
+| `-h, --help`                | Display help information for the command.                                                            | No          |
+
