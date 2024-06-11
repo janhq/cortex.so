@@ -31,5 +31,5 @@ cortex init
 ## Options
 
 ```
-  -h, --help              display help for command
+  -h, --help              Display help for command
 ```

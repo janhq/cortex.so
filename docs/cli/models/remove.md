@@ -24,5 +24,6 @@ cortex models remove MODEL_ID
 ## Options
 
 ```
-  -h, --help              display help for command
+  -m, --model <model_id>      Model Id to remove. By default, it will remove the current active model, if any
+  -h, --help                  Display help for command
 ```

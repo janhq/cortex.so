@@ -64,65 +64,60 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "cortex-llamacpp", label: "Cortex.llamacpp" },
   ],
   cli: [
+    { type: "doc", id: "cli/cortex", label: "cortex" },
+    { type: "doc", id: "cli/init", label: "cortex init" },
+    { type: "doc", id: "cli/pull", label: "cortex pull" },
+    { type: "doc", id: "cli/run", label: "cortex run" },
     {
       type: "category",
-      label: "Cortex CLI",
+      label: "cortex models",
       collapsed: true,
-      link: { type: "doc", id: "cli/index" },
+      link: { type: "doc", id: "cli/models/index" },
       items: [
-        { type: "doc", id: "cli/init", label: "cortex init" },
-        { type: "doc", id: "cli/pull", label: "cortex pull" },
-        { type: "doc", id: "cli/run", label: "cortex run" },
         {
-          type: "category",
-          label: "cortex models",
-          collapsed: true,
-          link: { type: "doc", id: "cli/models/index" },
-          items: [
-            {
-              type: "doc",
-              id: "cli/models/download",
-              label: "pull",
-            },
-            {
-              type: "doc",
-              id: "cli/models/list",
-              label: "list",
-            },
-            {
-              type: "doc",
-              id: "cli/models/get",
-              label: "get",
-            },
-            {
-              type: "doc",
-              id: "cli/models/update",
-              label: "update",
-            },
-            {
-              type: "doc",
-              id: "cli/models/start",
-              label: "start",
-            },
-            {
-              type: "doc",
-              id: "cli/models/stop",
-              label: "stop",
-            },
-            {
-              type: "doc",
-              id: "cli/models/remove",
-              label: "remove",
-            },
-          ],
+          type: "doc",
+          id: "cli/models/download",
+          label: "pull",
         },
-        { type: "doc", id: "cli/ps", label: "cortex ps" },
-        { type: "doc", id: "cli/chat", label: "cortex chat" },
-        { type: "doc", id: "cli/kill", label: "cortex kill" },
-        { type: "doc", id: "cli/serve", label: "cortex serve" },
+        {
+          type: "doc",
+          id: "cli/models/list",
+          label: "list",
+        },
+        {
+          type: "doc",
+          id: "cli/models/get",
+          label: "get",
+        },
+        {
+          type: "doc",
+          id: "cli/models/update",
+          label: "update",
+        },
+        {
+          type: "doc",
+          id: "cli/models/start",
+          label: "start",
+        },
+        {
+          type: "doc",
+          id: "cli/models/stop",
+          label: "stop",
+        },
+        {
+          type: "doc",
+          id: "cli/models/remove",
+          label: "remove",
+        },
       ],
     },
-  ]
+    { type: "doc", id: "cli/embeddings", label: "cortex embeddings" },
+    { type: "doc", id: "cli/presets", label: "cortex presets" },
+    { type: "doc", id: "cli/ps", label: "cortex ps" },
+    { type: "doc", id: "cli/chat", label: "cortex chat" },
+    { type: "doc", id: "cli/kill", label: "cortex kill" },
+    { type: "doc", id: "cli/serve", label: "cortex serve" },
+  ],
 };
 
 export default sidebars;

@@ -29,5 +29,5 @@ cortex models stop MODEL_ID
 ## Options
 
 ```
-  -h, --help     display help for command
+  -h, --help     Display help for command
 ```

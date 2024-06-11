@@ -25,7 +25,7 @@ cortex run MODEL_ID
 ### Options
 
 ```
-  -t, --thread <thread_id>  Thread Id. If not provided, will create new thread
+  -t, --thread <thread_id>  Thread Id. By default, will create a new thread
   -h, --help                display help for command
 ```
 

@@ -24,6 +24,7 @@ cortex models start MODEL_ID
 ## Options
 
 ```
-  -a, --attach  Attach to interactive chat session (default: false)
-  -h, --help    display help for command
+  -a, --attach           Attach to interactive chat session. By default, this value is `false`
+  -p, --preset <preset>  Apply a chat preset to the chat session. By default, this value is `false`
+  -h, --help             Display help for command
 ```

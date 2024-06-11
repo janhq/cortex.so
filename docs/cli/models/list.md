@@ -24,6 +24,6 @@ cortex models list
 ## Options
 
 ```
-  -f, --format <format>  Print models list in table or json format (default: "json")
-  -h, --help             display help for command
+  -f, --format <format>  Print models list in table or json format. By default, the format is "json"
+  -h, --help             Display help for command
 ```

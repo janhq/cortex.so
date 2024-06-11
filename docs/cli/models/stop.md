@@ -24,5 +24,6 @@ cortex models stop MODEL_ID
 ## Options
 
 ```
-  -h, --help              display help for command
+  -m, --model <model_id>      Model Id to stop. By default, it will stop the current active model, if any
+  -h, --help                  Display help for command
 ```

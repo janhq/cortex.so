@@ -31,5 +31,5 @@ The following alias is also available for downloading models:
 
 ```
   -m, --model <model_id>  Model Id to start chat with
-  -h, --help              display help for command
+  -h, --help              Display help for command
 ```
