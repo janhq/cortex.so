@@ -11,8 +11,7 @@ import TabItem from "@theme/TabItem";
 🚧 Cortex is under construction.
 :::
 
-ChatGPT
-Embeddings are lists of floating-point numbers representing complex data in a lower—dimensional space, such as words, sentences, images, or other high-dimensional data. We can determine the similarity between different data points by measuring the [distance](https://en.wikipedia.org/wiki/Cosine_similarity) between embeddings.
+Embeddings are lists of floating-point numbers representing complex data in lower-dimensional or high-dimensional data. We can determine the similarity between different data points by measuring the [distance](https://en.wikipedia.org/wiki/Cosine_similarity) between embeddings.
 :::note
 The Cortex Embeddings feature is fully compatible with OpenAI-compatible endpoints.
 :::
@@ -21,36 +20,81 @@ The Cortex Embeddings feature is fully compatible with OpenAI-compatible endpoin
 
 <Tabs>
   <TabItem  value="CLI" label="CLI" default>
+  :::note
+  Ensure you have loaded the model into the Cortex server using [`cortex models start`](/docs/cli/models/start) before calling the embeddings command.
+  :::
+
     ```bash 
-    cortex embeddings hello world
+    # Without Flag
+    cortex embeddings "Hello World"
+    # With Model_id Flag
+    cortex embeddings MODEL_ID "Hello World"
     ```
   </TabItem>
   <TabItem value="CURL" label="CURL">
-  ### Request
+  #### **Request**
   To get an embedding result from a model, use the following in your request:
   ```curl
 curl http://localhost:1337/v1/embeddings \
     -H 'Content-Type: application/json' \
     -d '{
-        "input": "Hello",
+        "input": "Hello World",
         "model":"Llama-2-7B-Chat-GGUF",
         "encoding_format": "float"
     }'
 
 
   ```
-  ### Endpoint Response
+  #### **Endpoint Response**
   Below are examples of the embedding endpoint response from the Cortex server:
   ```curl
 {
-    "embedding": [
-      -0.9874749,
-      0.2965493,
-      ...
-      -0.253227
-    ],
-    "index": 0,
-    "object": "embedding"
+  data: [
+    {
+      embedding: [
+         -0.012562043964862823,    0.03035047836601734,  -0.011275245808064938,
+         -0.002442532917484641, -0.0013946756953373551,   0.011424646712839603,
+          0.006525286473333836, -0.0061338916420936584, 0.00017168013437185436,
+          -0.04172026738524437,   0.013955038972198963,  -0.008279235102236271,
+        -0.0017477788496762514,   0.001848240732215345,  -0.005316519178450108,
+          0.007849134504795074,   0.014598682522773743,  0.0016664500581100583,
+          0.006519664078950882,  0.0003683744871523231,   -0.03466421365737915,
+        -0.0035339861642569304,  -0.009959986433386803,  -0.032260432839393616,
+         -0.004560315981507301,  -0.019099298864603043,   0.003526510903611779,
+           0.02235724963247776,  0.0016913142753764987,    0.04544297605752945,
+         -0.007127329707145691,   -0.02268080972135067, -0.0041837431490421295,
+          -0.02619561180472374,  -0.019252119585871696,   0.048794884234666824,
+          0.053313303738832474,   0.014155413024127483,  -0.012373363599181175,
+        -0.0061581931076943874,   0.010225670412182808,  -0.005681289359927177,
+         0.0022308737970888615,    0.03598044067621231,  -0.007346905767917633,
+         0.0006240096990950406,   -0.01740768924355507,   0.015069570392370224,
+         -0.026337599381804466,   0.025525348260998726,   0.011586963199079037,
+          0.001548630534671247,  -0.012996582314372063,   -0.01456504687666893,
+          0.032462503761053085,  -0.023700442165136337,   0.018869148567318916,
+           0.00358957564458251,  -0.020125865936279297,   -0.00846883375197649,
+         -0.009482326917350292,   0.010034121572971344,    0.01879105344414711,
+         -0.004870016127824783,    0.04322335869073868,  -0.023301180452108383,
+          0.000993641559034586,  -0.005775551777333021,  -0.010209501720964909,
+          0.030387703329324722,  -0.006698234006762505,  -0.016737045720219612,
+         0.0014992266660556197,  -0.009773601777851582,   0.006595404352992773,
+          0.013502842746675014,   0.002694890135899186, -0.0004948502173647285,
+          0.021915797144174576,  -0.005455940496176481,   0.003528345376253128,
+         -0.005923434626311064,   0.010828111320734024,   0.027358852326869965,
+         0.0031454802956432104,   0.029050540179014206,   0.006336917635053396,
+          0.008611698634922504,  -0.016882386058568954,   0.024414490908384323,
+         -0.015122141689062119,  -0.023382490500807762,   0.009785797446966171,
+         -0.023319082334637642,   0.014160329475998878,    0.01150075625628233,
+         -0.012424034997820854,   -0.00971213262528181,   0.012571889907121658,
+          0.015312065370380878,
+        ... 1948 more items
+      ],
+      index: 0,
+      object: 'embedding'
+    }
+  ],
+  model: '_',
+  object: 'list',
+  usage: { prompt_tokens: 0, total_tokens: 0 }
 }
   ```
   </TabItem>
