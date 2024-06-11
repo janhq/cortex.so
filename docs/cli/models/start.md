@@ -18,8 +18,16 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
+# Start a model
 cortex models start MODEL_ID
+
+# Start a model with a preset
+cortex models start MODEL_ID -p PRESET_FILENAME
 ```
+
+:::note
+Model preset is applied only at the start of the model and does not change during the chat session.
+:::
 
 ## Options
 
