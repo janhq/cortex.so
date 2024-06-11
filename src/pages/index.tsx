@@ -6,8 +6,10 @@ import { Fragment } from "react";
 import useDraggable from "@site/src/hooks/useDraggable"; // adjust the path as necessary
 
 import { useHistory } from "@docusaurus/router";
+import { FaGithub } from "react-icons/fa";
 
 import { Helmet } from "react-helmet";
+import Link from "@docusaurus/Link";
 
 const cortexASCII = `
 ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▓▒░░▒▓█▓▒░ 
@@ -29,19 +31,19 @@ const Home = () => {
   const words = [
     {
       text: "npm",
-      className: "text-green-400",
+      className: "text-green-400 dark:text-green-400",
     },
     {
       text: "i",
-      className: "text-white",
+      className: "text-white dark:text-white",
     },
     {
       text: "-g",
-      className: "text-white",
+      className: "text-white dark:text-white",
     },
     {
       text: "@janhq/cortex",
-      className: "text-cyan-400",
+      className: "text-cyan-400 dark:text-cyan-400",
     },
   ];
 
@@ -57,20 +59,69 @@ const Home = () => {
           href="https://unpkg.com/98.css"
         />
       </Helmet>
-      <main className="bg-black h-screen w-full overflow-hidden relative">
-        <div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
-          <div className="stars"></div>
+
+      <main className="bg-black">
+        <div className="h-[680px] relative overflow-hidden">
+          <div className="container relative z-50">
+            <div className="text-center mt-20">
+              <div className="border border-solid py-2 px-4 inline-block rounded-md bg-neutral-400 relative z-40 border-neutral-300 mb-10">
+                <span className="text-black text-sm sm:text-base">
+                  🚧 Cortex is under construction. Come back on 20th June!
+                </span>
+              </div>
+              <h1 className="text-5xl text-white font-semibold">
+                Run LLMs Easily
+              </h1>
+              <p className="text-xl text-black/60 dark:text-white/60">
+                OpenAI Compatible. Multi-engine. For Production
+              </p>
+
+              <Link to="https://github.com/janhq/cortex" target="_blank">
+                <div className="my-6 bg-neutral-900 dark:bg-white items-center inline-flex gap-2 dark:text-black/90 text-white/90 py-2 px-4 rounded-lg">
+                  <FaGithub size={20} />
+                  <span className="font-medium text-lg">View on github</span>
+                </div>
+              </Link>
+
+              {/* <TypewriterEffect words={words} className="font-serif my-10" /> */}
+
+              <div className="window w-full lg:w-1/2 mx-auto mt-8">
+                <div className="title-bar">
+                  <div className="title-bar-text pl-1">{`Command Prompt`}</div>
+                </div>
+                <div className="window-body !m-1">
+                  <div className="bg-black h-full p-4">
+                    <div className="text-white text-left text-sm font-serif">
+                      <pre className="text-[6px] p-0 mb-6">{cortexASCII}</pre>
+                      <p className="mb-2">
+                        <span className="text-green-600">npm</span> i -g&nbsp;
+                        <span className="text-cyan-600">@janhq/cortex</span>
+                      </p>
+                      <p className="mb-0">
+                        <span className="text-green-600">cortex</span> run
+                        llama3
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute w-full h-full inset-0">
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+            <div className="stars"></div>
+          </div>
         </div>
 
-        <div className="flex-col hidden lg:flex">
+        <div className="flex-col hidden lg:flex fixed top-0 w-full z-[999]">
           <div
             ref={cortex8bit.ref}
             className="p-4 cursor-pointer flex flex-col justify-center items-center gap-2"
@@ -163,34 +214,92 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="container relative z-50">
-          <div className="text-center mt-20">
-            <h1 className="text-6xl text-white">Run LLMs Easily</h1>
-            <p className="text-2xl font-serif text-white">
-              OpenAI Compatible. Multi-engine. For Production
+        <div className="pb-20 bg-black">
+          <div className="p-10 text-center container">
+            <h1 className="text-5xl text-white font-semibold">
+              Full replacement for OpenAI's platform.
+            </h1>
+            <p className="w-full lg:w-1/2 mx-auto text-lg text-black/60 dark:text-white/60">
+              Cortex has an OpenAI equivalent API. Own your entire stack, and
+              deploy your own openai equivalent backend in just a few minutes.
             </p>
-
-            <TypewriterEffect words={words} className="font-serif my-10" />
-
-            <div className="window w-full lg:w-1/2 mx-auto mt-8">
-              <div className="title-bar">
-                <div className="title-bar-text pl-1">{`Command Prompt`}</div>
-              </div>
-              <div className="window-body !m-1">
-                <div className="bg-black h-full p-4">
-                  <div className="text-white text-left text-sm font-serif">
-                    <pre className="text-[8px] p-0 mb-6">{cortexASCII}</pre>
-                    <p className="mb-0"># Download a GGUF model</p>
-                    <p className="mb-3">cortex models pull llama3</p>
-                    <p className="mb-0"># Run the model to start chatting</p>
-                    <p className="mb-3 ">cortex models run llama3</p>
-                    <p className="mb-0">
-                      # Run Cortex in OpenAI-compatible server mode
-                    </p>
-                    <p className="mb-0">cortex serve</p>
-                  </div>
+            <div className="flex items-center gap-8 xl:gap-10 mt-12">
+              <div className="window w-full h-[140px]">
+                <div className="title-bar">
+                  <div className="title-bar-text text-lg ml-2">API</div>
+                </div>
+                <div className="window-body text-lg text-left">
+                  <p className="mb-0 text-black/60 font-semibold font-sans">
+                    compatible endpoints like{" "}
+                    <code className="bg-neutral-800 text-white/60">/chat</code>{" "}
+                    <code className="bg-neutral-800 text-white/60">
+                      /completions
+                    </code>
+                    ,
+                    <code className="bg-neutral-800 text-white/60">
+                      /embeddings
+                    </code>
+                    . No need to learn a new stack.
+                  </p>
                 </div>
               </div>
+              <div className="window w-full h-[140px]">
+                <div className="title-bar">
+                  <div className="title-bar-text text-lg ml-2">
+                    Client Libraries
+                  </div>
+                </div>
+                <div className="window-body text-lg text-left">
+                  <p className="mb-0 text-black/60 font-semibold font-sans">
+                    Typescript and python libraries. Change 1 line of code to
+                    make your app run.
+                  </p>
+                </div>
+              </div>
+              <div className="window w-full h-[140px]">
+                <div className="title-bar">
+                  <div className="title-bar-text text-lg ml-2">CLI</div>
+                </div>
+                <div className="window-body text-lg text-left">
+                  <p className="mb-0 text-black/60 font-semibold font-sans">
+                    Docker/Ollama inspired CLI interface for easy local
+                    development
+                  </p>
+                </div>
+              </div>
+              {/* <div className="relative w-full text-left rounded-xl  text-white bg-neutral-900 dark:border-neutral-800 border-neutral-200 border h-[400px] overflow-hidden">
+                <div className="p-8 pb-0">
+                  <h3 className="mb-1 font-semibold">API</h3>
+                  <p className="mb-0 text-white/60">
+                    compatible endpoints like{" "}
+                    <code className="bg-neutral-800">/chat</code>{" "}
+                    <code className="bg-neutral-800">/completions</code>,
+                    <code className="bg-neutral-800">/embeddings</code>. No need
+                    to learn a new stack.
+                  </p>
+                </div>
+                <img src="/img/home/api.png" alt="api-illustration" />
+              </div> */}
+              {/* <div className="w-full text-left rounded-xl  text-white bg-neutral-900 dark:border-neutral-800 border-neutral-200 border h-[400px] overflow-hidden">
+                <div className="p-8 pb-0">
+                  <h3 className="mb-1 font-semibold">Client Libraries</h3>
+                  <p className="mb-0 text-white/60">
+                    Typescript and python libraries. Change 1 line of code to
+                    make your app run.
+                  </p>
+                </div>
+                <img src="/img/home/client.png" alt="client-illustration" />
+              </div> */}
+              {/* <div className="w-full text-left rounded-xl  text-white bg-neutral-900 dark:border-neutral-800 border-neutral-200 border h-[400px] overflow-hidden">
+                <div className="p-8 pb-0">
+                  <h3 className="mb-1 font-semibold">CLI</h3>
+                  <p className="mb-0 text-white/60">
+                    Docker/Ollama inspired CLI interface for easy local
+                    development
+                  </p>
+                </div>
+                <img src="/img/home/cli.png" alt="cli-illustration" />
+              </div> */}
             </div>
           </div>
         </div>
