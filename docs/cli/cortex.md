@@ -24,10 +24,11 @@ cortex [command] [flag]
 
 ### Options
 
-```
-  -v, --version    Cortex version (default: false)
-  -h, --help       Display help for command
-```
+| Option               | Description                                | Required |
+|----------------------|--------------------------------------------|-------------------|
+| `-v, --version`      | Display the Cortex version. Default is `false`.  | No          |
+| `-h, --help`         | Display help information for the command.    | No          |
+
 
 ## Sub Commands
 

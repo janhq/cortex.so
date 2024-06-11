@@ -24,9 +24,10 @@ cortex chat --model MODEL_ID "Hello World"
 
 ### Options
 
-```
-  -t, --thread <thread_id>  Thread Id. By default, will create new thread
-  -m, --message <message>   Message to send to the model. By default, it will choose the current active models, if any
-  -a, --attach              Attach to interactive chat session. By default, this value is `false`
-  -h, --help                Display help for command
-```
+| Option                      | Description                                                                                         | Required |
+|-----------------------------|-----------------------------------------------------------------------------------------------------|-------------------|
+| `-t, --thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified.                         | No          |
+| `-m, --message <message>`   | Message to send to the model.          | Yes          |
+| `-a, --attach`              | Attach to an interactive chat session. Default value is `false`.                                    | No          |
+| `-h, --help`                | Display help information for the command.                                                            | No          |
+

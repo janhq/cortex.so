@@ -31,11 +31,11 @@ cortex embeddings MODEL_ID "Hello World"
 
 ### Options
 
-```
-Options:
-  -m, --model <model_id>                   The models to generate the embeddings. By default, it will choose the active models, if any
-  -i, --input <input>                      Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or an array of token arrays
-  -e, --encoding_format <encoding_format>  Encoding format for the embeddings. Supported formats are float and int. By default, the format will be float
-  -d, --dimensions <dimensions>            The number of dimensions the resulting output embeddings should have. Only supported in some models
-  -h, --help                               Display help for command
-```
+
+| Option                                    | Description                                                                                                             | Required |
+|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------|
+| `-m, --model <model_id>`                  | Specify the models to generate the embeddings. Defaults to choosing the active models if none specified.                | No          |
+| `-i, --input <input>`                     | Input text to embed, encoded as a string or array of tokens. For multiple inputs, pass an array of strings or token arrays. | Yes          |
+| `-e, --encoding_format <encoding_format>` | Encoding format for the embeddings. Supported formats are float and int. Defaults to float.                             | No          |
+| `-d, --dimensions <dimensions>`           | Specify the number of dimensions for the resulting output embeddings. Supported only in some models.                     | No          |
+| `-h, --help`                              | Display help information for the command.                                                                                 | No          |

@@ -65,6 +65,6 @@ cortex pull microsoft/Phi-3-mini-4k-instruct-gguf
 
 ## Options
 
-```
-  -h, --help     Display help for command
-```
+| Option            | Description                              | Required |
+|-------------------|------------------------------------------|-------------------|
+| `-h, --help`      | Display help information for the command.                  | No         |

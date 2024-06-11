@@ -24,6 +24,6 @@ cortex kill
 
 ## Options
 
-```
-  -h, --help              Display help for command
-```
+| Option            | Description                              | Required |
+|-------------------|------------------------------------------|-------------------|
+| `-h, --help`      | Display help information for the command.                  | No         |

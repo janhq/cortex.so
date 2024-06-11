@@ -31,8 +31,9 @@ Model preset is applied only at the start of the model and does not change durin
 
 ## Options
 
-```
-  -a, --attach           Attach to interactive chat session. By default, this value is `false`
-  -p, --preset <preset>  Apply a chat preset to the chat session. By default, this value is `false`
-  -h, --help             Display help for command
-```
+| Option                   | Description                                                               | Required |
+|--------------------------|---------------------------------------------------------------------------|-------------------|
+| `-a, --attach`           | Attach to an interactive chat session. Default is `false`.                | No          |
+| `-p, --preset <preset>`  | Apply a chat preset to the chat session. Default is `false`.              | No          |
+| `-h, --help`             | Display help information for the command.                                  | No          |
+

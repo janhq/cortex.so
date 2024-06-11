@@ -29,7 +29,8 @@ The following alias is also available for downloading models:
 
 ## Options
 
-```
-  -m, --model <model_id>  Model Id to start chat with
-  -h, --help              Display help for command
-```
+| Option            | Description                              | Required |
+|-------------------|------------------------------------------|-------------------|
+| `-m, --model <model_id>`     | The identifier of the model.              | Yes          |
+| `-h, --help`      | Display help for command.                 | No         |
+

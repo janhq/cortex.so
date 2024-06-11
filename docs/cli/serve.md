@@ -24,7 +24,8 @@ cortex serve
 
 ## Options
 
-```
-  -h, --host              Configure the host for the API endpoint server
-  -h, --help              Display help for command
-```
+| Option               | Description                                          | Required |
+|----------------------|------------------------------------------------------|-------------------|
+| `-h, --host`         | Configure the host for the API endpoint server.       | Yes          |
+| `-h, --help`         | Display help information for the command.             | No          |
+
