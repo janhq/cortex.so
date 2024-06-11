@@ -72,7 +72,7 @@ const Home = () => {
               <h1 className="text-5xl text-white font-semibold">
                 Run LLMs Easily
               </h1>
-              <p className="text-xl text-black/60 dark:text-white/60">
+              <p className="text-xl text-white/60">
                 OpenAI Compatible. Multi-engine. For Production
               </p>
 
