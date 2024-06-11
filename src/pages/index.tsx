@@ -219,7 +219,7 @@ const Home = () => {
             <h1 className="text-5xl text-white font-semibold">
               Full replacement for OpenAI's platform.
             </h1>
-            <p className="w-full lg:w-1/2 mx-auto text-lg text-black/60 dark:text-white/60">
+            <p className="w-full lg:w-1/2 mx-auto text-lg text-white/60">
               Cortex has an OpenAI equivalent API. Own your entire stack, and
               deploy your own openai equivalent backend in just a few minutes.
             </p>
