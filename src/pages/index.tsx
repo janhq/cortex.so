@@ -77,7 +77,7 @@ const Home = () => {
               </p>
 
               <Link to="https://github.com/janhq/cortex" target="_blank">
-                <div className="my-6 bg-neutral-900 dark:bg-white items-center inline-flex gap-2 dark:text-black/90 text-white/90 py-2 px-4 rounded-lg">
+                <div className="my-6 bg-white items-center inline-flex gap-2 text-black/90 py-2 px-4 rounded-lg">
                   <FaGithub size={20} />
                   <span className="font-medium text-lg">View on github</span>
                 </div>
