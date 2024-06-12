@@ -50,6 +50,9 @@ export default function OAICoverage() {
 
   const dailyCoverage = usePluginData("oai-daily-report");
 
+  // console.log(totalCoverage);
+  // console.log(dailyCoverage, "dailyCoverage");
+
   const groupedDates = (dailyCoverage as never[]).reduce<DateGroup>(
     (acc, dateObj: any) => {
       const [month, , year] = dateObj.date.split("-");
@@ -71,12 +74,12 @@ export default function OAICoverage() {
     });
   });
 
-  const attributeValue = (dailyCoverage as any[]).map((x: any) =>
-    x.content?.result.map((c: any) => c.attributeValue)
+  const attributeValue = (dailyCoverage as never[]).map((x: any) =>
+    x?.content?.result?.map((c: any) => c?.attributeValue)
   );
 
   const generateBlock = (y: any, x: any) => {
-    const block = y.content?.result.filter(
+    const block = y.content?.result?.filter(
       (c: any) => c.attributeValue === x
     )[0];
 
@@ -286,4 +289,12 @@ export default function OAICoverage() {
       </div>
     </div>
   );
+
+  // return (
+  //   <p>
+  //     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non placeat quia
+  //     tempore culpa explicabo, modi harum inventore ducimus est nisi natus
+  //     ipsam, neque tempora expedita eveniet animi, nostrum odio illo.
+  //   </p>
+  // );
 }
