@@ -10,7 +10,7 @@ slug: "run"
 
 # `cortex run`
 
-This command facilitates the initiation of an interactive chat shell with a specified machine learning model.
+This command facilitates the initiation of an interactive chat shell with a specified machine-learning model.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -22,7 +22,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 cortex run MODEL_ID
 ```
 
-### Options
+## Options
 
 | Option                      | Description                                                      | Required |
 |-----------------------------|------------------------------------------------------------------|-------------------|

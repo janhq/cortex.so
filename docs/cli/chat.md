@@ -22,7 +22,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 cortex chat --model MODEL_ID "Hello World"
 ```
 
-### Options
+## Options
 
 | Option                      | Description                                                                                         | Required |
 |-----------------------------|-----------------------------------------------------------------------------------------------------|-------------------|

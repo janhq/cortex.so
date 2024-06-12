@@ -22,7 +22,7 @@ Before installation, ensure that you have installed the following:
 - **NPM**: Needed to manage packages.
 
 :::info
-The **CPU instruction sets** are not required for the initial installation of Cortex. This dependency will be automatically installed during the Cortex initialization if they are not already on your system.
+When you install Cortex, all necessary dependencies for running it on your hardware, whether in CPU or GPU mode, will be automatically installed.
 :::
 
 ### Hardware
@@ -149,7 +149,12 @@ chmod +x '[path-to]/cortex/cortex-js/dist/src/command.js'
 ```sh
 npm link
 ```
-6. Initialize Cortex by following the steps [here](/docs/installation/linux).
+6. Verify that Cortex is installed correctly by getting help information.
+
+```sh
+# Get the help information
+cortex -h
+```
 ## Uninstall Cortex
 
 Run the following command to uninstall Cortex globally on your machine:
