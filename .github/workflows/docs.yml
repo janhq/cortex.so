@@ -7,6 +7,8 @@ on:
   pull_request:
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+  schedule:
+    - cron: "0 22 * * 1,2,3,4,5,6"
 
 jobs:
   deploy:
@@ -24,7 +26,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install jq      
+      - name: Install jq
         uses: dcarbone/install-jq-action@v2.0.1
 
       - name: Fill env vars
@@ -41,7 +43,7 @@ jobs:
             fi
           done < "$env_example_file"
         env:
-          SECRETS: '${{ toJson(secrets) }}'
+          SECRETS: "${{ toJson(secrets) }}"
 
       - name: Install dependencies
         run: yarn install
@@ -68,7 +70,7 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           message: |
-              Preview URL: ${{ steps.deployCloudflarePages.outputs.url }}
+            Preview URL: ${{ steps.deployCloudflarePages.outputs.url }}
 
       - name: Publish to Cloudflare Pages Production
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.pull_request.head.repo.full_name != github.repository
