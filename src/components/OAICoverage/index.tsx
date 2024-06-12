@@ -50,9 +50,6 @@ export default function OAICoverage() {
 
   const dailyCoverage = usePluginData("oai-daily-report");
 
-  // console.log(totalCoverage);
-  // console.log(dailyCoverage, "dailyCoverage");
-
   const groupedDates = (dailyCoverage as never[]).reduce<DateGroup>(
     (acc, dateObj: any) => {
       const [month, , year] = dateObj.date.split("-");
@@ -289,12 +286,4 @@ export default function OAICoverage() {
       </div>
     </div>
   );
-
-  // return (
-  //   <p>
-  //     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non placeat quia
-  //     tempore culpa explicabo, modi harum inventore ducimus est nisi natus
-  //     ipsam, neque tempora expedita eveniet animi, nostrum odio illo.
-  //   </p>
-  // );
 }
