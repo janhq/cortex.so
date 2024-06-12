@@ -5,6 +5,14 @@ import type { ScalarOptions } from "@scalar/docusaurus";
 
 import { remarkCodeHike } from "@code-hike/mdx";
 
+const date = new Date();
+
+const month = ("0" + (date.getMonth() + 1)).slice(-2);
+const day = ("0" + date.getDate()).slice(-2);
+const year = date.getFullYear();
+
+const formattedDate = `${month}-${day}-${year}`;
+
 async function fetchDataDaily(date: string) {
   const response = await fetch(
     `https://delta.jan.ai/openai-api-collection-test/${date}.json`
@@ -35,7 +43,7 @@ function generateDates(startDate: string, numberOfDays: number): string[] {
   return dates;
 }
 
-const dateArray = generateDates("06-21-2024", 30);
+const dateArray = generateDates(formattedDate, 30);
 
 const config: Config = {
   title: "Cortex",
@@ -81,9 +89,9 @@ const config: Config = {
           for (let date of dateArray) {
             try {
               let data = await fetchDataDaily(date);
-              results.push({ date: date, ...data });
+              results.push({ date: date, ...data } as never);
             } catch (error) {
-              results.push({ date: date });
+              results.push({ date: date } as never);
             }
           }
 

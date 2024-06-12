@@ -39,7 +39,7 @@ function flattenAndRemoveDuplicates<T>(nestedArray: (T[] | undefined)[]): T[] {
 export default function OAICoverage() {
   const totalCoverage: {
     content?: {
-      result: {
+      result?: {
         number: number;
         passed: number;
         skipped: number;
