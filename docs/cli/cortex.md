@@ -22,7 +22,7 @@ Cortex CLI is compatible with all OpenAI and OpenAI-compatible endpoints.
 cortex [command] [flag]
 ```
 
-### Options
+## Options
 
 | Option               | Description                                | Required |
 |----------------------|--------------------------------------------|-------------------|
@@ -35,7 +35,7 @@ cortex [command] [flag]
 - [cortex models](/docs/cli/models): Manage and configure models.
 - [cortex serve](/docs/cli/serve): Launch an API endpoint server for the Cortex backend.
 - [cortex chat](/docs/cli/chat): Send a chat request to a model.
-- [cortex init|setup](/docs/cli/init): Initialize settings and download dependencies for Cortex.
+- [cortex init|setup](/docs/cli/init): configures the dependencies and switch between CPU and GPU modes to run Cortex.
 - [cortex ps](/docs/cli/ps): Display active models and their operational status.
 - [cortex kill](/docs/cli/kill): Terminate active Cortex processes.
 - [cortex presets](/docs/cli/presets): Show all the available model presets within Cortex.

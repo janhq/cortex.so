@@ -71,12 +71,12 @@ export default function OAICoverage() {
     });
   });
 
-  const attributeValue = (dailyCoverage as any[]).map((x: any) =>
-    x.content?.result.map((c: any) => c.attributeValue)
+  const attributeValue = (dailyCoverage as never[]).map((x: any) =>
+    x?.content?.result?.map((c: any) => c?.attributeValue)
   );
 
   const generateBlock = (y: any, x: any) => {
-    const block = y.content?.result.filter(
+    const block = y.content?.result?.filter(
       (c: any) => c.attributeValue === x
     )[0];
 
