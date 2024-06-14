@@ -1,0 +1,36 @@
+---
+title: Cortex Benchmark
+description: Cortex benchmark command.
+slug: "benchmark"
+---
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+# `cortex benchmark`
+
+This command benchmarking your hardware to analyze the selected model performance on your system.
+
+:::info
+This command is compatible with all OpenAI and OpenAI-compatible endpoints.
+:::
+
+## Usage
+
+```bash
+cortex benchmark
+```
+:::info
+Modify the `model.yaml` under the cortex root directory `~/cortex/benchmark` to benchmark a specific model.
+:::
+
+## Options
+
+| Option                           | Description                                                                 | Required |
+|----------------------------------|-----------------------------------------------------------------------------|----------|
+| `-n, --num_rounds <num_rounds>`  | Number of rounds to run the benchmark. Default value is `10` rounds.                                        | No      |
+| `-c, --concurrency <concurrency>`| Number of concurrent requests to run the benchmark. Default is `false`.                           | No      |
+| `-o, --output <output>`          | Output format for the benchmark results. json or table. Default is `json`.                       | No      |
+| `-h, --help`                     | Display help information for the command.                                                     | No       |
+

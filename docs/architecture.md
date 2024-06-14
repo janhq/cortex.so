@@ -12,7 +12,7 @@ slug: "architecture"
 
 Cortex is an alternative to the OpenAI API designed to operate entirely on your local hardware infrastructure. This headless backend platform is also engineered to support TensorRT-LLM, ensuring high-performance machine-learning model execution. It is packaged with a Docker-inspired command-line interface and a Typescript client library.
 
-The following guide details Cortex's core components, providing insights and instructions for those interested in customizing It to meet specific requirements.
+The following guide details Cortex's core components, providing insights and instructions for those interested in customizing Cortex to meet specific requirements.
 
 ## Architecture
 
@@ -33,33 +33,22 @@ Cortex is architected with several key components, each designed to fulfill spec
 
 ### Data Structure
 
-Cortex is equipped with **MySQL** and **SQLite** databases, offering flexible data management options that can be easily adapted to different environments and requirements. It also has a filesystem data that can store and retrieve data using file-based mechanisms.
+Cortex is equipped with **MySQL** and **SQLite** databases, offering flexible data management options that can be easily adapted to different environments and requirements. It also has filesystem data that can be stored and retrieved using file-based mechanisms.
 
-#### MySQL
+- **MySQL**: This database is used because it is ideal for Cortex environments where scalability, security, and data integrity are critical. MySQL is well-suited for handling large model-size data from the core extensions.
 
-This database is used because it is ideal for Cortex environments where scalability, security, and data integrity are critical. MySQL is well-suited for handling large model-size data from the core extensions.
+- **SQLite**: This database is used for simplicity and minimal setup. It can handle the small model size from the core extensions and any data from the External extensions.
 
-#### SQLite
-
-This database is used for simplicity and minimal setup. It can handle the small model size from the core extensions and any data from the External extensions.
-
-#### File System
-
-Cortex uses a filesystem approach for managing configuration files, such as `model.yaml` files. These files are stored in a structured directory hierarchy, enabling efficient data retrieval and management.
+- **File System**: Cortex uses a filesystem approach for managing configuration files, such as `model.yaml` files. These files are stored in a structured directory hierarchy, enabling efficient data retrieval and management.
 
 ### Providers
+Cortex use three different types of providers:
 
-#### Internal Provider
+- **Internal Provider**: Integral to the CLI, it includes the core binary (**`.cpp`**) and is compiled directly with the CLI, facilitating all application parts' direct access to core functionalities.
 
-Integral to the CLI, it includes the core binary (**`.cpp`**) and is compiled directly with the CLI, facilitating all application parts' direct access to core functionalities.
+- **Core Extensions**: These are bundled with the CLI and include additional functionalities like remote engines and API models, facilitating more complex operations and interactions within the same architectural framework.
 
-#### Core Extensions
-
-These are bundled with the CLI and include additional functionalities like remote engines and API models, facilitating more complex operations and interactions within the same architectural framework.
-
-#### External Extensions
-
-These are designed to be more flexible and are stored externally. They represent potential future expansions or integrations, allowing the architecture to extend its capabilities without modifying the core system.
+- **External Extensions**: These are designed to be more flexible and are stored externally. They represent potential future expansions or integrations, allowing the architecture to extend its capabilities without modifying the core system.
 
 ### Key Dependencies
 
@@ -67,17 +56,11 @@ Cortex developed using NestJS and operates via a Node.js server framework, handl
 
 Below is a detailed overview of its core architecture components:
 
-#### NestJS Framework
+- **NestJS Framework**: NestJS framework serves as the backbone of the Cortex. This framework facilitates the organization of server-side logic into modules, controllers, and extensions, which are important for maintaining a clean codebase and efficient request handling.
 
-NestJS framework serves as the backbone of the Cortex. This framework facilitates the organization of server-side logic into modules, controllers, and extensions, which are important for maintaining a clean codebase and efficient request handling.
+- **Node.js Server**: Node.js is the primary runtime for Cortex, which handles the HTTP requests, executes the server-side logic, and manages the responses.
 
-#### Node.js Server
-
-Node.js is the primary runtime for Cortex, which handles the HTTP requests, executes the server-side logic, and manages the responses.
-
-#### C++ Runtime
-
-C++ runtime is important for managing stateless requests. This component can handle intensive tasks that require optimized performance.
+- **C++ Runtime**: C++ runtime is important for managing stateless requests. This component can handle intensive tasks that require optimized performance.
 
 ## Code Structure
 
