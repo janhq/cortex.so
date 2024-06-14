@@ -25,6 +25,6 @@ cortex models list
 
 | Option                  | Description                                                                     | Required | Default value |
 |-------------------------|---------------------------------------------------------------------------------|----------|---------------|
-| `-f, --format <format>` | Specify output format for the models list (table or json).    | No       | `json`          |
+| `-f, --format <format>` | Specify output format for the models list.   | No       | `json`          |
 | `-h, --help`            | Display help for command.                                                       | No       |      -         |
 

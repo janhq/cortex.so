@@ -34,8 +34,8 @@ cortex embeddings MODEL_ID "Hello World"
 
 | Option                                    | Description                                                                                                             | Required | Default value        |
 |-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------|----------------------|
-| `-m, --model <model_id>`                  | Specify the models to generate the embeddings. Defaults to choosing the active models if none specified.                | No       | Active models (if any) |
+| `-m, --model <model_id>`                  | Specify the models to generate the embeddings.                | No       | Active models (if any) |
 | `-i, --input <input>`                     | Input text to embed, encoded as a string or array of tokens. For multiple inputs, pass an array of strings or token arrays. | Yes      |    -                  |
-| `-e, --encoding_format <encoding_format>` | Encoding format for the embeddings. Supported formats are float and int. Defaults to float.                             | No       | -                |
+| `-e, --encoding_format <encoding_format>` | Encoding format for the embeddings. Supported formats are float and int.                              | No       | `float`                |
 | `-d, --dimensions <dimensions>`           | Specify the number of dimensions for the resulting output embeddings. Supported only in some models.                     | No       |     -                 |
 | `-h, --help`                              | Display help information for the command.                                                                                 | No       |     -                 |
