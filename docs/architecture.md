@@ -42,7 +42,7 @@ Cortex is equipped with **MySQL** and **SQLite** databases, offering flexible da
 - **File System**: Cortex uses a filesystem approach for managing configuration files, such as `model.yaml` files. These files are stored in a structured directory hierarchy, enabling efficient data retrieval and management.
 
 ### Providers
-Cortex use three different types of providers:
+Cortex uses three different types of providers:
 
 - **Internal Provider**: Integral to the CLI, it includes the core binary (**`.cpp`**) and is compiled directly with the CLI, facilitating all application parts' direct access to core functionalities.
 
