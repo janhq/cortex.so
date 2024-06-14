@@ -29,8 +29,9 @@ The following alias is also available for downloading models:
 
 ## Options
 
-| Option            | Description                              | Required |
-|-------------------|------------------------------------------|-------------------|
-| `-m, --model <model_id>`     | The identifier of the model.              | Yes          |
-| `-h, --help`      | Display help for command.                 | No         |
+| Option                    | Description                              | Required | Default value |
+|---------------------------|------------------------------------------|----------|---------------|
+| `-m, --model <model_id>`  | The identifier of the model.             | Yes      |       -        |
+| `-h, --help`              | Display help for command.                | No       |       -        |
+
 

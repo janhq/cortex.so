@@ -29,7 +29,8 @@ cortex init
 
 ## Options
 
-| Option            | Description                              | Required |
-|-------------------|------------------------------------------|-------------------|
-| `-s, --silent`      |  Initialize without prompting for input. Default is `false`                  | No         |
-| `-h, --help`      | Display help information for the command.                  | No         |
+| Option            | Description                                           | Required | Default value |
+|-------------------|-------------------------------------------------------|----------|---------------|
+| `-s, --silent`    | Initialize without prompting for input.               | No       | `false`         |
+| `-h, --help`      | Display help information for the command.             | No       |     -          |
+

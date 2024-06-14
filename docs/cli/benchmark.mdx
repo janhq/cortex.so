@@ -28,10 +28,11 @@ To benchmark a specific model, edit `model.yaml` in `~/cortex/benchmark`. A feat
 
 ## Options
 
-| Option                           | Description                                                                 | Required |
-|----------------------------------|-----------------------------------------------------------------------------|----------|
-| `-n, --num_rounds <num_rounds>`  | Number of rounds to run the benchmark. Default value is `10` rounds.                                        | No      |
-| `-c, --concurrency <concurrency>`| Number of concurrent requests to run the benchmark. Default is `false`.                           | No      |
-| `-o, --output <output>`          | Output format for the benchmark results. json or table. Default is `json`.                       | No      |
-| `-h, --help`                     | Display help information for the command.                                                     | No       |
+| Option                           | Description                                                                 | Required | Default value |
+|----------------------------------|-----------------------------------------------------------------------------|----------|---------------|
+| `-n, --num_rounds <num_rounds>`  | Number of rounds to run the benchmark.                                       | No       | 10 rounds     |
+| `-c, --concurrency <concurrency>`| Number of concurrent requests to run the benchmark.                         | No       | `false`         |
+| `-o, --output <output>`          | Output format for the benchmark results. json or table.                     | No       | `json`          |
+| `-h, --help`                     | Display help information for the command.                                   | No       |  -             |
+
 

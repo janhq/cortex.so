@@ -23,8 +23,9 @@ cortex models stop MODEL_ID
 
 ## Options
 
-| Option                    | Description                                                                 | Required |
-|---------------------------|-----------------------------------------------------------------------------|-------------------|
-| `-m, --model <model_id>`  | Specify the Model ID to stop. Defaults to stopping the current active model if none specified. | No          |
-| `-h, --help`              | Display help information for the command.                                    | No          |
+| Option                    | Description                                                                 | Required | Default value        |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
+| `-m, --model <model_id>`  | Specify the Model ID to stop. | No       | Active model (if any) |
+| `-h, --help`              | Display help information for the command.                                   | No       |           -           |
+
 
