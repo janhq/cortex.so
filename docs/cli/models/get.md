@@ -23,6 +23,6 @@ cortex models get MODEL_ID
 
 ## Options
 
-| Option            | Description                              | Required |
-|-------------------|------------------------------------------|-------------------|
-| `-h, --help`      | Display help for command.                 | No         |
+| Option            | Description                                           | Required | Default value |
+|-------------------|-------------------------------------------------------|----------|---------------|
+| `-h, --help`      | Display help information for the command.             | No       |      -         |
