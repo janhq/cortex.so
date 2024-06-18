@@ -946,7 +946,7 @@
             "get": {
                 "operationId": "StatusController_get",
                 "summary": "Get health status",
-                "description": "Retrieves the health status of your Cortex's system.",
+                "description": "Retrieves the health status of the Cortex's API endpoint server.",
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -1054,7 +1054,7 @@
         },
         {
             "name": "Status",
-            "description": "Endpoint for actively querying the health status of the Cortex."
+            "description": "Endpoint for actively querying the health status of the Cortex's API server."
         },
         {
             "name": "Processes",
