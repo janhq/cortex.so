@@ -34,7 +34,7 @@ cortex embeddings [options] [model_id] [message]
 
 | Option                                    | Description                                                                                                             | Required | Default value        |
 |-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------|----------------------|
-| `model_id`                  | Specify the models to generate the embeddings.                | No       | Active models (if any) |
+| `model_id`                  | Specify the models to generate the embeddings.                | No       | Prompt to select from the available models |
 | `-i, --input <input>`                     | Input text to embed, encoded as a string or array of tokens. For multiple inputs, pass an array of strings or token arrays. | Yes      |    -                  |
 | `-e, --encoding_format <encoding_format>` | Encoding format for the embeddings. Supported formats are float and int.                              | No       | `float`                |
 | `-d, --dimensions <dimensions>`           | Specify the number of dimensions for the resulting output embeddings. Supported only in some models.                     | No       |     -                 |

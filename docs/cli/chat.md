@@ -26,7 +26,7 @@ cortex chat [options] [model_id] [message]
 
 | Option                      | Description                                                                                         | Required | Default value |
 |-----------------------------|-----------------------------------------------------------------------------------------------------|----------|---------------|
-| `model_id`                | The identifier of the model you want to chat with.                                                           | No       |      Active models (if any)         |
+| `model_id`                | The identifier of the model you want to chat with.                                                           | No       |      Prompt to select from the available models         |
 | `-t, --thread <thread_id>`  | Specify the Thread ID.                         | No       |     Create a new thread          |
 | `-m, --message <message>`   | Message to send to the model.                                                                       | Yes      |     -          |
 | `-a, --attach`              | Attach to an interactive chat session.                                                              | No       | `false`         |
