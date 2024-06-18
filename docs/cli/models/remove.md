@@ -24,7 +24,7 @@ cortex models remove <model_id>
 ## Options
 | Option                    | Description                                                                 | Required | Default value        |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
-| `-m, --model <model_id>`  | Model Id to remove. | Yes      | - |
+| `-m, --model <model_id>`  | The identifier of the model you want to remove. | Yes      | - |
 | `-h, --help`              | Display help for command.                                                   | No       |          -            |
 
 

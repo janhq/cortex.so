@@ -29,8 +29,8 @@ cortex serve [options] stop
 
 | Option                     | Description                               | Required | Default Value |
 |----------------------------|-------------------------------------------|----------|---------------|
-| `-a, --address <address>`  | Specify the address to use.                | No      | -           |
-| `-p, --port <port>`        | Define the port to serve the application.  | No      | -           |
+| `-a, --address <address>`  | Specify the address to use.                | No      | `localhost`           |
+| `-p, --port <port>`        | Define the port to serve the application.  | No      | `1337`           |
 | `-d, --detach`             | Run the server in detached mode.           | No       | `false`         |
 | `-h, --help`               | Display help information for the command.  | No       | -           |
 

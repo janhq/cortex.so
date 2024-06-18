@@ -25,5 +25,5 @@ cortex models get <model_id>
 
 | Option            | Description                                           | Required | Default value |
 |-------------------|-------------------------------------------------------|----------|---------------|
-| `model_id`                | The identifier of the model you want to retrieve. with.                                                           | Yes       |      -         |
+| `model_id`                | The identifier of the model you want to retrieve.                                                          | Yes       |      -         |
 | `-h, --help`      | Display help information for the command.             | No       |      -         |
