@@ -19,13 +19,14 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex chat [flags] [model_id] [message]
+cortex chat [options] [model_id] [message]
 ```
 
 ## Options
 
 | Option                      | Description                                                                                         | Required | Default value |
 |-----------------------------|-----------------------------------------------------------------------------------------------------|----------|---------------|
+| `model_id`                | The identifier of the model you want to chat with.                                                           | No       |      Active models (if any)         |
 | `-t, --thread <thread_id>`  | Specify the Thread ID.                         | No       |     Create a new thread          |
 | `-m, --message <message>`   | Message to send to the model.                                                                       | Yes      |     -          |
 | `-a, --attach`              | Attach to an interactive chat session.                                                              | No       | `false`         |

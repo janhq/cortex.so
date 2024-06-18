@@ -26,7 +26,7 @@ The following alias is also available for downloading models:
 
 ## Usage
 ```bash
-cortex pull [model_id]
+cortex pull <model_id>
 ```
 
 ### Preconfigured Models
@@ -70,4 +70,5 @@ cortex pull microsoft/Phi-3-mini-4k-instruct-gguf
 
 | Option            | Description                                           | Required | Default value |
 |-------------------|-------------------------------------------------------|----------|---------------|
+| `model_id`                | The identifier of the model you want to download. with.                                                           | Yes       |      -         |
 | `-h, --help`      | Display help information for the command.             | No       |      -         |

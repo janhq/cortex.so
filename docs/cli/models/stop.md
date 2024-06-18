@@ -18,14 +18,14 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models stop [model_id]
+cortex models stop <model_id>
 ```
 
 ## Options
 
 | Option                    | Description                                                                 | Required | Default value        |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
-| `-m, --model <model_id>`  | Specify the Model ID to stop. | No       | Active model (if any) |
+| `-m, --model <model_id>`  | Specify the Model ID to stop. | No       | - |
 | `-h, --help`              | Display help information for the command.                                   | No       |           -           |
 
 

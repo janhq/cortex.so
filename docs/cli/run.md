@@ -19,14 +19,16 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex run [flags] [model_id]
+cortex run [options] [model_id]
 ```
 
 ## Options
 
 | Option                      | Description                                                                 | Required | Default value |
 |-----------------------------|-----------------------------------------------------------------------------|----------|---------------|
+| `model_id`                | The identifier of the model you want to chat with. with.                                                           | No       |      Active models (if any)         |
 | `-t, --thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified. | No       |     -          |
+| `-p, --preset`                | Apply a chat preset to the chat session.                                   | No       |    -           |
 | `-h, --help`                | Display help information for the command.                                   | No       |    -           |
 
 

@@ -18,11 +18,12 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models get [model_id]
+cortex models get <model_id>
 ```
 
 ## Options
 
 | Option            | Description                                           | Required | Default value |
 |-------------------|-------------------------------------------------------|----------|---------------|
+| `model_id`                | The identifier of the model you want to retrieve. with.                                                           | Yes       |      -         |
 | `-h, --help`      | Display help information for the command.             | No       |      -         |

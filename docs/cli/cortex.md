@@ -19,7 +19,7 @@ Cortex CLI is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex [command] [flags]
+cortex [command] [options]
 ```
 
 ## Options
@@ -44,3 +44,4 @@ cortex [command] [flags]
 - [cortex embeddings](/docs/cli/embeddings): Create an embedding vector representing the input text.
 - [cortex pull|download](/docs/cli/pull): Download a model.
 - [cortex run](/docs/cli/run): Shortcut to start a model and chat **(EXPERIMENTAL)**.
+- [cortex telemetry](/docs/cli/telemetry): Retrieve telemetry logs for monitoring and analysis.

@@ -19,10 +19,10 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex benchmark [flags] [model_id]
+cortex benchmark [options] [model_id]
 ```
 :::info
-To benchmark a specific model, edit `model.yaml` in `~/cortex/benchmark`. A feature to select models for benchmarking will be added soon.
+To benchmark a specific model, edit `model.yaml` in `~/cortex/benchmark`.
 :::
 
 
@@ -30,9 +30,10 @@ To benchmark a specific model, edit `model.yaml` in `~/cortex/benchmark`. A feat
 
 | Option                           | Description                                                                 | Required | Default value |
 |----------------------------------|-----------------------------------------------------------------------------|----------|---------------|
+| `model_id`                | The model identifier you want to benchmark.                                                           | No       |      Active models (if any)         |
 | `-n, --num_rounds <num_rounds>`  | Number of rounds to run the benchmark.                                       | No       | 10      |
 | `-c, --concurrency <concurrency>`| Number of concurrent requests to run the benchmark.                         | No       | `false`         |
-| `-o, --output <output>`          | Output format for the benchmark results.                     | No       | `json`          |
+| `-o, --output <output>`          | Output format for the benchmark results. Choices are `json` or table format.                     | No       | `json`          |
 | `-h, --help`                     | Display help information for the command.                                   | No       |  -             |
 
 

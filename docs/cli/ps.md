@@ -31,3 +31,8 @@ For example, it returns the following table:
 │ 0       │ 'janhq/tinyllama/1b' │ 'cortex.llamacpp' │ 'running' │ '7s'     │ '-' │ '-'  │
 └─────────┴──────────────────────┴───────────────────┴───────────┴──────────┴─────┴──────┘
 ```
+## Options
+
+| Option            | Description                                           | Required | Default value |
+|-------------------|-------------------------------------------------------|----------|---------------|
+| `-h, --help`      | Display help information for the command.             | No       |      -         |

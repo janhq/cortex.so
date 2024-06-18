@@ -18,7 +18,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models update [flags] [model_id]
+cortex models update [options] <model_id>
 ```
 
 ## Options

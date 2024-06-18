@@ -18,7 +18,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models pull [model_id]
+cortex models pull <model_id>
 ```
 
 ## Alias
@@ -31,7 +31,7 @@ The following alias is also available for downloading models:
 
 | Option                    | Description                              | Required | Default value |
 |---------------------------|------------------------------------------|----------|---------------|
-| `-m, --model <model_id>`  | The identifier of the model.             | Yes      |       -        |
+| `-m, --model <model_id>`  | The identifier of the model you want to download.             | Yes      |       -        |
 | `-h, --help`              | Display help for command.                | No       |       -        |
 
 

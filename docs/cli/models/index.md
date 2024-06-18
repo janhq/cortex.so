@@ -17,13 +17,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models API_COMMAND [flags]
-
-# Start a downloaded model
-cortex models start [model_id]
-
-# Stop a downloaded model
-cortex models stop [model_id]
+cortex models [options]
 ```
 
 ## Options
