@@ -30,7 +30,7 @@ To benchmark a specific model, edit `model.yaml` in `~/cortex/benchmark`.
 
 | Option                           | Description                                                                 | Required | Default value |
 |----------------------------------|-----------------------------------------------------------------------------|----------|---------------|
-| `model_id`                | The model identifier you want to benchmark.                                                           | No       |      Active models (if any)         |
+| `model_id`                | The model identifier you want to benchmark.                                                           | No       |      `Prompt to select from the available models`         |
 | `-n, --num_rounds <num_rounds>`  | Number of rounds to run the benchmark.                                       | No       | 10      |
 | `-c, --concurrency <concurrency>`| Number of concurrent requests to run the benchmark.                         | No       | `false`         |
 | `-o, --output <output>`          | Output format for the benchmark results. Choices are `json` or table format.                     | No       | `json`          |
