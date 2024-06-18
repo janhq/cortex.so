@@ -1,18 +1,23 @@
+---
+title: Telemetry
+description: Telemetry Architecture
+slug: "telemetry"
+---
+
 ## Architecture
 ![cortex-architecture.png](/img/docs/telemetry-architecture.png)
 
 ## Implementation
-
-- Diagnostics
-    - How do we anonymize data?
-        - When user start app in the first time, we will create a sessionId and store it in a metadata file in user local.
-    - How do we catch  the crash:
+- Crash report
+    - Catch error:
         - CLI Application
             - Add a global error handler that catch any unexpected error
             - Catch the `uncaughtException` and `unhandledRejection` event from process
+            - Catch 500 error from Cortex CPP
         - API Server:
             - Add a global error handler that catch any unexpected error
             - Catch the `uncaughtException` and `unhandledRejection` event from process
+            - Catch 500 error from Cortex CPP
             - Folk a child process that interval ping to main process to check if the main process is hang
                 ![catch-crash.png](/img/docs/catch-crash.png)
                     
