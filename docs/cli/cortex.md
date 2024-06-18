@@ -19,7 +19,7 @@ Cortex CLI is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex [command] [flag]
+cortex [command] [flags]
 ```
 
 ## Options

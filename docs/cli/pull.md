@@ -25,6 +25,9 @@ The following alias is also available for downloading models:
 - `cortex download _`
 
 ## Usage
+```bash
+cortex pull [model_id]
+```
 
 ### Preconfigured Models
 

@@ -19,7 +19,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex chat --model MODEL_ID "Hello World"
+cortex chat [flags] [model_id] [message]
 ```
 
 ## Options

@@ -19,7 +19,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex run MODEL_ID
+cortex run [flags] [model_id]
 ```
 
 ## Options

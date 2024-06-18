@@ -18,7 +18,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models get MODEL_ID
+cortex models get [model_id]
 ```
 
 ## Options

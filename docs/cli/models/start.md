@@ -19,10 +19,10 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 
 ```bash
 # Start a model
-cortex models start MODEL_ID
+cortex models start [model_id]
 
 # Start a model with a preset
-cortex models start MODEL_ID -p PRESET_FILENAME
+cortex models start [model_id] [flags]
 ```
 
 :::note

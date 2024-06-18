@@ -24,7 +24,7 @@ The following alias is also available for `cortex init`:
 ## Usage
 
 ```bash
-cortex init
+cortex init [flags] [version]
 ```
 
 ## Options

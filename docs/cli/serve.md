@@ -19,7 +19,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex serve
+cortex serve [flags]
 ```
 
 ## Options

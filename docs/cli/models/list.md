@@ -18,7 +18,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models list
+cortex models list [flags]
 ```
 
 ## Options

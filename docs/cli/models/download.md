@@ -18,7 +18,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models pull MODEL_ID
+cortex models pull [model_id]
 ```
 
 ## Alias

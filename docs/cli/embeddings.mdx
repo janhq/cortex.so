@@ -23,10 +23,10 @@ Ensure you have loaded the model into the Cortex server using [`cortex models st
 :::
 
 ```bash 
-# Without Flag
-cortex embeddings "Hello World"
-# With Model_id Flag
-cortex embeddings MODEL_ID "Hello World"
+# With a model started
+cortex embeddings [flags] [message]
+# Without any started models
+cortex embeddings [flags] [model_id] [message]
 ```
 
 ## Options

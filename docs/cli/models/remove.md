@@ -18,7 +18,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models remove MODEL_ID
+cortex models remove [model_id]
 ```
 
 ## Options
