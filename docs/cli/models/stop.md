@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models stop`
 
-This command stops a model defined by a `MODEL_ID`.
+This command stops a model defined by a `model_id`.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -25,7 +25,7 @@ cortex models stop <model_id>
 
 | Option                    | Description                                                                 | Required | Default value        |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
-| `-m, --model <model_id>`  | The identifier of the model you want to stop. | Yes       | - |
+| `model_id`  | The identifier of the model you want to stop. | Yes       | - |
 | `-h, --help`              | Display help information for the command.                                   | No       |           -           |
 
 

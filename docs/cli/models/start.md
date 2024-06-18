@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models start`
 
-This command starts a model defined by a `MODEL_ID`.
+This command starts a model defined by a `model_id`.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -22,7 +22,7 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 cortex models start [model_id]
 
 # Start a model with a preset
-cortex models start [model_id] [flags]
+cortex models start [model_id] [options]
 ```
 
 :::note

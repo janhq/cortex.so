@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models pull`
 
-This command downloads a model. You can use a HuggingFace `MODEL_ID` to download a model.
+This command downloads a model. You can use a HuggingFace `model_id` to download a model.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -31,7 +31,7 @@ The following alias is also available for downloading models:
 
 | Option                    | Description                              | Required | Default value |
 |---------------------------|------------------------------------------|----------|---------------|
-| `-m, --model <model_id>`  | The identifier of the model you want to download.             | Yes      |       -        |
+| `model_id`  | The identifier of the model you want to download.             | Yes      |       -        |
 | `-h, --help`              | Display help for command.                | No       |       -        |
 
 
