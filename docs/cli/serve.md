@@ -19,14 +19,19 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex serve
+# Start the API server
+cortex serve [options]
+# Stop the API server
+cortex serve [options] stop
 ```
 
 ## Options
 
-| Option               | Description                                          | Required | Default value |
-|----------------------|------------------------------------------------------|----------|---------------|
-| `-h, --host`         | Configure the host for the API endpoint server.      | No      |     -          |
-| `-h, --help`         | Display help information for the command.            | No       |       -        |
+| Option                     | Description                               | Required | Default Value | Example                |
+|----------------------------|-------------------------------------------|----------|---------------|------------------------|
+| `-a`, `--address <address>`  | Specify the address to use.               | No       | `localhost`   | `-a 192.168.1.1`|
+| `-p`, `--port <port>`        | Define the port to serve the application. | No       | `1337`        | `-p 8080`          |
+| `-d`, `--detach`             | Run the server in detached mode.          | No       | `false`       | `-d`             |
+| `-h`, `--help`               | Display help information for the command. | No       | -             | `-h`               |
 
 

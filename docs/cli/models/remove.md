@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models remove`
 
-This command deletes a local model defined by a `MODEL_ID`.
+This command deletes a local model defined by a `model_id`.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -18,13 +18,14 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models remove MODEL_ID
+cortex models remove <model_id>
 ```
 
 ## Options
-| Option                    | Description                                                                 | Required | Default value        |
-|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
-| `-m, --model <model_id>`  | Model Id to remove. | Yes      | Active model (if any) |
-| `-h, --help`              | Display help for command.                                                   | No       |          -            |
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `tinyllama`       |
+| `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
+
 
 

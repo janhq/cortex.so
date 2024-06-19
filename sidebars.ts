@@ -118,6 +118,7 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "cli/chat", label: "cortex chat" },
     { type: "doc", id: "cli/kill", label: "cortex kill" },
     { type: "doc", id: "cli/serve", label: "cortex serve" },
+    { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
   ],
 };
 

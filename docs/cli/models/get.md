@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models get`
 
-This command returns a model detail defined by a `MODEL_ID`.
+This command returns a model detail defined by a `model_id`.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -18,11 +18,13 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models get MODEL_ID
+cortex models get <model_id>
 ```
 
 ## Options
 
-| Option            | Description                                           | Required | Default value |
-|-------------------|-------------------------------------------------------|----------|---------------|
-| `-h, --help`      | Display help information for the command.             | No       |      -         |
+| Option            | Description                                           | Required | Default value | Example         |
+|-------------------|-------------------------------------------------------|----------|---------------|-----------------|
+| `model_id`        | The identifier of the model you want to retrieve.     | Yes      | -             | `tinyllama`|
+| `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
+
