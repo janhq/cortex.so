@@ -68,6 +68,19 @@ const config: Config = {
         },
       };
     },
+    async function getRepoInfo(context, options) {
+      return {
+        name: "repo-info",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+          const fetchRepoInfo = await fetch(
+            "https://api.github.com/repos/janhq/cortex"
+          );
+          const repoInfo = await fetchRepoInfo.json();
+          setGlobalData(repoInfo);
+        },
+      };
+    },
     async function getDataOAITotalCoverage(context, options) {
       return {
         name: "oai-total-coverage",
@@ -176,6 +189,14 @@ const config: Config = {
   ],
 
   themeConfig: {
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID || "XXX",
+      apiKey: process.env.ALGOLIA_API_KEY || "XXX",
+      indexName: "jan_docs",
+      contextualSearch: true,
+      insights: true,
+    },
+
     metadata: [
       {
         name: "description",
@@ -205,8 +226,8 @@ const config: Config = {
     navbar: {
       logo: {
         alt: "Cortex Logo",
-        src: "img/logos/cortex-logo.svg",
-        srcDark: "img/logos/cortex-logo-dark.svg",
+        src: "/img/logos/cortex-logo.svg",
+        srcDark: "/img/logos/cortex-logo-dark.svg",
         width: 116,
       },
       items: [
@@ -218,16 +239,8 @@ const config: Config = {
         },
         { to: "docs/cli", label: "CLI Reference", position: "left" },
         {
-          href: "https://discord.gg/FTk2MvZwJH",
+          type: "custom-socialNavbar",
           position: "right",
-          className: "header-discord-link",
-          "aria-label": "Discord",
-        },
-        {
-          href: "https://github.com/janhq/cortex",
-          position: "right",
-          className: "header-github-link",
-          "aria-label": "GitHub repository",
         },
       ],
     },
@@ -337,11 +350,11 @@ const config: Config = {
       ],
       logo: {
         alt: "Cortex Logo",
-        src: "img/logos/cortex-logo.svg",
-        srcDark: "img/logos/cortex-logo-dark.svg",
-        width: 116,
+        src: "/img/logos/cortex-logo-mark.svg",
+        srcDark: "/img/logos/cortex-logo-mark.svg",
+        width: 34,
       },
-      copyright: `Copyright © ${new Date().getFullYear()} Homebrew Computer Company Pte Ltd.`,
+      copyright: `©${new Date().getFullYear()} Homebrew Computer Company`,
     },
     prism: {
       theme: prismThemes.github,

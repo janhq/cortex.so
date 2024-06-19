@@ -1,20 +1,22 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import HeroSection from "@site/src/containers/Homepage/HeroSection";
+import GettingStartedSection from "@site/src/containers/Homepage/GettingStartedSection";
+import UniversalSection from "@site/src/containers/Homepage/UniversalSection";
+import ModelRegistry from "@site/src/containers/Homepage/ModelRegistry";
+import OAIReplacement from "@site/src/containers/Homepage/OAIReplacement";
 
 const Home = () => {
   const { siteConfig } = useDocusaurusContext();
 
   return (
     <Layout title="Homepage">
-      <main>
-        <div className="container">
-          <div className="text-center mt-20">
-            <h1 className="text-6xl">Run LLMs Easily</h1>
-            <p className="text-xl text-black/60 dark:text-white/60">
-              OpenAI Compatible. Multi-engine. For Production
-            </p>
-          </div>
-        </div>
+      <main className="my-20 overflow-hidden">
+        <HeroSection />
+        <GettingStartedSection />
+        <UniversalSection />
+        <ModelRegistry />
+        <OAIReplacement />
       </main>
     </Layout>
   );

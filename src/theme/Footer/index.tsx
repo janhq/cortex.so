@@ -1,25 +1,10 @@
 import React from "react";
-
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import { useThemeConfig } from "@docusaurus/theme-common";
 import FooterCopyright from "@theme/Footer/Copyright";
 import CardContainer from "@site/src/components/CardContainer";
 import Link from "@docusaurus/Link";
 import ThemedImage from "@theme/ThemedImage";
-
-const Social = [
-  {
-    name: "Github",
-    href: "https://github.com/janhq/cortex",
-  },
-  {
-    name: "Discord",
-    href: "https://discord.gg/FTk2MvZwJH",
-  },
-  {
-    name: "Twitter",
-    href: "https://discord.gg/FTk2MvZwJH",
-  },
-];
 
 function Footer(): JSX.Element | null {
   const { footer } = useThemeConfig();
@@ -27,9 +12,7 @@ function Footer(): JSX.Element | null {
   if (!footer) {
     return null;
   }
-  const { copyright, links, logo, style } = footer;
-
-  console.log(logo);
+  const { copyright, links, logo } = footer;
 
   return (
     <footer>
@@ -41,8 +24,8 @@ function Footer(): JSX.Element | null {
               width={logo.width}
               className="mb-4"
               sources={{
-                light: logo.src,
-                dark: logo.srcDark,
+                light: useBaseUrl(logo.src),
+                dark: useBaseUrl(logo.srcDark),
               }}
             />
             <h1 className="text-2xl mb-1">The Anatomy of a Machine</h1>
@@ -85,9 +68,15 @@ function Footer(): JSX.Element | null {
         </div>
         <div className="mt-16 flex items-center w-full justify-between">
           <FooterCopyright copyright={copyright} />
-          {/* <div>
-            <p>lorem</p>
-          </div> */}
+          <ThemedImage
+            alt={logo.alt}
+            width={100}
+            className="mb-4"
+            sources={{
+              light: useBaseUrl("/img/logos/homebrew.svg"),
+              dark: useBaseUrl("/img/logos/homebrew.svg"),
+            }}
+          />
         </div>
       </CardContainer>
     </footer>

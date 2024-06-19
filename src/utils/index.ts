@@ -19,3 +19,8 @@ export function getMonthName(dateString: string) {
   ];
   return monthNames[date.getMonth()]; // Get the month name
 }
+
+export function formatCompactNumber(count: number) {
+  const formatter = Intl.NumberFormat("en", { notation: "compact" });
+  return formatter.format(count);
+}
