@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 The telemetry system comprises several key components, each designed to ensure the Telemetry features work correctly and function accurately, guaranteeing the precision of the collected data.
 1. **Telemetry Collector**: This component gathers telemetry data from the Cortex and exports it to other observability tools for further analysis and monitoring.
 2. **Jan Telemetry Server**: This component ingests telemetry data from Cortex. It processes this data and forwards events to Google Logging for further handling.
-3. **Google Logging**: This component receives events from the Jan Telemetry Server. It stores and manages these logs and export them to BigQuery.
+3. **Google Logging**: This component receives events from the Jan Telemetry Server. It stores and manages these logs and exports them to BigQuery.
 4. **Google BigQuery**: This component stores the exported logs from Google Logging. 
 5. **Metabase**: This component connects to Google BigQuery to perform queries and visualize the data. It provides an interface for analyzing and presenting the telemetry data.
 
@@ -27,23 +27,23 @@ This category includes metrics related to the operating system and hardware deta
 
 | Metric             | Description                    |
 |-----------------|--------------------------------|
-| `osName`        | Name of the operating system   |
-| `osVersion`     | Version of the operating system|
-| `architecture`  | Architecture of the operating system |
-| `appVersion`    | Version of Cortex              |
-| `service.name`  | Name of the Cortex service     |
-| `source`        | Source of the report (`cli`, `cortex-server`, or `cortex-cpp`) |
-| `cpu`           | Model of the CPU               |
-| `gpus`          | Model of the GPU, vendor, VRAM, and VRAM dynamic |
+| `osName`        | Name of the operating system.   |
+| `osVersion`     | Version of the operating system.|
+| `architecture`  | Architecture of the operating system. |
+| `appVersion`    | Version of Cortex.              |
+| `service.name`  | Name of the Cortex service.     |
+| `source`        | Source of the report (`cli`, `cortex-server`, or `cortex-cpp`). |
+| `cpu`           | Model of the CPU.               |
+| `gpus`          | Model of the GPU, vendor, VRAM, and VRAM dynamic. |
   </TabItem>
   <TabItem value="2" label="`CrashReportPayload`" default>
 This category focuses on metrics related to specific operations within Cortex. It captures the following metrics:
 
 | Metric         | Description                    |
 |-------------|--------------------------------|
-| `modelId`   | ID of the currently used model |
-| `endpoint`  | Endpoint of the Cortex Server  |
-| `command`   | Command executed by Cortex CLI |
+| `modelId`   | ID of the currently used model. |
+| `endpoint`  | Endpoint of the Cortex Server.  |
+| `command`   | Command executed by Cortex CLI. |
   </TabItem>
 </Tabs>
 
@@ -184,11 +184,11 @@ This category focuses on metrics related to specific operations within Cortex. I
 The diagram illustrates the implementation of handling crashes in the Cortex server environment:
 
 1. **User Interaction**
-    - The user sends a command or request to the Cortex Server Main Process.
+    - The user sends a command or requests to the Cortex Server Main Process.
 2. **Cortex Server Main Process**
     - The main process handles the initial command or request.
     - It forks a child process to monitor and handle errors.
-    - The main process catches any `uncaughtException` or `unhandledRejection` events to manage unexpected errors.
+    - To manage unexpected errors, the main process catches any `uncaughtException` or `unhandledRejection` events.
 3. **Child Process**
     - A child process is forked to perform periodic checks (interval pings) to ensure the main process is not hanging or unresponsive.
     - This child process can also capture and log errors.
