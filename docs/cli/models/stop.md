@@ -23,9 +23,10 @@ cortex models stop <model_id>
 
 ## Options
 
-| Option                    | Description                                                                 | Required | Default value        |
-|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
-| `model_id`  | The identifier of the model you want to stop. | Yes       | - |
-| `-h, --help`              | Display help information for the command.                                   | No       |           -           |
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `model_id`                | The identifier of the model you want to stop.                               | Yes      | -                    | `tinyllama`       |
+| `-h`, `--help`            | Display help information for the command.                                   | No       | -                    | `-h`               |
+
 
 

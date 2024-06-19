@@ -27,11 +27,11 @@ cortex serve [options] stop
 
 ## Options
 
-| Option                     | Description                               | Required | Default Value |
-|----------------------------|-------------------------------------------|----------|---------------|
-| `-a, --address <address>`  | Specify the address to use.                | No      | `localhost`           |
-| `-p, --port <port>`        | Define the port to serve the application.  | No      | `1337`           |
-| `-d, --detach`             | Run the server in detached mode.           | No       | `false`         |
-| `-h, --help`               | Display help information for the command.  | No       | -           |
+| Option                     | Description                               | Required | Default Value | Example                |
+|----------------------------|-------------------------------------------|----------|---------------|------------------------|
+| `-a`, `--address <address>`  | Specify the address to use.               | No       | `localhost`   | `-a 192.168.1.1`|
+| `-p`, `--port <port>`        | Define the port to serve the application. | No       | `1337`        | `-p 8080`          |
+| `-d`, `--detach`             | Run the server in detached mode.          | No       | `false`       | `-d`             |
+| `-h`, `--help`               | Display help information for the command. | No       | -             | `-h`               |
 
 

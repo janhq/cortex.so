@@ -22,9 +22,10 @@ cortex models remove <model_id>
 ```
 
 ## Options
-| Option                    | Description                                                                 | Required | Default value        |
-|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|
-| `model_id`  | The identifier of the model you want to remove. | Yes      | - |
-| `-h, --help`              | Display help for command.                                                   | No       |          -            |
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `tinyllama`       |
+| `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
+
 
 

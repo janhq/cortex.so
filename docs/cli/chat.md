@@ -24,11 +24,11 @@ cortex chat [options] [model_id] [message]
 
 ## Options
 
-| Option                      | Description                                                                                         | Required | Default value |
-|-----------------------------|-----------------------------------------------------------------------------------------------------|----------|---------------|
-| `model_id`                | The identifier of the model you want to chat with.                                                           | No       |      `Prompt to select from the available models`         |
-| `-t, --thread <thread_id>`  | Specify the Thread ID.                         | No       |     `Create a new thread`          |
-| `-m, --message <message>`   | Message to send to the model.                                                                       | Yes      |     -          |
-| `-a, --attach`              | Attach to an interactive chat session.                                                              | No       | `false`         |
-| `-h, --help`                | Display help information for the command.                                                           | No       |      -         |
+| Option                      | Description                                                                                         | Required | Default value                              | Example                                      |
+|-----------------------------|-----------------------------------------------------------------------------------------------------|----------|-------------------------------------------|----------------------------------------------|
+| `model_id`                  | The identifier of the model you want to chat with.                                                  | No       | `Prompt to select from the available models` | `tinyllama`                             |
+| `-t`, `--thread <thread_id>`  | Specify the Thread ID.                                                                              | No       | `Create a new thread`                     | `-t jan_1717650808`                             |
+| `-m`, `--message <message>`   | Message to send to the model.                                                                       | Yes      | -                                         | `-m Hello World`            |
+| `-a`, `--attach`              | Attach to an interactive chat session.                                                              | No       | `false`                                   | `-a`                                   |
+| `-h`, `--help`                | Display help information for the command.                                                           | No       | -                                         | `-h`                                     |
 

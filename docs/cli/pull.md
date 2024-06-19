@@ -68,7 +68,8 @@ cortex pull microsoft/Phi-3-mini-4k-instruct-gguf
 
 ## Options
 
-| Option            | Description                                           | Required | Default value |
-|-------------------|-------------------------------------------------------|----------|---------------|
-| `model_id`                | The identifier of the model you want to download.                                                           | Yes       |      -         |
-| `-h, --help`      | Display help information for the command.             | No       |      -         |
+| Option            | Description                                           | Required | Default value | Example                    |
+|-------------------|-------------------------------------------------------|----------|---------------|----------------------------|
+| `model_id`        | The identifier of the model you want to download.     | Yes      | -             | `tinyllama`           |
+| `-h`, `--help`      | Display help information for the command.             | No       | -             | `-h`                   |
+

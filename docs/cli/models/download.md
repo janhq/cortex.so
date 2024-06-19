@@ -29,9 +29,10 @@ The following alias is also available for downloading models:
 
 ## Options
 
-| Option                    | Description                              | Required | Default value |
-|---------------------------|------------------------------------------|----------|---------------|
-| `model_id`  | The identifier of the model you want to download.             | Yes      |       -        |
-| `-h, --help`              | Display help for command.                | No       |       -        |
+| Option                    | Description                              | Required | Default value | Example                    |
+|---------------------------|------------------------------------------|----------|---------------|----------------------------|
+| `model_id`                | The identifier of the model you want to download. | Yes      | -             | `tinyllama`           |
+| `-h`, `--help`              | Display help for command.                | No       | -             | `-h`                   |
+
 
 

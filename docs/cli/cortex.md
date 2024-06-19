@@ -24,10 +24,11 @@ cortex [command] [options]
 
 ## Options
 
-| Option               | Description                                        | Required | Default value |
-|----------------------|----------------------------------------------------|----------|---------------|
-| `-v, --version`      | Display the Cortex version.                        | No       | `false`         |
-| `-h, --help`         | Display help information for the command.          | No       |   -            |
+| Option               | Description                                        | Required | Default value | Example         |
+|----------------------|----------------------------------------------------|----------|---------------|-----------------|
+| `-v`, `--version`      | Display the Cortex version.                        | No       | `false`       | `-v`     |
+| `-h`, `--help`         | Display help information for the command.          | No       | -             | `-h`        |
+
 
 
 

@@ -22,6 +22,6 @@ cortex models [options]
 
 ## Options
 
-| Option            | Description                                           | Required | Default value |
-|-------------------|-------------------------------------------------------|----------|---------------|
-| `-h, --help`      | Display help information for the command.             | No       |      -         |
+| Option            | Description                                           | Required | Default value | Example         |
+|-------------------|-------------------------------------------------------|----------|---------------|-----------------|
+| `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |

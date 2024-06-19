@@ -24,12 +24,13 @@ cortex run [options] [model_id]
 
 ## Options
 
-| Option                      | Description                                                                 | Required | Default value |
-|-----------------------------|-----------------------------------------------------------------------------|----------|---------------|
-| `model_id`                | The identifier of the model you want to chat with.                                                           | No       |      `Prompt to select from the available models`         |
-| `-t, --thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified. | No       |     -          |
-| `-p, --preset`                | Apply a chat preset to the chat session.                                   | No       |    -           |
-| `-h, --help`                | Display help information for the command.                                   | No       |    -           |
+| Option                      | Description                                                                 | Required | Default value                                | Example                |
+|-----------------------------|-----------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
+| `model_id`                  | The identifier of the model you want to chat with.                          | No       | `Prompt to select from the available models` | `tinyllama`       |
+| `-t`, `--thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified. | No       | -                                            | `-t jan_1717650808`       |
+| `-p`, `--preset`              | Apply a chat preset to the chat session.                                    | No       | -                                            | `-p friendly`    |
+| `-h`, `--help`                | Display help information for the command.                                   | No       | -                                            | `-h`               |
+
 
 
 ## Command Chain

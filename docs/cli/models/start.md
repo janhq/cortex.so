@@ -31,11 +31,12 @@ Model preset is applied only at the start of the model and does not change durin
 
 ## Options
 
-| Option                   | Description                                                               | Required | Default value |
-|--------------------------|---------------------------------------------------------------------------|----------|---------------|
-| `model_id`                | The identifier of the model you want to start.                                                           | No       |      `Prompt to select from the available models`         |
-| `-a, --attach`           | Attach to an interactive chat session.                                    | No       | `false`         |
-| `-p, --preset <preset>`  | Apply a chat preset to the chat session.                                  | No       | `false`         |
-| `-h, --help`             | Display help information for the command.                                 | No       |   -            |
+| Option                    | Description                                                               | Required | Default value                                | Example                |
+|---------------------------|---------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
+| `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `tinyllama`       |
+| `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
+| `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    |
+| `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
+
 
 
