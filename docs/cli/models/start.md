@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models start`
 
-This command starts a model defined by a `MODEL_ID`.
+This command starts a model defined by a `model_id`.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -19,10 +19,10 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 
 ```bash
 # Start a model
-cortex models start MODEL_ID
+cortex models start [model_id]
 
 # Start a model with a preset
-cortex models start MODEL_ID -p PRESET_FILENAME
+cortex models start [model_id] [options]
 ```
 
 :::note
@@ -31,10 +31,12 @@ Model preset is applied only at the start of the model and does not change durin
 
 ## Options
 
-| Option                   | Description                                                               | Required | Default value |
-|--------------------------|---------------------------------------------------------------------------|----------|---------------|
-| `-a, --attach`           | Attach to an interactive chat session.                                    | No       | `false`         |
-| `-p, --preset <preset>`  | Apply a chat preset to the chat session.                                  | No       | `false`         |
-| `-h, --help`             | Display help information for the command.                                 | No       |   -            |
+| Option                    | Description                                                               | Required | Default value                                | Example                |
+|---------------------------|---------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
+| `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `tinyllama`       |
+| `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
+| `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    |
+| `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
+
 
 

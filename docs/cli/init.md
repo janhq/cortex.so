@@ -24,13 +24,17 @@ The following alias is also available for `cortex init`:
 ## Usage
 
 ```bash
-cortex init
+cortex init [options] [version]
 ```
+:::info
+To see all the available versions of Cortex, please see here.
+:::
 
 ## Options
 
-| Option            | Description                                           | Required | Default value |
-|-------------------|-------------------------------------------------------|----------|---------------|
-| `-s, --silent`    | Initialize without prompting for input.               | No       | `false`         |
-| `-h, --help`      | Display help information for the command.             | No       |     -          |
+| Option            | Description                                           | Required | Default value | Example     |
+|-------------------|-------------------------------------------------------|----------|---------------|-------------|
+| `-s`, `--silent`    | Initialize without prompting for input.               | No       | `false`       | `-s`  |
+| `-h`, `--help`      | Display help information for the command.             | No       | -             | `-h`    |
+
 

@@ -17,17 +17,11 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models API_COMMAND [OPTIONS]
-
-# Start a downloaded model
-cortex models start MODEL_ID
-
-# Stop a downloaded model
-cortex models stop MODEL_ID
+cortex models [options]
 ```
 
 ## Options
 
-| Option            | Description                                           | Required | Default value |
-|-------------------|-------------------------------------------------------|----------|---------------|
-| `-h, --help`      | Display help information for the command.             | No       |      -         |
+| Option            | Description                                           | Required | Default value | Example         |
+|-------------------|-------------------------------------------------------|----------|---------------|-----------------|
+| `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
