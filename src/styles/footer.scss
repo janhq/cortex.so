@@ -1,12 +1,18 @@
 :root {
-  .footer {
+  footer {
     --ifm-footer-background-color: #fff;
   }
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  .footer {
+  footer {
     --ifm-footer-background-color: #111;
   }
+}
+
+footer {
+  margin: 20px;
+  padding: var(--ifm-navbar-padding-vertical)
+    var(--ifm-navbar-padding-horizontal);
 }

@@ -1,5 +1,17 @@
 .sidebar-divider {
   padding-left: 10px;
-  margin-top: 10px;
-  @apply text-gray-600 dark:text-neutral-500 uppercase font-semibold;
+  margin-top: 32px;
+  @apply text-gray-600 dark:text-neutral-400 uppercase font-semibold;
+}
+
+.sidebar {
+  background-color: red;
+}
+
+.menu__caret:before {
+  width: 14px;
+}
+
+.sidebar-search-key {
+  box-shadow: none;
 }

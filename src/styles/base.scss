@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
 :root {
   --ifm-color-primary: #2563eb;
   --ifm-color-primary-dark: #2159d4;
@@ -12,6 +14,7 @@
   --ifm-navbar-background-color: #fff;
   --ifm-background-color: #fff;
   --ifm-toc-border-color: transparent;
+  --ifm-font-family-base: "Space Grotesk";
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -28,6 +31,7 @@ html[data-theme="dark"] {
   --ifm-navbar-background-color: #111;
   --ifm-background-color: #111;
   --ifm-toc-border-color: transparent;
+  --ifm-font-family-base: "Space Grotesk";
 }
 
 .openai-coverage {

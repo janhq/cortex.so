@@ -232,43 +232,109 @@ const config: Config = {
       ],
     },
     footer: {
-      // links: [
-      //   {
-      //     title: "Docs",
-      //     items: [
-      //       {
-      //         label: "Tutorial",
-      //         to: "/",
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: "Community",
-      //     items: [
-      //       {
-      //         label: "Stack Overflow",
-      //         href: "https://stackoverflow.com/questions/tagged/docusaurus",
-      //       },
-      //       {
-      //         label: "Discord",
-      //         href: "https://discordapp.com/invite/docusaurus",
-      //       },
-      //       {
-      //         label: "Twitter",
-      //         href: "https://twitter.com/docusaurus",
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: "More",
-      //     items: [
-      //       {
-      //         label: "GitHub",
-      //         href: "https://github.com/facebook/docusaurus",
-      //       },
-      //     ],
-      //   },
-      // ],
+      links: [
+        {
+          title: "Cortex",
+          items: [
+            {
+              label: "Documentation",
+              to: "/docs",
+            },
+            {
+              label: "Changelog",
+              to: "/",
+            },
+            {
+              label: "Help Center",
+              to: "/",
+            },
+            {
+              label: "Blog",
+              to: "/",
+            },
+          ],
+        },
+        {
+          title: "Getting Started",
+          items: [
+            {
+              label: "Replace OpenAI",
+              to: "/",
+            },
+            {
+              label: "Models",
+              to: "/",
+            },
+            {
+              label: "Integration",
+              to: "/",
+            },
+            {
+              label: "Benchmarks",
+              to: "/",
+            },
+          ],
+        },
+        {
+          title: "Community",
+          items: [
+            {
+              label: "Twitter",
+              href: "https://twitter.com/docusaurus",
+            },
+            {
+              label: "Discord",
+              href: "https://discordapp.com/invite/docusaurus",
+            },
+            {
+              label: "Twitter",
+              href: "https://x.com/janframework",
+            },
+            {
+              label: "linkedin",
+              href: "https://www.linkedin.com/company/janframework/",
+            },
+          ],
+        },
+        {
+          title: "Product",
+          items: [
+            {
+              label: "Jan",
+              href: "https://jan.ai/",
+            },
+            {
+              label: "Cortex",
+              to: "/",
+            },
+            {
+              label: "Homebrew",
+              href: "https://www.homebrew.ltd/",
+            },
+          ],
+        },
+        {
+          title: "Company",
+          items: [
+            {
+              label: "About",
+              to: "/",
+            },
+            {
+              label: "Vision",
+              to: "/",
+            },
+            {
+              label: "Newsletter",
+              to: "/",
+            },
+            {
+              label: "Careers",
+              to: "/",
+            },
+          ],
+        },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} Homebrew Computer Company Pte Ltd.`,
     },
     prism: {
