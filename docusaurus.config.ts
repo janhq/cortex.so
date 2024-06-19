@@ -335,6 +335,12 @@ const config: Config = {
           ],
         },
       ],
+      logo: {
+        alt: "Cortex Logo",
+        src: "img/logos/cortex-logo.svg",
+        srcDark: "img/logos/cortex-logo-dark.svg",
+        width: 116,
+      },
       copyright: `Copyright © ${new Date().getFullYear()} Homebrew Computer Company Pte Ltd.`,
     },
     prism: {
