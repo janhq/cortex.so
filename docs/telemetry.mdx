@@ -9,6 +9,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+## Introduction
+We collect anonymous usage data to enhance our product development.
+
+:::info
+We do not collect any sensitive or personal information.
+:::
 ## Architecture
 ![cortex-architecture.png](/img/docs/telemetry1.png)
 The telemetry system comprises several key components, each designed to ensure the Telemetry features work correctly and function accurately, guaranteeing the precision of the collected data.
@@ -20,7 +26,6 @@ The telemetry system comprises several key components, each designed to ensure t
 
 ## Collected Telemetry Metrics
 The collected telemetry metrics for Cortex are divided into two main categories: `CrashReportResource` and `CrashReportPayload`.
-
 <Tabs>
   <TabItem value="1" label="`CrashReportResource`" default>
 This category includes metrics related to the operating system and hardware details. It captures the following metrics:
@@ -197,10 +202,40 @@ The diagram illustrates the implementation of handling crashes in the Cortex ser
 
                     
 ## Configuration
-You can also set the configuration for the telemetry feature in the... by using the following command:
+You can also opt out of the Telemetry feature or export it using any OpenTelemetry Collector for your application.
+### Turn Off Telemetry
+You can turn off our Telemetry feature by running the following command:
+<Tabs>
+  <TabItem value="linux" label="Linux" default>
+  ```bash
+  ## 1. First Command
+  echo "export CORTEX_CRASH_REPORT=0" >>~/.profile
+  ## 2. Second Command
+  source ~/.profile
+  ```
+  </TabItem>
+  <TabItem value="mac" label="macOS" default>
+    ```bash
+    ## 1. First Command
+    echo "export CORTEX_CRASH_REPORT=0" >>~/.profile
+    ## 2. Second Command
+    source ~/.profile
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Windows" default>
+    ```bash
+    ## Command Prompt
+    set CORTEX_CRASH_REPORT 0
+    ## PowerShell
+    $env:CORTEX_CRASH_REPORT 0
+    ## To set the env permanently
+    setx CORTEX_CRASH_REPORT 0
+    ```
+  </TabItem>
+</Tabs>
+### Export to OTEL
+You can also export our telemetry to your own Open Telemetry setup by running the following command:
 ```bash
-## Disable by set environment variables
-`CORTEX_CRASH_REPORT=0`
 ## Export the Telemetry to OpenTelemetry Collector:
 `OTEL_EXPORTER_OTLP_ENDPOINT=<endpoint>`
 ```
