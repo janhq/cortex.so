@@ -34,26 +34,6 @@ const installationScript = () => {
 };
 
 const HeroSection = () => {
-  // const test = async () => {
-  //   for await (const model of listModels({
-  //     search: { owner: "cortexhub" },
-  //   })) {
-  //     console.log("My model:", model);
-  //   }
-  // };
-
-  // const tost = async () => {
-  //   for await (const fileInfo of listFiles({ repo: "cortexhub/llama3" })) {
-  //     console.log(fileInfo);
-  //   }
-  // };
-
-  // const testz = async () => {
-  //   await (
-  //     await downloadFile({ repo: "cortexhub/llama3", path: "README.md" })
-  //   ).text();
-  // };
-
   return (
     <div className="container">
       <div className="text-center">

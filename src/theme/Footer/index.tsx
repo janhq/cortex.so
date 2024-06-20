@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { useThemeConfig } from "@docusaurus/theme-common";
 import FooterCopyright from "@theme/Footer/Copyright";
 import CardContainer from "@site/src/components/CardContainer";
 import Link from "@docusaurus/Link";
 import ThemedImage from "@theme/ThemedImage";
+import { useForm } from "react-hook-form";
 
 function Footer(): JSX.Element | null {
   const { footer } = useThemeConfig();
@@ -13,6 +14,44 @@ function Footer(): JSX.Element | null {
     return null;
   }
   const { copyright, links, logo } = footer;
+
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      email: "",
+    },
+  });
+
+  const [formMessage, setFormMessage] = useState("");
+
+  const onSubmit = (data: { email: string }) => {
+    const { email } = data;
+    const options = {
+      method: "POST",
+
+      body: JSON.stringify({
+        updateEnabled: false,
+        email,
+        listIds: [20],
+      }),
+    };
+
+    if (email) {
+      fetch("https://brevo.jan.ai/", options)
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.id) {
+            setFormMessage("You have successfully joined our newsletter");
+          } else {
+            setFormMessage(response.message);
+          }
+          reset();
+          setTimeout(() => {
+            setFormMessage("");
+          }, 5000);
+        })
+        .catch((err) => console.error(err));
+    }
+  };
 
   return (
     <footer>
@@ -34,6 +73,27 @@ function Footer(): JSX.Element | null {
             <p className="mb-0 text-black/60 dark:text-white/60">
               Subscribe to our newsletter on LLM research and building Cortex.
             </p>
+            <div className="mt-4">
+              <form
+                className="relative flex gap-2 items-center"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                <input
+                  type="email"
+                  className="lg:ml-0.5 w-full h-12 p-4 pr-14 rounded-xl bg-white border dark:border-neutral-600 dark:bg-[#252525] border-neutral-400 focus-visible:ring-0"
+                  placeholder="Enter your email"
+                  autoComplete="off"
+                  {...register("email")}
+                />
+                <button
+                  type="submit"
+                  className="flex py-2 px-4 font-medium bg-black dark:bg-white text-white dark:text-black border dark:border-gray-600 rounded-lg items-center"
+                >
+                  Subcribe
+                </button>
+              </form>
+              {formMessage && <p className="text-left mt-4">{formMessage}</p>}
+            </div>
           </div>
           {links.length > 0 && (
             <div className="w-full grid lg:grid-cols-3 xl:grid-cols-5 grid-cols-2 gap-14">

@@ -30,17 +30,17 @@ const GettingStartedSection = () => {
                 <p className="mb-0">
                   <span className="text-green-600">cortex&nbsp;</span>
                   <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3:tensorrt</span>
-                </p>
-                <p className="mb-0">
-                  <span className="text-green-600">cortex&nbsp;</span>
-                  <span className="text-white">run&nbsp;</span>
                   <span className="text-cyan-600">llama3:onnx</span>
                 </p>
                 <p className="mb-0">
                   <span className="text-green-600">cortex&nbsp;</span>
                   <span className="text-white">run&nbsp;</span>
                   <span className="text-cyan-600">llama3:llamacpp</span>
+                </p>
+                <p className="mb-0">
+                  <span className="text-green-600">cortex&nbsp;</span>
+                  <span className="text-white">run&nbsp;</span>
+                  <span className="text-cyan-600">llama3:tensorrt</span>
                 </p>
               </code>
             </div>
