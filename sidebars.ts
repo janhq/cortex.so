@@ -60,7 +60,6 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "architecture", label: "Cortex" },
-    { type: "doc", id: "cortex-cpp", label: "Cortex.cpp" },
     { type: "doc", id: "cortex-llamacpp", label: "Cortex.llamacpp" },
     { type: "doc", id: "telemetry", label: "Telemetry" },
   ],

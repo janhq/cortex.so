@@ -27,7 +27,9 @@ These resources provide detailed instructions to ensure Cortex is set up correct
 
 The Cortex CLI has a robust command set that streamlines your LLM interactions.
 
+:::info
 Check out the [CLI reference pages](/docs/cli) for a comprehensive guide on all available commands and their specific functions.
+:::
 
 ## Storage
 
