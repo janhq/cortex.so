@@ -80,15 +80,15 @@ const ModelRegistry = () => {
           <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
             Model Hub
           </h3>
-          {/* <div className="border dark:border-neutral-800 border-neutral-300 rounded-lg h-full p-8">
-            {models.map((model) => {
+          <div className="border dark:border-neutral-800 border-neutral-300 rounded-lg h-full p-8">
+            {/* {models.map((model) => {
               return (
                 <div key={model.id}>
                   <p>{model.name.replace("cortexhub/", "")}</p>
                 </div>
               );
-            })}
-          </div> */}
+            })} */}
+          </div>
         </div>
         <div className="w-full">
           <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
