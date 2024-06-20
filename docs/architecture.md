@@ -114,26 +114,7 @@ The structure above promotes clean architecture principles, allowing for scalabl
 :::
 
 ## Runtime
-
-```mermaid
-sequenceDiagram
-    User-)Cortex: "Tell me a joke"
-    Cortex->>HF: Download a model
-    Cortex->>Model Controller/Service: Start the model
-    Cortex->>Chat Controller/Service: POST /completions
-    Chat Controller/Service ->> Chat UseCases: createChatCompletions()
-    Chat UseCases -->> Model Entity: findOne()
-    Cortex->>Model Entity: Store the model data
-    Chat UseCases -->> Extension Repository: findAll()
-    Extension Repository ->> Cortex Provider: inference()
-    CortexCPP Server ->> Cortex Provider: Port /???
-
-    %% Responses
-    Cortex Provider ->> Extension Repository: inference()
-    Extension Repository ->> Chat UseCases: Response stream
-    Chat UseCases ->> Chat Controller/Service: Formatted response/stream
-    Chat Controller/Service ->> User: "Your mama"
-```
+![cortex runtime](/img/docs/cortex-runtime.png)
 
 The sequence diagram above outlines the interactions between various components in the Cortex system during runtime, particularly when handling user requests via a CLI. Here’s a detailed breakdown of the runtime sequence:
 
@@ -155,7 +136,6 @@ The sequence diagram above outlines the interactions between various components 
 
 Our development roadmap outlines key features and epics we will focus on in the upcoming releases. These enhancements aim to improve functionality, increase efficiency, and expand Cortex's capabilities.
 
-- **Crash Report Telemetry**: Enhance error reporting and operational stability by automatically collecting and analyzing crash reports.
 - **RAG**: Improve response quality and contextual relevance in our AI models.
 - **Cortex TensorRT-LLM**: Optimize NVIDIA TensorRT optimizations for LLMs.
 - **Cortex Presets**: Streamline model configurations.

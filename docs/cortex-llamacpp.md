@@ -1,33 +1,36 @@
 ---
-title: Cortex.llamacpp
-description: Cortex.llamacpp Architecture
+title: cortex.llamacpp
+description: cortex.llamacpp Architecture
 slug: "cortex-llamacpp"
 ---
 
 :::warning
 🚧 Cortex is under construction.
 :::
+`cortex.llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference.
 
-Cortex.llamacpp is a C++ inference library that can be loaded by any server at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference.
+In addition to `llama.cpp`, `cortex.llamacpp` adds:
 
-In addition to llama.cpp, cortex.llamacpp adds:
-
-- OpenAI compatibility for the stateless endpoints
-- Model orchestration like model warm up and concurrent models
+- OpenAI compatibility for the stateless endpoints.
+- Model orchestration, like model warm-up and concurrent models.
 
 :::info
-Cortex.llamacpp is formerly called "Nitro".
+`cortex.llamacpp` is formerly called "Nitro".
 :::
 
-If you already use [Jan](/docs) or [Cortex](/docs), cortex.llamacpp is bundled by default and you don’t need this guide. This guides walks you through how to use cortex.llamacpp as a standalone library, in any custom C++ server.
+This guide walks you through how to use `cortex.llamacpp` as a standalone library in any custom C++ server.
+
+:::warning
+`cortex.llamacpp` is bundled by default in our product, [Jan](https://jan.ai/docs) and [Cortex](/docs).
+:::
 
 ## Usage
 
-To include cortex.llamacpp in your own server implementation, follow this [server example](https://github.com/janhq/cortex.llamacpp/tree/main/examples/server).
+To include `cortex.llamacpp` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.llamacpp/tree/main/examples/server).
 
 ## Interface
 
-Cortex.llamacpp has the following Interfaces:
+`cortex.llamacpp` has the following Interfaces:
 
 - **HandleChatCompletion:** Processes chat completion tasks
   ```cpp
@@ -59,29 +62,31 @@ Cortex.llamacpp has the following Interfaces:
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
+All the interfaces above contain the following parameters:
 
-**Parameters:**
+| Parameter  | Description                                    |
+|------------|------------------------------------------------|
+| `jsonBody` | The requested content in JSON format.          |
+| `callback` | A function that handles the response.          |
 
-- **`jsonBody`**: The request content in JSON format.
-- **`callback`**: A function that handles the response
 
 ## Architecture
+![Cortex llamacpp architecture](/img/docs/llama-cpp1.png)
 
-The main components include:
+### Main Components
+`cortex.llamacpp` is architected with several key components:
 
-- `enginei`: an engine interface definition that extends to all engines, handling endpoint logic and facilitating communication between `cortex.cpp` and `llama engine`.
-- `llama engine`: exposes APIs for embedding and inference. It loads and unloads models and simplifies API calls to `llama.cpp`.
-- `llama.cpp`: submodule from the `llama.cpp` repository that provides the core functionality for embeddings and inferences.
-- `llama server context`: a wrapper offers a simpler and more user-friendly interface for `llama.cpp` APIs
+- **enginei**: An engine interface definition that extends to all engines, handling endpoint logic and facilitating communication between `cortex.cpp` and `llama engine`.
+- **llama engine**: Exposes APIs for embedding and inference. It loads and unloads models and simplifies API calls to `llama.cpp`.
+- **llama.cpp**: Submodule from the `llama.cpp` repository that provides the core functionality for embeddings and inferences.
+- **llama server context**: A wrapper offers a more straightforward and user-friendly interface for `llama.cpp` APIs
 
-![Cortex llamacpp architecture](/img/docs/cortex-llamacpp-arch.png)
-
-### Communication Protocols:
+### Communication Protocols
+![Cortex llamacpp architecture](/img/docs/llama-cpp2.png)
+The diagram above illustrates how `cortex.llamacpp` communication protocol works:
 
 - `Streaming`: Responses are processed and returned one token at a time.
-- `RESTful`: The response is processed as a whole. After the llama server context completes the entire process, it returns a single result back to cortex.cpp.
-
-![Cortex llamacpp architecture](/img/docs/cortex-llamacpp-act.png)
+- `RESTful`: The response is processed as a whole. After the llama server context completes the entire process, a single result returns to `cortex.cpp`.
 
 ## Code Structure
 
@@ -107,13 +112,15 @@ The main components include:
 │   └── (list of third-party dependencies)
 ```
 
-## Runtime
+<!-- ## Runtime-->
 
 ## Roadmap
 
-The future plans for Cortex.llamacpp are focused on enhancing performance and expanding capabilities. Key areas of improvement include:
+The future plans for `cortex.llamacpp` are focused on enhancing performance and expanding capabilities. Key areas of improvement include:
 
-- Performance Enhancements: Optimizing speed and reducing memory usage to ensure efficient processing of tasks.
-- Multimodal Model Compatibility: Expanding support to include a variety of multimodal models, enabling a broader range of applications and use cases.
+- **Performance Enhancements**: Optimizing speed and reducing memory usage to ensure efficient processing of tasks.
+- **Multimodal Model Compatibility**: Expanding support to include a variety of multimodal models, enabling a broader range of applications and use cases.
 
-To follow the latest developments, see the [cortex.llamacpp GitHub](https://github.com/janhq/cortex.llamacpp)
+:::info
+To follow the latest developments of `cortex.llamacpp`, please see the [GitHub Repository](https://github.com/janhq/cortex.llamacpp).
+:::

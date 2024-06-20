@@ -34,7 +34,7 @@ The Cortex Embeddings feature is fully compatible with OpenAI-compatible endpoin
   <TabItem value="CURL" label="CURL">
   #### **Request**
   To get an embedding result from a model, use the following in your request:
-  ```curl
+  ```bash
 curl http://localhost:1337/v1/embeddings \
     -H 'Content-Type: application/json' \
     -d '{
@@ -47,7 +47,7 @@ curl http://localhost:1337/v1/embeddings \
   ```
   #### **Endpoint Response**
   Below are examples of the embedding endpoint response from the Cortex server:
-  ```curl
+  ```bash
 {
   data: [
     {
@@ -101,6 +101,6 @@ curl http://localhost:1337/v1/embeddings \
 </Tabs>
 :::note
 Learn more about Embeddings capabilities:
-- [Embeddings API Reference](/api-reference#tag/embeddings/post/embeddings).
-- [Embeddings CLI command](/docs/cli/embeddings).
+- [Embeddings API Reference](/api-reference#tag/embeddings/post/embeddings)
+- [Embeddings CLI command](/docs/cli/embeddings)
 :::

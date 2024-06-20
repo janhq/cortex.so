@@ -35,7 +35,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
 
       ### Request
       To load a model, use the following in your request:
-      ```curl
+      ```bash
         curl -X POST "http://localhost:1337/models/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}/start" \
         -H "Content-Type: application/json" \
         -d '{
@@ -60,7 +60,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
       ```
       ### Endpoint Response
       Below are examples of the `start model` endpoint response from the Cortex server:
-      ```curl
+      ```bash
     {
       "message": "Model started successfully",
       "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
@@ -75,7 +75,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
 
       ### Request
       To unload a model, use the following in your request:
-      ```curl
+      ```bash
         curl --request POST \
         --url http://localhost:1337/models/janhq/TinyLlama-1.1B-Chat-v1.0-GGUF/stop
 
@@ -84,7 +84,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
       ```
       ### Endpoint Response
       Below are examples of the `stop model` endpoint response from the Cortex server:
-      ```curl
+      ```bash
     {
       "message": "Model stopped successfully",
       "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
@@ -96,19 +96,15 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
 
 ## Capabilities
 
-### Model Hub
-
-Cortex is compatible with 3rd party model hubs like [Hugging Face Hub](https://huggingface.co/models). 
-
-To make the experience easier, Cortex has curated a list of models and their configurations.
-
-**Available hubs**
-- https://huggingface.co/cortexhub 
-
+### Model Hub 
+To enhance user experience, Cortex has curated a selection of models and their configurations, which can be found in the [Cortex Hub](https://huggingface.co/cortexhub) on Hugging Face.
+:::info
+Cortex is compatible with 3rd party model hubs like [Hugging Face Hub](https://huggingface.co/models).
+:::
 
 ### Model Settings
 
-Cortex looks for a `model.yaml` to run models. Otherwise it is generated from model metadata. The yaml files are flat, portable and contains all the parameters needed to run models.
+Cortex looks for a `model.yaml` to run models. Otherwise, it is generated from model metadata. The `yaml` files are flat, portable, and contain all the parameters needed to run models.
 
 **Example `model.yaml`**
 ```yaml
