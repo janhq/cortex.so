@@ -258,10 +258,6 @@ const config: Config = {
               to: "/",
             },
             {
-              label: "Help Center",
-              to: "/",
-            },
-            {
               label: "Blog",
               to: "/",
             },

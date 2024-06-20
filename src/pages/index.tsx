@@ -5,6 +5,7 @@ import GettingStartedSection from "@site/src/containers/Homepage/GettingStartedS
 import UniversalSection from "@site/src/containers/Homepage/UniversalSection";
 import ModelRegistry from "@site/src/containers/Homepage/ModelRegistry";
 import OAIReplacement from "@site/src/containers/Homepage/OAIReplacement";
+import DownloadSection from "@site/src/containers/Homepage/Download";
 
 const Home = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -17,6 +18,7 @@ const Home = () => {
         <UniversalSection />
         <ModelRegistry />
         <OAIReplacement />
+        <DownloadSection />
       </main>
     </Layout>
   );
