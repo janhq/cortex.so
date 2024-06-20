@@ -1,3 +1,5 @@
+import ThemedImage from "@theme/ThemedImage";
+
 const ModelRegistry = () => {
   return (
     <div className="container">
@@ -19,8 +21,28 @@ const ModelRegistry = () => {
             Use Models in Jan
           </h3>
           <div className="flex flex-col gap-8">
-            <div className="bg-neutral-100 dark:bg-neutral-800 min-h-80 rounded-lg"></div>
-            <div className="bg-neutral-100 dark:bg-neutral-800 min-h-80 rounded-lg"></div>
+            <div className="min-h-80 relative overflow-hidden">
+              <ThemedImage
+                alt="Illustration Element Stars"
+                className="rounded-lg object-cover"
+                width={1024}
+                sources={{
+                  light: "/img/homepage/categories1.png",
+                  dark: "/img/homepage/categories1-dark.png",
+                }}
+              />
+            </div>
+            <div className="min-h-80 relative overflow-hidden">
+              <ThemedImage
+                alt="Illustration Element Stars"
+                className="rounded-lg object-cover"
+                width={1024}
+                sources={{
+                  light: "/img/homepage/categories2.png",
+                  dark: "/img/homepage/categories2-dark.png",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

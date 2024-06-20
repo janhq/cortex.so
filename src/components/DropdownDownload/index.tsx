@@ -124,7 +124,7 @@ const DropdownDownload = ({ lastRelease }: Props) => {
       >
         <a
           href={defaultSystem.href || "/"}
-          className="dark:border-r-0 dark:nx-bg-neutral-900  bg-black dark:bg-white text-white dark:text-black hover:text-white justify-center dark:border dark:border-neutral-800 flex-shrink-0 pl-4 pr-6 py-4 rounded-l-lg inline-flex items-center !no-underline	"
+          className="dark:border-r-0 dark:nx-bg-neutral-900 bg-black dark:bg-white text-white dark:text-black hover:text-white justify-center dark:border dark:border-neutral-800 flex-shrink-0 pl-4 pr-6 py-4 rounded-l-lg inline-flex items-center !no-underline	"
         >
           <defaultSystem.logo className="h-4 mr-2" />
           {defaultSystem.name}
@@ -144,18 +144,20 @@ const DropdownDownload = ({ lastRelease }: Props) => {
       </div>
       {open && (
         <div
-          className="absolute left-0 top-[72px] w-full dark:nx-bg-neutral-900 bg-black z-30 rounded-xl"
+          className="absolute left-0 top-[72px] w-full border-2 border-black bg-white dark:bg-black z-30 rounded-xl"
           ref={setRefDropdownContent}
         >
           {systems.map((system) => (
             <div key={system.name} className="py-1">
               <a
                 href={system.href || ""}
-                className="flex px-4 py-3 items-center text-white hover:text-white hover:bg-white/10 dark:hover:bg-white/5 !no-underline"
+                className="flex px-4 py-3 items-center  text-black dark:text-white  hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 !no-underline"
                 onClick={() => setOpen(false)}
               >
                 <system.logo className="w-3 mr-3 -mt-1 flex-shrink-0" />
-                <span className="text-white font-medium">{system.name}</span>
+                <span className="text-black dark:text-white font-medium">
+                  {system.name}
+                </span>
               </a>
             </div>
           ))}

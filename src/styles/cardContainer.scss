@@ -1,7 +1,7 @@
 .cardContainer {
   border: 1px;
   border-style: solid;
-  @apply dark:border-neutral-500 border-neutral-800;
+  @apply dark:border-neutral-700 border-neutral-800;
   @apply dark:bg-[#111] bg-white;
   padding: 32px;
   border-radius: 16px;
@@ -18,8 +18,8 @@
     height: 100%;
     border: 1px;
     border-style: solid;
-    @apply dark:border-neutral-500 border-neutral-800;
-    @apply bg-[#111] dark:bg-white;
+    @apply dark:border-neutral-800 border-neutral-800;
+    @apply bg-[#111] dark:bg-neutral-800;
     border-radius: inherit;
   }
 

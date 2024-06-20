@@ -44,8 +44,8 @@ function generateDates(startDate: string, numberOfDays: number): string[] {
 }
 
 // disbale this one for avoid date 19,20 may
-// const dateArray = generateDates(formattedDate, 30);
-const dateArray = generateDates("06-21-2024", 30);
+const dateArray = generateDates(formattedDate, 30);
+// const dateArray = generateDates("06-21-2024", 30);
 
 const config: Config = {
   title: "Cortex",

@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import { FaArrowRight } from "react-icons/fa6";
 import ThemedImage from "@theme/ThemedImage";
 
@@ -31,17 +32,19 @@ const UniversalSection = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-x-2 cursor-pointer">
-                <div className="w-8 h-8 bg-[#111] dark:bg-neutral-100 flex rounded-full items-center justify-center">
-                  <FaArrowRight
-                    className="text-blue-300 dark:text-blue-600 -rotate-45"
-                    size={20}
-                  />
+              <Link href="/docs" className="!no-underline">
+                <div className="flex items-center mt-8 gap-x-2 cursor-pointer">
+                  <div className="w-8 h-8 dark:bg-neutral-800 bg-neutral-100 flex rounded-full items-center justify-center">
+                    <FaArrowRight
+                      className="text-blue-300 -rotate-45"
+                      size={20}
+                    />
+                  </div>
+                  <p className="mb-0 text-neutral-800 font-medium dark:text-white">
+                    Learn more
+                  </p>
                 </div>
-                <p className="mb-0 text-black/60 dark:text-white/60">
-                  Learn more
-                </p>
-              </div>
+              </Link>
             </div>
             <div className="relative z-50 m-auto flex flex-col gap-2">
               <ThemedImage
@@ -76,15 +79,19 @@ const UniversalSection = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-x-2 cursor-pointer">
-                <div className="w-8 h-8 bg-[#111] dark:bg-neutral-100 flex rounded-full items-center justify-center">
-                  <FaArrowRight
-                    className="text-blue-300 dark:text-blue-600 -rotate-45"
-                    size={20}
-                  />
+              <Link href="/docs" className="!no-underline">
+                <div className="flex items-center mt-8 gap-x-2 cursor-pointer">
+                  <div className="w-8 h-8 dark:bg-neutral-800 bg-neutral-100 flex rounded-full items-center justify-center">
+                    <FaArrowRight
+                      className="text-blue-300 -rotate-45"
+                      size={20}
+                    />
+                  </div>
+                  <p className="mb-0 text-neutral-800 font-medium dark:text-white">
+                    Learn more
+                  </p>
                 </div>
-                <p className="mb-0">Learn more</p>
-              </div>
+              </Link>
             </div>
             <div className="relative z-50 m-auto flex flex-col gap-2">
               <ThemedImage
