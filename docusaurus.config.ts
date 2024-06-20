@@ -2,7 +2,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type { ScalarOptions } from "@scalar/docusaurus";
-
+import { downloadFile, listModels, listFiles } from "@huggingface/hub";
 import { remarkCodeHike } from "@code-hike/mdx";
 
 const date = new Date();
@@ -65,6 +65,72 @@ const config: Config = {
           postcssOptions.plugins.push(require("tailwindcss"));
           postcssOptions.plugins.push(require("autoprefixer"));
           return postcssOptions;
+        },
+      };
+    },
+    async function modelsPagesGenPlugin(context, options) {
+      return {
+        name: "list-models",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+          try {
+            const fetchedModels = [];
+            for await (const model of listModels({
+              search: { owner: "cortexhub" },
+            })) {
+              try {
+                const files = [];
+                let readmeContent = "README.md not available";
+                for await (const fileInfo of listFiles({
+                  repo: "cortexhub/llama3",
+                })) {
+                  files.push(fileInfo);
+                  if (fileInfo.path === "README.md") {
+                    const response = await downloadFile({
+                      repo: model.name,
+                      path: "README.md",
+                    });
+                    if (response && response.text) {
+                      readmeContent = await response.text();
+                    }
+                  }
+                }
+                fetchedModels.push({ ...model, files, readmeContent });
+              } catch (error) {
+                console.error("Error fetching files:", error);
+                fetchedModels.push({
+                  ...model,
+                  files: [],
+                  readmeContent: "Error fetching README.md",
+                  error: "Error fetching files",
+                });
+              }
+            }
+            setGlobalData(fetchedModels);
+            await Promise.all(
+              fetchedModels.map(async (page) => {
+                return actions.addRoute({
+                  // this is the path slug
+                  // you can make it dynamic here
+                  path: `/model/${page.name.replace("cortexhub/", "")}`,
+                  // the page component used to render the page
+                  component: require.resolve(
+                    "./src/components/MyModelPage/index.tsx"
+                  ),
+                  // will only match for exactly matching paths
+                  exact: true,
+                  // you can use this to optionally overwrite certain theme components
+                  // see here: https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-plugin-content-blog/src/index.ts#L343
+                  modules: {},
+                  // any extra custom data keys are passed to the page
+                  // in this case, we merge the page data together with the loaded content data
+                  customData: { ...page },
+                });
+              })
+            );
+          } catch (error) {
+            console.error("Error fetching models:", error);
+          }
         },
       };
     },

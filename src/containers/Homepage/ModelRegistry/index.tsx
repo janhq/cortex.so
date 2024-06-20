@@ -1,71 +1,9 @@
 import ThemedImage from "@theme/ThemedImage";
-import { downloadFile, listModels, listFiles } from "@huggingface/hub";
-import { useEffect, useState } from "react";
-
-export interface Model {
-  id: string;
-  name: string;
-  private: boolean;
-  downloads: number;
-  gated: boolean;
-  likes: number;
-  updatedAt: Date;
-}
+import { usePluginData } from "@docusaurus/useGlobalData";
+import Link from "@docusaurus/Link";
 
 const ModelRegistry = () => {
-  // const [models, setModels] = useState<Model[]>([]);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchModelsAndFiles = async () => {
-  //     try {
-  //       const fetchedModels = [];
-  //       for await (const model of listModels({
-  //         search: { owner: "cortexhub" },
-  //       })) {
-  //         try {
-  //           const files = [];
-  //           let readmeContent = "README.md not available";
-  //           for await (const fileInfo of listFiles({
-  //             repo: "cortexhub/llama3",
-  //           })) {
-  //             files.push(fileInfo);
-  //             if (fileInfo.path === "README.md") {
-  //               const response = await downloadFile({
-  //                 repo: model.name,
-  //                 path: "README.md",
-  //               });
-  //               if (response && response.text) {
-  //                 readmeContent = await response.text();
-  //               }
-  //             }
-  //           }
-  //           fetchedModels.push({ ...model, files, readmeContent });
-  //         } catch (error) {
-  //           console.error("Error fetching files:", error);
-  //           fetchedModels.push({
-  //             ...model,
-  //             files: [],
-  //             readmeContent: "Error fetching README.md",
-  //             error: "Error fetching files",
-  //           });
-  //         }
-  //       }
-  //       setModels(fetchedModels);
-  //     } catch (error) {
-  //       console.error("Error fetching models:", error);
-  //       setError("Error fetching models");
-  //     }
-  //   };
-
-  //   fetchModelsAndFiles();
-  // }, []);
-
-  // console.log(models);
-
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
+  const listModels = usePluginData("list-models");
 
   return (
     <div className="container">
@@ -81,13 +19,18 @@ const ModelRegistry = () => {
             Model Hub
           </h3>
           <div className="border dark:border-neutral-800 border-neutral-300 rounded-lg h-full p-8">
-            {/* {models.map((model) => {
+            {(listModels as any[]).map((model) => {
               return (
-                <div key={model.id}>
-                  <p>{model.name.replace("cortexhub/", "")}</p>
+                <div key={model.id} className="py-2">
+                  <h3 className="mb-2">
+                    {model.name.replace("cortexhub/", "")}
+                  </h3>
+                  <Link href={`/model/${model.name.replace("cortexhub/", "")}`}>
+                    Detail Model
+                  </Link>
                 </div>
               );
-            })} */}
+            })}
           </div>
         </div>
         <div className="w-full">
