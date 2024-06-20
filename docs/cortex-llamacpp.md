@@ -62,11 +62,13 @@ To include `cortex.llamacpp` in your own server implementation, follow the steps
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
+All the interfaces above contain the following parameters:
 
-**Parameters:**
+| Parameter  | Description                                    |
+|------------|------------------------------------------------|
+| `jsonBody` | The requested content in JSON format.          |
+| `callback` | A function that handles the response.          |
 
-- **`jsonBody`** : The requested content in JSON format.
-- **`callback`**: A function that handles the response.
 
 ## Architecture
 ![Cortex llamacpp architecture](/img/docs/llama-cpp1.png)

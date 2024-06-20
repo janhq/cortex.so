@@ -35,7 +35,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
 
       ### Request
       To load a model, use the following in your request:
-      ```curl
+      ```bash
         curl -X POST "http://localhost:1337/models/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}/start" \
         -H "Content-Type: application/json" \
         -d '{
@@ -60,7 +60,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
       ```
       ### Endpoint Response
       Below are examples of the `start model` endpoint response from the Cortex server:
-      ```curl
+      ```bash
     {
       "message": "Model started successfully",
       "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
@@ -75,7 +75,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
 
       ### Request
       To unload a model, use the following in your request:
-      ```curl
+      ```bash
         curl --request POST \
         --url http://localhost:1337/models/janhq/TinyLlama-1.1B-Chat-v1.0-GGUF/stop
 
@@ -84,7 +84,7 @@ In addition to the [Model API](https://platform.openai.com/docs/api-reference/mo
       ```
       ### Endpoint Response
       Below are examples of the `stop model` endpoint response from the Cortex server:
-      ```curl
+      ```bash
     {
       "message": "Model stopped successfully",
       "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"

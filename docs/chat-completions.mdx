@@ -32,7 +32,7 @@ Cortex routes requests to multiple APIs for remote inference while providing a s
   <TabItem value="CURL" label="CURL">
   ### Single Request Example
   To send a single query to your chosen LLM, use the following in your request:
-  ```curl
+  ```bash
   curl http://localhost:1337/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
@@ -58,7 +58,7 @@ Cortex routes requests to multiple APIs for remote inference while providing a s
   ```
   ### Dialog Request Example
   For ongoing conversations or multiple queries, structure a multi-turn conversation as follows:
-  ```curl
+  ```bash
   curl http://localhost:1337/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
@@ -95,7 +95,7 @@ Cortex routes requests to multiple APIs for remote inference while providing a s
   ```
   ### Endpoint Response
   Below are examples of the chat completions endpoint response from the Cortex server:
-  ```curl
+  ```bash
   {
   "choices": [
     {

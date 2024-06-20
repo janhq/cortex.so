@@ -23,6 +23,9 @@ cortex models start [model_id]
 
 # Start a model with a preset
 cortex models start [model_id] [options]
+
+# Start with a specified engine
+cortex models start [model_id]:[engine] [options]
 ```
 
 :::note

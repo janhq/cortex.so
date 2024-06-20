@@ -20,6 +20,8 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 
 ```bash
 cortex run [options] [model_id]
+## With a specified engine
+cortex run [options] [model_id]:[engine]
 ```
 
 ## Options
