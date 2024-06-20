@@ -118,7 +118,7 @@ export default function CardDownload({ lastRelease }: Props) {
               <a
                 href={system.href || ""}
                 className={twMerge(
-                  "inline-flex text-lg my-2 font-semibold cursor-pointer justify-center items-center space-x-2] text-blue-500 hover:text-blue-500 gap-2"
+                  "inline-flex my-2 font-medium cursor-pointer justify-center items-center space-x-2] text-blue-500 hover:text-blue-500 gap-2"
                 )}
               >
                 <span>{system.label}</span>

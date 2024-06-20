@@ -6,6 +6,7 @@ import UniversalSection from "@site/src/containers/Homepage/UniversalSection";
 import ModelRegistry from "@site/src/containers/Homepage/ModelRegistry";
 import OAIReplacement from "@site/src/containers/Homepage/OAIReplacement";
 import DownloadSection from "@site/src/containers/Homepage/Download";
+import About from "@site/src/containers/Homepage/About";
 
 const Home = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -19,6 +20,7 @@ const Home = () => {
         <ModelRegistry />
         <OAIReplacement />
         <DownloadSection />
+        <About />
       </main>
     </Layout>
   );

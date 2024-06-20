@@ -24,7 +24,7 @@ const OAIReplacement = () => {
           <div className="cardContainer">
             <h2>OpenAI</h2>
             <div className="min-h-80 flex items-center w-full justify-end flex-col gap-24 relative">
-              <div className="flex gap-2  absolute top-32">
+              <div className="flex gap-2  absolute top-32 scale-75 md:scale-100">
                 <div className="bg-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 w-56 text-center p-1 px-2 rounded-lg border border-neutral-200 -rotate-[70deg] hover:-translate-y-2 transition-all">
                   <span>/chat/completions</span>
                 </div>
@@ -64,7 +64,7 @@ const OAIReplacement = () => {
           <div className="cardContainer">
             <h2>Cortex</h2>
             <div className="min-h-80 flex items-center w-full justify-end flex-col gap-24 relative">
-              <div className="flex gap-2  absolute top-32">
+              <div className="flex gap-2  absolute top-32 scale-75 md:scale-100">
                 <div className="bg-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 w-56 text-center p-1 px-2 rounded-lg border border-neutral-200 -rotate-[70deg] hover:-translate-y-2 transition-all">
                   <span>/chat/completions</span>
                 </div>
