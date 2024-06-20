@@ -5,14 +5,14 @@ const UniversalSection = () => {
   return (
     <div className="container">
       <div className="mt-32">
-        <h2 className="text-4xl">Universal AI Engine</h2>
+        <h2 className="text-4xl font-grotesk">Universal AI Engine</h2>
         <p className="text-black/60 dark:text-white/60 mb-2">
           Build once. Deploy everywhere.
         </p>
       </div>
       <div className="py-8 flex flex-col md:flex-row items-start gap-8">
         <div className="cardContainer">
-          <div className="flex items-start gap-8 h-40">
+          <div className="flex items-start gap-8 h-56">
             <div className="flex flex-col justify-between h-full w-1/2 flex-shrink-0">
               <div className="flex flex-col h-full">
                 <div>
@@ -25,6 +25,11 @@ const UniversalSection = () => {
                     Model Formats
                   </h3>
                 </div>
+                <div className="mt-0">
+                  <p className="mb-0 text-black/60 dark:text-white/60">
+                    GGUF, ONNX, TensorRT
+                  </p>
+                </div>
               </div>
               <div className="flex items-center gap-x-2 cursor-pointer">
                 <div className="w-8 h-8 bg-[#111] dark:bg-neutral-100 flex rounded-full items-center justify-center">
@@ -33,28 +38,25 @@ const UniversalSection = () => {
                     size={20}
                   />
                 </div>
-                <p className="mb-0">View Model Hub</p>
+                <p className="mb-0 text-black/60 dark:text-white/60">
+                  Learn more
+                </p>
               </div>
             </div>
             <div className="relative z-50 m-auto flex flex-col gap-2">
-              <div className="rotate-6 z-20">
-                <div className="cardContainer cardContainer__small !py-2 !px-6 !rounded-lg">
-                  <span className="text-lg font-semibold">GGUF</span>
-                </div>
-              </div>
-              <div className="-rotate-6">
-                <div className="cardContainer cardContainer__small !py-2 !px-6 !rounded-lg">
-                  <span className="text-lg font-semibold">ONNX</span>
-                </div>
-              </div>
-              <div className="cardContainer cardContainer__small !py-2 !px-6 !rounded-lg">
-                <span className="text-lg font-semibold">TensorRT</span>
-              </div>
+              <ThemedImage
+                width={180}
+                alt="Illustration Multi device"
+                sources={{
+                  light: "/img/homepage/multi-model.svg",
+                  dark: "/img/homepage/multi-model.svg",
+                }}
+              />
             </div>
           </div>
         </div>
         <div className="cardContainer">
-          <div className="flex items-start gap-8 h-40">
+          <div className="flex items-start gap-8 h-56">
             <div className="flex flex-col justify-between h-full w-1/2 flex-shrink-0">
               <div className="flex flex-col h-full">
                 <div>
@@ -66,6 +68,12 @@ const UniversalSection = () => {
                   <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
                     Devices
                   </h3>
+                </div>
+                <div className="mt-0">
+                  <p className="mb-0 text-black/60 dark:text-white/60">
+                    Hailo, neuchip, quadric, laptop CPUs, laptop GPUs, mobile
+                    phone, NPUs, industrial PCs, edge devices,...
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-x-2 cursor-pointer">
@@ -80,7 +88,7 @@ const UniversalSection = () => {
             </div>
             <div className="relative z-50 m-auto flex flex-col gap-2">
               <ThemedImage
-                width={200}
+                width={240}
                 alt="Illustration Multi device"
                 sources={{
                   light: "/img/homepage/multi-device.svg",

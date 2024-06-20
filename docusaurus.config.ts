@@ -192,7 +192,7 @@ const config: Config = {
     algolia: {
       appId: process.env.ALGOLIA_APP_ID || "XXX",
       apiKey: process.env.ALGOLIA_API_KEY || "XXX",
-      indexName: "jan_docs",
+      indexName: "cortex_docs",
       contextualSearch: true,
       insights: true,
     },

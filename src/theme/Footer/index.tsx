@@ -28,7 +28,9 @@ function Footer(): JSX.Element | null {
                 dark: useBaseUrl(logo.srcDark),
               }}
             />
-            <h1 className="text-2xl mb-1">The Anatomy of a Machine</h1>
+            <h1 className="text-2xl mb-1 font-grotesk">
+              The Anatomy of a Machine
+            </h1>
             <p className="mb-0 text-black/60 dark:text-white/60">
               Subscribe to our newsletter on LLM research and building Cortex.
             </p>
@@ -41,7 +43,9 @@ function Footer(): JSX.Element | null {
                     key={i}
                     className="lg:text-right w-full gap-2 flex flex-col"
                   >
-                    <h1 className="text-lg mb-1">{fooLink.title}</h1>
+                    <h1 className="text-lg mb-1 font-grotesk">
+                      {fooLink.title}
+                    </h1>
                     {fooLink.items.map(
                       (
                         x: { label: string; href: string; to: string },

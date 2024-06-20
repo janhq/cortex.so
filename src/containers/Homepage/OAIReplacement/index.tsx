@@ -4,7 +4,7 @@ const OAIReplacement = () => {
   return (
     <div className="container text-center">
       <div className="mt-20">
-        <h2 className="text-4xl">
+        <h2 className="text-4xl font-grotesk">
           Full replacement for{" "}
           <span className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
             {`OpenAI’s Platform`}

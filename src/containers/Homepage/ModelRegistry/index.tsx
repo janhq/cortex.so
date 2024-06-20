@@ -2,13 +2,13 @@ const ModelRegistry = () => {
   return (
     <div className="container">
       <div className="mt-20">
-        <h2 className="text-4xl">Model Registry</h2>
+        <h2 className="text-4xl font-grotesk">Model Registry</h2>
         <p className="text-black/60 dark:text-white/60 mb-2">
           Precompiled, open-source models.
         </p>
       </div>
       <div className="py-8 flex flex-col md:flex-row items-start gap-8">
-        <div className="w-1/2 flex-shrink-0 h-[672px]">
+        <div className="w-full md:w-1/2 flex-shrink-0 h-[672px]">
           <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
             Model Hub
           </h3>

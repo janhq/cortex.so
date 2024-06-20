@@ -12,13 +12,13 @@ const buttonVariants = cva(
         primary: [
           "bg-[#111] dark:bg-white",
           "text-white dark:text-black",
-          "border-2 dark:border-neutral-500 border-neutral-800",
+          "border-2 dark:border-neutral-500 border-neutral-700",
           "hover:translate-y-[3px] hover:translate-x-[3px]",
         ],
         secondary: [
           "dark:bg-[#111] bg-white",
           "dark:text-white text-black",
-          "border-2 border-neutral-500 dark:border-neutral-800",
+          "border-2 border-neutral-500 dark:border-neutral-700",
           "hover:translate-y-[3px] hover:translate-x-[3px]",
         ],
       },
@@ -46,9 +46,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button className="relative bg-transparent" ref={ref} {...props}>
         {theme === "secondary" ? (
-          <div className="absolute bg-transparent w-full h-full -z-[1] hover:translate-y-[4px] -right-2 -bottom-2 border-2 border-neutral-500 dark:border-neutral-800 rounded-lg" />
+          <div className="absolute bg-transparent w-full h-full -z-[1] hover:translate-y-[4px] -right-2 -bottom-2 border-2 border-neutral-500 dark:border-neutral-700 rounded-lg" />
         ) : (
-          <div className="absolute bg-transparent w-full h-full -z-[1] hover:translate-y-[4px] -right-2 -bottom-2 border-2 dark:border-neutral-500 border-neutral-800 rounded-lg" />
+          <div className="absolute bg-transparent w-full h-full -z-[1] hover:translate-y-[4px] -right-2 -bottom-2 border-2 dark:border-neutral-700 border-neutral-800 rounded-lg" />
         )}
         <div className={twMerge(buttonVariants({ theme }))}>
           <span>{props.children}</span>

@@ -1,23 +1,78 @@
 import { Button } from "@site/src/components/Button";
 import ThemedImage from "@theme/ThemedImage";
 
+import { isMacOs, isWindows } from "react-device-detect";
+import Link from "@docusaurus/Link";
+import DropdownDownload from "@site/src/components/DropdownDownload";
+
+const installationScript = () => {
+  if (isMacOs) {
+    return (
+      <p className="mb-0">
+        <span className="text-green-600">brew&nbsp;</span>
+        <span className="text-white">install&nbsp;</span>
+        <span className="text-cyan-600">cortexsh</span>
+      </p>
+    );
+  }
+  if (isWindows) {
+    return (
+      <p className="mb-0">
+        <span className="text-green-600">winget&nbsp;</span>
+        <span className="text-white">install&nbsp;</span>
+        <span className="text-cyan-600">cortexsh</span>
+      </p>
+    );
+  }
+  return (
+    <p className="mb-0">
+      <span className="text-green-600">sudo apt-get&nbsp;</span>
+      <span className="text-white">install&nbsp;</span>
+      <span className="text-cyan-600">cortexsh</span>
+    </p>
+  );
+};
+
 const HeroSection = () => {
+  // const test = async () => {
+  //   for await (const model of listModels({
+  //     search: { owner: "cortexhub" },
+  //   })) {
+  //     console.log("My model:", model);
+  //   }
+  // };
+
+  // const tost = async () => {
+  //   for await (const fileInfo of listFiles({ repo: "cortexhub/llama3" })) {
+  //     console.log(fileInfo);
+  //   }
+  // };
+
+  // const testz = async () => {
+  //   await (
+  //     await downloadFile({ repo: "cortexhub/llama3", path: "README.md" })
+  //   ).text();
+  // };
+
   return (
     <div className="container">
       <div className="text-center">
-        <h1 className="text-6xl">Run AI Easily</h1>
+        <h1 className="text-6xl font-grotesk">Run AI Easily</h1>
         <p className="text-xl text-black/60 dark:text-white/60">
           OpenAI Compatible. Multi-engine. For Production
         </p>
-        <div className="mt-8">
-          <Button>Download</Button>
+        <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
+          <DropdownDownload />
+          <Link href="/docs/quickstart" target="_blank">
+            <Button theme="secondary">Quick Start</Button>
+          </Link>
         </div>
       </div>
 
       <div className="relative w-full lg:w-1/2 mx-auto mt-1 py-14 pb-20">
         <ThemedImage
           alt="Illustration Element"
-          className="absolute -left-60 -z-[1]"
+          className="absolute -left-60 -top-20 -z-[1]"
           sources={{
             light: "/img/homepage/terminal-element.svg",
             dark: "/img/homepage/terminal-element-dark.svg",
@@ -25,7 +80,7 @@ const HeroSection = () => {
         />
         <ThemedImage
           alt="Illustration Element Stars"
-          className="absolute -right-32 top-40"
+          className="absolute -right-32 top-32"
           sources={{
             light: "/img/homepage/terminal-stars.svg",
             dark: "/img/homepage/terminal-stars-dark.svg",
@@ -41,37 +96,7 @@ const HeroSection = () => {
             <div className="p-4 text-left">
               <code className="bg-transparent border-none inline-block">
                 <p className="text-neutral-500 mb-0"># Install</p>
-                <p className="mb-4">
-                  <span className="text-green-600">brew&nbsp;</span>
-                  <span className="text-white">install&nbsp;</span>
-                  <span className="text-cyan-600">cortexsh</span>
-                </p>
-
-                <p className="text-neutral-500 mb-0"># Run</p>
-                <p className="mb-4">
-                  <span className="text-green-600">cortex&nbsp;</span>
-                  <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3</span>
-                </p>
-
-                <p className="text-neutral-500 mb-0">
-                  # Run using specific backend
-                </p>
-                <p className="mb-0">
-                  <span className="text-green-600">cortex&nbsp;</span>
-                  <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3:tensorrt</span>
-                </p>
-                <p className="mb-0">
-                  <span className="text-green-600">cortex&nbsp;</span>
-                  <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3:onnx</span>
-                </p>
-                <p className="mb-0">
-                  <span className="text-green-600">cortex&nbsp;</span>
-                  <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3:llamacpp</span>
-                </p>
+                {installationScript()}
               </code>
             </div>
           </div>
