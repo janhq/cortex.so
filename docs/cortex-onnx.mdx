@@ -87,7 +87,7 @@ All the interfaces above contain the following parameters:
 
 
 ## Architecture
-
+![onnx Architecture](/img/docs/onnx-1.png)
 
 ### Main Components
 These are the main components that interact to provide an API for `inference` tasks using the `onnxruntime-genai` library:
@@ -100,7 +100,7 @@ These are the main components that interact to provide an API for `inference` ta
 ### Communication Protocols
 
 #### Load a Model
-
+![Load Model](/img/docs/onnx-2.png)
 The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.onnx` when using the `onnx` engine in Cortex:
 
 1. **HTTP Request from cortex-js to cortex-cpp**:
@@ -125,7 +125,7 @@ The diagram above illustrates the interaction between three components: `cortex-
    - `cortex-cpp` sends an HTTP response back to `cortex-js`, indicating that the model has been successfully loaded and is ready for use.
 
 #### Stream Inference
-
+![Stream Inference](/img/docs/onnx-3.png)
 The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.onnx` when using the `onnx` engine to call the `chat completions endpoint` with the stream inference option:
 
 1. **HTTP Request from cortex-js to `cortex-cpp`**:
@@ -157,7 +157,7 @@ The diagram above illustrates the interaction between three components: `cortex-
    - `cortex-js` waits until the entire response is received and the process is completed.
 
 #### Non-stream Inference
-
+![Non-stream Inference](/img/docs/onnx-4.png)
 The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.onnx` when using the `onnx` engine to call the `chat completions endpoint` with the non-stream inference option:
 
 1. **HTTP Request from `cortex-js` to `cortex-cpp`**:
