@@ -7,6 +7,8 @@ slug: "cortex-llamacpp"
 :::warning
 🚧 Cortex is under construction.
 :::
+
+## Introduction
 `cortex.llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference.
 
 In addition to `llama.cpp`, `cortex.llamacpp` adds:
@@ -32,31 +34,31 @@ To include `cortex.llamacpp` in your own server implementation, follow the steps
 
 `cortex.llamacpp` has the following Interfaces:
 
-- **HandleChatCompletion:** Processes chat completion tasks
+- **HandleChatCompletion:** Processes chat completion tasks.
   ```cpp
   void HandleChatCompletion(
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
-- **HandleEmbedding:** Generates embeddings for the input data provided
+- **HandleEmbedding:** Generates embeddings for the input data provided.
   ```cpp
   void HandleEmbedding(
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
-- **LoadModel:** Loads a model based on the specifications
+- **LoadModel:** Loads a model based on the specifications.
   ```cpp
   void LoadModel(
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
-- **UnloadModel:** Unloads a model as specified
+- **UnloadModel:** Unloads a model as specified.
   ```cpp
   void UnloadModel(
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
-- **GetModelStatus:** Retrieves the status of a model
+- **GetModelStatus:** Retrieves the status of a model.
   ```cpp
   void GetModelStatus(
         std::shared_ptr<Json::Value> jsonBody,
@@ -66,7 +68,7 @@ All the interfaces above contain the following parameters:
 
 | Parameter  | Description                                    |
 |------------|------------------------------------------------|
-| `jsonBody` | The requested content in JSON format.          |
+| `jsonBody` | The requested content is in JSON format.          |
 | `callback` | A function that handles the response.          |
 
 
