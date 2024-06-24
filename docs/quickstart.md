@@ -15,10 +15,10 @@ To get started, confirm that your system meets the [hardware requirements](/docs
 npm i -g @janhq/cortex
 
 # 2. Download a GGUF model
-cortex models pull llama3
+cortex pull llama3
 
 # 3. Run the model to start chatting
-cortex models run llama3
+cortex run llama3
 
 # 4. (Optional) Run Cortex in OpenAI-compatible server mode
 cortex serve

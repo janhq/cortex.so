@@ -61,6 +61,7 @@ const sidebars: SidebarsConfig = {
     },
     { type: "doc", id: "architecture", label: "Cortex" },
     { type: "doc", id: "cortex-llamacpp", label: "Cortex.llamacpp" },
+    { type: "doc", id: "cortex-onnx", label: "Cortex.onnx" },
     { type: "doc", id: "telemetry", label: "Telemetry" },
   ],
   cli: [
