@@ -8,34 +8,57 @@ slug: quickstart
 🚧 Cortex is under construction.
 :::
 
-To get started, confirm that your system meets the [hardware requirements](/docs/hardware), and follow the steps below:
+## CLI
+
+To get started, confirm that your system meets the [hardware requirements](/docs/hardware), then run:
 
 ```bash
-# 1. Install Cortex using NPM
+# Install Cortex CLI
 npm i -g @janhq/cortex
 
-# 2. Download a GGUF model
-cortex pull llama3
-
-# 3. Run the model to start chatting
+# Download and run a GGUF model:
 cortex run llama3
 
-# 4. (Optional) Run Cortex in OpenAI-compatible server mode
-cortex serve
+# The following formats are also supported:
+cortex run llama3:onnx
+cortex run llama3:tensorrt-llm
 ```
 
 :::info
-For more details regarding the Cortex server mode, please see here:
-
-- [Server Endpoint](/docs/server)
-- [`cortex serve` command](/docs/cli/serve)
-
+For more CLI help, please visit:
+- [CLI Overview](/docs/command-line)
+- [CLI Reference](/docs/cli)
 :::
 
-## What's Next?
+## Server
 
-With Cortex now fully operational, you're ready to delve deeper:
+To start a server at port 1337, run:
+```bash
+cortex serve
+```
 
-- Explore how to [install Cortex](/docs/category/installation) across various hardware environments.
-- Familiarize yourself with the comprehensive set of [Cortex CLI commands](/docs/cli) available for use.
-- Gain insights into the system’s design by examining the [architecture](/docs/architecture) of Cortex.
+Then visit the [OpenAPI Playground](http://localhost:1337/api) to invoke the API.
+
+:::info
+For more server help, please visit:
+- [Server Overview](/docs/server)
+- [`cortex serve` command](/docs/cli/serve)
+:::
+
+## Get Help
+
+Finally, to see all available commands, run:
+```bash
+cortex
+cortex CMD -h
+```
+
+Cortex is still in early development, so if you have any questions, please reach out to us: 
+- [GitHub](https://github.com/janhq/cortex)
+- [Discord](https://discord.gg/YFKKeuVu)
+
+## Next Steps
+
+- Familiarize yourself with Cortex's [capabilities](./chat-completions.mdx) and how they differ from OpenAI.
+- Explore how we built Cortex through the [architecture](/docs/architecture) docs.
+- Check out [Jan](https://jan.ai/), an open-source on-device Copilot, built using Cortex.

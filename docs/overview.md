@@ -12,25 +12,28 @@ slug: /
 
 ![Cortex Cover Image](/img/docs/cortex-cover.png)
 
-Cortex is an [OpenAI compatible](https://platform.openai.com/docs/introduction), local AI server that developers can use to build LLM apps. It can be used as a standalone server, or imported as a library.
+Cortex is a fast, cross-platform AI engine. Developers can use Cortex to build LLM apps or run model operations on-device. Cortex has a Docker and Ollama inspired CLI, and it can be used as a server or imported as a library.
 
-Cortex currently supports two inference engines:
+Cortex currently supports 3 inference engines:
 
-- Llama.cpp
-- TensorRT-LLM
+- [Llama.cpp](https://github.com/ggerganov/llama.cpp)
+- [ONNX Runtime](https://github.com/microsoft/onnxruntime)
+- [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
 
-:::warning
-**Real-world Use**: Cortex powers [Jan](https://jan.ai), our local ChatGPT-alternative.
+:::info
+**Real-world Use**: Cortex powers [Jan](https://jan.ai), our on-device ChatGPT-alternative.
 
-Cortex has been battle-tested through 900k downloads, and handles a variety of hardware and software edge cases.
+Cortex has been battle-tested across 1 million+ downloads and handles a variety of hardware configurations.
 :::
 
 ### Roadmap
 
-Cortex's roadmap is to implement an [OpenAI-equivalent API](https://platform.openai.com/docs/api-reference) using a fully open source stack. Our goal is to make switching to open source AI as easy as possible for developers.
+Cortex aims to be compatible with [OpenAI API](https://platform.openai.com/docs/api-reference) ([see coverage tracker](./server)).
+
+Our goal is to make it easy for developers to provide on-device AI and to build more secure applications, using a fully open-source stack.
 
 ### Architecture
 
-Cortex's [architecture](/) features C++ inference core, with [higher-order features](/) handled in Typescript.
+Cortex's [architecture](./architecture.md) features a C++ inference core, with higher-order features in Typescript.
 
-Our [long-term direction](/) is to (eventually) move towards being a full C++ library to enable embedded and robotics use cases.
+Our [long-term mission](https://jan.ai/about#mission) is to enable more on-device and robotics use cases.
