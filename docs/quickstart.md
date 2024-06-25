@@ -31,25 +31,12 @@ For more CLI help, please visit:
 - [CLI Reference](/docs/cli)
 :::
 
-## Getting Models
-
-`cortex run/pull` expects a model ID, which can be a Hugging Face repo name, or a preconfigured model name from the [Cortex Registry](https://huggingface.co/cortexhub) on Hugging Face.
-
-```bash
-# Pull a model from any Hugging Face repo
-cortex pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
-
-# Pull a preconfigured model from https://huggingface.co/cortexhub
-cortex pull llama3
-```
-
-Read more about [model operations](./model-operations).
-
 ## Server
 
 To start a server at port 1337, run:
 ```bash
 cortex serve
+cortex models start MODEL-ID
 ```
 
 Then visit the [OpenAPI Playground](http://localhost:1337/api) to invoke the API.
@@ -59,6 +46,20 @@ For more server help, please visit:
 - [Server Overview](/docs/server)
 - [`cortex serve` command](/docs/cli/serve)
 :::
+
+## Getting Models
+
+`cortex run` and `cortex pull` expects a model ID, which can be a Hugging Face repo name or a CortexHub model name from the [Cortex Registry](https://huggingface.co/cortexhub).
+
+```bash
+# Download a model from any Hugging Face repo
+cortex pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
+
+# Download a preconfigured model from https://huggingface.co/cortexhub
+cortex pull llama3
+```
+
+Read more about [model operations](./model-operations).
 
 ## Get Help
 
