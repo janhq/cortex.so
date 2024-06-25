@@ -8,17 +8,17 @@ slug: "cortex-llamacpp"
 🚧 Cortex is under construction.
 :::
 
+:::info
+`cortex.llamacpp` is formerly called "Nitro".
+:::
+
 ## Introduction
-`cortex.llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference.
+`cortex.llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference. llama.cpp runs on CPU and GPU, and is optimized for inference.
 
 In addition to `llama.cpp`, `cortex.llamacpp` adds:
 
 - OpenAI compatibility for the stateless endpoints.
 - Model orchestration, like model warm-up and concurrent models.
-
-:::info
-`cortex.llamacpp` is formerly called "Nitro".
-:::
 
 This guide walks you through how to use `cortex.llamacpp` as a standalone library in any custom C++ server.
 
@@ -29,6 +29,12 @@ This guide walks you through how to use `cortex.llamacpp` as a standalone librar
 ## Usage
 
 To include `cortex.llamacpp` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.llamacpp/tree/main/examples/server).
+
+#### Get GGUF Models
+
+You can download precompiled models from the [Cortex Hub](https://huggingface.co/cortexhub) on Hugging Face. These models include configurations, tokenizers, and dependencies tailored for optimal performance with this engine.
+
+Read more about [model operations](./model-operations).
 
 ## Interface
 

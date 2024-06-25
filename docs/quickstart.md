@@ -14,12 +14,13 @@ To get started, confirm that your system meets the [hardware requirements](/docs
 
 ```bash
 # Install Cortex CLI
-npm i -g @janhq/cortex
+npm i -g cortexso
 
-# Download and run a GGUF model:
+# Download and run a model (compatible with your hardware):
 cortex run llama3
 
-# The following formats are also supported:
+# Supported formats:
+cortex run llama3:gguf
 cortex run llama3:onnx
 cortex run llama3:tensorrt-llm
 ```
@@ -35,6 +36,7 @@ For more CLI help, please visit:
 To start a server at port 1337, run:
 ```bash
 cortex serve
+cortex models start MODEL-ID
 ```
 
 Then visit the [OpenAPI Playground](http://localhost:1337/api) to invoke the API.
@@ -44,6 +46,20 @@ For more server help, please visit:
 - [Server Overview](/docs/server)
 - [`cortex serve` command](/docs/cli/serve)
 :::
+
+## Getting Models
+
+`cortex run` and `cortex pull` expects a model ID, which can be a Hugging Face repo name or a CortexHub model name from the [Cortex Registry](https://huggingface.co/cortexhub).
+
+```bash
+# Download a model from any Hugging Face repo
+cortex pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
+
+# Download a preconfigured model from https://huggingface.co/cortexhub
+cortex pull llama3
+```
+
+Read more about [model operations](./model-operations).
 
 ## Get Help
 
