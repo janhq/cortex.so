@@ -149,7 +149,7 @@ const ModelsPage = () => {
                     href={`/models/${model.name.replace("cortexhub/", "")}`}
                     className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
                   >
-                    Details models
+                    View details
                   </Link>
                 </div>
               );
