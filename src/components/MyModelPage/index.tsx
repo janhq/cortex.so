@@ -10,8 +10,7 @@ const MyModelPage = (props) => {
 
   return (
     <Layout>
-      <div className="container mt-20">
-        <h2>{data.name}</h2>
+      <div className="container mt-20 models-detail">
         <div dangerouslySetInnerHTML={{ __html: result }} />
       </div>
     </Layout>

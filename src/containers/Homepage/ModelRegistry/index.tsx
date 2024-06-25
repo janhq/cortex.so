@@ -1,7 +1,8 @@
 import ThemedImage from "@theme/ThemedImage";
 import { usePluginData } from "@docusaurus/useGlobalData";
 import Link from "@docusaurus/Link";
-import { toGibibytes } from "@site/src/utils";
+// import { toGibibytes } from "@site/src/utils";
+import { CloudDownload } from "lucide-react";
 
 const ModelRegistry = () => {
   const listModels = usePluginData("list-models");
@@ -19,16 +20,19 @@ const ModelRegistry = () => {
         <div className="w-full md:w-3/5 flex-shrink-0 h-[750px]">
           <div className="border dark:border-neutral-800 border-neutral-300 rounded-lg h-full p-8 flex flex-col justify-between">
             <div>
-              {(listModels as any[]).slice(0, 8).map((model) => {
+              {(listModels as any[]).slice(0, 7).map((model) => {
                 return (
                   <div
                     key={model.id}
                     className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
                   >
                     <div>
-                      <h3 className="mb-2">
+                      <h3 className="mb-1">
                         {model.name.replace("cortexhub/", "")}
                       </h3>
+                      <p className="mb-0 flex items-center gap-x-2">
+                        {model.downloads} <CloudDownload size={16} />
+                      </p>
                     </div>
                     <Link
                       href={`/models/${model.name.replace("cortexhub/", "")}`}
@@ -41,7 +45,7 @@ const ModelRegistry = () => {
               })}
             </div>
             <div className="text-center">
-              <Link to="/">See all models</Link>
+              <Link to="/models">See all models</Link>
             </div>
           </div>
         </div>

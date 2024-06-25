@@ -318,7 +318,7 @@ const config: Config = {
           label: "Docs",
         },
         { to: "/docs/cli", label: "CLI", position: "left" },
-        // { to: "/", label: "Models", position: "left" },
+        { to: "/models", label: "Models", position: "left" },
         {
           type: "custom-socialNavbar",
           position: "right",
@@ -336,7 +336,7 @@ const config: Config = {
             },
             { to: "/docs/cli", label: "CLI" },
             { href: "/api-reference", label: "API" },
-            // { to: "/", label: "Models" },
+            { to: "/models", label: "Models" },
           ],
         },
         {
