@@ -365,19 +365,11 @@ const config: Config = {
           items: [
             {
               label: "About",
-              to: "/",
-            },
-            {
-              label: "Vision",
-              to: "/",
-            },
-            {
-              label: "Newsletter",
-              to: "/",
+              href: "https://jan.ai/about",
             },
             {
               label: "Careers",
-              to: "/",
+              href: "https://janai.bamboohr.com/careers",
             },
           ],
         },
