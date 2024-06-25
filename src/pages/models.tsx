@@ -13,18 +13,40 @@ const ModelsPage = () => {
     const { value, checked } = event.target;
     setCheckedItems((prevState) => {
       if (checked) {
-        // Add the checkbox name to the array if checked
         return [...prevState, value];
       } else {
-        // Remove the checkbox name from the array if unchecked
         return prevState.filter((item) => item !== value);
       }
     });
   };
 
-  const filteredModels = (listModels as any[]).filter((x) => {
-    return x.name.toLowerCase().includes(searchValue.toLowerCase());
-  });
+  const filterModelsByBranches = (
+    models: any[],
+    search: string,
+    filters: string[]
+  ) => {
+    return models.filter((model) => {
+      if (!model.name.toLowerCase().includes(search.toLowerCase())) {
+        return false;
+      }
+
+      if (filters.length > 0) {
+        return model.branches.some((branch) =>
+          filters.some((filter) =>
+            branch.name.toLowerCase().includes(filter.toLowerCase())
+          )
+        );
+      } else {
+        return model;
+      }
+    });
+  };
+
+  const filteredModels = filterModelsByBranches(
+    listModels as any[],
+    searchValue,
+    checkedItems
+  );
 
   return (
     <Layout title="Homepage">
@@ -109,7 +131,7 @@ const ModelsPage = () => {
           </div>
 
           <div className="w-full lg:w-3/4 mx-auto px-4 mt-10">
-            {(filteredModels as any[]).map((model) => {
+            {(filteredModels as any[]).map((model, i) => {
               return (
                 <div
                   key={model.id}

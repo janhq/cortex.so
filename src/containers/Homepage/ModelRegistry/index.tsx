@@ -1,12 +1,10 @@
 import ThemedImage from "@theme/ThemedImage";
 import { usePluginData } from "@docusaurus/useGlobalData";
 import Link from "@docusaurus/Link";
-// import { toGibibytes } from "@site/src/utils";
 import { CloudDownload } from "lucide-react";
 
 const ModelRegistry = () => {
   const listModels = usePluginData("list-models");
-  console.log(listModels);
 
   return (
     <div className="container">
