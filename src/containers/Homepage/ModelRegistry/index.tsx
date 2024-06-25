@@ -10,7 +10,7 @@ const ModelRegistry = () => {
     <div className="container">
       <div className="mt-20">
         <h2 className="text-4xl font-grotesk">Model Registry</h2>
-        <p className="text-black/60 dark:text-white/60 mb-2">
+        <p className="text-black/60 dark:text-white/60 mb-2 text-lg">
           Precompiled, open-source models.
         </p>
       </div>
@@ -36,7 +36,7 @@ const ModelRegistry = () => {
                       href={`/models/${model.name.replace("cortexhub/", "")}`}
                       className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
                     >
-                      Details models
+                      View details
                     </Link>
                   </div>
                 );

@@ -7,7 +7,7 @@ const UniversalSection = () => {
     <div className="container">
       <div className="mt-32">
         <h2 className="text-4xl font-grotesk">Universal AI Engine</h2>
-        <p className="text-black/60 dark:text-white/60 mb-2">
+        <p className="text-black/60 dark:text-white/60 mb-2 text-lg">
           Build your project once. Run it everywhere.
         </p>
       </div>

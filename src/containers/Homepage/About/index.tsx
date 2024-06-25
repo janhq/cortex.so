@@ -104,9 +104,7 @@ const About = () => {
     <div className="container mt-32">
       <div className="flex flex-col md:flex-row bg-neutral-100 dark:bg-neutral-800 p-10 gap-12 items-center rounded-lg justify-between">
         <div>
-          <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
-            Hello
-          </h3>
+          <h3>Hello</h3>
           <p>
             Hello, we're the Homebrew Computer Company, the team that built{" "}
             <a href="https://jan.ai" target="_blank">
@@ -121,8 +119,23 @@ const About = () => {
             and scalably.
           </p>
           <p className="mb-0">
-            We'd also like to acknowledge the following projects: llamacpp,
-            tensorrtllm, onnx, and directml,...
+            We'd also like to acknowledge the following projects:{" "}
+            <a href="https://github.com/ggerganov/llama.cpp" target="_blank">
+              llamacpp
+            </a>
+            ,{" "}
+            <a href="https://github.com/NVIDIA/TensorRT-LLM" target="_blank">
+              tensorrtllm
+            </a>
+            ,{" "}
+            <a href="https://github.com/onnx/onnx" target="_blank">
+              onnx
+            </a>
+            , and{" "}
+            <a href="https://microsoft.github.io/DirectML/" target="_blank">
+              directml
+            </a>
+            ,...
           </p>
         </div>
         <div className="w-full lg:w-1/2 text-center">

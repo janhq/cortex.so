@@ -6,7 +6,7 @@ const OAIReplacement = () => {
     <div className="container text-center">
       <div className="mt-20">
         <h2 className="text-4xl font-grotesk">OpenAI Compatible</h2>
-        <p className="text-black/60 dark:text-white/60 mb-2 w-full lg:w-1/2 mx-auto">
+        <p className="text-black/60 dark:text-white/60 mb-2 w-full lg:w-1/2 mx-auto text-lg">
           Support local AI in your application, with minimal code changes
         </p>
         <Link href="/docs" className="!no-underline">
@@ -14,9 +14,11 @@ const OAIReplacement = () => {
             <div className="w-8 h-8 dark:bg-neutral-800 bg-neutral-100 flex rounded-full items-center justify-center">
               <FaArrowRight className="text-blue-300 -rotate-45" size={20} />
             </div>
-            <p className="mb-0 text-neutral-800 font-medium dark:text-white">
-              Learn more
-            </p>
+            <Link to="/docs/server">
+              <p className="mb-0 text-neutral-800 font-medium dark:text-white">
+                Learn more
+              </p>
+            </Link>
           </div>
         </Link>
 
