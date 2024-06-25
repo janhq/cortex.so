@@ -14,12 +14,13 @@ To get started, confirm that your system meets the [hardware requirements](/docs
 
 ```bash
 # Install Cortex CLI
-npm i -g @janhq/cortex
+npm i -g cortexso
 
-# Download and run a GGUF model:
+# Download and run a model (compatible with your hardware):
 cortex run llama3
 
-# The following formats are also supported:
+# Supported formats:
+cortex run llama3:gguf
 cortex run llama3:onnx
 cortex run llama3:tensorrt-llm
 ```
@@ -29,6 +30,20 @@ For more CLI help, please visit:
 - [CLI Overview](/docs/command-line)
 - [CLI Reference](/docs/cli)
 :::
+
+## Getting Models
+
+`cortex run/pull` expects a model ID, which can be a Hugging Face repo name, or a preconfigured model name from the [Cortex Registry](https://huggingface.co/cortexhub) on Hugging Face.
+
+```bash
+# Pull a model from any Hugging Face repo
+cortex pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
+
+# Pull a preconfigured model from https://huggingface.co/cortexhub
+cortex pull llama3
+```
+
+Read more about [model operations](./model-operations).
 
 ## Server
 
