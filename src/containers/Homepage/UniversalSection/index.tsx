@@ -8,7 +8,7 @@ const UniversalSection = () => {
       <div className="mt-32">
         <h2 className="text-4xl font-grotesk">Universal AI Engine</h2>
         <p className="text-black/60 dark:text-white/60 mb-2">
-          Build once. Deploy everywhere.
+          Build your project once. Run it everywhere.
         </p>
       </div>
       <div className="py-8 flex flex-col md:flex-row items-start gap-8">
@@ -63,13 +63,8 @@ const UniversalSection = () => {
             <div className="flex flex-col justify-between h-full w-1/2 flex-shrink-0">
               <div className="flex flex-col h-full">
                 <div>
-                  <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0 mb-0">
-                    Multiple
-                  </h3>
-                </div>
-                <div>
                   <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
-                    Devices
+                    Cross-platform
                   </h3>
                 </div>
                 <div className="mt-0">

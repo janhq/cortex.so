@@ -97,13 +97,6 @@ const teams = [
     image_url: "https://avatars.githubusercontent.com/u/15782972?v=4",
     email: "sang@jan.ai",
   },
-  {
-    name: "Cameron",
-    title: "Software Engineer",
-    url: "https://github.com/CameronNg",
-    image_url: "https://avatars.githubusercontent.com/u/165638256?v=4",
-    email: "cameron@jan.ai",
-  },
 ];
 
 const About = () => {
@@ -115,7 +108,7 @@ const About = () => {
             Hello
           </h3>
           <p>
-            Hello, we're the team that built{" "}
+            Hello, we're the Homebrew Computer Company, the team that built{" "}
             <a href="https://jan.ai" target="_blank">
               Jan
             </a>
@@ -129,7 +122,7 @@ const About = () => {
           </p>
           <p className="mb-0">
             We'd also like to acknowledge the following projects: llamacpp,
-            tensorrtllm, onnx, directml,...
+            tensorrtllm, onnx, and directml,...
           </p>
         </div>
         <div className="w-full lg:w-1/2 text-center">

@@ -75,7 +75,6 @@ const HeroSection = () => {
           <div className="w-full">
             <div className="p-4 text-left">
               <code className="bg-transparent border-none inline-block">
-                <p className="text-neutral-500 mb-0"># Install</p>
                 {installationScript()}
               </code>
             </div>

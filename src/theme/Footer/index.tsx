@@ -6,6 +6,7 @@ import CardContainer from "@site/src/components/CardContainer";
 import Link from "@docusaurus/Link";
 import ThemedImage from "@theme/ThemedImage";
 import { useForm } from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 
 function Footer(): JSX.Element | null {
   const { footer } = useThemeConfig();
@@ -101,7 +102,10 @@ function Footer(): JSX.Element | null {
                 return (
                   <div
                     key={i}
-                    className="lg:text-right w-full gap-2 flex flex-col"
+                    className={twMerge(
+                      "lg:text-right w-full gap-2 flex flex-col",
+                      i === 0 && "xl:col-start-3"
+                    )}
                   >
                     <h1 className="text-lg mb-1 font-grotesk">
                       {fooLink.title}

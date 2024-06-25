@@ -1,9 +1,11 @@
 import ThemedImage from "@theme/ThemedImage";
 import { usePluginData } from "@docusaurus/useGlobalData";
 import Link from "@docusaurus/Link";
+import { toGibibytes } from "@site/src/utils";
 
 const ModelRegistry = () => {
   const listModels = usePluginData("list-models");
+  console.log(listModels);
 
   return (
     <div className="container">
@@ -14,38 +16,45 @@ const ModelRegistry = () => {
         </p>
       </div>
       <div className="py-8 flex flex-col md:flex-row items-start gap-8">
-        <div className="w-full md:w-1/2 flex-shrink-0 h-[690px]">
-          <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
-            Model Hub
-          </h3>
-          <div className="border dark:border-neutral-800 border-neutral-300 rounded-lg h-full p-8">
-            {(listModels as any[]).map((model) => {
-              return (
-                <div key={model.id} className="py-2">
-                  <h3 className="mb-2">
-                    {model.name.replace("cortexhub/", "")}
-                  </h3>
-                  <Link href={`/model/${model.name.replace("cortexhub/", "")}`}>
-                    Detail Model
-                  </Link>
-                </div>
-              );
-            })}
+        <div className="w-full md:w-3/5 flex-shrink-0 h-[750px]">
+          <div className="border dark:border-neutral-800 border-neutral-300 rounded-lg h-full p-8 flex flex-col justify-between">
+            <div>
+              {(listModels as any[]).slice(0, 8).map((model) => {
+                return (
+                  <div
+                    key={model.id}
+                    className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
+                  >
+                    <div>
+                      <h3 className="mb-2">
+                        {model.name.replace("cortexhub/", "")}
+                      </h3>
+                    </div>
+                    <Link
+                      href={`/models/${model.name.replace("cortexhub/", "")}`}
+                      className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
+                    >
+                      Details models
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="text-center">
+              <Link to="/">See all models</Link>
+            </div>
           </div>
         </div>
         <div className="w-full">
-          <h3 className="bg-blue-300 text-black inline-block px-2 py-1 rounded-lg flex-shrink-0">
-            Use Models in Jan
-          </h3>
           <div className="flex flex-col gap-8">
             <div className="min-h-80 relative overflow-hidden">
               <ThemedImage
                 alt="Illustration Element Stars"
                 className="rounded-lg object-cover"
-                width={1024}
+                width={800}
                 sources={{
-                  light: "/img/homepage/categories1.png",
-                  dark: "/img/homepage/categories1-dark.png",
+                  light: "/img/homepage/categories1.svg",
+                  dark: "/img/homepage/categories1-dark.svg",
                 }}
               />
             </div>
@@ -53,10 +62,10 @@ const ModelRegistry = () => {
               <ThemedImage
                 alt="Illustration Element Stars"
                 className="rounded-lg object-cover"
-                width={1024}
+                width={800}
                 sources={{
-                  light: "/img/homepage/categories2.png",
-                  dark: "/img/homepage/categories2-dark.png",
+                  light: "/img/homepage/categories2.svg",
+                  dark: "/img/homepage/categories2-dark.svg",
                 }}
               />
             </div>

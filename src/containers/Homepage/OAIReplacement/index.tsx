@@ -7,7 +7,7 @@ const OAIReplacement = () => {
       <div className="mt-20">
         <h2 className="text-4xl font-grotesk">OpenAI Compatible</h2>
         <p className="text-black/60 dark:text-white/60 mb-2 w-full lg:w-1/2 mx-auto">
-          Support local AI with minimal code changes.
+          Support local AI in your application, with minimal code changes
         </p>
         <Link href="/docs" className="!no-underline">
           <div className="flex items-center justify-center mt-8 gap-x-2 cursor-pointer">

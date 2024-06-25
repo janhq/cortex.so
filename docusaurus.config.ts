@@ -82,7 +82,7 @@ const config: Config = {
                 const files = [];
                 let readmeContent = "README.md not available";
                 for await (const fileInfo of listFiles({
-                  repo: "cortexhub/llama3",
+                  repo: model.name,
                 })) {
                   files.push(fileInfo);
                   if (fileInfo.path === "README.md") {
@@ -95,7 +95,21 @@ const config: Config = {
                     }
                   }
                 }
-                fetchedModels.push({ ...model, files, readmeContent });
+                try {
+                  let refs = {};
+                  const response = await fetch(
+                    `https://huggingface.co/api/models/${model.name}/refs`
+                  );
+                  refs = await response.json();
+                  fetchedModels.push({
+                    ...model,
+                    files,
+                    readmeContent,
+                    ...refs,
+                  });
+                } catch (error) {
+                  console.error("Error fetching refs");
+                }
               } catch (error) {
                 console.error("Error fetching files:", error);
                 fetchedModels.push({
@@ -112,7 +126,7 @@ const config: Config = {
                 return actions.addRoute({
                   // this is the path slug
                   // you can make it dynamic here
-                  path: `/model/${page.name.replace("cortexhub/", "")}`,
+                  path: `/models/${page.name.replace("cortexhub/", "")}`,
                   // the page component used to render the page
                   component: require.resolve(
                     "./src/components/MyModelPage/index.tsx"
@@ -183,7 +197,7 @@ const config: Config = {
     [
       "@scalar/docusaurus",
       {
-        label: "API Reference",
+        label: "API",
         route: "/api-reference",
         configuration: {
           spec: {
@@ -301,9 +315,10 @@ const config: Config = {
           type: "doc",
           position: "left",
           docId: "overview",
-          label: "Documentation",
+          label: "Docs",
         },
-        { to: "docs/cli", label: "CLI Reference", position: "left" },
+        { to: "/docs/cli", label: "CLI", position: "left" },
+        // { to: "/", label: "Models", position: "left" },
         {
           type: "custom-socialNavbar",
           position: "right",
@@ -316,38 +331,12 @@ const config: Config = {
           title: "Cortex",
           items: [
             {
-              label: "Documentation",
+              label: "Docs",
               to: "/docs",
             },
-            {
-              label: "Changelog",
-              to: "/",
-            },
-            {
-              label: "Blog",
-              to: "/",
-            },
-          ],
-        },
-        {
-          title: "Getting Started",
-          items: [
-            {
-              label: "Replace OpenAI",
-              to: "/",
-            },
-            {
-              label: "Models",
-              to: "/",
-            },
-            {
-              label: "Integration",
-              to: "/",
-            },
-            {
-              label: "Benchmarks",
-              to: "/",
-            },
+            { to: "/docs/cli", label: "CLI" },
+            { href: "/api-reference", label: "API" },
+            // { to: "/", label: "Models" },
           ],
         },
         {
@@ -368,23 +357,6 @@ const config: Config = {
             {
               label: "linkedin",
               href: "https://www.linkedin.com/company/janframework/",
-            },
-          ],
-        },
-        {
-          title: "Product",
-          items: [
-            {
-              label: "Jan",
-              href: "https://jan.ai/",
-            },
-            {
-              label: "Cortex",
-              to: "/",
-            },
-            {
-              label: "Homebrew",
-              href: "https://www.homebrew.ltd/",
             },
           ],
         },
