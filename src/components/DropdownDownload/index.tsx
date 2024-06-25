@@ -214,7 +214,7 @@ const DropdownDownload = ({ lastRelease }: Props) => {
       </div>
       {open && (
         <div
-          className="absolute left-0 top-[72px] w-full border-2 border-black bg-white dark:bg-black z-30 rounded-xl"
+          className="absolute left-0 top-[72px] w-full border-2 border-black bg-white dark:bg-black z-30 rounded-xl lg:w-[300px]"
           ref={setRefDropdownContent}
         >
           {systems.map((system) => (

@@ -9,18 +9,18 @@ const OAIReplacement = () => {
         <p className="text-black/60 dark:text-white/60 mb-2 w-full lg:w-1/2 mx-auto text-lg">
           Support local AI in your application, with minimal code changes
         </p>
-        <Link href="/docs" className="!no-underline">
+        <div>
           <div className="flex items-center justify-center mt-8 gap-x-2 cursor-pointer">
             <div className="w-8 h-8 dark:bg-neutral-800 bg-neutral-100 flex rounded-full items-center justify-center">
               <FaArrowRight className="text-blue-300 -rotate-45" size={20} />
             </div>
-            <Link to="/docs/server">
+            <Link to="/docs/server" className="!no-underline">
               <p className="mb-0 text-neutral-800 font-medium dark:text-white">
                 Learn more
               </p>
             </Link>
           </div>
-        </Link>
+        </div>
 
         <div className="py-8 flex flex-col lg:flex-row items-start gap-8 text-left mt-4">
           <div className="cardContainer">
