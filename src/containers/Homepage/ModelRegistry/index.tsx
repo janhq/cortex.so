@@ -49,7 +49,7 @@ const ModelRegistry = () => {
         </div>
         <div className="w-full">
           <div className="flex flex-col gap-8">
-            <div className="min-h-80 relative overflow-hidden">
+            <div className="min-h-80 relative overflow-hidden rounded-3xl group/1">
               <ThemedImage
                 alt="Illustration Element Stars"
                 className="rounded-lg object-cover"
@@ -59,8 +59,16 @@ const ModelRegistry = () => {
                   dark: "/img/homepage/categories1-dark.svg",
                 }}
               />
+              <div className="absolute w-full h-full bg-black/30 inset-0 backdrop-blur-sm hidden justify-center items-center  group-hover/1:flex">
+                <Link
+                  href={`https://huggingface.co/`}
+                  className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
+                >
+                  View more
+                </Link>
+              </div>
             </div>
-            <div className="min-h-80 relative overflow-hidden">
+            <div className="min-h-80 relative overflow-hidden rounded-3xl group/2">
               <ThemedImage
                 alt="Illustration Element Stars"
                 className="rounded-lg object-cover"
@@ -70,6 +78,14 @@ const ModelRegistry = () => {
                   dark: "/img/homepage/categories2-dark.svg",
                 }}
               />
+              <div className="absolute w-full h-full bg-black/30 inset-0 backdrop-blur-sm hidden justify-center items-center  group-hover/2:flex">
+                <Link
+                  href={`https://catalog.ngc.nvidia.com/models?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=`}
+                  className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
+                >
+                  View more
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import { IoChevronDownOutline } from "react-icons/io5";
@@ -6,7 +6,7 @@ import { useClickOutside } from "@site/src/hooks/useClickOutside";
 import { twMerge } from "tailwind-merge";
 
 type Props = {
-  lastRelease?: any;
+  lastRelease: any;
 };
 
 type SystemType = {
@@ -16,36 +16,37 @@ type SystemType = {
   href?: string;
 };
 
+type GpuInfo = {
+  renderer: string;
+  vendor: string;
+  type: string;
+};
+
 const systemsTemplate: SystemType[] = [
   {
     name: "Download for Mac (M1/M2/M3)",
     logo: FaApple,
-    fileFormat: "{appname}-mac-arm64-{tag}.dmg",
+    fileFormat: "{appname}-{tag}-arm64-mac.tar.gz",
   },
   {
     name: "Download for Mac (Intel)",
     logo: FaApple,
-    fileFormat: "{appname}-mac-x64-{tag}.dmg",
+    fileFormat: "{appname}-{tag}-amd64-mac.tar.gz",
   },
   {
     name: "Download for Windows",
     logo: FaWindows,
-    fileFormat: "{appname}-win-x64-{tag}.exe",
+    fileFormat: "{appname}-{tag}-amd64-windows.tar.gz",
   },
   {
-    name: "Download for Linux (AppImage)",
+    name: "Download for Linux",
     logo: FaLinux,
-    fileFormat: "{appname}-linux-x86_64-{tag}.AppImage",
-  },
-  {
-    name: "Download for Linux (deb)",
-    logo: FaLinux,
-    fileFormat: "{appname}-linux-amd64-{tag}.deb",
+    fileFormat: "{appname}-{tag}-amd64-linux.tar.gz",
   },
 ];
 
 const extractAppName = (fileName: string) => {
-  const regex = /^(.*?)-(?:mac|win|linux)-(?:arm64|x64|x86_64|amd64)-.*$/;
+  const regex = /^(.*?)-/;
   const match = fileName.match(regex);
   return match ? match[1] : null;
 };
@@ -54,21 +55,85 @@ const DropdownDownload = ({ lastRelease }: Props) => {
   const [systems, setSystems] = useState(systemsTemplate);
   const [defaultSystem, setDefaultSystem] = useState(systems[0]);
   const [open, setOpen] = useState(false);
+  const [gpuInfo, setGpuInfo] = useState<GpuInfo>({
+    renderer: "",
+    vendor: "",
+    type: "",
+  });
 
-  const changeDefaultSystem = async (systems: SystemType[]) => {
-    const userAgent = navigator.userAgent;
-    if (userAgent.includes("Windows")) {
-      // windows user
-      setDefaultSystem(systems[2]);
-    } else if (userAgent.includes("Linux")) {
-      // linux user
-      setDefaultSystem(systems[3]);
-    } else if (userAgent.includes("Mac OS")) {
-      setDefaultSystem(systems[0]);
-    } else {
-      setDefaultSystem(systems[1]);
+  const changeDefaultSystem = useCallback(
+    async (systems: SystemType[]) => {
+      const userAgent = navigator.userAgent;
+      if (userAgent.includes("Windows")) {
+        // windows user
+        setDefaultSystem(systems[2]);
+      } else if (userAgent.includes("Linux")) {
+        // linux user
+        setDefaultSystem(systems[3]);
+      } else if (userAgent.includes("Mac OS")) {
+        if (gpuInfo.type === "Apple Silicon") {
+          setDefaultSystem(systems[0]);
+        } else {
+          setDefaultSystem(systems[1]);
+        }
+      } else {
+        setDefaultSystem(systems[1]);
+      }
+    },
+    [gpuInfo.type]
+  );
+
+  function getUnmaskedInfo(gl: WebGLRenderingContext): {
+    renderer: string;
+    vendor: string;
+  } {
+    const unMaskedInfo = {
+      renderer: "",
+      vendor: "",
+    };
+    const dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+    if (dbgRenderInfo) {
+      unMaskedInfo.renderer = gl.getParameter(
+        dbgRenderInfo.UNMASKED_RENDERER_WEBGL
+      );
+      unMaskedInfo.vendor = gl.getParameter(
+        dbgRenderInfo.UNMASKED_VENDOR_WEBGL
+      );
     }
-  };
+
+    return unMaskedInfo;
+  }
+
+  function detectGPU() {
+    const canvas = document.createElement("canvas");
+    const gl =
+      canvas.getContext("webgl") ||
+      (canvas.getContext("experimental-webgl") as WebGLRenderingContext);
+    if (gl) {
+      const gpuInfo = getUnmaskedInfo(gl);
+
+      let gpuType = "Unknown GPU vendor or renderer.";
+      if (gpuInfo.renderer.includes("Apple")) {
+        gpuType = "Apple Silicon";
+      } else if (
+        gpuInfo.renderer.includes("Intel") ||
+        gpuInfo.vendor.includes("Intel")
+      ) {
+        gpuType = "Intel";
+      }
+      setGpuInfo({
+        renderer: gpuInfo.renderer,
+        vendor: gpuInfo.vendor,
+        type: gpuType,
+      });
+    } else {
+      setGpuInfo({
+        renderer: "N/A",
+        vendor: "N/A",
+        type: "Unable to initialize WebGL.",
+      });
+    }
+  }
 
   useEffect(() => {
     const updateDownloadLinks = async () => {
@@ -93,7 +158,7 @@ const DropdownDownload = ({ lastRelease }: Props) => {
             .replace("{tag}", tag);
           return {
             ...system,
-            href: `https://github.com/janhq/jan/releases/download/${lastRelease.tag_name}/${downloadUrl}`,
+            href: `https://github.com/janhq/cortex/releases/download/${lastRelease.tag_name}/${downloadUrl}`,
           };
         });
         setSystems(updatedSystems);
@@ -104,8 +169,13 @@ const DropdownDownload = ({ lastRelease }: Props) => {
     };
 
     updateDownloadLinks();
+
+    if (gpuInfo.type.length === 0) {
+      detectGPU();
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [gpuInfo]);
 
   const [menu, setMenu] = useState<HTMLButtonElement | null>(null);
 

@@ -51,7 +51,7 @@ const ModelsPage = () => {
   return (
     <Layout title="Homepage">
       <main className="overflow-hidden flex">
-        <div className="w-80 border-r dark:border-neutral-800 border-neutral-300 p-8">
+        <div className="hidden lg:block w-80 border-r dark:border-neutral-800 border-neutral-300 p-8">
           <p className="mb-3 font-semibold">Format</p>
           <div className="flex items-center mb-2">
             <input

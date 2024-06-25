@@ -21,31 +21,25 @@ const systemsTemplate: SystemType[] = [
     name: "Mac M1, M2, M3",
     label: "Apple Silicon",
     logo: FaApple,
-    fileFormat: "{appname}-mac-arm64-{tag}.dmg",
+    fileFormat: "{appname}-{tag}-arm64-mac.tar.gz",
   },
   {
     name: "Mac (Intel)",
     label: "Apple Intel",
     logo: FaApple,
-    fileFormat: "{appname}-mac-x64-{tag}.dmg",
+    fileFormat: "{appname}-{tag}-amd64-mac.tar.gz",
   },
   {
     name: "Windows",
     label: "Standard (64-bit)",
     logo: FaWindows,
-    fileFormat: "{appname}-win-x64-{tag}.exe",
+    fileFormat: "{appname}-{tag}-amd64-windows.tar.gz",
   },
   {
-    name: "Linux (AppImage)",
+    name: "Linux",
     label: "AppImage",
     logo: FaLinux,
-    fileFormat: "{appname}-linux-x86_64-{tag}.AppImage",
-  },
-  {
-    name: "Linux (deb)",
-    label: "Deb",
-    logo: FaLinux,
-    fileFormat: "{appname}-linux-amd64-{tag}.deb",
+    fileFormat: "{appname}-{tag}-amd64-linux.tar.gz",
   },
 ];
 
@@ -59,7 +53,7 @@ export default function CardDownload({ lastRelease }: Props) {
   const [systems, setSystems] = useState(systemsTemplate);
 
   const extractAppName = (fileName: string) => {
-    const regex = /^(.*?)-(?:mac|win|linux)-(?:arm64|x64|amd64|x86_64)-.*$/;
+    const regex = /^(.*?)-/;
     const match = fileName.match(regex);
     return match ? match[1] : null;
   };
@@ -91,7 +85,7 @@ export default function CardDownload({ lastRelease }: Props) {
             .replace("{tag}", tag);
           return {
             ...system,
-            href: `https://github.com/janhq/jan/releases/download/${lastRelease.tag_name}/${downloadUrl}`,
+            href: `https://github.com/janhq/cortex/releases/download/${lastRelease.tag_name}/${downloadUrl}`,
           };
         });
 

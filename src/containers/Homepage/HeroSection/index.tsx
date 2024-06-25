@@ -4,6 +4,7 @@ import ThemedImage from "@theme/ThemedImage";
 import { isMacOs, isWindows } from "react-device-detect";
 import Link from "@docusaurus/Link";
 import DropdownDownload from "@site/src/components/DropdownDownload";
+import { usePluginData } from "@docusaurus/useGlobalData";
 
 const installationScript = () => {
   if (isWindows) {
@@ -32,6 +33,8 @@ const installationScript = () => {
 };
 
 const HeroSection = () => {
+  const latestRelease = usePluginData("latest-release");
+
   return (
     <div className="container">
       <div className="text-center">
@@ -40,7 +43,7 @@ const HeroSection = () => {
           OpenAI Compatible. Multi-engine. For Production
         </p>
         <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
-          <DropdownDownload />
+          <DropdownDownload lastRelease={latestRelease} />
           <Link href="/docs/quickstart" target="_blank">
             <Button theme="secondary">Quick Start</Button>
           </Link>

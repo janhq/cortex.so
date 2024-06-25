@@ -161,6 +161,19 @@ const config: Config = {
         },
       };
     },
+    async function getRepoInfo(context, options) {
+      return {
+        name: "latest-release",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+          const fetchLatestRelease = await fetch(
+            "https://api.github.com/repos/janhq/cortex/releases/latest"
+          );
+          const latestRelease = await fetchLatestRelease.json();
+          setGlobalData(latestRelease);
+        },
+      };
+    },
     async function getDataOAITotalCoverage(context, options) {
       return {
         name: "oai-total-coverage",
