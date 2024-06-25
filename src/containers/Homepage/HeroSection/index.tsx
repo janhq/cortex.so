@@ -6,30 +6,28 @@ import Link from "@docusaurus/Link";
 import DropdownDownload from "@site/src/components/DropdownDownload";
 
 const installationScript = () => {
-  if (isMacOs) {
-    return (
-      <p className="mb-0">
-        <span className="text-green-600">brew&nbsp;</span>
-        <span className="text-white">install&nbsp;</span>
-        <span className="text-cyan-600">cortexsh</span>
-      </p>
-    );
-  }
   if (isWindows) {
     return (
       <p className="mb-0">
         <span className="text-green-600">winget&nbsp;</span>
         <span className="text-white">install&nbsp;</span>
-        <span className="text-cyan-600">cortexsh</span>
+        <span className="text-cyan-600">cortexso</span>
       </p>
     );
   }
   return (
-    <p className="mb-0">
-      <span className="text-green-600">sudo apt-get&nbsp;</span>
-      <span className="text-white">install&nbsp;</span>
-      <span className="text-cyan-600">cortexsh</span>
-    </p>
+    <>
+      <p className="mb-0">
+        <span className="text-green-600">brew&nbsp;</span>
+        <span className="text-white">tap&nbsp;</span>
+        <span className="text-cyan-600">janhq/cortexso</span>
+      </p>
+      <p className="mb-0">
+        <span className="text-green-600">brew&nbsp;</span>
+        <span className="text-white">install&nbsp;</span>
+        <span className="text-cyan-600">cortexso</span>
+      </p>
+    </>
   );
 };
 
