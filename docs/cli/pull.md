@@ -31,14 +31,14 @@ cortex pull <model_id>
 
 ### Preconfigured Models
 
-Reconfigured models (with optimal runtime parameters and templates) are available from the [Jan Model Hub](https://huggingface.co/janhq) on Hugging Face.
+Reconfigured models (with optimal runtime parameters and templates) are available from the [Cortex Model Hub](https://huggingface.co/cortexhub) on Hugging Face.
 
 Models can be downloaded using a Docker-like interface with the following syntax: `repo_name:branch_name`. Each variant may include different quantizations and sizes, typically organized in the repository’s branches.
 
 Available models include [llama3](https://huggingface.co/janhq/llama3), [mistral](https://huggingface.co/janhq/mistral), [tinyllama](https://huggingface.co/janhq/tinyllama), and [many more](https://huggingface.co/janhq).
 
 :::info
-New models will soon be added to HuggingFace's janhq repository.
+New models will soon be added to [Cortex Model Hub](https://huggingface.co/cortexhub).
 :::
 
 ```bash
