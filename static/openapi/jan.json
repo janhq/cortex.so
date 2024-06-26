@@ -972,7 +972,7 @@
             "get": {
                 "operationId": "StatusController_get",
                 "summary": "Get health status",
-                "description": "Retrieves the health status of your Cortex's system.",
+                "description": "Retrieves the health status of the Cortex's API endpoint server.",
                 "parameters": [],
                 "responses": {
                     "200": {
