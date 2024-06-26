@@ -21,25 +21,25 @@ const systemsTemplate: SystemType[] = [
     name: "Mac M1, M2, M3",
     label: "Apple Silicon",
     logo: FaApple,
-    fileFormat: "{appname}-{tag}-arm64-mac.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-arm64-mac.tar.gz",
   },
   {
     name: "Mac (Intel)",
     label: "Apple Intel",
     logo: FaApple,
-    fileFormat: "{appname}-{tag}-amd64-mac.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-mac.tar.gz",
   },
   {
     name: "Windows",
     label: "Standard (64-bit)",
     logo: FaWindows,
-    fileFormat: "{appname}-{tag}-amd64-windows.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-windows.tar.gz",
   },
   {
     name: "Linux",
     label: "AppImage",
     logo: FaLinux,
-    fileFormat: "{appname}-{tag}-amd64-linux.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-linux.tar.gz",
   },
 ];
 

@@ -26,22 +26,22 @@ const systemsTemplate: SystemType[] = [
   {
     name: "Download for Mac (M1/M2/M3)",
     logo: FaApple,
-    fileFormat: "{appname}-{tag}-arm64-mac.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-arm64-mac.tar.gz",
   },
   {
     name: "Download for Mac (Intel)",
     logo: FaApple,
-    fileFormat: "{appname}-{tag}-amd64-mac.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-mac.tar.gz",
   },
   {
     name: "Download for Windows",
     logo: FaWindows,
-    fileFormat: "{appname}-{tag}-amd64-windows.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-windows.tar.gz",
   },
   {
     name: "Download for Linux",
     logo: FaLinux,
-    fileFormat: "{appname}-{tag}-amd64-linux.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-linux.tar.gz",
   },
 ];
 
