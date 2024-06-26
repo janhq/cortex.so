@@ -972,7 +972,7 @@
             "get": {
                 "operationId": "StatusController_get",
                 "summary": "Get health status",
-                "description": "Retrieves the health status of the Cortex's API endpoint server.",
+                "description": "Retrieves the health status of your Cortex's system.",
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -1094,6 +1094,9 @@
     "servers": [
         {
             "url": "http://localhost:1337"
+        },
+        {
+            "url": "http://localhost:1337/v1"
         }
     ],
     "components": {
@@ -1285,17 +1288,6 @@
                     "role"
                 ]
             },
-            "example": [
-                {
-                    "content": "Hello, how can I help you today?",
-                    "role": "system"
-                },
-                {
-                    "content": "I need information on your product features.",
-                    "role": "user"
-                }
-                ]
-            },
             "CreateChatCompletionDto": {
                 "type": "object",
                 "properties": {
@@ -1325,19 +1317,19 @@
                         "description": "Defines specific tokens or phrases that signal the model to stop producing further output.",
                         "type": "array",
                         "items": {
-                            "type": "string"
-                        },
-                        "example": ["\n", "End of response"]
+                            "type": "string",
+                            "Example": "End"
+                        }
                     },
                     "frequency_penalty": {
                         "type": "number",
                         "description": "Modifies the likelihood of the model repeating the same words or phrases within a single output.",
-                        "example": 0.2
+                        "Example": "0.2"
                     },
                     "presence_penalty": {
                         "type": "number",
                         "description": "Reduces the likelihood of repeating tokens, promoting novelty in the output.",
-                        "example": 0.6
+                        "Example": "0.6"
                     },
                     "temperature": {
                         "type": "number",
@@ -1348,7 +1340,6 @@
                         "type": "number",
                         "description": "Sets probability threshold for more relevant outputs.",
                         "example": 0.95
-                    }
                 },
                 "required": [
                     "messages",
