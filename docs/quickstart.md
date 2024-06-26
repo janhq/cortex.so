@@ -58,8 +58,9 @@ cortex pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
 # Download a preconfigured model from https://huggingface.co/cortexhub
 cortex pull llama3
 ```
-
+:::info
 Read more about [model operations](./model-operations).
+:::
 
 ## Get Help
 
@@ -69,9 +70,11 @@ cortex
 cortex CMD -h
 ```
 
+:::info
 Cortex is still in early development, so if you have any questions, please reach out to us: 
 - [GitHub](https://github.com/janhq/cortex)
 - [Discord](https://discord.gg/YFKKeuVu)
+:::
 
 ## Next Steps
 
