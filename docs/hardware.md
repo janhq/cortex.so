@@ -4,6 +4,10 @@ description: Get started quickly with Jan, a ChatGPT-alternative that runs on yo
 slug: "/hardware"
 ---
 
+:::warning
+🚧 Cortex is under construction.
+:::
+
 To run LLMs on device, Cortex has the following hardware requirements:
 
 :::info
@@ -16,6 +20,21 @@ These are the general hardware requirements for running Cortex on your system. P
 - Windows 10 or higher.
 - Ubuntu 12.04 and later.
 
+## CPU
+- Mac:
+    - Support Intel and Mac Apple Silicon CPUs.
+- Windows & Linux:
+    - Haswell processors (Q2 2013) and newer.
+    - Tiger Lake (Q3 2020) and newer for Celeron and Pentium processors.
+:::info
+Cortex supports multiple CPU instructions: AVX, AVX2, and AVX512.
+:::
+## GPU
+- At least 6GB VRAM is recommended when using NVIDIA, AMD, or Intel Arc GPUs.
+
+:::info
+Cortex Supports NVIDIA GPU acceleration (Support for other GPUs will come soon!)
+:::
 ## RAM (CPU Mode)
 
 - 8GB for running up to 3B models.
