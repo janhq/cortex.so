@@ -1094,6 +1094,9 @@
     "servers": [
         {
             "url": "http://localhost:1337"
+        },
+        {
+            "url": "http://localhost:1337/v1"
         }
     ],
     "components": {
@@ -1285,17 +1288,6 @@
                     "role"
                 ]
             },
-            "example": [
-                {
-                    "content": "Hello, how can I help you today?",
-                    "role": "system"
-                },
-                {
-                    "content": "I need information on your product features.",
-                    "role": "user"
-                }
-                ]
-            },
             "CreateChatCompletionDto": {
                 "type": "object",
                 "properties": {
@@ -1308,46 +1300,38 @@
                     },
                     "model": {
                         "type": "string",
-                        "description": "The unique identifier of the model.",
-                        "example": "gpt-4"
+                        "description": "The unique identifier of the model."
                     },
                     "stream": {
                         "type": "boolean",
-                        "description": "Determines the format for output generation. If set to `true`, the output is generated continuously, allowing for real-time streaming of responses. If set to `false`, the output is delivered in a single JSON file.",
-                        "example": true
+                        "description": "Determines the format for output generation. If set to `true`, the output is generated continuously, allowing for real-time streaming of responses. If set to `false`, the output is delivered in a single JSON file."
                     },
                     "max_tokens": {
                         "type": "number",
-                        "description": "Sets the upper limit on the number of tokens the model can generate in a single output.",
-                        "example": 150
+                        "description": "Sets the upper limit on the number of tokens the model can generate in a single output."
                     },
                     "stop": {
                         "description": "Defines specific tokens or phrases that signal the model to stop producing further output.",
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "example": ["\n", "End of response"]
+                        }
                     },
                     "frequency_penalty": {
                         "type": "number",
-                        "description": "Modifies the likelihood of the model repeating the same words or phrases within a single output.",
-                        "example": 0.2
+                        "description": "Modifies the likelihood of the model repeating the same words or phrases within a single output."
                     },
                     "presence_penalty": {
                         "type": "number",
-                        "description": "Reduces the likelihood of repeating tokens, promoting novelty in the output.",
-                        "example": 0.6
+                        "description": "Reduces the likelihood of repeating tokens, promoting novelty in the output."
                     },
                     "temperature": {
                         "type": "number",
-                        "description": "Influences the randomness of the model's output.",
-                        "example": 0.80
+                        "description": "Influences the randomness of the model's output."
                     },
                     "top_p": {
                         "type": "number",
-                        "description": "Sets probability threshold for more relevant outputs.",
-                        "example": 0.95
+                        "description": "Sets probability threshold for more relevant outputs."
                     }
                 },
                 "required": [
