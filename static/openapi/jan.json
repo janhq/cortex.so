@@ -469,47 +469,6 @@
                     "Models"
                 ]
             },
-            "patch": {
-                "operationId": "ModelsController_update",
-                "summary": "Update model",
-                "description": "Updates a model instance defined by a model's `id`.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "required": true,
-                        "in": "path",
-                        "description": "The unique identifier of the model.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateModelDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "The model has been successfully updated.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/UpdateModelDto"
-                                }
-                            }
-                        }
-                    }
-                },
-                "tags": [
-                    "Models"
-                ]
-            },
             "delete": {
                 "operationId": "ModelsController_remove",
                 "summary": "Delete model",
@@ -532,6 +491,48 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/DeleteModelResponseDto"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Models"
+                ]
+            }
+        },
+        "/models/{model}/config": {
+            "post": {
+                "operationId": "ModelsController_update",
+                "summary": "Update model",
+                "description": "Updates a model instance defined by a model's `id`.",
+                "parameters": [
+                    {
+                        "name": "model",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateModelDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The model has been successfully updated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateModelDto"
                                 }
                             }
                         }
@@ -837,6 +838,31 @@
                 }
             }
         },
+        "/threads/{thread_id}/clean": {
+            "post": {
+                "operationId": "ThreadsController_cleanThread",
+                "summary": "Clean thread",
+                "description": "Deletes all messages in a thread.",
+                "tags": [
+                    "Threads"
+                ],
+                "parameters": [
+                    {
+                        "name": "thread_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
         "/threads/{thread_id}": {
             "get": {
                 "operationId": "ThreadsController_retrieveThread",
@@ -1023,7 +1049,7 @@
     },
     "info": {
         "title": "Cortex API",
-        "description": "Cortex API provides a command-line interface (CLI) for seamless interaction with large language models (LLMs). Fully compatible with the [OpenAI API](https://platform.openai.com/docs/api-reference), it enables straightforward command execution and management of LLM interactions.",
+        "description": "Cortex API provides a command-line interface (CLI) for seamless interaction with large language models (LLMs). It is fully compatible with the [OpenAI API](https://platform.openai.com/docs/api-reference) and enables straightforward command execution and management of LLM interactions. Cortex = `http://localhost:1337/api`. Jan = `http://localhost:1337/v1`",
         "version": "1.0",
         "contact": {}
     },
@@ -1067,7 +1093,7 @@
     ],
     "servers": [
         {
-            "url": "http://localhost:1337"
+            "url": "http://localhost:1337/api"
         },
         {
             "url": "http://localhost:1337/v1"
@@ -1075,46 +1101,32 @@
     ],
     "components": {
         "schemas": {
-            "AssistantToolDto": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "description": "The type of the assistant's tool."
-                    },
-                    "enabled": {
-                        "type": "boolean",
-                        "description": "Enable or disable the assistant's tool."
-                    },
-                    "settings": {
-                        "type": "object",
-                        "description": "The setting of the assistant's tool."
-                    }
-                },
-                "required": [
-                    "type",
-                    "enabled",
-                    "settings"
-                ]
-            },
             "CreateAssistantDto": {
                 "type": "object",
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "The unique identifier of the assistant."
+                        "description": "The unique identifier of the assistant.",
+                        "example": "jan",
+                        "default": "jan"
                     },
                     "avatar": {
                         "type": "string",
-                        "description": "The avatar of the assistant."
+                        "description": "The avatar of the assistant.",
+                        "example": "",
+                        "default": ""
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the assistant."
+                        "description": "The name of the assistant.",
+                        "example": "Jan",
+                        "default": "Jan"
                     },
                     "description": {
                         "type": "string",
-                        "description": "The description of the assistant."
+                        "description": "The description of the assistant.",
+                        "example": "A default assistant that can use all downloaded models",
+                        "default": "A default assistant that can use all downloaded models"
                     },
                     "model": {
                         "type": "string",
@@ -1122,36 +1134,45 @@
                     },
                     "instructions": {
                         "type": "string",
-                        "description": "The instructions for the assistant."
+                        "description": "The instructions for the assistant.",
+                        "example": "",
+                        "default": ""
                     },
                     "tools": {
                         "description": "The tools associated with the assistant.",
+                        "example": [],
+                        "default": [],
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/AssistantToolDto"
-                        }
-                    },
-                    "file_ids": {
-                        "description": "The identifiers of the files that have been uploaded to the thread.",
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                            "type": "object"
                         }
                     },
                     "metadata": {
                         "type": "object",
+                        "nullable": true,
                         "description": "The metadata of the assistant."
+                    },
+                    "top_p": {
+                        "type": "number",
+                        "description": "Top p.",
+                        "example": "0.7",
+                        "default": "0.7"
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "description": "Temperature.",
+                        "example": "0.7",
+                        "default": "0.7"
                     }
                 },
                 "required": [
                     "id",
-                    "avatar",
                     "name",
                     "description",
                     "model",
                     "instructions",
                     "tools",
-                    "file_ids"
+                    "metadata"
                 ]
             },
             "AssistantEntity": {
@@ -1163,9 +1184,6 @@
                     "avatar": {
                         "type": "string"
                     },
-                    "thread_location": {
-                        "type": "string"
-                    },
                     "object": {
                         "type": "string"
                     },
@@ -1173,41 +1191,58 @@
                         "type": "number"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "nullable": true
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "nullable": true
                     },
                     "model": {
                         "type": "string"
                     },
                     "instructions": {
-                        "type": "string"
+                        "type": "string",
+                        "nullable": true
                     },
                     "tools": {
-                        "type": "array",
-                        "items": {
-                            "type": "object"
-                        }
-                    },
-                    "file_ids": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object"
                     },
                     "metadata": {
-                        "type": "object"
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "top_p": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "response_format": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "tool_resources": {
+                        "type": "object",
+                        "nullable": true
                     }
                 },
                 "required": [
                     "id",
-                    "avatar",
                     "object",
                     "created_at",
                     "name",
+                    "description",
                     "model",
-                    "file_ids"
+                    "instructions",
+                    "tools",
+                    "metadata",
+                    "top_p",
+                    "temperature",
+                    "response_format",
+                    "tool_resources"
                 ]
             },
             "DeleteAssistantResponseDto": {
@@ -1244,12 +1279,7 @@
                         "description": "The Content of the chat message."
                     },
                     "role": {
-                        "enum": [
-                            "system",
-                            "assistant",
-                            "user"
-                        ],
-                        "type": "string",
+                        "type": "object",
                         "description": "The role of the entity in the chat completion."
                     }
                 },
@@ -1572,6 +1602,12 @@
                         "type": "string",
                         "description": "The engine used to run the model.",
                         "example": "cortex.llamacpp"
+                    },
+                    "owned_by": {
+                        "type": "string",
+                        "description": "The owner of the model.",
+                        "example": "",
+                        "default": ""
                     }
                 },
                 "required": [
@@ -1876,38 +1912,68 @@
             "CreateThreadAssistantDto": {
                 "type": "object",
                 "properties": {
-                    "assistant_id": {
+                    "id": {
                         "type": "string",
                         "description": "The unique identifier of the assistant."
                     },
-                    "assistant_name": {
+                    "avatar": {
+                        "type": "string"
+                    },
+                    "name": {
                         "type": "string",
                         "description": "The name of the assistant."
                     },
                     "model": {
-                        "description": "The model's unique identifier and settings.",
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/CreateModelDto"
-                            }
-                        ]
+                        "type": "string",
+                        "description": "The model's unique identifier and settings."
                     },
                     "instructions": {
                         "type": "string",
                         "description": "The assistant's specific instructions."
                     },
                     "tools": {
-                        "description": "The thread's tool(Knowledge Retrieval) configurations.",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AssistantToolDto"
-                        }
+                        "type": "object",
+                        "description": "The thread's tool(Knowledge Retrieval) configurations."
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "object": {
+                        "type": "string"
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "top_p": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "type": "number"
+                    },
+                    "response_format": {
+                        "type": "object"
+                    },
+                    "tool_resources": {
+                        "type": "object"
                     }
                 },
                 "required": [
-                    "assistant_id",
-                    "assistant_name",
-                    "model"
+                    "id",
+                    "name",
+                    "model",
+                    "instructions",
+                    "tools",
+                    "description",
+                    "metadata",
+                    "object",
+                    "created_at"
                 ]
             },
             "CreateThreadDto": {
@@ -1940,17 +2006,19 @@
                     "assistants": {
                         "type": "array",
                         "items": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/AssistantEntity"
                         }
                     },
-                    "createdAt": {
+                    "created_at": {
                         "type": "number"
                     },
-                    "updatedAt": {
-                        "type": "number"
+                    "tool_resources": {
+                        "type": "object",
+                        "nullable": true
                     },
                     "metadata": {
-                        "type": "object"
+                        "type": "object",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -1958,7 +2026,9 @@
                     "object",
                     "title",
                     "assistants",
-                    "createdAt"
+                    "created_at",
+                    "tool_resources",
+                    "metadata"
                 ]
             },
             "ContentDto": {
@@ -2167,12 +2237,7 @@
                 "type": "object",
                 "properties": {
                     "role": {
-                        "enum": [
-                            "system",
-                            "assistant",
-                            "user"
-                        ],
-                        "type": "string",
+                        "type": "object",
                         "description": "The role of the entity that is creating the message. Allowed values include:\n      - user: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages.\n      - assistant: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation."
                     },
                     "content": {
@@ -2198,15 +2263,26 @@
                         "type": "string"
                     },
                     "assistant_id": {
-                        "type": "string"
+                        "type": "string",
+                        "nullable": true
                     },
                     "role": {
+                        "type": "object"
+                    },
+                    "status": {
+                        "type": "object"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "run_id": {
                         "type": "string",
-                        "enum": [
-                            "system",
-                            "assistant",
-                            "user"
-                        ]
+                        "nullable": true
+                    },
+                    "completed_at": {
+                        "type": "number",
+                        "nullable": true
                     },
                     "content": {
                         "type": "array",
@@ -2214,51 +2290,39 @@
                             "type": "object"
                         }
                     },
-                    "status": {
-                        "type": "string",
-                        "enum": [
-                            "ready",
-                            "pending",
-                            "error",
-                            "stopped"
-                        ]
+                    "incomplete_details": {
+                        "type": "object",
+                        "nullable": true
                     },
-                    "created": {
+                    "created_at": {
                         "type": "number"
-                    },
-                    "updated": {
-                        "type": "number"
-                    },
-                    "metadata": {
-                        "type": "object"
-                    },
-                    "type": {
-                        "type": "string"
-                    },
-                    "error_code": {
-                        "type": "string",
-                        "enum": [
-                            "invalid_api_key",
-                            "insufficient_quota",
-                            "invalid_request_error",
-                            "unknown"
-                        ]
                     },
                     "attachments": {
                         "type": "array",
                         "items": {
                             "type": "object"
                         }
+                    },
+                    "incomplete_at": {
+                        "type": "number",
+                        "nullable": true
                     }
                 },
                 "required": [
                     "id",
                     "object",
                     "thread_id",
+                    "assistant_id",
                     "role",
-                    "content",
                     "status",
-                    "created"
+                    "metadata",
+                    "run_id",
+                    "completed_at",
+                    "content",
+                    "incomplete_details",
+                    "created_at",
+                    "attachments",
+                    "incomplete_at"
                 ]
             },
             "UpdateMessageDto": {
