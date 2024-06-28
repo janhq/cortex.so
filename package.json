@@ -30,7 +30,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "docusaurus-plugin-sass": "^0.2.5",
-    "framer-motion": "^11.2.10",
+    "framer-motion": "^11.2.12",
     "lucide-react": "^0.395.0",
     "markdown-it": "^14.1.0",
     "postcss": "^8.4.38",

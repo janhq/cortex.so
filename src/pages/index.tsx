@@ -16,9 +16,9 @@ const Home = () => {
       <main className="my-20 overflow-hidden">
         <HeroSection />
         <GettingStartedSection />
-        <UniversalSection />
-        <ModelRegistry />
         <OAIReplacement />
+        {/* <UniversalSection /> */}
+        {/* <ModelRegistry /> */}
         <DownloadSection />
         <About />
       </main>

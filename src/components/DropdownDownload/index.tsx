@@ -24,7 +24,7 @@ type GpuInfo = {
 
 const systemsTemplate: SystemType[] = [
   {
-    name: "Download for Mac (M1/M2/M3)",
+    name: "Download for Mac (Apple Silicon)",
     logo: FaApple,
     fileFormat: "{appname}-installer-{tag}-arm64-mac.tar.gz",
   },
@@ -41,7 +41,7 @@ const systemsTemplate: SystemType[] = [
   {
     name: "Download for Linux",
     logo: FaLinux,
-    fileFormat: "{appname}-installer-{tag}-amd64-linux.tar.gz",
+    fileFormat: "{appname}-installer-{tag}-amd64-linux.deb",
   },
 ];
 
@@ -214,7 +214,7 @@ const DropdownDownload = ({ lastRelease }: Props) => {
       </div>
       {open && (
         <div
-          className="absolute left-0 top-[72px] w-full border-2 border-black bg-white dark:bg-black z-30 rounded-xl lg:w-[300px]"
+          className="absolute left-0 top-[72px] w-full border-2 border-black bg-white dark:bg-black z-30 rounded-xl lg:w-[340px]"
           ref={setRefDropdownContent}
         >
           {systems.map((system) => (

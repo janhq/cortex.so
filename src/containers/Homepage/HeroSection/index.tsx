@@ -1,7 +1,7 @@
 import { Button } from "@site/src/components/Button";
 import ThemedImage from "@theme/ThemedImage";
 
-import { isMacOs, isWindows } from "react-device-detect";
+import { isWindows } from "react-device-detect";
 import Link from "@docusaurus/Link";
 import DropdownDownload from "@site/src/components/DropdownDownload";
 import { usePluginData } from "@docusaurus/useGlobalData";
@@ -40,7 +40,7 @@ const HeroSection = () => {
       <div className="text-center">
         <h1 className="text-6xl font-grotesk">Run AI Easily</h1>
         <p className="text-xl text-black/60 dark:text-white/60">
-          OpenAI Compatible. Multi-engine. For Production
+          On-Device, On-Premise AI Engine.
         </p>
         <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
           <DropdownDownload lastRelease={latestRelease} />
@@ -53,7 +53,7 @@ const HeroSection = () => {
       <div className="relative w-full lg:w-1/2 mx-auto mt-1 py-14 pb-20">
         <ThemedImage
           alt="Illustration Element"
-          className="absolute -left-60 -top-20 -z-[1]"
+          className="absolute -left-60 top-20 -z-[1]"
           sources={{
             light: "/img/homepage/terminal-element.svg",
             dark: "/img/homepage/terminal-element-dark.svg",
@@ -82,7 +82,36 @@ const HeroSection = () => {
           <div className="w-full">
             <div className="p-4 text-left">
               <code className="bg-transparent border-none inline-block">
+                <p className="text-neutral-500 mb-0"># Install</p>
                 {installationScript()}
+
+                <p className="text-neutral-500 mb-0 mt-4"># Run</p>
+                <p className="mb-4">
+                  <span className="text-green-600">cortex&nbsp;</span>
+                  <span className="text-white">run&nbsp;</span>
+                  <span className="text-cyan-600">llama3</span>
+                </p>
+
+                <p className="text-neutral-500 mb-0">
+                  # Run using specific backend
+                </p>
+                <p className="mb-0">
+                  <span className="text-green-600">cortex&nbsp;</span>
+                  <span className="text-white">run&nbsp;</span>
+                  <span className="text-cyan-600">llama3:onnx</span>
+                </p>
+                <p className="mb-0">
+                  <span className="text-green-600">cortex&nbsp;</span>
+                  <span className="text-white">run&nbsp;</span>
+                  <span className="text-cyan-600">llama3:gguf</span>
+                </p>
+                <p className="mb-0">
+                  <span className="text-green-600">cortex&nbsp;</span>
+                  <span className="text-white">run&nbsp;</span>
+                  <span className="text-cyan-600">
+                    openhermes-2.5:tensorrt-llm
+                  </span>
+                </p>
               </code>
             </div>
           </div>
