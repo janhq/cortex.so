@@ -15,7 +15,7 @@ Cortex provides a robust Typescript client library designed as a **direct substi
 Install the package via npm with the following command in your project:
 
 ```ts
-npm install @janhq/cortex-node
+npm install @janhq/cortexso-node
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Transitioning to the Cortex Client Library from the OpenAI Client Library involv
 
 ```diff
 - import OpenAI from 'openai';
-+ import { Cortex } from '@janhq/cortex-node';
++ import Cortex from '@janhq/cortexso-node';
 ```
 
 2. Modify the initialization of the client to use Cortex:
@@ -34,8 +34,8 @@ Transitioning to the Cortex Client Library from the OpenAI Client Library involv
 ```diff
 - const openai = new OpenAI({
 + const cortex = new Cortex({
-    baseURL: ['BASE_URL'], // The default base URL for Cortex is 'http://localhost:1337'
-    apiKey: process.env['OPENAI_API_KEY'], // This can be omitted if using the default
+    baseURL: "BASE_URL", // The default base URL for Cortex is 'http://localhost:1337'
+    apiKey: "OPENAI_API_KEY", // This can be omitted if using the default
 });
 
 ```
@@ -43,14 +43,26 @@ Transitioning to the Cortex Client Library from the OpenAI Client Library involv
 ### Example Usage
 
 ```js
-import { Cortex } from "@janhq/cortex-node";
+import Cortex from "@janhq/cortexso-node";
 
-const cortex = new Cortex({
-  baseURL: ["http://localhost:1337"],
-  apiKey: process.env["cortex"],
-});
+async function inference() {
+  const cortex = new Cortex({
+    baseURL: "http://localhost:1337/v1",
+    apiKey: "",
+  });
 
-cortex.models.start("llama3:7b");
-cortex.models.stop("llama3:7b");
-cortex.threads.list();
+  // Start the model to run locally
+  await cortex.models.start("tinyllama");
+
+  // Inference using the local model
+  const resp = await cortex.chat.completions.create({
+    model: "llama3",
+    messages: [
+      { role: "system", content: "You are a chatbot." },
+      { role: "user", content: "What is the capital of the United States?" },
+    ],
+  });
+}
+
+inference();
 ```
