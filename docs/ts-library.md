@@ -15,7 +15,7 @@ Cortex provides a robust Typescript client library designed as a **direct substi
 Install the package via npm with the following command in your project:
 
 ```ts
-npm install @janhq/cortex-node
+npm install @janhq/cortexso-node
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Transitioning to the Cortex Client Library from the OpenAI Client Library involv
 
 ```diff
 - import OpenAI from 'openai';
-+ import Cortex from '@janhq/cortex-node';
++ import Cortex from '@janhq/cortexso-node';
 ```
 
 2. Modify the initialization of the client to use Cortex:
@@ -43,7 +43,7 @@ Transitioning to the Cortex Client Library from the OpenAI Client Library involv
 ### Example Usage
 
 ```js
-import Cortex from "@janhq/cortex-node";
+import Cortex from "@janhq/cortexso-node";
 
 async function inference() {
   const cortex = new Cortex({
