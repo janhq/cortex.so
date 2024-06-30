@@ -53,6 +53,7 @@ const sidebars: SidebarsConfig = {
     },
     { type: "doc", id: "chat-completions", label: "Chat Completions" },
     { type: "doc", id: "embeddings", label: "Embeddings" },
+    { type: "doc", id: "benchmark", label: "Benchmark" },
     { type: "doc", id: "model-operations", label: "Model Operations" },
     {
       type: "html",
