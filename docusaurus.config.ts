@@ -223,7 +223,7 @@ const config: Config = {
   ],
 
   // Set the production url of your site here
-  url: "https://cortex.jan.ai",
+  url: "https://cortex.so",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -309,8 +309,8 @@ const config: Config = {
           "@context": "https://schema.org/",
           "@type": "Organization",
           name: "Cortex",
-          url: "https://cortex.jan.ai/",
-          logo: "https://cortex.jan.ai/img/logos/cortex-logo.svg",
+          url: "https://cortex.so/",
+          logo: "https://cortex.so/img/logos/cortex-logo.svg",
         }),
       },
     ],
