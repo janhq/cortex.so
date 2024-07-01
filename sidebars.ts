@@ -122,6 +122,47 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "cli/kill", label: "cortex kill" },
     { type: "doc", id: "cli/serve", label: "cortex serve" },
     { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
+    {
+      type: "category",
+      label: "cortex engines",
+      collapsed: true,
+      link: { type: "doc", id: "cli/engines/index" },
+      items: [
+        {
+          type: "doc",
+          id: "cli/engines/list",
+          label: "list",
+        },
+        {
+          type: "doc",
+          id: "cli/engines/get",
+          label: "get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "cortex configs",
+      collapsed: true,
+      link: { type: "doc", id: "cli/configs/index" },
+      items: [
+        {
+          type: "doc",
+          id: "cli/configs/list",
+          label: "list",
+        },
+        {
+          type: "doc",
+          id: "cli/configs/get",
+          label: "get",
+        },
+        {
+          type: "doc",
+          id: "cli/configs/set",
+          label: "set",
+        },
+      ],
+    },
   ],
 };
 

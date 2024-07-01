@@ -1,0 +1,43 @@
+---
+title: Cortex Engines List
+description: Cortex engines subcommands.
+---
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+# `cortex engines list`
+
+This command lists all the Cortex's engines.
+
+:::info
+This command is compatible with all OpenAI and OpenAI-compatible endpoints.
+:::
+
+## Usage
+
+```bash
+cortex engines list [options]
+```
+For example, it returns the following:
+```bash
+┌─────────┬───────────────────────┬────────────────────────────────────────────────────────────────────────────┬─────────┬───────────────────────────┐
+│ (index) │ name                  │ description                                                                │ version │ productName               │
+├─────────┼───────────────────────┼────────────────────────────────────────────────────────────────────────────┼─────────┼───────────────────────────┤
+│ 0       │ 'cortex.llamacpp'     │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine' │
+│ 1       │ 'cortex.onnx'         │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine' │
+│ 2       │ 'cortex.tensorrt-llm' │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine' │
+│ 3       │ 'openai'              │ 'This extension enables OpenAI chat completion API calls'                  │ '0.0.1' │ 'OpenAI Inference Engine' │
+│ 4       │ 'groq'                │ 'This extension enables fast Groq chat completion API calls'               │ '0.0.1' │ 'Groq Inference Engine'   │
+└─────────┴───────────────────────┴────────────────────────────────────────────────────────────────────────────┴─────────┴───────────────────────────┘
+
+```
+
+## Options
+
+| Option                    | Description                                        | Required | Default value | Example              |
+|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
+| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
+
+
