@@ -1,6 +1,4 @@
-
-  
-  # **Cortex Node.js SDK: Managing Models**
+# **Cortex Node.js SDK: Managing Models**
 
 ## High Level
 
@@ -31,7 +29,7 @@ Retrieves basic information about a specific model, such as the owner and permis
 **Example:**
 
 ```javascript
-const modelInfo = await cortex.models.retrieve('model-id-123');
+const modelInfo = await cortex.models.retrieve('tinyllama');
 console.log(modelInfo);
 ```
 
@@ -61,7 +59,7 @@ Deletes a fine-tuned model. You must have the Owner role in your organization to
 **Example:**
 
 ```javascript
-const deleteResult = await cortex.models.del('model-id-123');
+const deleteResult = await cortex.models.del('tinyllama');
 console.log(deleteResult);
 ```
 
@@ -76,7 +74,7 @@ Starts a model instance and returns basic information about the model.
 **Example:**
 
 ```javascript
-const startedModel = await cortex.models.start('model-id-123');
+const startedModel = await cortex.models.start("tinyllama");
 console.log(startedModel);
 ```
 
@@ -91,7 +89,7 @@ Stops a running model instance and returns basic information about the model.
 **Example:**
 
 ```javascript
-const stoppedModel = await cortex.models.stop('model-id-123');
+const stoppedModel = await cortex.models.stop('tinyllama');
 console.log(stoppedModel);
 ```
 
@@ -106,7 +104,7 @@ Initiates a download of the specified model.
 **Example:**
 
 ```javascript
-const downloadStream = cortex.models.download('model-id-123');
+const downloadStream = cortex.models.download('tinyllama');
 downloadStream.on('data', (chunk) => {
   // Handle downloaded data
 });
@@ -139,7 +137,7 @@ Updates the configuration of a specific model.
 
 ```javascript
 const updateBody = { /* Model configuration updates */ };
-const updatedModel = await cortex.models.update('model-id-123', updateBody);
+const updatedModel = await cortex.models.update('tinyllama', updateBody);
 console.log(updatedModel);
 ```
 
@@ -163,12 +161,12 @@ import Cortex from "@janhq/cortexso-node";
 
 const cortex = new Cortex({
   baseURL: "http://localhost:1337/v1",
-  apiKey: "your-api-key",
+  apiKey: "",
 });
 
 async function getModelInfo() {
   try {
-    const modelInfo = await cortex.models.retrieve('model-id-123');
+    const modelInfo = await cortex.models.retrieve('tinyllama');
     console.log(modelInfo);
   } catch (error) {
     console.error('Error retrieving model:', error);
@@ -178,6 +176,6 @@ async function getModelInfo() {
 getModelInfo();
 ```
 
-Make sure to replace `'model-id-123'` with the actual ID of the model you want to retrieve, and `'your-api-key'` with your valid API key.
+Make sure to replace `'tinyllama'` with the actual ID of the model you want to retrieve.
   
   

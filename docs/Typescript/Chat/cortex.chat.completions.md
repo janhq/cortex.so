@@ -1,6 +1,4 @@
-
-  
-  # **Cortex ChatCompletions**
+# **Cortex ChatCompletions**
 
 ## High-Level Overview
 
