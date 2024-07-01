@@ -1,14 +1,15 @@
 ---
-title: Cortex Models
+title: Cortex Engines Get
+description: Cortex engines subcommands.
 ---
 
 :::warning
 🚧 Cortex is under construction.
 :::
 
-# `cortex models`
+# `cortex engines get`
 
-This command allows you to start, stop, and manage various local or remote model operations within Cortex.
+This command returns an engine detail defined by an engine `name`.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -17,11 +18,13 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ## Usage
 
 ```bash
-cortex models [options]
+cortex engines get <name>
 ```
 
 ## Options
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
+| `name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `cortex.llamacpp`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
+
