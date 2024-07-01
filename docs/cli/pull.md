@@ -25,20 +25,21 @@ The following alias is also available for downloading models:
 - `cortex download _`
 
 ## Usage
+
 ```bash
 cortex pull <model_id>
 ```
 
 ### Preconfigured Models
 
-Reconfigured models (with optimal runtime parameters and templates) are available from the [Cortex Model Hub](https://huggingface.co/cortexhub) on Hugging Face.
+Reconfigured models (with optimal runtime parameters and templates) are available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
 
 Models can be downloaded using a Docker-like interface with the following syntax: `repo_name:branch_name`. Each variant may include different quantizations and sizes, typically organized in the repository’s branches.
 
 Available models include [llama3](https://huggingface.co/janhq/llama3), [mistral](https://huggingface.co/janhq/mistral), [tinyllama](https://huggingface.co/janhq/tinyllama), and [many more](https://huggingface.co/janhq).
 
 :::info
-New models will soon be added to [Cortex Model Hub](https://huggingface.co/cortexhub).
+New models will soon be added to [Cortex Model Hub](https://huggingface.co/cortexso).
 :::
 
 ```bash
@@ -68,8 +69,7 @@ cortex pull microsoft/Phi-3-mini-4k-instruct-gguf
 
 ## Options
 
-| Option            | Description                                           | Required | Default value | Example                    |
-|-------------------|-------------------------------------------------------|----------|---------------|----------------------------|
-| `model_id`        | The identifier of the model you want to download.     | Yes      | -             | `tinyllama`           |
-| `-h`, `--help`      | Display help information for the command.             | No       | -             | `-h`                   |
-
+| Option         | Description                                       | Required | Default value | Example     |
+| -------------- | ------------------------------------------------- | -------- | ------------- | ----------- |
+| `model_id`     | The identifier of the model you want to download. | Yes      | -             | `tinyllama` |
+| `-h`, `--help` | Display help information for the command.         | No       | -             | `-h`        |
