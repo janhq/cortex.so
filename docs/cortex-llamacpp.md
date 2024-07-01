@@ -13,6 +13,7 @@ slug: "cortex-llamacpp"
 :::
 
 ## Introduction
+
 `cortex.llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference. llama.cpp runs on CPU and GPU, and is optimized for inference.
 
 In addition to `llama.cpp`, `cortex.llamacpp` adds:
@@ -32,7 +33,7 @@ To include `cortex.llamacpp` in your own server implementation, follow the steps
 
 #### Get GGUF Models
 
-You can download precompiled models from the [Cortex Hub](https://huggingface.co/cortexhub) on Hugging Face. These models include configurations, tokenizers, and dependencies tailored for optimal performance with this engine.
+You can download precompiled models from the [Cortex Hub](https://huggingface.co/cortexso) on Hugging Face. These models include configurations, tokenizers, and dependencies tailored for optimal performance with this engine.
 
 Read more about [model operations](./model-operations).
 
@@ -70,18 +71,19 @@ Read more about [model operations](./model-operations).
         std::shared_ptr<Json::Value> jsonBody,
         std::function<void(Json::Value&&, Json::Value&&)>&& callback);
   ```
-All the interfaces above contain the following parameters:
+  All the interfaces above contain the following parameters:
 
-| Parameter  | Description                                    |
-|------------|------------------------------------------------|
-| `jsonBody` | The requested content is in JSON format.          |
-| `callback` | A function that handles the response.          |
-
+| Parameter  | Description                              |
+| ---------- | ---------------------------------------- |
+| `jsonBody` | The requested content is in JSON format. |
+| `callback` | A function that handles the response.    |
 
 ## Architecture
+
 ![Cortex llamacpp architecture](/img/docs/llama-cpp1.png)
 
 ### Main Components
+
 `cortex.llamacpp` is architected with several key components:
 
 - **enginei**: An engine interface definition that extends to all engines, handling endpoint logic and facilitating communication between `cortex.cpp` and `llama engine`.
@@ -90,6 +92,7 @@ All the interfaces above contain the following parameters:
 - **llama server context**: A wrapper offers a more straightforward and user-friendly interface for `llama.cpp` APIs
 
 ### Communication Protocols
+
 ![Cortex llamacpp architecture](/img/docs/llama-cpp2.png)
 The diagram above illustrates how `cortex.llamacpp` communication protocol works:
 

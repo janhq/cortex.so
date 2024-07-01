@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",
+    "@docsearch/js": "^3.6.0",
+    "@docsearch/react": "^3.6.0",
     "@docusaurus/core": "3.4.0",
     "@docusaurus/preset-classic": "^3.4.0",
     "@docusaurus/theme-live-codeblock": "^3.4.0",
@@ -31,6 +33,7 @@
     "date-fns": "^3.6.0",
     "docusaurus-plugin-sass": "^0.2.5",
     "framer-motion": "^11.2.12",
+    "highlight.js": "^11.9.0",
     "lucide-react": "^0.395.0",
     "markdown-it": "^14.1.0",
     "postcss": "^8.4.38",
@@ -48,6 +51,7 @@
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/tsconfig": "3.4.0",
     "@docusaurus/types": "3.4.0",
+    "dotenv": "^16.4.5",
     "typescript": "~5.4.5"
   },
   "browserslist": {

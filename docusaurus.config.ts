@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
@@ -76,7 +78,7 @@ const config: Config = {
           try {
             const fetchedModels = [];
             for await (const model of listModels({
-              search: { owner: "cortexhub" },
+              search: { owner: "cortexso" },
             })) {
               try {
                 const files = [];
@@ -126,7 +128,7 @@ const config: Config = {
                 return actions.addRoute({
                   // this is the path slug
                   // you can make it dynamic here
-                  path: `/models/${page.name.replace("cortexhub/", "")}`,
+                  path: `/models/${page.name.replace("cortexso/", "")}`,
                   // the page component used to render the page
                   component: require.resolve(
                     "./src/components/MyModelPage/index.tsx"
@@ -270,6 +272,12 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/janhq/cortex-web/tree/main/",
+        },
+        sitemap: {
+          changefreq: "daily",
+          priority: 1.0,
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
         },
         theme: {
           customCss: [

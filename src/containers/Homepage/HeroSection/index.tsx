@@ -1,39 +1,52 @@
 import { Button } from "@site/src/components/Button";
 import ThemedImage from "@theme/ThemedImage";
 
-import { isWindows } from "react-device-detect";
 import Link from "@docusaurus/Link";
 import DropdownDownload from "@site/src/components/DropdownDownload";
 import { usePluginData } from "@docusaurus/useGlobalData";
-
-const installationScript = () => {
-  if (isWindows) {
-    return (
-      <p className="mb-0">
-        <span className="text-green-600">winget&nbsp;</span>
-        <span className="text-white">install&nbsp;</span>
-        <span className="text-cyan-600">cortexso</span>
-      </p>
-    );
-  }
-  return (
-    <>
-      <p className="mb-0">
-        <span className="text-green-600">brew&nbsp;</span>
-        <span className="text-white">tap&nbsp;</span>
-        <span className="text-cyan-600">janhq/cortexso</span>
-      </p>
-      <p className="mb-0">
-        <span className="text-green-600">brew&nbsp;</span>
-        <span className="text-white">install&nbsp;</span>
-        <span className="text-cyan-600">cortexso</span>
-      </p>
-    </>
-  );
-};
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 const HeroSection = () => {
+  const userAgent = navigator.userAgent;
   const latestRelease = usePluginData("latest-release");
+  const getOs = () => {
+    if (userAgent.includes("Windows")) {
+      return "win";
+    } else if (userAgent.includes("Linux")) {
+      return "linux";
+    } else {
+      return "mac";
+    }
+  };
+
+  const [tabActive, setTabActive] = useState(getOs());
+
+  const installationScript = () => {
+    if (tabActive === "win") {
+      return (
+        <p className="mb-0">
+          <span className="text-green-600">winget&nbsp;</span>
+          <span className="text-white">install&nbsp;</span>
+          <span className="text-cyan-600">cortexso</span>
+        </p>
+      );
+    }
+    return (
+      <>
+        <p className="mb-0">
+          <span className="text-green-600">brew&nbsp;</span>
+          <span className="text-white">tap&nbsp;</span>
+          <span className="text-cyan-600">janhq/cortexso</span>
+        </p>
+        <p className="mb-0">
+          <span className="text-green-600">brew&nbsp;</span>
+          <span className="text-white">install&nbsp;</span>
+          <span className="text-cyan-600">cortexso</span>
+        </p>
+      </>
+    );
+  };
 
   return (
     <div className="container">
@@ -75,9 +88,33 @@ const HeroSection = () => {
           }}
         >
           <div className="flex border-b border-neutral-700 bg-neutral-800 gap-2 py-3 w-full">
-            <div className="rounded-full w-3 h-3 bg-red-500 ml-3" />
-            <div className="rounded-full w-3 h-3 bg-yellow-500" />
-            <div className="rounded-full w-3 h-3 bg-green-500" />
+            <div
+              className={twMerge(
+                "py-1.5 px-3 border border-transparent text-white rounded-lg ml-2 cursor-pointer",
+                tabActive === "win" && "bg-neutral-950 border-neutral-700"
+              )}
+              onClick={() => setTabActive("win")}
+            >
+              Windows
+            </div>
+            <div
+              className={twMerge(
+                "py-1.5 px-3 border border-transparent text-white rounded-lg cursor-pointer",
+                tabActive === "mac" && "bg-neutral-950 border-neutral-700"
+              )}
+              onClick={() => setTabActive("mac")}
+            >
+              Mac
+            </div>
+            <div
+              className={twMerge(
+                "py-1.5 px-3 border border-transparent text-white rounded-lg cursor-pointer",
+                tabActive === "linux" && "bg-neutral-950 border-neutral-700"
+              )}
+              onClick={() => setTabActive("linux")}
+            >
+              Linux
+            </div>
           </div>
           <div className="w-full">
             <div className="p-4 text-left">

@@ -31,7 +31,7 @@ const ModelsPage = () => {
       }
 
       if (filters.length > 0) {
-        return model.branches.some((branch) =>
+        return model.branches.some((branch: { name: string }) =>
           filters.some((filter) =>
             branch.name.toLowerCase().includes(filter.toLowerCase())
           )
@@ -99,8 +99,8 @@ const ModelsPage = () => {
             </label>
           </div>
         </div>
-        <div className="w-full">
-          <div className="bg-neutral-100 dark:bg-neutral-900 py-20">
+        <div className="w-full p-4 lg:p-8">
+          <div className="bg-neutral-100 dark:bg-neutral-900 py-10 rounded-lg">
             <div className="w-full lg:w-3/4 mx-auto px-4">
               <div className="relative w-full lg:w-1/2 mx-auto">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -122,7 +122,7 @@ const ModelsPage = () => {
                 </div>
                 <input
                   type="search"
-                  className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-00 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search..."
                   onChange={(e) => setSearchValue(e.target.value)}
                 />
@@ -131,29 +131,60 @@ const ModelsPage = () => {
           </div>
 
           <div className="w-full lg:w-3/4 mx-auto px-4 mt-10">
-            {(filteredModels as any[]).map((model, i) => {
-              return (
-                <div
-                  key={model.id}
-                  className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
-                >
-                  <div>
-                    <h3 className="mb-1">
-                      {model.name.replace("cortexhub/", "")}
-                    </h3>
-                    <p className="mb-0 flex items-center gap-x-2">
-                      {model.downloads} <CloudDownload size={16} />
-                    </p>
-                  </div>
-                  <Link
-                    href={`/models/${model.name.replace("cortexhub/", "")}`}
-                    className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
+            {(filteredModels as any[])
+              .filter(
+                (x) =>
+                  !x.name.includes("cortexso/gpt-3.5-turbo") &&
+                  !x.name.includes("cortexso/gpt-4o")
+              )
+              .map((model, i) => {
+                let hasGguf = model.branches.some((x: { name: string }) =>
+                  x.name.toLowerCase().includes("gguf")
+                );
+                let hasOnnx = model.branches.some((x: { name: string }) =>
+                  x.name.toLowerCase().includes("onnx")
+                );
+                let hasTensorrt = model.branches.some((x: { name: string }) =>
+                  x.name.toLowerCase().includes("tensorrt")
+                );
+
+                return (
+                  <div
+                    key={model.id}
+                    className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
                   >
-                    View details
-                  </Link>
-                </div>
-              );
-            })}
+                    <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+                      <h3 className="mb-0">{model.name}</h3>
+                      <div className="flex items-center gap-4">
+                        {hasGguf && (
+                          <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
+                            <p className="mb-0 font-medium">GGUF</p>
+                          </div>
+                        )}
+                        {hasOnnx && (
+                          <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
+                            <p className="mb-0 font-medium">ONNX</p>
+                          </div>
+                        )}
+                        {hasTensorrt && (
+                          <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
+                            <p className="mb-0 font-medium">TensorRT-LLM</p>
+                          </div>
+                        )}
+                        <p className="mb-0 flex items-center gap-x-2">
+                          {model.downloads} <CloudDownload size={16} />
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/models/${model.name.replace("cortexso/", "")}`}
+                      className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
+                    >
+                      View details
+                    </Link>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </main>

@@ -104,8 +104,8 @@ const teams = [
 const About = () => {
   return (
     <div className="container mt-32">
-      <div className="flex gap-8">
-        <div className="w-1/2 bg-red-200 relative rounded-xl overflow-hidden">
+      <div className="flex flex-col lg:flex-row gap-8">
+        <div className="w-full lg:w-1/2 bg-red-200 relative rounded-xl overflow-hidden">
           <ThemedImage
             alt="Illustration Robots"
             className="object-cover w-full h-full"
