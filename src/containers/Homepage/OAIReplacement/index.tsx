@@ -187,7 +187,7 @@ const OAIReplacement = () => {
           </div>
         </div>
         <div className="py-8 w-full lg:w-1/2 flex-shrink-0">
-          <div className="cardContainer w-full h-full rounded-xl">
+          <div className="cardContainer w-full h-full rounded-xl !px-4">
             <div className="pt-4 pb-10">
               <div className="text-center">
                 <div>
@@ -208,7 +208,7 @@ const OAIReplacement = () => {
                   }}
                 />
               </div>
-              <div className="flex ml-8">
+              <div className="flex lg:ml-6 w-full justify-center">
                 <div className="bg-neutral-800 dark:bg-neutral-300 p-2 rounded-xl w-full lg:w-1/2 relative z-10">
                   <div className="bg-white dark:bg-neutral-600 flex w-full items-center p-3 rounded-lg mb-2 justify-center">
                     <ThemedImage
@@ -223,7 +223,7 @@ const OAIReplacement = () => {
                     {list.map((y, i) => {
                       return (
                         <div
-                          className="bg-white dark:bg-neutral-600 flex w-full items-center justify-center px-2 py-1.5 rounded-lg"
+                          className="bg-white dark:bg-neutral-600 flex w-full items-center justify-center px-2 py-1.5 rounded-lg "
                           key={i}
                         >
                           {y}
@@ -232,7 +232,7 @@ const OAIReplacement = () => {
                     })}
                   </div>
                 </div>
-                <div className="border border-neutral-200 dark:border-neutral-700 p-2 rounded-xl w-full lg:w-1/2 relative top-4 -left-8">
+                <div className="border border-neutral-200 dark:border-neutral-700 p-2 rounded-xl w-full lg:w-1/2 relative top-4 lg:-left-8">
                   <div className="bg-neutral-100 dark:bg-neutral-600 flex w-full items-center p-3 rounded-lg mb-2 justify-center">
                     <ThemedImage
                       width={100}
@@ -246,7 +246,7 @@ const OAIReplacement = () => {
                     {list.map((y, i) => {
                       return (
                         <div
-                          className="bg-neutral-100 dark:bg-neutral-600 flex w-full items-center justify-center px-2 py-1.5 rounded-lg"
+                          className="bg-neutral-100 dark:bg-neutral-600 flex w-full items-center justify-center px-2 py-1.5 rounded-lg "
                           key={i}
                         >
                           {y}
