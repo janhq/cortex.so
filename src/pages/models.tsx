@@ -154,7 +154,9 @@ const ModelsPage = () => {
                     className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
                   >
                     <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-                      <h3 className="mb-0">{model.name}</h3>
+                      <h3 className="mb-0">
+                        {model.name.replace("cortexso/", "")}
+                      </h3>
                       <div className="flex items-center gap-4">
                         {hasGguf && (
                           <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">

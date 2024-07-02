@@ -353,8 +353,12 @@ const config: Config = {
           docId: "overview",
           label: "Docs",
         },
-        { to: "/docs/cli", label: "CLI", position: "left" },
         { to: "/models", label: "Models", position: "left" },
+        { to: "/docs/cli", label: "CLI", position: "left" },
+        {
+          type: "search",
+          position: "right",
+        },
         {
           type: "custom-socialNavbar",
           position: "right",
@@ -379,8 +383,8 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              label: "Github",
+              href: "https://github.com/janhq/cortex-web",
             },
             {
               label: "Discord",
@@ -391,7 +395,7 @@ const config: Config = {
               href: "https://x.com/janframework",
             },
             {
-              label: "linkedin",
+              label: "Linkedin",
               href: "https://www.linkedin.com/company/janframework/",
             },
           ],

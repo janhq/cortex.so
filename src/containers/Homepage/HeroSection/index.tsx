@@ -6,6 +6,7 @@ import DropdownDownload from "@site/src/components/DropdownDownload";
 import { usePluginData } from "@docusaurus/useGlobalData";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { FlipWords } from "@site/src/components/FlipWord";
 
 const HeroSection = () => {
   const userAgent = navigator.userAgent;
@@ -21,12 +22,16 @@ const HeroSection = () => {
   };
 
   const [tabActive, setTabActive] = useState(getOs());
+  const words = ["On-Device", "On-Prem", "Local"];
 
   const installationScript = () => {
     if (tabActive === "win") {
       return (
         <p className="mb-0">
-          <span className="text-green-600">winget&nbsp;</span>
+          {/* <span className="text-green-600">winget&nbsp;</span>
+          <span className="text-white">install&nbsp;</span>
+          <span className="text-cyan-600">cortexso</span> */}
+          <span className="text-green-600">npm&nbsp;</span>
           <span className="text-white">install&nbsp;</span>
           <span className="text-cyan-600">cortexso</span>
         </p>
@@ -35,12 +40,10 @@ const HeroSection = () => {
     return (
       <>
         <p className="mb-0">
-          <span className="text-green-600">brew&nbsp;</span>
-          <span className="text-white">tap&nbsp;</span>
-          <span className="text-cyan-600">janhq/cortexso</span>
-        </p>
-        <p className="mb-0">
-          <span className="text-green-600">brew&nbsp;</span>
+          {/* <span className="text-green-600">brew&nbsp;</span>
+          <span className="text-white">install&nbsp;</span>
+          <span className="text-cyan-600">cortexso</span> */}
+          <span className="text-green-600">npm&nbsp;</span>
           <span className="text-white">install&nbsp;</span>
           <span className="text-cyan-600">cortexso</span>
         </p>
@@ -51,14 +54,17 @@ const HeroSection = () => {
   return (
     <div className="container">
       <div className="text-center">
-        <h1 className="text-6xl font-grotesk">Run AI Easily</h1>
+        <h1 className="text-6xl font-grotesk">
+          <FlipWords words={words} />
+          AI
+        </h1>
         <p className="text-xl text-black/60 dark:text-white/60">
-          On-Device, On-Premise AI Engine.
+          Self-Hosted, Open-Source Replacement for OpenAI Platform
         </p>
         <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
           <DropdownDownload lastRelease={latestRelease} />
           <Link href="/docs/quickstart" target="_blank">
-            <Button theme="secondary">Quick Start</Button>
+            <Button theme="secondary">Quickstart</Button>
           </Link>
         </div>
       </div>
@@ -126,28 +132,26 @@ const HeroSection = () => {
                 <p className="mb-4">
                   <span className="text-green-600">cortex&nbsp;</span>
                   <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3</span>
+                  <span className="text-cyan-600">mistral</span>
                 </p>
 
                 <p className="text-neutral-500 mb-0">
-                  # Run using specific backend
+                  # Run using a specific backend
                 </p>
                 <p className="mb-0">
                   <span className="text-green-600">cortex&nbsp;</span>
                   <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3:onnx</span>
+                  <span className="text-cyan-600">mistral:gguf</span>
                 </p>
                 <p className="mb-0">
                   <span className="text-green-600">cortex&nbsp;</span>
                   <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">llama3:gguf</span>
+                  <span className="text-cyan-600">mistral:onnx</span>
                 </p>
                 <p className="mb-0">
                   <span className="text-green-600">cortex&nbsp;</span>
                   <span className="text-white">run&nbsp;</span>
-                  <span className="text-cyan-600">
-                    openhermes-2.5:tensorrt-llm
-                  </span>
+                  <span className="text-cyan-600">mistral:tensorrt-llm</span>
                 </p>
               </code>
             </div>
