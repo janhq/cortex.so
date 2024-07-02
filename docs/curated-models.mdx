@@ -1,0 +1,57 @@
+---
+title: Curated Models
+description: Cortex Curated Models
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Cortex curates a list of popular, preconfigured models on model hubs like [Hugging Face](https://huggingface.co/).
+
+You can find a full list of supported models [here](/models), or directly in the [Cortex HF repo](https://huggingface.co/cortexso).
+
+:::info
+Cortex aims to be compatible with existing model hubs. 
+To request a new hub integration, ping us on [Discord](https://discord.gg/xsfBmpgTTj).
+:::
+
+## Model Variants
+
+Models are compiled across `GGUF`, `ONNX`, and `TensorRT-LLM` formats, and across parameter sizes and quantizations.
+
+Each model variant is stored in a repo branch. Variants can be run in a Docker-like syntax:
+
+`cortex run MODEL-ID:VARIANT-ID`
+
+Or more verbosely, as follows:
+
+<Tabs>
+  <TabItem  value="GGUF" label="GGUF" default>
+
+    ```bash 
+    cortex pull llama3
+    cortex pull llama3:gguf
+    cortex pull llama3:8B-gguf
+    ```
+  </TabItem>
+  <TabItem value="ONNX" label="ONNX">
+
+    ```bash 
+    cortex pull llama3:onnx
+    ```
+  </TabItem>
+  <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
+    
+    TensorRT-LLM engines are specific to the hardware you are running on.
+
+    ```bash 
+    cortex pull llama3:8B-tensorrtllm-linux-ada
+    cortex pull llama3:tensorrtllm-windows-ada
+    ```
+  </TabItem>
+</Tabs>
+
+## Request Models
+
+Join our Discord to request new preconfigured models.
+https://discord.gg/7xt2yuepDe

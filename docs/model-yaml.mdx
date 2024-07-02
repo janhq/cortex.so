@@ -10,11 +10,13 @@ import TabItem from "@theme/TabItem";
 🚧 Cortex is under construction.
 :::
 
-## Model YAML File
+Cortex looks for a `model.yaml` to run models. 
 
-Cortex looks for a `model.yaml` to run models. The `yaml` files are flat, portable, and contain all the runtime parameters.
+The `yaml` files are flat, portable, and contain necessary runtime parameters and model settings.
 
 If a `model.yaml` is not available, Cortex autogenerates it from model metadata.
+
+## Example YAMLs
 
 <Tabs>
   <TabItem  value="GGUF" label="GGUF" default>
@@ -142,7 +144,7 @@ If a `model.yaml` is not available, Cortex autogenerates it from model metadata.
   </TabItem>
 </Tabs>
 
-### Model Presets
+## Model Presets
 
 Cortex provides a small set of presets, i.e. templates for model settings, for popular model architectures, like `ChatML`.
 

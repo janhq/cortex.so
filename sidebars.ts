@@ -34,13 +34,13 @@ const sidebars: SidebarsConfig = {
       ],
     },
     { type: "doc", id: "requirements", label: "Requirements" },
-    // MODEL REGISTRY
+    // MODELs
     {
       type: "html",
-      value: "MODEL REGISTRY",
+      value: "MODELS",
       className: "sidebar-divider",
     },
-    { type: "doc", id: "model-registry", label: "Model Registry" },
+    { type: "doc", id: "curated-models", label: "Curated Models" },
     { type: "doc", id: "model-yaml", label: "Model YAML" },
     {
       type: "category",
