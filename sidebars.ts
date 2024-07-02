@@ -20,7 +20,6 @@ const sidebars: SidebarsConfig = {
     },
     "overview",
     "quickstart",
-    { type: "doc", id: "hardware", label: "Hardware" },
     {
       type: "category",
       label: "Installation",
@@ -34,18 +33,38 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "installation/linux", label: "Linux" },
       ],
     },
-
+    { type: "doc", id: "requirements", label: "Requirements" },
+    // MODEL REGISTRY
+    {
+      type: "html",
+      value: "MODEL REGISTRY",
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "model-registry", label: "Model Registry" },
+    { type: "doc", id: "model-yaml", label: "Model YAML" },
+    {
+      type: "category",
+      label: "Supported Hubs",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "hub/hugging-face", label: "Hugging Face" },
+        { type: "doc", id: "hub/nvidia-ngc", label: "NVIDIA NGC" },
+      ],
+    },
+    // BASIC USAGE
     {
       type: "html",
       value: "BASIC USAGE",
       className: "sidebar-divider",
     },
-
     { type: "doc", id: "command-line", label: "CLI" },
     { type: "doc", id: "ts-library", label: "Typescript Library" },
     { type: "doc", id: "py-library", label: "Python Library" },
     { type: "doc", id: "server", label: "Server Endpoint" },
-
+    // CAPABILITIES
     {
       type: "html",
       value: "CAPABILITIES",
@@ -53,8 +72,9 @@ const sidebars: SidebarsConfig = {
     },
     { type: "doc", id: "chat-completions", label: "Chat Completions" },
     { type: "doc", id: "embeddings", label: "Embeddings" },
-    { type: "doc", id: "benchmark", label: "Benchmark" },
+    { type: "doc", id: "benchmarking", label: "Benchmarking" },
     { type: "doc", id: "model-operations", label: "Model Operations" },
+    // ARCHITECTURE
     {
       type: "html",
       value: "ARCHITECTURE",

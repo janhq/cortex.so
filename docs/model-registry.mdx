@@ -1,0 +1,55 @@
+---
+title: Model Registry
+description: Cortex Model Registry
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Cortex maintains a list of curated models across popular model hubs. 
+
+:::info
+Cortex aims to be compatible with existing model hubs. To request a hub integration, ping us on [Discord](https://discord.gg/xsfBmpgTTj).
+:::
+
+## Curated Models
+
+| | Architecture | Tokenizer | llama.cpp |---|
+|---|---|---|---|---|
+|||||
+
+## Model Tags
+
+Cortex is compatible with 3rd party model hubs like [Hugging Face](https://huggingface.co).
+
+Cortex has a selection of preconfigured models across `GGUF`, `ONNX`, and `TensorRT-LLM` formats. 
+
+The available model variants, across sizes, formats, and quantizations, are stored in each repo's branches.
+
+<Tabs>
+  <TabItem  value="GGUF" label="GGUF" default>
+    ```bash 
+    cortex models pull llama3
+    cortex models pull llama3:gguf
+    cortex models pull llama3:8B-gguf
+    ```
+  </TabItem>
+  <TabItem value="ONNX" label="ONNX">
+    ```bash 
+    cortex models pull llama3:onnx
+    ```
+  </TabItem>
+  <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
+    
+    TensorRT-LLM engines are specific to the hardware you are running on.
+
+    ```bash 
+    cortex models pull 8B-tensorrtllm-linux-ada
+    cortex models pull tensorrtllm-windows-ada
+    ```
+  </TabItem>
+</Tabs>
+
+## Request Models
+
+https://discord.gg/7xt2yuepDe

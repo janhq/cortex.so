@@ -1,0 +1,156 @@
+---
+title: Model YAML
+description: The Model YAML
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+## Model YAML File
+
+Cortex looks for a `model.yaml` to run models. The `yaml` files are flat, portable, and contain all the runtime parameters.
+
+If a `model.yaml` is not available, Cortex autogenerates it from model metadata.
+
+<Tabs>
+  <TabItem  value="GGUF" label="GGUF" default>
+    **Example `model.yaml` for GGUF models**
+
+    ```yaml
+    # Cortex state
+    name: llama3
+    version: 1
+    files: [ ... ]
+
+    # Markup Language
+    prompt_template: ...
+    pre_prompt: ...
+    stop: ...
+
+    # Results Preferences
+    top_p: ...
+    temperature: ...
+    frequency_penalty: ...
+    presence_penalty: ...
+    max_tokens: ...
+    stream: true
+
+    # Engine Settings
+    ngl: ...
+    ctx_len: ...
+    n_parallel: ...
+    cpu_threads: ...
+    engine: cortex.llamacpp 
+    ```
+  </TabItem>
+  <TabItem value="ONNX" label="ONNX">
+    **Example `model.yaml` for `llama3 8B-onnx`**
+
+    ```yaml
+    name: Llama 3
+    model: llama3:8B
+    version: 1
+
+    files:
+      - model_path: model.onnx
+
+    # Results Preferences
+    top_p: 0.95
+    temperature: 0.7
+    frequency_penalty: 0
+    presence_penalty: 0
+    max_tokens: 8192 # Infer from base config.json -> max_position_embeddings
+    stream: true # true | false
+
+    # Engine / Model Settings
+    engine: cortex.onnx
+    prompt_template: "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n{system_message}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    # Prompt template: Can only be retrieved from instruct model
+    # - https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct/blob/main/tokenizer_config.json#L2053
+    # - Requires jinja format parser
+    ```
+
+  </TabItem>
+  <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
+  **Example `model.yaml` for `llama3 8B-tensorrt-llm-windows-ada`**
+  ```yaml
+    name: Llama 3
+    model: llama3:8B
+    version: 1
+
+    # files:
+
+    # Results Preferences
+    top_p: 0.95
+    temperature: 0.7
+    frequency_penalty: 0
+    presence_penalty: 0
+    max_tokens: 8192 # Infer from base config.json -> max_position_embeddings
+    stream: true # true | false
+
+    # Engine / Model Settings
+    engine: cortex.tensorrtllm
+    os: windows # from CI env var
+    gpu_arch: ada # from CI env var
+    quantization_method: awq # from CI env var
+    precision: int4 # from CI env var
+    tp: 1 # from CI env var
+    trtllm_version: 0.9.0 # From CI env var
+    ctx_len: 8192 # Infer from base config.json -> max_position_embeddings
+    text_model: false # Fixed value - https://github.com/janhq/jan/blob/dev/extensions/tensorrt-llm-extension/resources/models.json#L41C7-L41C26
+    prompt_template: "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n{system_message}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    # Prompt template: Can only be retrieved from instruct model
+    # - https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct/blob/main/tokenizer_config.json#L2053
+    # - Requires jinja format parser
+    ```
+    **Example `model.yaml` for `llama3 8B-tensorrt-llm-linux-ada`**
+    
+    ```yaml
+    name: Llama 3
+    model: llama3:8B
+    version: 1
+
+    # files:
+
+    # Results Preferences
+    top_p: 0.95
+    temperature: 0.7
+    frequency_penalty: 0
+    presence_penalty: 0
+    max_tokens: 8192 # Infer from base config.json -> max_position_embeddings
+    stream: true # true | false
+
+    # Engine / Model Settings
+    engine: cortex.tensorrtllm
+    os: linux # from CI env var
+    gpu_arch: ada # from CI env var
+    quantization_method: awq # from CI env var
+    precision: int4 # from CI env var
+    tp: 1 # from CI env var
+    trtllm_version: 0.9.0 # From CI env var
+    ctx_len: 8192 # Infer from base config.json -> max_position_embeddings
+    text_model: false # Fixed value - https://github.com/janhq/jan/blob/dev/extensions/tensorrt-llm-extension/resources/models.json#L41C7-L41C26
+    prompt_template: "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n{system_message}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    # Prompt template: Can only be retrieved from instruct model
+    # - https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct/blob/main/tokenizer_config.json#L2053
+    # - Requires jinja format parser
+    ```
+  </TabItem>
+</Tabs>
+
+### Model Presets
+
+Cortex provides a small set of presets, i.e. templates for model settings, for popular model architectures, like `ChatML`.
+
+You can apply the templates to any model.
+
+:::note
+Learn more about Models capabilities:
+- [Model Object](/api-reference#tag/models/get/models/{id})
+- [Model API](/api-reference#tag/models/post/models)
+- [Model CLI](/docs/cli/models/)
+:::
