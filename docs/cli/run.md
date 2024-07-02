@@ -13,7 +13,8 @@ slug: "run"
 This command facilitates the initiation of an interactive chat shell with a specified machine-learning model.
 
 :::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
+- This command is compatible with all OpenAI and OpenAI-compatible endpoints.
+- This command supports both local and remote models.
 :::
 
 ## Usage
@@ -22,6 +23,13 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 cortex run [options] [model_id]
 ## With a specified engine
 cortex run [options] [model_id]:[engine]
+```
+Example:
+```bash
+## Local model
+cortex run llama3
+## Remote model
+cortex run gpt-3.5-turbo
 ```
 
 ## Options

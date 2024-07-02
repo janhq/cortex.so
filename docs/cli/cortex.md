@@ -12,9 +12,9 @@ slug: /cli
 
 Cortex is a CLI tool used to interact with the Jan application and its various functions.
 
-<Callout type="info">
+:::warning
 Cortex CLI is compatible with all OpenAI and OpenAI-compatible endpoints.
-</Callout>
+:::
 
 ## Usage
 
@@ -24,13 +24,10 @@ cortex [command] [options]
 
 ## Options
 
-| Option               | Description                                        | Required | Default value | Example         |
-|----------------------|----------------------------------------------------|----------|---------------|-----------------|
-| `-v`, `--version`      | Display the Cortex version.                        | No       | `false`       | `-v`     |
-| `-h`, `--help`         | Display help information for the command.          | No       | -             | `-h`        |
-
-
-
+| Option            | Description                               | Required | Default value | Example |
+| ----------------- | ----------------------------------------- | -------- | ------------- | ------- |
+| `-v`, `--version` | Display the Cortex version.               | No       | `false`       | `-v`    |
+| `-h`, `--help`    | Display help information for the command. | No       | -             | `-h`    |
 
 ## Sub Commands
 

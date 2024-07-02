@@ -9,7 +9,7 @@ description: Cortex models subcommands.
 
 # `cortex models list`
 
-This command lists all local models.
+This command lists all local and remote models.
 
 :::info
 This command is compatible with all OpenAI and OpenAI-compatible endpoints.
@@ -19,6 +19,21 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 
 ```bash
 cortex models list [options]
+```
+For example, it returns the following:
+```bash
+┌─────────┬───────────────────────────────────────────────┬──────────────────────────────┬───────────┐
+│ (index) │ id                                            │ engine                       │ version   │
+├─────────┼───────────────────────────────────────────────┼──────────────────────────────┼───────────┤
+│ 0       │ 'gpt-3.5-turbo'                               │ 'openai'                     │ 1         │
+│ 1       │ 'gpt-4o'                                      │ 'openai'                     │ 1         │
+│ 2       │ 'llama3:8B-onnx'                              │ 'cortex.onnx'                │ 1         │
+│ 3       │ 'llama3'                                      │ 'cortex.llamacpp'            │ undefined │
+│ 4       │ 'openhermes-2.5:tensorrt-llm-windows-ada'     │ 'cortex.tensorrt-llm'        │ 1         │
+│ 5       │ 'openhermes-2.5:tensorrt-llm'                 │ 'cortex.tensorrt-llm'        │ 1         │
+│ 6       │ 'tinyllama'                                   │ 'cortex.llamacpp'            │ undefined │
+└─────────┴───────────────────────────────────────────────┴──────────────────────────────┴───────────┘
+
 ```
 
 ## Options
