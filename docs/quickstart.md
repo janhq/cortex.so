@@ -10,7 +10,7 @@ slug: quickstart
 
 ## CLI
 
-To get started, confirm that your system meets the [hardware requirements](/docs/hardware), then run:
+To get started, confirm that your system meets the [hardware requirements](/docs/requirements), then run:
 
 ```bash
 # Install Cortex CLI
