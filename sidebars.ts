@@ -158,6 +158,11 @@ const sidebars: SidebarsConfig = {
           id: "cli/engines/get",
           label: "get",
         },
+        {
+          type: "doc",
+          id: "cli/engines/init",
+          label: "init",
+        },
       ],
     },
     {
