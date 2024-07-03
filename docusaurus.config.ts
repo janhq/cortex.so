@@ -224,6 +224,17 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GTM_ID}`,
+      async: true,
+    },
+    {
+      src: "/js/gtag.js",
+      async: false,
+    },
+  ],
+
   // Set the production url of your site here
   url: "https://cortex.so",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -257,6 +268,10 @@ const config: Config = {
     [
       "classic",
       {
+        // gtag: {
+        //   trackingID: process.env.GTM_ID,
+        // },
+
         docs: {
           beforeDefaultRemarkPlugins: [
             [
