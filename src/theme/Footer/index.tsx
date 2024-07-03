@@ -69,7 +69,7 @@ function Footer(): JSX.Element | null {
               }}
             />
             <h1 className="text-2xl mb-1 font-grotesk">
-              The Anatomy of a Machine
+              The Soul of a New Machine
             </h1>
             <p className="mb-0 text-black/60 dark:text-white/60">
               Subscribe to our newsletter on LLM research and building Cortex.

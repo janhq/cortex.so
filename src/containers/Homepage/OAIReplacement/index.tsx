@@ -319,22 +319,22 @@ const OAIReplacement = () => {
               <div className="p-4 text-left">
                 <code className="bg-transparent border-none inline-block">
                   <p className="text-neutral-500 mb-0">
-                    # Run using specific hardware
+                    # Run using a specific backend
                   </p>
                   <p className="mb-0">
                     <span className="text-green-600">cortex&nbsp;</span>
                     <span className="text-white">run&nbsp;</span>
-                    <span className="text-cyan-600">llama3:tensorrt</span>
+                    <span className="text-cyan-600">mistral:gguf</span>
                   </p>
                   <p className="mb-0">
                     <span className="text-green-600">cortex&nbsp;</span>
                     <span className="text-white">run&nbsp;</span>
-                    <span className="text-cyan-600">llama3:onnx</span>
+                    <span className="text-cyan-600">mistral:onnx</span>
                   </p>
                   <p className="mb-0">
                     <span className="text-green-600">cortex&nbsp;</span>
                     <span className="text-white">run&nbsp;</span>
-                    <span className="text-cyan-600">llama3:gguf</span>
+                    <span className="text-cyan-600">mistral:tensorrt-llm</span>
                   </p>
                 </code>
               </div>

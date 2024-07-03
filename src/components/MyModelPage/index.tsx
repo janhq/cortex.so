@@ -33,7 +33,7 @@ const MyModelPage = (props: { route: any }) => {
   return (
     <Layout>
       <div className="container mt-20 models-detail">
-        <h1 className="mb-8">{data.name}</h1>
+        <h1 className="mb-8">{data.name.replace("cortexso/", "")}</h1>
         <div
           dangerouslySetInnerHTML={{
             __html: result,
