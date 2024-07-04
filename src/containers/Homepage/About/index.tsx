@@ -182,7 +182,7 @@ const About = () => {
               easily and scalably.
             </p>
             <p className="mb-0">
-              We'd also like to acknowledge the following projects:{" "}
+              We'd also like to acknowledge the following incredible projects:{" "}
               <a href="https://github.com/ggerganov/llama.cpp" target="_blank">
                 llamacpp
               </a>
@@ -198,7 +198,7 @@ const About = () => {
               <a href="https://microsoft.github.io/DirectML/" target="_blank">
                 directml
               </a>
-              ,...
+              ...
             </p>
           </div>
           <div className="w-full">

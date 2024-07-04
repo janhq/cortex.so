@@ -144,7 +144,7 @@ const OAIReplacement = () => {
       <div className="mt-16 flex flex-col lg:flex-row gap-10">
         <div>
           <h2 className="text-4xl font-grotesk leading-relaxed">
-            Full OpenAI <br /> API equivalence
+            Local OpenAI API
           </h2>
           <p className="text-black/60 dark:text-white/60 mb-2 mx-auto text-lg">
             Cortex has OpenAI-equivalent API, making it easy for anyone to
@@ -178,7 +178,7 @@ const OAIReplacement = () => {
                     className={twMerge(
                       "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
                       x.status === "work in progress" &&
-                        "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
+                      "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
                     )}
                   >
                     {x.status}
@@ -265,7 +265,7 @@ const OAIReplacement = () => {
 
       <div className="py-20 text-center relative lg:mt-20 lg:mb-32">
         <h2 className="text-4xl font-grotesk leading-relaxed mt-24">
-          Multi-engine <br /> Hardware Support
+          Multi-Engine <br /> Hardware Support
         </h2>
 
         <div className="flex justify-center gap-4 mt-4">
@@ -456,22 +456,18 @@ const OAIReplacement = () => {
       <div className="mt-16 flex flex-col lg:flex-row gap-10">
         <div>
           <h2 className="text-4xl font-grotesk leading-relaxed">
-            Pull from any Model Registry
+            Pull From Any Model Hub
           </h2>
           <p className="text-black/60 dark:text-white/60 mb-2 mx-auto text-lg">
             Cortex allows you to pull and run models from anywhere using a
             simple, Docker-inspired command syntax.
           </p>
-          <p className="text-black/60 dark:text-white/60 mb-2 mx-auto text-lg">
-            You can easily create your own Cortex-compatible model registry,
-            which is based on Git.
-          </p>
           <div className="mt-8">
             <Link
-              to="/api-reference"
+              to="/models"
               className="inline-flex py-2 px-4 font-medium bg-black dark:bg-white text-white dark:text-black border dark:border-gray-600 rounded-lg items-center hover:no-underline hover:text-white hover:dark:text-black"
             >
-              API Reference
+              Curated Models
             </Link>
           </div>
           <div className="mt-6">
@@ -496,7 +492,7 @@ const OAIReplacement = () => {
                         className={twMerge(
                           "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
                           x.status === "work in progress" &&
-                            "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
+                          "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
                         )}
                       >
                         {x.status}
