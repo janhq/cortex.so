@@ -52,6 +52,7 @@ You can also download `size`, `format`, and `quantization` variants of each mode
 ```bash
 cortex pull llama3:8b-instruct-v3-gguf-Q4_K_M
 cortex pull llama3:8b-instruct-v3-tensorrt-llm
+cortex pull llama3:onnx
 ```
 
 :::info
@@ -60,7 +61,7 @@ Model variants are provided via the `branches` in each model's Hugging Face repo
 
 ### Hugging Face Models
 
-You can download any GGUF, TensorRT, or supported-format model directly from Hugging Face.
+You can download any GGUF, TensorRT, ONNX or supported-format model directly from Hugging Face.
 
 ```bash
 # cortex pull org_name/repo_name

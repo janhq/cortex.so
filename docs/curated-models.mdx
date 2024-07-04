@@ -6,35 +6,30 @@ description: Cortex Curated Models
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Cortex works with most models out of the box. See [Hugging Face integration](./hub/hugging-face.mdx). 
+Cortex works with most models out of the box. Currently, we support [Hugging Face integration](./hub/hugging-face.mdx). 
 
-Cortex also curates a list of popular models for your convenience. These models are compiled for popular inference engines, and include optimal runtime configurations (specified through [Model YAMLs](./model-yaml.mdx)).
+We also curate popular models with optimal runtime configurations, specified through [Model YAMLs](./model-yaml.mdx).
 
-You can find a full list of curated models [here](/models), or in the respective hubs: 
-- [Hugging Face: Cortex Org](https://huggingface.co/cortexso)
-- NGC: coming soon
-
-:::info
-Cortex aims to be compatible with existing model hubs. 
+## Model Hub
+Cortex aims to be compatible with existing model hubs. Currently you can explore the full list of curated models [here](/models), or on our [Hugging Face: Cortex Org](https://huggingface.co/cortexso) hub.
 To request a new hub integration, ping us on [Discord](https://discord.gg/xsfBmpgTTj).
+
+:::warning
+Cortex NGC Hub is coming soon! Stay tuned for updates.
 :::
 
 ## Model Variants
 
-Curated models are made available across the following variants. 
+Curated models are made available across the following variants: 
 
-#### By format
-`GGUF`, `ONNX`, and `TensorRT-LLM`
+- **By format**: `GGUF`, `ONNX`, and `TensorRT-LLM`
+- **By Size**: `7b`, `13b`, and more.
+- **By quantizations**: `Q4`, `Q8`, and more.
 
-#### By Size
-`7b`, `13b`, and more.
-
-#### By quantizations
-`Q4`, `Q8`, and more.
-
+:::info
 Each model variant is stored in the model repository's **branches**, in Git fashion. 
-
-## Run Model Variant
+:::
+### Run Model Variant
 
 Variants can be run via Docker-like syntax:
 
@@ -72,5 +67,4 @@ Or more verbosely, as follows:
 
 ## Request Models
 
-Join our Discord to request new preconfigured models.
-https://discord.gg/7xt2yuepDe
+Join our [Discord](https://discord.gg/7xt2yuepDe) to request new preconfigured models.
