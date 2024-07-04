@@ -1,0 +1,45 @@
+---
+title: Telemetry
+description: Telemetry
+slug: "telemetry-export"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+Cortex will collect telemetry data to help us improve the product. We alsp provide the option to export telemetry data to your own observability tools.
+
+### Export to Otel Collector
+You can export our telemetry to your own Otel Collector setup by running the following command:
+<Tabs>
+  <TabItem value="linux" label="Linux" default>
+  ```bash
+  ## 1. First Command
+  echo "export OTEL_EXPORTER_OTLP_ENDPOINT=<your_OTEL_endpoint>" >>~/.profile
+  ## 2. Second Command
+  source ~/.profile
+  ```
+  </TabItem>
+  <TabItem value="mac" label="macOS" default>
+    ```bash
+    ## 1. First Command
+    echo "export OTEL_EXPORTER_OTLP_ENDPOINT=<your_OTEL_endpoint>" >>~/.profile
+    ## 2. Second Command
+    source ~/.profile
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Windows" default>
+    ```bash
+    ## Command Prompt
+    set OTEL_EXPORTER_OTLP_ENDPOINT <your_OTEL_endpoint>
+    ## PowerShell
+    $env:OTEL_EXPORTER_OTLP_ENDPOINT <your_OTEL_endpoint>
+    ## To set the env permanently
+    setx OTEL_EXPORTER_OTLP_ENDPOINT <your_OTEL_endpoint>
+    ```
+  </TabItem>
+</Tabs>
