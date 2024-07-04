@@ -6,9 +6,13 @@ description: Cortex Curated Models
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Cortex curates a list of popular, preconfigured models on model hubs like [Hugging Face](https://huggingface.co/).
+Cortex works with most models out of the box. See [Hugging Face integration](./hub/hugging-face.mdx). 
 
-You can find a full list of supported models [here](/models), or directly in the [Cortex HF repo](https://huggingface.co/cortexso).
+Cortex also curates a list of popular models for your convenience. These models are compiled for popular inference engines, and include optimal runtime configurations (specified through [Model YAMLs](./model-yaml.mdx)).
+
+You can find a full list of curated models [here](/models), or in the respective hubs: 
+- [Hugging Face: Cortex Org](https://huggingface.co/cortexso)
+- NGC: coming soon
 
 :::info
 Cortex aims to be compatible with existing model hubs. 
@@ -17,11 +21,26 @@ To request a new hub integration, ping us on [Discord](https://discord.gg/xsfBmp
 
 ## Model Variants
 
-Models are compiled across `GGUF`, `ONNX`, and `TensorRT-LLM` formats, and across parameter sizes and quantizations.
+Curated models are made available across the following variants. 
 
-Each model variant is stored in a repo branch. Variants can be run in a Docker-like syntax:
+#### By format
+`GGUF`, `ONNX`, and `TensorRT-LLM`
 
-`cortex run MODEL-ID:VARIANT-ID`
+#### By Size
+`7b`, `13b`, and more.
+
+#### By quantizations
+`Q4`, `Q8`, and more.
+
+Each model variant is stored in the model repository's **branches**, in Git fashion. 
+
+## Run Model Variant
+
+Variants can be run via Docker-like syntax:
+
+```bash
+cortex run MODEL-NAME:BRANCH-NAME
+```
 
 Or more verbosely, as follows:
 

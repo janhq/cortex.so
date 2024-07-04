@@ -45,13 +45,10 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Supported Hubs",
-      link: {
-        type: "generated-index",
-      },
+      link: { type: "doc", id: "hub/index" },
       collapsed: true,
       items: [
         { type: "doc", id: "hub/hugging-face", label: "Hugging Face" },
-        { type: "doc", id: "hub/nvidia-ngc", label: "NVIDIA NGC" },
       ],
     },
     // BASIC USAGE
