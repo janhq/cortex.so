@@ -119,6 +119,7 @@ const modelRegistry = [
   {
     name: "Nvidia NGC",
     logo: "/img/logos/nvidia.svg",
+    status: "coming soon",
     link: "https://catalog.ngc.nvidia.com/models?filters=platform%7CRuns+on+RTX%7Cpltfm_runs_on_rtx&orderBy=weightPopularDESC&query=&page=&pageSize=",
   },
 ];
@@ -175,7 +176,7 @@ const OAIReplacement = () => {
                   </h4>
                   <span
                     className={twMerge(
-                      "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium",
+                      "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
                       x.status === "work in progress" &&
                         "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
                     )}
@@ -489,7 +490,18 @@ const OAIReplacement = () => {
                     }}
                   />
                   <div className="flex w-full justify-between">
-                    <h4 className="font-medium mb-0">{x.name}</h4>
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-medium mb-0">{x.name}</h4>
+                      <span
+                        className={twMerge(
+                          "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
+                          x.status === "work in progress" &&
+                            "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
+                        )}
+                      >
+                        {x.status}
+                      </span>
+                    </div>
                     <Link to={x.link} className="mb-0 text-sm">
                       View models
                     </Link>
