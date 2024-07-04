@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "paths": {
-        "/assistants": {
+        "/v1/assistants": {
             "post": {
                 "operationId": "AssistantsController_create",
                 "summary": "Create assistant",
@@ -88,7 +88,7 @@
                 ]
             }
         },
-        "/assistants/{id}": {
+        "/v1/assistants/{id}": {
             "get": {
                 "operationId": "AssistantsController_findOne",
                 "summary": "Get assistant",
@@ -152,11 +152,11 @@
                 ]
             }
         },
-        "/chat/completions": {
+        "/v1/chat/completions": {
             "post": {
                 "operationId": "ChatController_create",
                 "summary": "Create chat completion",
-                "description": "Creates a model response for the given conversation.",
+                "description": "Creates a model response for the given conversation. The following parameters are not working for the `TensorRT-LLM` engine:\n- `frequency_penalty`\n- `presence_penalty`\n- `top_p`",
                 "parameters": [],
                 "requestBody": {
                     "required": true,
@@ -185,7 +185,7 @@
                 ]
             }
         },
-        "/embeddings": {
+        "/v1/embeddings": {
             "post": {
                 "operationId": "EmbeddingsController_create",
                 "summary": "Create embedding vector",
@@ -218,7 +218,7 @@
                 ]
             }
         },
-        "/models": {
+        "/v1/models": {
             "post": {
                 "operationId": "ModelsController_create",
                 "summary": "Create model",
@@ -272,7 +272,7 @@
                 ]
             }
         },
-        "/models/{modelId}/start": {
+        "/v1/models/{modelId}/start": {
             "post": {
                 "operationId": "ModelsController_startModel",
                 "summary": "Start model",
@@ -315,7 +315,7 @@
                 ]
             }
         },
-        "/models/{modelId}/stop": {
+        "/v1/models/{modelId}/stop": {
             "post": {
                 "operationId": "ModelsController_stopModel",
                 "summary": "Stop model",
@@ -348,7 +348,7 @@
                 ]
             }
         },
-        "/models/download/{modelId}": {
+        "/v1/models/download/{modelId}": {
             "get": {
                 "operationId": "ModelsController_downloadModel",
                 "summary": "Download model",
@@ -380,7 +380,7 @@
                 ]
             }
         },
-        "/models/abort-download/{download_id}": {
+        "/v1/models/abort-download/{download_id}": {
             "get": {
                 "operationId": "ModelsController_abortDownloadModel",
                 "summary": "Abort model download",
@@ -405,7 +405,7 @@
                 ]
             }
         },
-        "/models/pull/{modelId}": {
+        "/v1/models/pull/{modelId}": {
             "get": {
                 "operationId": "ModelsController_pullModel",
                 "summary": "Download a remote model",
@@ -427,7 +427,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/DownloadModelResponseDto"
+                                    "$ref": "#/components/schemas/CommonResponseDto"
                                 }
                             }
                         }
@@ -438,7 +438,7 @@
                 ]
             }
         },
-        "/models/{id}": {
+        "/v1/models/{id}": {
             "get": {
                 "operationId": "ModelsController_findOne",
                 "summary": "Get model",
@@ -502,7 +502,7 @@
                 ]
             }
         },
-        "/models/{model}/config": {
+        "/v1/models/{model}/config": {
             "post": {
                 "operationId": "ModelsController_update",
                 "summary": "Update model",
@@ -544,7 +544,7 @@
                 ]
             }
         },
-        "/threads": {
+        "/v1/threads": {
             "post": {
                 "operationId": "ThreadsController_create",
                 "summary": "Create thread",
@@ -601,7 +601,7 @@
                 }
             }
         },
-        "/threads/{thread_id}/messages/{message_id}": {
+        "/v1/threads/{thread_id}/messages/{message_id}": {
             "get": {
                 "operationId": "ThreadsController_retrieveMessage",
                 "summary": "Retrieve message",
@@ -727,7 +727,7 @@
                 }
             }
         },
-        "/threads/{thread_id}/messages": {
+        "/v1/threads/{thread_id}/messages": {
             "get": {
                 "operationId": "ThreadsController_getMessagesOfThread",
                 "summary": "List messages",
@@ -839,7 +839,7 @@
                 }
             }
         },
-        "/threads/{thread_id}/clean": {
+        "/v1/threads/{thread_id}/clean": {
             "post": {
                 "operationId": "ThreadsController_cleanThread",
                 "summary": "Clean thread",
@@ -864,7 +864,7 @@
                 }
             }
         },
-        "/threads/{thread_id}": {
+        "/v1/threads/{thread_id}": {
             "get": {
                 "operationId": "ThreadsController_retrieveThread",
                 "summary": "Retrieve thread",
@@ -969,11 +969,11 @@
                 }
             }
         },
-        "/health": {
+        "/v1/health": {
             "get": {
                 "operationId": "StatusController_get",
                 "summary": "Get health status",
-                "description": "Retrieves the health status of the Cortex's API endpoint server.",
+                "description": "Retrieves the health status of your Cortex's system.",
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -985,7 +985,7 @@
                 ]
             }
         },
-        "/process": {
+        "/v1/process": {
             "delete": {
                 "operationId": "ProcessController_delete",
                 "summary": "Terminate service",
@@ -1001,7 +1001,7 @@
                 ]
             }
         },
-        "/events/download": {
+        "/v1/events/download": {
             "get": {
                 "operationId": "EventsController_downloadEvent",
                 "summary": "Get download status",
@@ -1024,7 +1024,7 @@
                 ]
             }
         },
-        "/events/model": {
+        "/v1/events/model": {
             "get": {
                 "operationId": "EventsController_modelEvent",
                 "summary": "Get model status",
@@ -1044,6 +1044,187 @@
                 },
                 "tags": [
                     "Events"
+                ]
+            }
+        },
+        "/v1/events/resources": {
+            "get": {
+                "operationId": "EventsController_resourcesEvent",
+                "summary": "Get resources status",
+                "description": "Retrieves the resources status of the system.",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Events"
+                ]
+            }
+        },
+        "/v1/configs": {
+            "get": {
+                "operationId": "ConfigsController_findAll",
+                "summary": "List configs",
+                "description": "Lists the currently available configs, including the default and user-defined configurations.",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Configurations"
+                ]
+            }
+        },
+        "/v1/configs/{name}": {
+            "get": {
+                "operationId": "ConfigsController_findOne",
+                "summary": "Get a config",
+                "description": "Retrieves a config instance, providing basic information about the config.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "required": true,
+                        "in": "path",
+                        "description": "The unique identifier of the config.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Configurations"
+                ]
+            },
+            "post": {
+                "operationId": "ConfigsController_update",
+                "summary": "Configure a model",
+                "description": "Updates a specific configuration setting by its group and key.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfigUpdateDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The config has been successfully updated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CommonResponseDto"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Configurations"
+                ]
+            }
+        },
+        "/v1/engines": {
+            "get": {
+                "operationId": "EnginesController_findAll",
+                "summary": "List available engines",
+                "description": "Lists the currently available engines, including local and remote engines.",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/EngineDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Engines"
+                ]
+            }
+        },
+        "/v1/engines/{name}": {
+            "get": {
+                "operationId": "EnginesController_findOne",
+                "summary": "Get an engine",
+                "description": "Retrieves an engine instance, providing basic information about the engine.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "required": true,
+                        "in": "path",
+                        "description": "The unique identifier of the engine.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EngineDto"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Engines"
                 ]
             }
         }
@@ -1089,15 +1270,20 @@
         },
         {
             "name": "Events",
-            "description": "Endpoints for  observing Cortex statuses through event notifications."
+            "description": "Endpoints for observing Cortex statuses through event notifications."
+        },
+        {
+            "name": "Configurations",
+            "description": "Endpoints for customizing the Cortex's configurations."
+        },
+        {
+            "name": "Engines",
+            "description": "Endpoints for managing the available engines within Cortex."
         }
     ],
     "servers": [
         {
             "url": "http://localhost:1337"
-        },
-        {
-            "url": "http://localhost:1337/v1"
         }
     ],
     "components": {
@@ -1277,13 +1463,11 @@
                 "properties": {
                     "content": {
                         "type": "string",
-                        "description": "The Content of the chat message.",
-                        "example": "Hello, how can I help you today?"
+                        "description": "The Content of the chat message."
                     },
                     "role": {
                         "type": "object",
-                        "description": "The role of the entity in the chat completion.",
-                        "example": "user"
+                        "description": "The role of the entity in the chat completion."
                     }
                 },
                 "required": [
@@ -1317,8 +1501,10 @@
                         "example": 4096
                     },
                     "stop": {
-                        "example": ["End"],
                         "description": "Defines specific tokens or phrases that signal the model to stop producing further output.",
+                        "example": [
+                            "End"
+                        ],
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -1469,9 +1655,13 @@
                 "properties": {
                     "model": {
                         "type": "string",
+                        "example": "llama3",
                         "description": "The name of the embedding model to be used."
                     },
                     "input": {
+                        "example": [
+                            "Hello World"
+                        ],
                         "description": "The text or token array(s) to be embedded. This can be a single string, an array of strings, or an array of token arrays to embed multiple inputs in one request.",
                         "type": "array",
                         "items": {
@@ -1480,10 +1670,12 @@
                     },
                     "encoding_format": {
                         "type": "string",
+                        "example": "float",
                         "description": "Specifies the format for the embeddings. Supported formats include `float` and `int`. This field is optional."
                     },
                     "dimensions": {
                         "type": "number",
+                        "example": 3,
                         "description": "Defines the number of dimensions for the output embeddings. This feature is supported by certain models only. This field is optional."
                     }
                 },
@@ -1743,6 +1935,18 @@
                     "message"
                 ]
             },
+            "CommonResponseDto": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "The response success or error message."
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
             "ModelDto": {
                 "type": "object",
                 "properties": {
@@ -1925,54 +2129,95 @@
                 "properties": {
                     "id": {
                         "type": "string",
+                        "example": "thread_123",
                         "description": "The unique identifier of the assistant."
                     },
                     "avatar": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "https://example.com/avatar.png",
+                        "description": "URL of the assistant's avatar image."
                     },
                     "name": {
                         "type": "string",
+                        "example": "Virtual Helper",
                         "description": "The name of the assistant."
                     },
                     "model": {
                         "type": "string",
+                        "example": "llama3",
                         "description": "The model's unique identifier and settings."
                     },
                     "instructions": {
                         "type": "string",
+                        "example": "Assist with customer queries and provide information based on the company database.",
                         "description": "The assistant's specific instructions."
                     },
                     "tools": {
-                        "type": "object",
+                        "type": "array",
+                        "example": [
+                            {
+                                "name": "Knowledge Retrieval",
+                                "settings": {
+                                    "source": "internal",
+                                    "endpoint": "https://api.example.com/knowledge"
+                                }
+                            }
+                        ],
                         "description": "The thread's tool(Knowledge Retrieval) configurations."
                     },
                     "description": {
                         "type": "string",
-                        "nullable": true
+                        "nullable": true,
+                        "example": "This assistant helps with customer support by retrieving relevant information.",
+                        "description": "The description of the assistant."
                     },
                     "metadata": {
                         "type": "object",
-                        "nullable": true
+                        "nullable": true,
+                        "example": {
+                            "department": "support",
+                            "version": "1.0"
+                        },
+                        "description": "Additional metadata for the assistant."
                     },
                     "object": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "assistant",
+                        "description": "The object type, always \"assistant\"."
                     },
                     "temperature": {
                         "type": "number",
-                        "nullable": true
+                        "nullable": true,
+                        "example": 0.7,
+                        "description": "Sampling temperature for the assistant."
                     },
                     "top_p": {
                         "type": "number",
-                        "nullable": true
+                        "nullable": true,
+                        "example": 0.9,
+                        "description": "Top-p sampling value for the assistant."
                     },
                     "created_at": {
-                        "type": "number"
+                        "type": "number",
+                        "example": 1622470423,
+                        "description": "Timestamp of when the assistant was created."
                     },
                     "response_format": {
-                        "type": "object"
+                        "type": "object",
+                        "example": {
+                            "format": "json"
+                        },
+                        "description": "The response format option for the assistant."
                     },
                     "tool_resources": {
-                        "type": "object"
+                        "type": "object",
+                        "example": {
+                            "resources": [
+                                "database1",
+                                "database2"
+                            ]
+                        },
+                        "description": "Tool resources for the assistant."
                     }
                 },
                 "required": [
@@ -2249,10 +2494,12 @@
                 "properties": {
                     "role": {
                         "type": "object",
+                        "example": "user",
                         "description": "The role of the entity that is creating the message. Allowed values include:\n      - user: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages.\n      - assistant: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation."
                     },
                     "content": {
                         "type": "string",
+                        "example": "Tell me a joke",
                         "description": "The text contents of the message."
                     }
                 },
@@ -2344,13 +2591,20 @@
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "message_123",
+                        "description": "The identifier of the message that was deleted."
                     },
                     "object": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "message",
+                        "description": "Type of the object, indicating it's a message.",
+                        "default": "message"
                     },
                     "deleted": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "example": true,
+                        "description": "Indicates whether the message was successfully deleted."
                     }
                 },
                 "required": [
@@ -2438,6 +2692,58 @@
                     "id",
                     "object",
                     "deleted"
+                ]
+            },
+            "ConfigUpdateDto": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "example": "apiKey",
+                        "description": "The configuration API key."
+                    },
+                    "value": {
+                        "type": "string",
+                        "example": "sk-xxxxxx",
+                        "description": "The value of the configuration API key."
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "openai",
+                        "description": "The name of the configuration."
+                    }
+                },
+                "required": [
+                    "key",
+                    "value"
+                ]
+            },
+            "EngineDto": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "cortex.llamacpp",
+                        "description": "The name of the engine that you want to retrieve."
+                    },
+                    "productName": {
+                        "type": "string",
+                        "example": "Cortex",
+                        "description": "The display name of the engine."
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Cortex engine",
+                        "description": "The description of the engine."
+                    },
+                    "version": {
+                        "type": "string",
+                        "example": "0.0.1",
+                        "description": "The version of the engine."
+                    }
+                },
+                "required": [
+                    "name"
                 ]
             }
         }
