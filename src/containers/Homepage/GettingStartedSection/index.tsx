@@ -6,7 +6,7 @@ const GettingStartedSection = () => {
     <>
       <div className="container">
         <div className="m-10 md:mt-40 text-center w-full lg:w-1/2 mx-auto">
-          <h2 className="text-4xl font-grotesk">Features</h2>
+          <h2 className="text-5xl font-grotesk">Features</h2>
           <p className="text-black/60 dark:text-white/60 text-lg">
             Cortex allows developers to focus on building local AI applications
             by abstracting hardware and engine support.

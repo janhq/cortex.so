@@ -32,7 +32,7 @@ const HeroSection = () => {
           <span className="text-white">install&nbsp;</span>
           <span className="text-cyan-600">cortexso</span> */}
           <span className="text-green-600">npm&nbsp;</span>
-          <span className="text-white">install&nbsp;</span>
+          <span className="text-white">install -g &nbsp;</span>
           <span className="text-cyan-600">cortexso</span>
         </p>
       );
@@ -44,7 +44,7 @@ const HeroSection = () => {
           <span className="text-white">install&nbsp;</span>
           <span className="text-cyan-600">cortexso</span> */}
           <span className="text-green-600">npm&nbsp;</span>
-          <span className="text-white">install&nbsp;</span>
+          <span className="text-white">install -g&nbsp;</span>
           <span className="text-cyan-600">cortexso</span>
         </p>
       </>

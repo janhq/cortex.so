@@ -131,62 +131,59 @@ const ModelsPage = () => {
           </div>
 
           <div className="w-full lg:w-3/4 mx-auto px-4 mt-10">
-            {(filteredModels as any[])
-              .filter(
-                (x) =>
-                  !x.name.includes("cortexso/gpt-3.5-turbo") &&
-                  !x.name.includes("cortexso/gpt-4o")
-              )
-              .map((model, i) => {
-                let hasGguf = model.branches.some((x: { name: string }) =>
-                  x.name.toLowerCase().includes("gguf")
-                );
-                let hasOnnx = model.branches.some((x: { name: string }) =>
-                  x.name.toLowerCase().includes("onnx")
-                );
-                let hasTensorrt = model.branches.some((x: { name: string }) =>
-                  x.name.toLowerCase().includes("tensorrt")
-                );
+            {(filteredModels as any[]).map((model, i) => {
+              let hasGguf = model.branches.some((x: { name: string }) =>
+                x.name.toLowerCase().includes("gguf")
+              );
+              let hasOnnx = model.branches.some((x: { name: string }) =>
+                x.name.toLowerCase().includes("onnx")
+              );
+              let hasTensorrt = model.branches.some((x: { name: string }) =>
+                x.name.toLowerCase().includes("tensorrt")
+              );
 
-                return (
-                  <div
-                    key={model.id}
-                    className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
-                  >
-                    <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-                      <h3 className="mb-0">
-                        {model.name.replace("cortexso/", "")}
-                      </h3>
-                      <div className="flex items-center gap-4">
-                        {hasGguf && (
-                          <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
-                            <p className="mb-0 font-medium">GGUF</p>
-                          </div>
-                        )}
-                        {hasOnnx && (
-                          <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
-                            <p className="mb-0 font-medium">ONNX</p>
-                          </div>
-                        )}
-                        {hasTensorrt && (
-                          <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
-                            <p className="mb-0 font-medium">TensorRT-LLM</p>
-                          </div>
-                        )}
-                        <p className="mb-0 flex items-center gap-x-2">
-                          {model.downloads} <CloudDownload size={16} />
-                        </p>
-                      </div>
+              if (model.files.some((file) => file.path === "model.yml"))
+                return null;
+
+              return (
+                <div
+                  key={model.id}
+                  className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
+                >
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+                    <h3 className="mb-0">
+                      {model.name.replace("cortexso/", "")}
+                    </h3>
+                    <div className="flex items-center gap-4">
+                      {hasGguf && (
+                        <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
+                          <p className="mb-0 font-medium">GGUF</p>
+                        </div>
+                      )}
+                      {hasOnnx && (
+                        <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
+                          <p className="mb-0 font-medium">ONNX</p>
+                        </div>
+                      )}
+                      {hasTensorrt && (
+                        <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
+                          <p className="mb-0 font-medium">TensorRT-LLM</p>
+                        </div>
+                      )}
+                      <p className="mb-0 flex items-center gap-x-2">
+                        {model.downloads} <CloudDownload size={16} />
+                      </p>
                     </div>
-                    <Link
-                      href={`/models/${model.name.replace("cortexso/", "")}`}
-                      className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
-                    >
-                      View details
-                    </Link>
                   </div>
-                );
-              })}
+                  <Link
+                    href={`/models/${model.name.replace("cortexso/", "")}`}
+                    className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
+                  >
+                    View details
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </main>

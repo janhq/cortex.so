@@ -3,6 +3,7 @@ import ThemedImage from "@theme/ThemedImage";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import useWindowSize from "@site/src/hooks/useWindowSize";
+import { CirclePlusIcon } from "lucide-react";
 
 const floatingAnimations = [
   {
@@ -100,7 +101,7 @@ const fileTrees = [
     status: "coming soon",
   },
   {
-    name: "...",
+    name: "and more...",
   },
 ];
 
@@ -118,7 +119,7 @@ const modelRegistry = [
   {
     name: "Nvidia NGC",
     logo: "/img/logos/nvidia.svg",
-    link: "https://catalog.ngc.nvidia.com/models?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=",
+    link: "https://catalog.ngc.nvidia.com/models?filters=platform%7CRuns+on+RTX%7Cpltfm_runs_on_rtx&orderBy=weightPopularDESC&query=&page=&pageSize=",
   },
 ];
 
@@ -164,14 +165,14 @@ const OAIReplacement = () => {
                   className="flex w-full border-b dark:border-neutral-700 border-neutral-200 items-center py-3 gap-x-2 last:border-none"
                   key={i}
                 >
-                  <ThemedImage
-                    alt="Illustration Robots"
-                    sources={{
-                      light: "/img/homepage/cloud-tree.png",
-                      dark: "/img/homepage/cloud-tree-dark.png",
-                    }}
-                  />
-                  <h4 className="font-medium mb-0">{x.name}</h4>
+                  <h4
+                    className={twMerge(
+                      "font-medium mb-0",
+                      x.name === "and more..." && "text-neutral-500"
+                    )}
+                  >
+                    {x.name}
+                  </h4>
                   <span
                     className={twMerge(
                       "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium",
@@ -186,7 +187,7 @@ const OAIReplacement = () => {
             })}
           </div>
         </div>
-        <div className="py-8 w-full lg:w-1/2 flex-shrink-0">
+        <div className="pb-8 w-full lg:w-1/2 flex-shrink-0">
           <div className="cardContainer w-full h-full rounded-xl !px-4">
             <div className="pt-4 pb-10">
               <div className="text-center">
@@ -199,7 +200,7 @@ const OAIReplacement = () => {
                   <code>- const ai = require('openai')</code>
                 </div>
               </div>
-              <div className="text-center mt-8">
+              <div className="text-center mt-4">
                 <ThemedImage
                   alt="Illustration Robots"
                   sources={{
@@ -246,7 +247,7 @@ const OAIReplacement = () => {
                     {list.map((y, i) => {
                       return (
                         <div
-                          className="bg-neutral-100 dark:bg-neutral-600 flex w-full items-center justify-center px-2 py-1.5 rounded-lg "
+                          className="bg-neutral-100 dark:bg-neutral-700 flex w-full items-center justify-center px-2 py-1.5 rounded-lg text-neutral-500"
                           key={i}
                         >
                           {y}
@@ -262,7 +263,7 @@ const OAIReplacement = () => {
       </div>
 
       <div className="py-20 text-center relative lg:mt-20 lg:mb-32">
-        <h2 className="text-4xl font-grotesk leading-relaxed mt-10">
+        <h2 className="text-4xl font-grotesk leading-relaxed mt-24">
           Multi-engine <br /> Hardware Support
         </h2>
 
@@ -352,7 +353,9 @@ const OAIReplacement = () => {
               alt="IoT & SBCs"
               className="mb-1 object-cover"
             />
-            <p className="mb-0">IoT & SBCs</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              IoT & SBCs
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute bottom-40 left-20"
@@ -363,7 +366,9 @@ const OAIReplacement = () => {
               alt="Wearables"
               className="mb-1 object-cover"
             />
-            <p className="mb-0">Wearables</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              Wearables
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute top-48 left-40"
@@ -374,7 +379,9 @@ const OAIReplacement = () => {
               alt="Phones"
               className="mb-1 object-cover"
             />
-            <p className="mb-0">Phones</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              Phones
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute top-10 left-80"
@@ -385,7 +392,9 @@ const OAIReplacement = () => {
               alt="CPUs, NPUs"
               className="mb-1 object-cover"
             />
-            <p className="mb-0">CPUs, NPUs</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              CPUs, NPUs
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute top-10 right-80"
@@ -396,7 +405,9 @@ const OAIReplacement = () => {
               alt="Desktops"
               className="mb-1 object-cover"
             />
-            <p className="mb-0">Desktops</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              Desktops
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute top-48 right-40"
@@ -407,7 +418,9 @@ const OAIReplacement = () => {
               alt="Industrial PCs"
               className="mb-1 object-cover"
             />
-            <p className="mb-0">Industrial PCs</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              Industrial PCs
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute bottom-40 right-20"
@@ -418,7 +431,9 @@ const OAIReplacement = () => {
               alt="Server"
               className="mb-1 object-cover w-14"
             />
-            <p className="mb-0">Server</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              Server
+            </p>
           </motion.div>
           <motion.div
             className="flex flex-col items-center w-24 mx-auto lg:absolute bottom-0 right-40"
@@ -429,7 +444,9 @@ const OAIReplacement = () => {
               alt="Robots"
               className="w-16 mb-1"
             />
-            <p className="mb-0">Robots</p>
+            <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
+              Robots
+            </p>
           </motion.div>
         </div>
       </div>
@@ -480,9 +497,17 @@ const OAIReplacement = () => {
                 </div>
               );
             })}
+            <div className="flex w-full border-b dark:border-neutral-700 border-neutral-200 items-center py-3 gap-x-2 last:border-none">
+              <CirclePlusIcon size={16} className="text-neutral-400" />
+              <div className="flex w-full justify-between items-center">
+                <h4 className="font-medium mb-0 text-neutral-400">
+                  Your own repositories
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="py-8 lg:w-1/2 w-full flex-shrink-0">
+        <div className="pb-8 lg:w-1/2 w-full flex-shrink-0">
           <div className="cardContainer w-full h-full rounded-xl">
             <ThemedImage
               alt="Illustration Robots"
@@ -491,7 +516,7 @@ const OAIReplacement = () => {
                 dark: "/img/homepage/model-registry-dark.png",
               }}
             />
-            <div className="relative w-full lg:w-3/4 mx-auto mt-1 pt-4 pb-4">
+            <div className="relative w-full lg:w-3/4 mx-auto mt-1 pb-4">
               <div
                 className="rounded-lg border-neutral-800 border border-solid w-full bg-neutral-900 overflow-hidden flex flex-col"
                 style={{
@@ -516,7 +541,7 @@ const OAIReplacement = () => {
                       <p className="mb-0">
                         <span className="text-green-600">cortex&nbsp;</span>
                         <span className="text-white">run&nbsp;</span>
-                        <span className="text-cyan-600">mistral instruct</span>
+                        <span className="text-cyan-600">mistral</span>
                       </p>
                       <p className="mb-0">
                         <span className="text-green-600">cortex&nbsp;</span>
