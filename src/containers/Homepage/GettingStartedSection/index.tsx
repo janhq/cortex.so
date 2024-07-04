@@ -17,7 +17,7 @@ const GettingStartedSection = () => {
           <div className="w-8 h-8 dark:bg-neutral-800 bg-neutral-100 flex rounded-full items-center justify-center">
             <FaArrowRight className="text-blue-300 -rotate-45" size={20} />
           </div>
-          <Link to="/docs/server" className="!no-underline">
+          <Link to="/docs" className="!no-underline">
             <p className="mb-0 text-neutral-800 font-medium dark:text-white">
               Learn more
             </p>
