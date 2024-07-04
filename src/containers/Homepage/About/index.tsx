@@ -206,7 +206,7 @@ const About = () => {
               return (
                 <div
                   key={team.name}
-                  className="relative w-16 h-16 inline-block mx-1 transition-all"
+                  className="relative w-12 h-12 inline-block mx-1 transition-all"
                 >
                   <div className="absolute bg-black dark:bg-neutral-700 w-full h-full -right-1 -bottom-1 rounded-full z-10" />
                   <img

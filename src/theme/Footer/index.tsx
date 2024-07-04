@@ -61,7 +61,7 @@ function Footer(): JSX.Element | null {
           <div className="w-full lg:w-[480px]">
             <ThemedImage
               alt={logo.alt}
-              width={logo.width}
+              width={50}
               className="mb-4"
               sources={{
                 light: useBaseUrl(logo.src),
@@ -88,7 +88,7 @@ function Footer(): JSX.Element | null {
                 />
                 <button
                   type="submit"
-                  className="flex py-2 px-4 font-medium bg-black dark:bg-white text-white dark:text-black border dark:border-gray-600 rounded-lg items-center"
+                  className="flex py-2 px-4 h-12 font-medium bg-black dark:bg-white text-white dark:text-black border dark:border-gray-600 rounded-xl items-center"
                 >
                   Subcribe
                 </button>
@@ -138,7 +138,7 @@ function Footer(): JSX.Element | null {
           <FooterCopyright copyright={copyright} />
           <ThemedImage
             alt={logo.alt}
-            width={100}
+            width={200}
             className="mb-4"
             sources={{
               light: useBaseUrl("/img/logos/homebrew.svg"),
