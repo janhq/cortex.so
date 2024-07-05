@@ -27,7 +27,7 @@ cortex run [options] [model_id]:[engine]
 Example:
 ```bash
 ## Local model
-cortex run llama3
+cortex run mistral
 ## Remote model
 cortex run gpt-3.5-turbo
 ```

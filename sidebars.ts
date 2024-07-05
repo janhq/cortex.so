@@ -34,6 +34,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     { type: "doc", id: "requirements", label: "Requirements" },
+    { type: "doc", id: "telemetry", label: "Telemetry" },
     // MODELs
     {
       type: "html",
@@ -71,7 +72,6 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "embeddings", label: "Embeddings" },
     { type: "doc", id: "benchmarking", label: "Benchmarking" },
     { type: "doc", id: "model-operations", label: "Model Operations" },
-    { type: "doc", id: "telemetry-export", label: "Telemetry" },
     // ARCHITECTURE
     {
       type: "html",
@@ -79,10 +79,30 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "architecture", label: "Cortex" },
-    { type: "doc", id: "cortex-llamacpp", label: "Cortex.llamacpp" },
-    { type: "doc", id: "cortex-onnx", label: "Cortex.onnx" },
-    { type: "doc", id: "cortex-tensorrt-llm", label: "Cortex.tensorrt-llm" },
-    { type: "doc", id: "telemetry", label: "Telemetry" },
+    {
+      type: "category",
+      label: "Engines",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "cortex-llamacpp", label: "llamacpp" },
+        { type: "doc", id: "cortex-onnx", label: "Onnx" },
+        { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
+      ],
+    },
+    {
+      type: "category",
+      label: "Capabilities",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "telemetry-architecture", label: "Telemetry" },
+      ],
+    },
   ],
   cli: [
     { type: "doc", id: "cli/cortex", label: "cortex" },

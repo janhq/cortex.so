@@ -1,0 +1,58 @@
+---
+title: Benchmarking
+description: Cortex Benchmarking Architecture
+slug: "benchmarking-architecture"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+## Architecture
+
+## Implementation
+The diagram illustrates the implementation of how the benchmarking works in the Cortex environment:
+1. **User**:
+   - The user runs a script with the `--config` option.
+
+2. **Command Line**:
+   - The command line validates the config path provided by the user.
+   - It then reads and parses the YAML file to load the configuration.
+
+3. **Config Loader**:
+   - Returns a config object back to the command line.
+   - The command line then requests the initial system resources from the System Information module.
+
+4. **System Information**:
+   - Returns the initial data to the command line.
+
+5. **Benchmarking Loop**:
+   - The loop begins and iterates for each benchmark round (specified by `num_rounds`).
+
+6. **OpenAI API**:
+   - Within each round, the system requests chat completions from the OpenAI API.
+   - The API streams responses back.
+
+7. **Calculations**:
+   - The system calculates various metrics from the responses such as Token Count and Time to First Token (TTFT).
+   - Intermediate results are returned.
+
+8. **System Information**:
+   - After the API call, the system collects end system resources.
+
+9. **Calculations**:
+   - Computes resource changes, including Throughput, Total Processing Time (TPOT), Latency, and context length.
+   - Returns comprehensive metrics.
+   - Aggregates results to calculate percentiles (p50, p75, p95).
+
+10. **File System**:
+    - Writes the results, including metrics and hardware changes, to a JSON file.
+    - Saves the output as `output.json`.
+
+:::info
+Learn more about Telemetry:
+- [Benchmark CLI command](/docs/cli/benchmark).
+:::
