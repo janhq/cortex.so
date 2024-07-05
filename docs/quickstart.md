@@ -23,12 +23,12 @@ brew tap janhq/cortexso
 brew install cortexso
 
 # Download and run a model (compatible with your hardware):
-cortex run llama3
+cortex run mistral
 
 # Supported formats:
-cortex run llama3:gguf
-cortex run llama3:onnx
-cortex run llama3:tensorrt-llm
+cortex run mistral:gguf
+cortex run mistral:onnx
+cortex run mistral:tensorrt-llm
 ```
 
 :::info
