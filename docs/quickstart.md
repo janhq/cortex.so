@@ -23,12 +23,12 @@ brew tap janhq/cortexso
 brew install cortexso
 
 # Download and run a model (compatible with your hardware):
-cortex run llama3
+cortex run mistral
 
 # Supported formats:
-cortex run llama3:gguf
-cortex run llama3:onnx
-cortex run llama3:tensorrt-llm
+cortex run mistral:gguf
+cortex run mistral:onnx
+cortex run mistral:tensorrt-llm
 ```
 
 :::info
@@ -58,14 +58,14 @@ For more server help, please visit:
 
 ## Getting Models
 
-`cortex run` and `cortex pull` expects a model ID, which can be a Hugging Face repo name or a cortexso model name from the [Cortex Registry](https://huggingface.co/cortexso).
+`cortex run` and `cortex pull` expects a model ID, which can be a Hugging Face repo name (ending in -GGUF) or a cortexso model name from the [Cortex Registry](https://huggingface.co/cortexso).
 
 ```bash
 # Download a model from any Hugging Face repo
 cortex pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
 
 # Download a preconfigured model from https://huggingface.co/cortexso
-cortex pull llama3
+cortex pull mistral
 ```
 
 :::info
