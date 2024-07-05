@@ -14,7 +14,7 @@ const SocialNavbar = () => {
     <div className="lg:flex hidden mr-4 items-center gap-x-2">
       <div className="header-github-link flex bg-neutral-100 dark:bg-neutral-800 rounded-lg py-1 px-2 items-center gap-2">
         <Link
-          to="https://github.com/janhq/cortex-web"
+          to="https://github.com/janhq/cortex"
           target="_blank"
           className="hover:no-underline text-black dark:text-white hover:text-inherit"
         >
@@ -26,7 +26,7 @@ const SocialNavbar = () => {
       </div>
       <div className="header-discord-link flex bg-neutral-100 dark:bg-neutral-800 rounded-lg py-1 px-2 items-center gap-2">
         <Link
-          to="https://discordapp.com/invite/docusaurus"
+          to="https://discord.gg/FTk2MvZwJH"
           target="_blank"
           className="hover:no-underline text-black dark:text-white hover:text-inherit"
         >

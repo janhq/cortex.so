@@ -384,11 +384,11 @@ const config: Config = {
           items: [
             {
               label: "Github",
-              href: "https://github.com/janhq/cortex-web",
+              href: "https://github.com/janhq/cortex",
             },
             {
               label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              href: "https://discord.gg/FTk2MvZwJH",
             },
             {
               label: "Twitter",
