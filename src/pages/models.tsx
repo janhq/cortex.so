@@ -165,7 +165,7 @@ const ModelsPage = () => {
                           <p className="mb-0 font-medium">ONNX</p>
                         </div>
                       )}
-                      {hasTensorrt && (
+                      {hasTensorrt && !model.name.includes("llama3") && (
                         <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
                           <p className="mb-0 font-medium">TensorRT-LLM</p>
                         </div>
