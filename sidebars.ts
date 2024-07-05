@@ -71,6 +71,7 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "embeddings", label: "Embeddings" },
     { type: "doc", id: "benchmarking", label: "Benchmarking" },
     { type: "doc", id: "model-operations", label: "Model Operations" },
+    { type: "doc", id: "telemetry-export", label: "Telemetry" },
     // ARCHITECTURE
     {
       type: "html",
