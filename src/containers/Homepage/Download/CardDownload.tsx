@@ -37,7 +37,7 @@ const systemsTemplate: SystemType[] = [
   },
   {
     name: "Linux",
-    label: "AppImage",
+    label: "Deb",
     logo: FaLinux,
     fileFormat: "{appname}-installer-{tag}-amd64-linux.deb",
   },
