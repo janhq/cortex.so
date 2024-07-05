@@ -14,7 +14,7 @@ We also curate popular models with optimal runtime configurations, specified thr
 Cortex aims to be compatible with existing model hubs. Currently you can explore the full list of curated models [here](/models), or on our [Hugging Face: Cortex Org](https://huggingface.co/cortexso) hub.
 To request a new hub integration, ping us on [Discord](https://discord.gg/xsfBmpgTTj).
 
-:::warning
+:::info
 Cortex NGC Hub is coming soon! Stay tuned for updates.
 :::
 
@@ -22,9 +22,9 @@ Cortex NGC Hub is coming soon! Stay tuned for updates.
 
 Curated models are made available across the following variants: 
 
-- **By format**: `GGUF`, `ONNX`, and `TensorRT-LLM`
+- **By format**: `gguf`, `onnx`, and `tensorrt-llm`
 - **By Size**: `7b`, `13b`, and more.
-- **By quantizations**: `Q4`, `Q8`, and more.
+- **By quantizations**: `q4`, `q8`, and more.
 
 :::info
 Each model variant is stored in the model repository's **branches**, in Git fashion. 
@@ -43,15 +43,15 @@ Or more verbosely, as follows:
   <TabItem  value="GGUF" label="GGUF" default>
 
     ```bash 
-    cortex pull llama3
-    cortex pull llama3:gguf
-    cortex pull llama3:8B-gguf
+    cortex pull mistral
+    cortex pull mistral:gguf
+    cortex pull mistral:7b-gguf
     ```
   </TabItem>
   <TabItem value="ONNX" label="ONNX">
 
     ```bash 
-    cortex pull llama3:onnx
+    cortex pull mistral:onnx
     ```
   </TabItem>
   <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
@@ -59,8 +59,7 @@ Or more verbosely, as follows:
     TensorRT-LLM engines are specific to the hardware you are running on.
 
     ```bash 
-    cortex pull llama3:8B-tensorrtllm-linux-ada
-    cortex pull llama3:tensorrtllm-windows-ada
+    cortex pull mistral:7b-tensorrt-llm
     ```
   </TabItem>
 </Tabs>

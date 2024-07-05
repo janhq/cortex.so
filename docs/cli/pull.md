@@ -36,7 +36,7 @@ Reconfigured models (with optimal runtime parameters and templates) are availabl
 
 Models can be downloaded using a Docker-like interface with the following syntax: `repo_name:branch_name`. Each variant may include different quantizations and sizes, typically organized in the repository’s branches.
 
-Available models include [llama3](https://huggingface.co/janhq/llama3), [mistral](https://huggingface.co/janhq/mistral), [tinyllama](https://huggingface.co/janhq/tinyllama), and [many more](https://huggingface.co/janhq).
+Available models include [llama3](https://huggingface.co/cortexso/llama3), [mistral](https://huggingface.co/cortexso/mistral), [tinyllama](https://huggingface.co/cortexso/tinyllama), and [many more](https://huggingface.co/janhq).
 
 :::info
 New models will soon be added to [Cortex Model Hub](https://huggingface.co/cortexso).
@@ -44,19 +44,11 @@ New models will soon be added to [Cortex Model Hub](https://huggingface.co/corte
 
 ```bash
 # Pull a specific variant with `repo_name:branch`
-cortex pull llama3:7b
+cortex pull mistral:7b-gguf
 ```
-
-You can also download `size`, `format`, and `quantization` variants of each model.
-
-```bash
-cortex pull llama3:8b-instruct-v3-gguf-Q4_K_M
-cortex pull llama3:8b-instruct-v3-tensorrt-llm
-cortex pull llama3:onnx
-```
-
 :::info
-Model variants are provided via the `branches` in each model's Hugging Face repo.
+- You can also download `size`, `format`, and `quantization` variants of each model.
+- Model variants are provided via the `branches` in each model's Hugging Face repo.
 :::
 
 ### Hugging Face Models
