@@ -19,7 +19,7 @@ You can export our telemetry to your own Otel Collector setup by running the fol
   <TabItem value="linux" label="Linux" default>
   ```bash
   ## 1. First Command
-  echo "export OTEL_EXPORTER_OTLP_ENDPOINT=<your_OTEL_endpoint>" >>~/.profile
+  echo "export CORTEX_EXPORTER_OLTP_ENDPOINT=<your_OTEL_endpoint>" >>~/.profile
   ## 2. Second Command
   source ~/.profile
   ```
@@ -27,7 +27,7 @@ You can export our telemetry to your own Otel Collector setup by running the fol
   <TabItem value="mac" label="macOS" default>
     ```bash
     ## 1. First Command
-    echo "export OTEL_EXPORTER_OTLP_ENDPOINT=<your_OTEL_endpoint>" >>~/.profile
+    echo "export CORTEX_EXPORTER_OLTP_ENDPOINT=<your_OTEL_endpoint>" >>~/.profile
     ## 2. Second Command
     source ~/.profile
     ```
@@ -35,11 +35,11 @@ You can export our telemetry to your own Otel Collector setup by running the fol
   <TabItem value="windows" label="Windows" default>
     ```bash
     ## Command Prompt
-    set OTEL_EXPORTER_OTLP_ENDPOINT <your_OTEL_endpoint>
+    set CORTEX_EXPORTER_OLTP_ENDPOINT <your_OTEL_endpoint>
     ## PowerShell
-    $env:OTEL_EXPORTER_OTLP_ENDPOINT <your_OTEL_endpoint>
+    $env:CORTEX_EXPORTER_OLTP_ENDPOINT <your_OTEL_endpoint>
     ## To set the env permanently
-    setx OTEL_EXPORTER_OTLP_ENDPOINT <your_OTEL_endpoint>
+    setx CORTEX_EXPORTER_OLTP_ENDPOINT <your_OTEL_endpoint>
     ```
   </TabItem>
 </Tabs>
