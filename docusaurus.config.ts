@@ -319,6 +319,11 @@ const config: Config = {
         content:
           "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
       },
+      {
+        name: "og:description",
+        content:
+          "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
+      },
     ],
 
     headTags: [
@@ -338,7 +343,7 @@ const config: Config = {
       },
     ],
 
-    image: "img/cortex-social-card.png",
+    image: "img/social-card.jpg",
     navbar: {
       logo: {
         alt: "Cortex Logo",
