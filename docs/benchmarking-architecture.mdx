@@ -13,7 +13,7 @@ import TabItem from "@theme/TabItem";
 
 ## Architecture
 ![benchmark-architecture](/img/docs/benchmark-architecture.png)
-The benchmarking system comprises several key components:
+The benchmarking capability comprises several key components:
 1. **User Devices**:
    - **Workstation, Desktop, Server**: These devices collect and send benchmarking data directly to the Supabase Backend in the Jan Cloud.
    - **Web Interface**: Users interact with the system through the web interface which is the Cortex's CLI, which also sends data to the Supabase Backend.
@@ -32,7 +32,7 @@ The benchmarking system comprises several key components:
 ![benchmark-implementation](/img/docs/benchmark-flow.png)
 The diagram illustrates the implementation of how the benchmarking works in the Cortex environment:
 1. **User**:
-   - The user runs the benchmarking command.
+   - The user runs the benchmarking command with a `--config` option.
 2. **Command Line**:
    - The command line validates the config path provided by the user.
    - It then reads and parses the YAML file to load the configuration.
