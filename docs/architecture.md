@@ -137,10 +137,11 @@ The sequence diagram above outlines the interactions between various components 
 Our development roadmap outlines key features and epics we will focus on in the upcoming releases. These enhancements aim to improve functionality, increase efficiency, and expand Cortex's capabilities.
 
 - **RAG**: Improve response quality and contextual relevance in our AI models.
-- **Cortex TensorRT-LLM**: Optimize NVIDIA TensorRT optimizations for LLMs.
-- **Cortex Presets**: Streamline model configurations.
 - **Cortex Python Runtime**: Provide a scalable Python execution environment for Cortex.
 
+:::info
+For a full list of Cortex development roadmap, please see [here](https://discord.com/channels/1107178041848909847/1230770299730001941).
+:::
 ## Risks & Technical Debt
 
 Cortex CLI, built with Nest-commander, incorporates extensions to integrate various inference providers. This flexibility, however, introduces certain risks related to dependency management and the objective of bundling the CLI into a single executable binary.
