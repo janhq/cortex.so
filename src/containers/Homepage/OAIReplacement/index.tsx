@@ -178,7 +178,7 @@ const OAIReplacement = () => {
                     className={twMerge(
                       "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
                       x.status === "work in progress" &&
-                      "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
+                        "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
                     )}
                   >
                     {x.status}
@@ -372,7 +372,7 @@ const OAIReplacement = () => {
             </p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center w-24 mx-auto lg:absolute top-48 left-40"
+            className="flex flex-col items-center w-24 mx-auto lg:absolute top-60 left-40"
             animate={size.width > 1024 ? floatingAnimations[2] : {}}
           >
             <img
@@ -411,7 +411,7 @@ const OAIReplacement = () => {
             </p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center w-24 mx-auto lg:absolute top-48 right-40"
+            className="flex flex-col items-center w-24 mx-auto lg:absolute top-60 right-40"
             animate={size.width > 1024 ? floatingAnimations[5] : {}}
           >
             <img
@@ -430,7 +430,7 @@ const OAIReplacement = () => {
             <img
               src="/img/homepage/server.png"
               alt="Server"
-              className="mb-1 object-cover w-14"
+              className="mb-1 object-cover"
             />
             <p className="mb-0 text-black/60 dark:text-white/60 font-medium">
               Server
@@ -492,7 +492,7 @@ const OAIReplacement = () => {
                         className={twMerge(
                           "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
                           x.status === "work in progress" &&
-                          "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
+                            "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
                         )}
                       >
                         {x.status}
