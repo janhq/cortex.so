@@ -12,8 +12,24 @@ import TabItem from "@theme/TabItem";
 :::
 
 ## Architecture
+![benchmark-architecture](/img/docs/benchmark-architecture.png)
+The benchmarking system comprises several key components:
+1. **User Devices**:
+   - **Workstation, Desktop, Server**: These devices collect and send benchmarking data directly to the Supabase Backend in the Jan Cloud.
+   - **Web Interface**: Users interact with the system through the web interface which is the Cortex's CLI, which also sends data to the Supabase Backend.
+
+2. **Supabase Backend**: This component acts as the central hub for collecting and processing data from all user devices.
+
+3. **Data Storage**:
+   - **Postgres**: Stores structured data and relational information related to benchmarking results and user interactions.
+   - **S3**: Stores large files, logs, and other unstructured data necessary.
+
+4. **Post-processing**: Data stored in Postgres and S3 is utilized for various benchmarking analyzes.
+
+5. **Web Interface**: The processed data and benchmarking results are made available to users through the web interface which is the Cortex's CLI. Users can view, and convert the benchmarking reports to `JSON` from this interface.
 
 ## Implementation
+![benchmark-implementation](/img/docs/benchmark-flow.png)
 The diagram illustrates the implementation of how the benchmarking works in the Cortex environment:
 1. **User**:
    - The user runs a script with the `--config` option.
