@@ -101,6 +101,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "telemetry-architecture", label: "Telemetry" },
+        { type: "doc", id: "benchmarking-architecture", label: "Benchmarking" },
       ],
     },
   ],
