@@ -19,7 +19,6 @@ To get started, confirm that your system meets the [hardware requirements](/docs
 npm i -g cortexso
 
 ## Install using Brew
-brew tap janhq/cortexso
 brew install cortexso
 
 # Download and run a model (compatible with your hardware):
