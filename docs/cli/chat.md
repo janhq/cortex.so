@@ -21,6 +21,9 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ```bash
 cortex chat [options] [model_id] [message]
 ```
+:::info
+This command uses a `model_id` from the model that you have downloaded or available in your file system.
+:::
 
 ## Options
 

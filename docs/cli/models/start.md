@@ -28,8 +28,10 @@ cortex models start [model_id] [options]
 cortex models start [model_id]:[engine] [options]
 ```
 
-:::note
-Model preset is applied only at the start of the model and does not change during the chat session.
+
+:::info
+- This command uses a `model_id` from the model that you have downloaded or available in your file system.
+- Model preset is applied only at the start of the model and does not change during the chat session.
 :::
 
 ## Options

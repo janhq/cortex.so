@@ -79,6 +79,9 @@ To run LLMs on-device or on-premise, Cortex has the following requirements:
         - NPM version 9 or higher.
         - Homebrew version 3 or higher.
         - CPU Instructions Sets: AVX AVX2 AVX512.
+        - MPI or OpenMPI by installing the following file:
+          - MSMPI setup
+          - MSMPI SDK
   </TabItem>
   <TabItem value="Linux" label="Linux">
     - Debian-based (Supports `.deb` and `AppImage` )
@@ -115,7 +118,7 @@ To run LLMs on-device or on-premise, Cortex has the following requirements:
 <Tabs>
   <TabItem value="nvidia" label="NVIDIA">
     - [NVIDIA driver](https://www.nvidia.com/Download/index.aspx) version 470.63.01 or higher.
-    - [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) version 11.7 or higher.
+    - [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) version 12.3 or higher.
     <Admonition type="info">  
       CUDA Toolkit dependencies will be installed when you install Cortex.
     </Admonition>
@@ -123,8 +126,28 @@ To run LLMs on-device or on-premise, Cortex has the following requirements:
   <TabItem value="amd" label="AMD">
     - [AMD driver](https://www.amd.com/en/support/download/drivers.html) version 22.7.1 or higher.
   </TabItem>
+  <TabItem value="mpi" label="MPI/OpenMPI">
+    <Tabs>
+      <TabItem value="windows-mpi" label="Windows">
+        1. Download the following files and install them:
+          - MPI Installer: https://github.com/microsoft/Microsoft-MPI/releases/download/v10.1.1/msmpisetup.exe
+          - MPI SDK Installer: https://github.com/microsoft/Microsoft-MPI/releases/download/v10.1.1/msmpisdk.msi
+        2. Set the MPI environment:
+        ```
+        // Not required - but in case
+        RUN setx Path "%Path%;C:\Program Files\Microsoft MPI\Bin”
+        ```
+      </TabItem>
+      <TabItem value="linux-mpi" label="Linux">
+        1. Update the package list:
+        ```bash
+        sudo apt update
+        ```
+        2. Install the OpenMPI binaries and development libraries:
+        ```bash
+        sudo apt install openmpi-bin libopenmpi-dev
+        ```
+      </TabItem>
+    </Tabs>
+  </TabItem>
 </Tabs>
-
-:::warning
-If your GPU cannot be used, please run [`cortex engines init`](/docs/cli/engines/init) to install the required dependencies.
-:::

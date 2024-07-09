@@ -16,7 +16,6 @@ This command facilitates the initiation of an interactive chat shell with a spec
 - This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 - This command supports both local and remote models.
 :::
-
 ## Usage
 
 ```bash
@@ -24,13 +23,33 @@ cortex run [options] [model_id]
 ## With a specified engine
 cortex run [options] [model_id]:[engine]
 ```
-Example:
+### Preconfigured Models
+Cortex provides preconfigured models with optimal runtime parameters and templates available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
+You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any compatible repo on Hugging Face, or the [Models](/models) section on our Cortex website.
+
+```bash
+## To use our preconfigured models
+cortex run mistral
+## To use other supported format models outside our repository:
+cortex run microsoft/Phi-3-mini-4k-instruct-gguf
+```
+### Local Model
+To run a local model in Cortex:
 ```bash
 ## Local model
 cortex run mistral
-## Remote model
+```
+:::info
+This command downloads and installs the model if not already available in your file system, then starts it for interaction.
+:::
+### Remote Model
+To run a remote model:
+1. Set the API key by using the [`cortex configs set`](/docs/cli/configs/set) command.
+2.  Once you have set the API key, run the following command:
+```bash
 cortex run gpt-3.5-turbo
 ```
+
 
 ## Options
 

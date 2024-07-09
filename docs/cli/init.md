@@ -27,7 +27,7 @@ The following alias is also available for `cortex init`:
 cortex init [options] [version]
 ```
 :::info
-To see all the available versions of Cortex, please see here.
+To see all the available versions of Cortex, please see [here](https://github.com/janhq/cortex/releases).
 :::
 
 ## Options

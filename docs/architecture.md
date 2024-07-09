@@ -27,9 +27,9 @@ Cortex is architected with several key components, each designed to fulfill spec
 3. **Kernel**: This component checks the server's hardware configuration. Based on the current hardware setup, it determines whether additional dependencies are required, optimizing the system for performance and compatibility.
 4. **Runtime**: This process involves dynamically loading necessary libraries and models based on the server's current needs and processing requests.
 5. **Dynamic Libraries**: Consists of inference engines loaded on-demand to enhance Cortex's processing power. These engines are essential for performing specialized computational tasks. Currently, Cortex supports:
-   - Llama.cpp Engine
-   - TensorRT-LLM Engine
-   - Python-runtime Engine
+   - [Llama.cpp Engine](/docs/cortex-llamacpp)
+   - [TensorRT-LLM Engine](/docs/cortex-onnx)
+   - [Onnx runtime Engine](/docs/cortex-tensorrt-llm)
 
 ### Data Structure
 

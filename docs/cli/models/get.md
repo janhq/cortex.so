@@ -20,6 +20,9 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ```bash
 cortex models get <model_id>
 ```
+:::info
+You can obtain a `model_id` for your desired model from our [Models hub](/models) or the [HuggingFace](https://huggingface.co/models). Currently, we support **GGUF**, **ONNX**, and **TensorRT-LLM** formats.
+:::
 
 ## Options
 
