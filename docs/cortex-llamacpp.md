@@ -1,5 +1,5 @@
 ---
-title: llamacpp
+title: llama.cpp
 description: cortex.llamacpp Architecture
 slug: "cortex-llamacpp"
 ---
