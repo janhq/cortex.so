@@ -32,7 +32,11 @@ cortex pull <model_id>
 
 ### Preconfigured Models
 Cortex provides preconfigured models with optimal runtime parameters and templates available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
-You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any compatible repo on Hugging Face, or the [Models](/models) section on our Cortex website.
+You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any supported model on Hugging Face, or the [Models](/models) section on our Cortex website.
+
+:::info
+Currently Cortex only supports the following model format: `gguf`, `onnx`, `tensorrt-llm`
+:::
 
 ```bash
 ## To use our preconfigured models
