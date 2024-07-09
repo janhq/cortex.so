@@ -25,6 +25,7 @@
     "@docusaurus/theme-mermaid": "^3.4.0",
     "@huggingface/hub": "^0.15.1",
     "@mdx-js/react": "3.0.1",
+    "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@scalar/docusaurus": "^0.3.5",
     "autoprefixer": "^10.4.19",
