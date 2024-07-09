@@ -31,35 +31,15 @@ cortex pull <model_id>
 ```
 
 ### Preconfigured Models
-
-Reconfigured models (with optimal runtime parameters and templates) are available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
-
-Models can be downloaded using a Docker-like interface with the following syntax: `repo_name:branch_name`. Each variant may include different quantizations and sizes, typically organized in the repository’s branches.
-
-Available models include [llama3](https://huggingface.co/cortexso/llama3), [mistral](https://huggingface.co/cortexso/mistral), [tinyllama](https://huggingface.co/cortexso/tinyllama), and [many more](https://huggingface.co/janhq).
-
-:::info
-New models will soon be added to [Cortex Model Hub](https://huggingface.co/cortexso).
-:::
+Cortex provides preconfigured models with optimal runtime parameters and templates available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
+You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any compatible repo on Hugging Face, or the [Models](/models) section on our Cortex website.
 
 ```bash
-# Pull a specific variant with `repo_name:branch`
-cortex pull mistral:7b-gguf
-```
-:::info
-- You can also download `size`, `format`, and `quantization` variants of each model.
-- Model variants are provided via the `branches` in each model's Hugging Face repo.
-:::
-
-### Hugging Face Models
-
-You can download any GGUF, TensorRT, ONNX or supported-format model directly from Hugging Face.
-
-```bash
-# cortex pull org_name/repo_name
+## To use our preconfigured models
+cortex pull mistral
+## To use other supported format models outside our repository:
 cortex pull microsoft/Phi-3-mini-4k-instruct-gguf
 ```
-
 ## Options
 
 | Option         | Description                                       | Required | Default value | Example     |

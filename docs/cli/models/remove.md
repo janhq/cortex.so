@@ -20,7 +20,9 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ```bash
 cortex models remove <model_id>
 ```
-
+:::info
+This command uses a `model_id` from the model that you have downloaded or available in your file system.
+:::
 ## Options
 | Option                    | Description                                                                 | Required | Default value        | Example                |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
