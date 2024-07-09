@@ -63,6 +63,8 @@ export default function OAICoverage() {
     {}
   );
 
+  console.log(groupedDates);
+
   const firstDates = Object.values(groupedDates).map((group) => {
     return group.reduce((earliest, current) => {
       const [, currentDay] = current.date.split("-");
@@ -112,10 +114,37 @@ export default function OAICoverage() {
         <div className="w-2 h-2 md:w-3 md:h-3 xl:w-5 xl:h-5 bg-gray-200 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-800" />
       );
 
+    if (block?.passingRate === 0)
+      return (
+        <>
+          <Tooltip.Trigger asChild>
+            <div className="w-2 h-2 md:w-3 md:h-3 xl:w-5 xl:h-5 bg-red-800 border border-red-600" />
+          </Tooltip.Trigger>
+          <Tooltip.Portal>
+            <Tooltip.Content
+              className="dark:text-black text-white select-none rounded-lg bg-black dark:bg-white px-3 py-2 text-sm leading-none will-change-[transform,opacity]"
+              sideOffset={5}
+            >
+              <div className="mb-1">
+                Passing:{" "}
+                {Math.round((block.total * block?.passingRate) / 100) || 0}
+              </div>
+              <div>
+                Failing:&nbsp;
+                {Math.round(
+                  block.total - (block.total * block?.passingRate) / 100
+                )}
+              </div>
+              <Tooltip.Arrow className="fill-black dark:fill-white" />
+            </Tooltip.Content>
+          </Tooltip.Portal>
+        </>
+      );
+
     return (
       <>
         <Tooltip.Trigger asChild>
-          <div className="w-2 h-2 md:w-3 md:h-3 xl:w-5 xl:h-5 bg-red-800 border border-red-600" />
+          <div className="w-2 h-2 md:w-3 md:h-3 xl:w-5 xl:h-5 bg-yellow-600 border border-yellow-500" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
