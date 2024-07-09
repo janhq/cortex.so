@@ -23,16 +23,14 @@ cortex run [options] [model_id]
 ## With a specified engine
 cortex run [options] [model_id]:[engine]
 ```
-### Preconfigured Models
-Cortex provides preconfigured models with optimal runtime parameters and templates available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
-You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any compatible repo on Hugging Face, or the [Models](/models) section on our Cortex website.
-
-```bash
-## To use our preconfigured models
-cortex run mistral
-## To use other supported format models outside our repository:
-cortex run microsoft/Phi-3-mini-4k-instruct-gguf
-```
+### `model_id`
+You can find the `model_id` for your desired model from:
+- [Cortex Model Hub](https://huggingface.co/cortexso)
+- [HuggingFace](https://huggingface.co/models)
+- [Models](/models)
+:::info
+Currently Cortex only supports the following model format: **GGUF**, **ONNX**, and **TensorRT-LLM**.
+:::
 ### Local Model
 To run a local model in Cortex:
 ```bash
