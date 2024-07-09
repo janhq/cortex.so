@@ -29,7 +29,7 @@ You can find the `model_id` for your desired model from:
 - [HuggingFace](https://huggingface.co/models)
 - [Models](/models)
 :::info
-Currently Cortex only supports the following model format: `gguf`, `onnx`, `tensorrt-llm`
+Currently Cortex only supports the following model format: **GGUF**, **ONNX**, and **TensorRT-LLM**.
 :::
 ### Local Model
 To run a local model in Cortex:

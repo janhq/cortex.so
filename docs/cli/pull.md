@@ -35,7 +35,7 @@ Cortex provides preconfigured models with optimal runtime parameters and templat
 You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any supported model on Hugging Face, or the [Models](/models) section on our Cortex website.
 
 :::info
-Currently Cortex only supports the following model format: `gguf`, `onnx`, `tensorrt-llm`
+Currently Cortex only supports the following model format: **GGUF**, **ONNX**, and **TensorRT-LLM**.
 :::
 
 ```bash
