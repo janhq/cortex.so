@@ -105,7 +105,7 @@ The diagram above illustrates the interaction between three components: `cortex-
    - After loading the configuration, `cortex.tensorrt-llm` creates a tokenizer. The tokenizer is responsible for converting input text into tokens that the model can understand and process.
 
 6. **Cache Chat Template (cortex.tensorrt-llm)**:
-   - Following the creation of the tokenizer, `cortex.tensorrt-llm` caches a chat template. This step is likely aimed at optimizing performance by pre-loading a template used frequently in chat or conversational applications.
+   - Following the creation of the tokenizer, `cortex.tensorrt-llm` caches a chat template. https://docs.google.com/document/d/1nyfR5XW2A3Xfv0iTgXv_DjMIjWYTIpv7e_cA05RXmoc/edit
 
 7. **Initialize GPT Session (cortex.tensorrt-llm)**:
    - Finally, `cortex.tensorrt-llm` initializes the GPT session, setting up the necessary environment and resources required for the session.
@@ -131,7 +131,7 @@ The diagram above illustrates the interaction between three components: `cortex-
    - `cortex.tensorrt-llm` starts by applying the chat template to the incoming request.
 
 4. **Encode (cortex.tensorrt-llm)**:
-   - The next step involves encoding the input data. This likely involves converting the input text into a suitable format for the model to process.
+   - The next step involves encoding the input data.
 
 5. **Set Sampling Config (cortex.tensorrt-llm)**:
    - After encoding, the sampling configuration is set. This configuration might include parameters that control the generation process, such as temperature and top-k sampling.
