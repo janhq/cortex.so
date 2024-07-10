@@ -8,7 +8,7 @@
     },
     {
       "url": "https://huggingface.co/bartowski/Mistral-7B-Instruct-v0.3-GGUF/blob/main/Mistral-7B-Instruct-v0.3-Q4_K_M.gguf",
-      "owner_name": "Mistral",
+      "owner_name": "Bartowski",
       "model_name": "Mistral 7B Instruct v0.3 GGUF",
       "note": "Small + Chat"
     },
