@@ -65,7 +65,7 @@ const ModelsPage = () => {
         </div>
 
         <div
-          className="rounded-lg border-neutral-800 border border-solid w-full bg-neutral-900 overflow-hidden flex flex-col lg:w-1/3 mx-auto mb-16 mt-10"
+          className="rounded-lg border-neutral-800 border border-solid w-full lg:w-1/2 bg-neutral-900 overflow-hidden flex flex-col xl:w-1/3 mx-auto mb-16 mt-10"
           style={{
             boxShadow:
               "0px 0px 0px 0.5px rgba(255, 255, 255, 0.20), 0px 5px 12px 0px rgba(0, 0, 0, 0.50), 0px 16px 40px 0px rgba(0, 0, 0, 0.46)",
@@ -128,20 +128,26 @@ const ModelsPage = () => {
           </div>
         </div>
 
-        <div className="w-full mx-auto text-center flex flex-col items-center sticky py-8 top-[60px] bg-white dark:bg-[#111]">
+        <div className="w-full mx-auto text-center flex flex-col items-center py-8 bg-white dark:bg-[#111]">
           <h2 className="text-4xl font-grotesk">Built-In Models</h2>
           <p className="text-black/60 dark:text-white/60 text-lg mb-8">
             Cortex has a built-in model collection of popular models.
           </p>
 
           <Select onValueChange={(value) => handleChange(value)}>
-            <SelectTrigger className="w-[180px] placeholder:text-red-200">
+            <SelectTrigger className="w-[180px] placeholder:text-red-200 font-semibold">
               <SelectValue placeholder="Select a Engine" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="gguf">GGUF</SelectItem>
-              <SelectItem value="tensorrt-llm">TensorRT</SelectItem>
-              <SelectItem value="onnx">ONNX</SelectItem>
+              <SelectItem className="font-semibold" value="gguf">
+                GGUF
+              </SelectItem>
+              <SelectItem className="font-semibold" value="tensorrt-llm">
+                TensorRT
+              </SelectItem>
+              <SelectItem className="font-semibold" value="onnx">
+                ONNX
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -161,18 +167,21 @@ const ModelsPage = () => {
                     <Link
                       to={`https://huggingface.co/${model.name}`}
                       target="_blank"
-                      className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-300 flex items-center gap-2"
+                      className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-300 flex items-center gap-2 group"
                     >
                       <h3 className="mb-0 text-base capitalize">
                         {model.name.replace("cortexso/", "")}
                       </h3>
-                      <ExternalLinkIcon size={16} />
+                      <ExternalLinkIcon
+                        size={16}
+                        className="hidden group-hover:flex"
+                      />
                     </Link>
                     <div className="flex items-center gap-4"></div>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <div className="bg-neutral-100 flex items-center py-1 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer w-[340px]">
+                    <div className="bg-neutral-100 flex items-center py-1 h-10 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer w-[340px]">
                       <code className="bg-transparent border-none text-left line-clamp-1">
                         {checkedItems.length > 0
                           ? `cortex run ${model.name.replace(
