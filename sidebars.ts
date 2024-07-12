@@ -107,7 +107,6 @@ const sidebars: SidebarsConfig = {
   ],
   cli: [
     { type: "doc", id: "cli/cortex", label: "cortex" },
-    { type: "doc", id: "cli/init", label: "cortex init" },
     { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
     { type: "doc", id: "cli/pull", label: "cortex pull" },
     { type: "doc", id: "cli/run", label: "cortex run" },
