@@ -43,6 +43,8 @@ To start a server at port 1337, run:
 
 ```bash
 cortex serve
+
+## Open in a separate shell
 cortex models start MODEL-ID
 ```
 
@@ -77,7 +79,7 @@ Finally, to see all available commands, run:
 
 ```bash
 cortex
-cortex CMD -h
+cortex -h
 ```
 
 :::info
