@@ -77,11 +77,7 @@ To run LLMs on-device or on-premise, Cortex has the following requirements:
     - **Dependencies**:
         - Node.js version 18 or higher.
         - NPM version 9 or higher.
-        - Homebrew version 3 or higher.
         - CPU Instructions Sets: AVX AVX2 AVX512.
-        - MPI or OpenMPI by installing the following file:
-          - MSMPI setup
-          - MSMPI SDK
   </TabItem>
   <TabItem value="Linux" label="Linux">
     - Debian-based (Supports `.deb` and `AppImage` )
@@ -107,6 +103,7 @@ To run LLMs on-device or on-premise, Cortex has the following requirements:
         - NPM version 9 or higher.
         - Homebrew version 3 or higher.
         - CPU Instructions Sets: AVX AVX2 AVX512.
+        - MPI or OpenMPI.
     <Admonition type="info">
       - Please check whether your Linux distribution supports desktop, server, or both environments.
       - For server versions, please refer to the [server installation](https://jan.ai/docs/server-installation).
@@ -128,16 +125,6 @@ To run LLMs on-device or on-premise, Cortex has the following requirements:
   </TabItem>
   <TabItem value="mpi" label="MPI/OpenMPI">
     <Tabs>
-      <TabItem value="windows-mpi" label="Windows">
-        1. Download the following files and install them:
-          - MPI Installer: https://github.com/microsoft/Microsoft-MPI/releases/download/v10.1.1/msmpisetup.exe
-          - MPI SDK Installer: https://github.com/microsoft/Microsoft-MPI/releases/download/v10.1.1/msmpisdk.msi
-        2. Set the MPI environment:
-        ```
-        // Not required - but in case
-        RUN setx Path "%Path%;C:\Program Files\Microsoft MPI\Bin”
-        ```
-      </TabItem>
       <TabItem value="linux-mpi" label="Linux">
         1. Update the package list:
         ```bash
