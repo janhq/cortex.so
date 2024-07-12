@@ -93,11 +93,11 @@ const HeroSection = () => {
               "0px 0px 0px 0.5px rgba(255, 255, 255, 0.20), 0px 5px 12px 0px rgba(0, 0, 0, 0.50), 0px 16px 40px 0px rgba(0, 0, 0, 0.46)",
           }}
         >
-          <div className="flex border-b border-neutral-700 bg-neutral-800 gap-2 py-3 w-full">
+          <div className="flex border-b border-neutral-700 bg-neutral-800 gap-2 w-full">
             <div
               className={twMerge(
-                "py-1.5 px-3 border border-transparent text-white rounded-lg ml-2 cursor-pointer",
-                tabActive === "win" && "bg-neutral-950 border-neutral-700"
+                "h-full p-3 text-white cursor-pointer",
+                tabActive === "win" && "bg-neutral-600"
               )}
               onClick={() => setTabActive("win")}
             >
@@ -105,8 +105,8 @@ const HeroSection = () => {
             </div>
             <div
               className={twMerge(
-                "py-1.5 px-3 border border-transparent text-white rounded-lg cursor-pointer",
-                tabActive === "mac" && "bg-neutral-950 border-neutral-700"
+                "h-full p-3 text-white cursor-pointer",
+                tabActive === "mac" && "bg-neutral-600"
               )}
               onClick={() => setTabActive("mac")}
             >
@@ -114,8 +114,8 @@ const HeroSection = () => {
             </div>
             <div
               className={twMerge(
-                "py-1.5 px-3 border border-transparent text-white rounded-lg cursor-pointer",
-                tabActive === "linux" && "bg-neutral-950 border-neutral-700"
+                "h-full p-3 text-white cursor-pointer",
+                tabActive === "linux" && "bg-neutral-600"
               )}
               onClick={() => setTabActive("linux")}
             >

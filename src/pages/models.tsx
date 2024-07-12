@@ -1,23 +1,29 @@
 import Layout from "@theme/Layout";
+import ThemedImage from "@theme/ThemedImage";
 import { usePluginData } from "@docusaurus/useGlobalData";
-import { CloudDownload } from "lucide-react";
 import Link from "@docusaurus/Link";
-import { ChangeEvent, useState } from "react";
+
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@site/src/components/Select";
+
+import { ExternalLinkIcon } from "lucide-react";
+import CopyCommand from "@site/src/components/CopyCommand";
 
 const ModelsPage = () => {
   const listModels = usePluginData("list-models");
   const [searchValue, setSearchValue] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
+  const [tabActive, setTabActive] = useState("hgf");
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = event.target;
-    setCheckedItems((prevState) => {
-      if (checked) {
-        return [...prevState, value];
-      } else {
-        return prevState.filter((item) => item !== value);
-      }
-    });
+  const handleChange = (value: string) => {
+    setCheckedItems([value]);
   };
 
   const filterModelsByBranches = (
@@ -50,98 +56,105 @@ const ModelsPage = () => {
 
   return (
     <Layout title="Homepage">
-      <main className="overflow-hidden flex">
-        <div className="hidden lg:block w-80 border-r dark:border-neutral-800 border-neutral-300 p-8">
-          <p className="mb-3 font-semibold">Format</p>
-          <div className="flex items-center mb-2">
-            <input
-              id="GGUF"
-              type="checkbox"
-              value="gguf"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              onChange={handleChange}
-            />
-            <label
-              htmlFor="GGUF"
-              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              GGUF
-            </label>
-          </div>
-          <div className="flex items-center mb-2">
-            <input
-              id="TensorRT"
-              type="checkbox"
-              value="tensorrt"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              onChange={handleChange}
-            />
-            <label
-              htmlFor="TensorRT"
-              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              TensorRT
-            </label>
-          </div>
-          <div className="flex items-center">
-            <input
-              id="ONNX"
-              type="checkbox"
-              value="onnx"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              onChange={handleChange}
-            />
-            <label
-              htmlFor="ONNX"
-              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              ONNX
-            </label>
-          </div>
+      <main>
+        <div className="w-full lg:w-1/2 mx-auto text-center mt-16">
+          <h2 className="text-4xl font-grotesk">Models</h2>
+          <p className="text-black/60 dark:text-white/60 text-lg">
+            Cortex supports pulling from popular model hubs:
+          </p>
         </div>
-        <div className="w-full p-4 lg:p-8">
-          <div className="bg-neutral-100 dark:bg-neutral-900 py-10 rounded-lg">
-            <div className="w-full lg:w-3/4 mx-auto px-4">
-              <div className="relative w-full lg:w-1/2 mx-auto">
-                <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                  <svg
-                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  type="search"
-                  className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search..."
-                  onChange={(e) => setSearchValue(e.target.value)}
+
+        <div
+          className="rounded-lg border-neutral-800 border border-solid w-full lg:w-1/2 bg-neutral-900 overflow-hidden flex flex-col xl:w-1/3 mx-auto mb-16 mt-10"
+          style={{
+            boxShadow:
+              "0px 0px 0px 0.5px rgba(255, 255, 255, 0.20), 0px 5px 12px 0px rgba(0, 0, 0, 0.50), 0px 16px 40px 0px rgba(0, 0, 0, 0.46)",
+          }}
+        >
+          <div className="flex items-start h-full bg-neutral-800 w-full">
+            <div
+              className={twMerge(
+                "h-full p-3 text-white cursor-pointer",
+                tabActive === "hgf" && "bg-neutral-600"
+              )}
+              onClick={() => setTabActive("hgf")}
+            >
+              <div className="flex items-center gap-2">
+                <ThemedImage
+                  alt="Illustration Robots"
+                  width={20}
+                  sources={{
+                    light: "/img/logos/hf.svg",
+                    dark: "/img/logos/hf.svg",
+                  }}
                 />
+                <span>Hugging Face</span>
+              </div>
+            </div>
+            <div
+              className={twMerge(
+                "h-full p-3 text-white cursor-pointer",
+                tabActive === "ngc" && "bg-neutral-600"
+              )}
+            >
+              <div className="flex items-center gap-2">
+                <ThemedImage
+                  alt="Illustration Robots"
+                  width={20}
+                  sources={{
+                    light: "/img/logos/nvidia.svg",
+                    dark: "/img/logos/nvidia.svg",
+                  }}
+                />
+                <span>Nvidia NGC</span>
+                <span className="py-0.5 px-2 bg-neutral-600 rounded-lg font-medium text-neutral-200 text-sm">
+                  coming soon
+                </span>
               </div>
             </div>
           </div>
+          <div className="w-full">
+            <div className="p-4 text-left">
+              <code className="bg-transparent border-none inline-block">
+                <p className="mb-4">
+                  <span className="text-green-600">cortex&nbsp;</span>
+                  <span className="text-white">pull&nbsp;</span>
+                  <span className="text-cyan-600">
+                    bartowski/Codestral-22B-v0.1-GGUF
+                  </span>
+                </p>
+              </code>
+            </div>
+          </div>
+        </div>
 
-          <div className="w-full lg:w-3/4 mx-auto px-4 mt-10">
+        <div className="w-full mx-auto text-center flex flex-col items-center py-8 bg-white dark:bg-[#111]">
+          <h2 className="text-4xl font-grotesk">Built-In Models</h2>
+          <p className="text-black/60 dark:text-white/60 text-lg mb-8">
+            Cortex has a built-in model collection of popular models.
+          </p>
+
+          <Select onValueChange={(value) => handleChange(value)}>
+            <SelectTrigger className="w-[180px] placeholder:text-red-200 font-semibold">
+              <SelectValue placeholder="Select a Engine" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem className="font-semibold" value="gguf">
+                GGUF
+              </SelectItem>
+              <SelectItem className="font-semibold" value="tensorrt-llm">
+                TensorRT
+              </SelectItem>
+              <SelectItem className="font-semibold" value="onnx">
+                ONNX
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="w-full p-4 lg:p-8">
+          <div className="w-full lg:w-3/4 mx-auto px-4">
             {(filteredModels as any[]).map((model, i) => {
-              let hasGguf = model.branches.some((x: { name: string }) =>
-                x.name.toLowerCase().includes("gguf")
-              );
-              let hasOnnx = model.branches.some((x: { name: string }) =>
-                x.name.toLowerCase().includes("onnx")
-              );
-              let hasTensorrt = model.branches.some((x: { name: string }) =>
-                x.name.toLowerCase().includes("tensorrt")
-              );
-
               if (model.files.some((file) => file.path === "model.yml"))
                 return null;
 
@@ -151,36 +164,35 @@ const ModelsPage = () => {
                   className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-                    <h3 className="mb-0">
-                      {model.name.replace("cortexso/", "")}
-                    </h3>
-                    <div className="flex items-center gap-4">
-                      {hasGguf && (
-                        <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
-                          <p className="mb-0 font-medium">GGUF</p>
-                        </div>
-                      )}
-                      {hasOnnx && (
-                        <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
-                          <p className="mb-0 font-medium">ONNX</p>
-                        </div>
-                      )}
-                      {hasTensorrt && !model.name.includes("llama3") && (
-                        <div className="bg-neutral-100 dark:bg-neutral-700 rounded-lg py-1 px-3 flex items-center">
-                          <p className="mb-0 font-medium">TensorRT-LLM</p>
-                        </div>
-                      )}
-                      <p className="mb-0 flex items-center gap-x-2">
-                        {model.downloads} <CloudDownload size={16} />
-                      </p>
-                    </div>
+                    <Link
+                      to={`https://huggingface.co/${model.name}`}
+                      target="_blank"
+                      className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-300 flex items-center gap-2 group"
+                    >
+                      <h3 className="mb-0 text-base capitalize">
+                        {model.name.replace("cortexso/", "")}
+                      </h3>
+                      <ExternalLinkIcon
+                        size={16}
+                        className="hidden group-hover:flex"
+                      />
+                    </Link>
+                    <div className="flex items-center gap-4"></div>
                   </div>
-                  <Link
-                    href={`/models/${model.name.replace("cortexso/", "")}`}
-                    className="bg-neutral-100 h-12 flex justify-center items-center py-2 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer"
-                  >
-                    View details
-                  </Link>
+
+                  <div className="flex items-center gap-2">
+                    <div className="bg-neutral-100 flex items-center py-1 h-10 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer w-[340px]">
+                      <code className="bg-transparent border-none text-left line-clamp-1">
+                        {checkedItems.length > 0
+                          ? `cortex run ${model.name.replace(
+                              "cortexso/",
+                              ""
+                            )}:${checkedItems[0]}`
+                          : `cortex run ${model.name.replace("cortexso/", "")}`}
+                      </code>
+                    </div>
+                    <CopyCommand checkedItems={checkedItems} model={model} />
+                  </div>
                 </div>
               );
             })}
