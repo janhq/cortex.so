@@ -59,7 +59,7 @@ For more server help, please visit:
 
 ## Getting Models
 
-`cortex run` and `cortex pull` expects a model ID, which can be a Hugging Face repo name (ending in -GGUF) or a cortexso model name from the [Cortex Registry](https://huggingface.co/cortexso).
+`cortex run` and `cortex pull` expect a model ID, which can be a Hugging Face repo name (ending in -GGUF) or a cortexso model name from the [Cortex Registry](https://huggingface.co/cortexso).
 
 ```bash
 # Download a model from any Hugging Face repo
