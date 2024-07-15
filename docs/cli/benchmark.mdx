@@ -21,8 +21,77 @@ This command is compatible with all OpenAI and OpenAI-compatible endpoints.
 ```bash
 cortex benchmark [options] [model_id]
 ```
+For example, it will return the following:
+```bash
+## JSON Format
+ results: [
+    {
+      round: 1,
+      results: [
+        {
+          tokens: 2048,
+          token_length: 3567,
+          latency: 12012,
+          resourceChange: { cpuLoad: -45.543634551575586, mem: -0.22862459579142327 },
+          tpot: 3.3675357443229603,
+          throughput: 296.95304695304696,
+          ttft: 182
+        }
+      ],
+      hardwareChanges: { cpuLoad: 204.51297399539473, mem: 0.93911874639132 }
+    }
+  ],
+  metrics: {
+    p50: {
+      latency: 12012,
+      tpot: 3.3675357443229603,
+      throughput: 296.95304695304696,
+      ttft: 182
+    },
+    p75: {
+      latency: 12012,
+      tpot: 3.3675357443229603,
+      throughput: 296.95304695304696,
+      ttft: 182
+    },
+    p95: {
+      latency: 12012,
+      tpot: 3.3675357443229603,
+      throughput: 296.95304695304696,
+      ttft: 182
+    }
+  },
+  model: {
+    modelId: 'tinyllama',
+    engine: 'cortex.llamacpp',
+    status: 'running',
+    duration: '2h 38m 44s',
+    ram: '-',
+    vram: '-'
+  }
+}
+
+## Table Format
+Results:
+Round 1:
+┌─────────┬────────┬──────────────┬─────────┬────────────────────────────────────────────────────────────┬───────────────────┬────────────────────┬──────┐
+│ (index) │ tokens │ token_length │ latency │ resourceChange                                             │ tpot              │ throughput         │ ttft │
+├─────────┼────────┼──────────────┼─────────┼────────────────────────────────────────────────────────────┼───────────────────┼────────────────────┼──────┤
+│ 0       │ 2048   │ 3461         │ 12021   │ { cpuLoad: -37.98941038167731, mem: -0.30508369223866116 } │ 3.473273620340942 │ 287.91281923300886 │ 248  │
+└─────────┴────────┴──────────────┴─────────┴────────────────────────────────────────────────────────────┴───────────────────┴────────────────────┴──────┘
+Metrics:
+┌─────────┬─────────┬───────────────────┬────────────────────┬──────┐
+│ (index) │ latency │ tpot              │ throughput         │ ttft │
+├─────────┼─────────┼───────────────────┼────────────────────┼──────┤
+│ p50     │ 12021   │ 3.473273620340942 │ 287.91281923300886 │ 248  │
+│ p75     │ 12021   │ 3.473273620340942 │ 287.91281923300886 │ 248  │
+│ p95     │ 12021   │ 3.473273620340942 │ 287.91281923300886 │ 248  │
+└─────────┴─────────┴───────────────────┴────────────────────┴──────┘
+
+```
 :::info
-This command uses a model that has been downloaded to your file system. Downloads a model by using the [pull](/docs/cli/pull) or [run](/docs/cli/run) command.
+- The JSON benchmark file is located on `~cortex\benchmark\outpout.json`.
+- This command uses a model that has been downloaded to your file system. Downloads a model by using the [pull](/docs/cli/pull) or [run](/docs/cli/run) command.
 :::
 
 

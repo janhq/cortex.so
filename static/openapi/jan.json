@@ -361,6 +361,14 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "fileName",
+                        "required": true,
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -416,6 +424,14 @@
                         "required": true,
                         "in": "path",
                         "description": "The unique identifier of the model.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fileName",
+                        "required": true,
+                        "in": "query",
                         "schema": {
                             "type": "string"
                         }
@@ -569,7 +585,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ThreadEntity"
+                                    "type": "object"
                                 }
                             }
                         }
@@ -592,7 +608,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/ThreadEntity"
+                                        "type": "object"
                                     }
                                 }
                             }
@@ -811,7 +827,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MessageEntity"
+                                    "type": "object"
                                 }
                             }
                         }
@@ -1467,7 +1483,8 @@
                     },
                     "role": {
                         "type": "object",
-                        "description": "The role of the entity in the chat completion."
+                        "description": "The role of the entity in the chat completion.",
+                        "example": "user"
                     }
                 },
                 "required": [
@@ -1488,7 +1505,7 @@
                     "model": {
                         "type": "string",
                         "description": "The unique identifier of the model.",
-                        "example": "gpt-4"
+                        "example": "mistral"
                     },
                     "stream": {
                         "type": "boolean",
@@ -1655,7 +1672,7 @@
                 "properties": {
                     "model": {
                         "type": "string",
-                        "example": "llama3",
+                        "example": "mistral",
                         "description": "The name of the embedding model to be used."
                     },
                     "input": {
@@ -1723,14 +1740,19 @@
                 "properties": {
                     "model": {
                         "type": "string",
-                        "description": "The unique identifier of the model."
+                        "description": "The unique identifier of the model.",
+                        "example": "mistral"
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the model."
+                        "description": "The name of the model.",
+                        "example": "mistral"
                     },
                     "files": {
                         "description": "The URL sources from which the model downloaded or accessed.",
+                        "example": [
+                            "https://huggingface.co/cortexso/mistral/tree/gguf"
+                        ],
                         "oneOf": [
                             {
                                 "type": "array",
@@ -1745,10 +1767,14 @@
                     },
                     "prompt_template": {
                         "type": "string",
-                        "description": "A predefined text or framework that guides the AI model's response generation."
+                        "description": "A predefined text or framework that guides the AI model's response generation.",
+                        "example": "\n      You are an expert in {subject}. Provide a detailed and thorough explanation on the topic of {topic}."
                     },
                     "stop": {
                         "description": "Defines specific tokens or phrases that signal the model to stop producing further output.",
+                        "example": [
+                            "End"
+                        ],
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -1761,23 +1787,28 @@
                     },
                     "top_p": {
                         "type": "number",
-                        "description": "Sets probability threshold for more relevant outputs."
+                        "description": "Sets probability threshold for more relevant outputs.",
+                        "example": 0.9
                     },
                     "temperature": {
                         "type": "number",
-                        "description": "Influences the randomness of the model's output."
+                        "description": "Influences the randomness of the model's output.",
+                        "example": 0.7
                     },
                     "frequency_penalty": {
                         "type": "number",
-                        "description": "Modifies the likelihood of the model repeating the same words or phrases within a single output."
+                        "description": "Modifies the likelihood of the model repeating the same words or phrases within a single output.",
+                        "example": 0.5
                     },
                     "presence_penalty": {
                         "type": "number",
-                        "description": "Reduces the likelihood of repeating tokens, promoting novelty in the output."
+                        "description": "Reduces the likelihood of repeating tokens, promoting novelty in the output.",
+                        "example": 0.6
                     },
                     "stream": {
                         "type": "boolean",
-                        "description": "Determines the format for output generation. If set to `true`, the output is generated continuously, allowing for real-time streaming of responses. If set to `false`, the output is delivered in a single JSON file."
+                        "description": "Determines the format for output generation. If set to `true`, the output is generated continuously, allowing for real-time streaming of responses. If set to `false`, the output is delivered in a single JSON file.",
+                        "example": true
                     },
                     "ctx_len": {
                         "type": "number",
@@ -1952,16 +1983,18 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "example": "llama3",
+                        "example": "mistral",
                         "description": "The model identifier, which can be referenced in the API endpoints."
                     },
                     "prompt_template": {
                         "type": "string",
-                        "example": "system\n{system_message}\nuser\n{prompt}\nassistant",
+                        "example": "You are an expert in {subject}. Provide a detailed and thorough explanation on the topic of {topic}.",
                         "description": "A predefined text or framework that guides the AI model's response generation."
                     },
                     "stop": {
-                        "example": [],
+                        "example": [
+                            "End"
+                        ],
                         "description": "Defines specific tokens or phrases that signal the model to stop producing further output.",
                         "type": "array",
                         "items": {
@@ -2015,7 +2048,8 @@
                     },
                     "pre_prompt": {
                         "type": "string",
-                        "description": "The prompt to use for internal configuration"
+                        "description": "The prompt to use for internal configuration",
+                        "example": "You are an assistant with expert knowledge in {subject}. Please provide a detailed and accurate response to the following query: {query}. Ensure that your response is clear, concise, and informative."
                     },
                     "n_batch": {
                         "type": "number",
@@ -2144,7 +2178,7 @@
                     },
                     "model": {
                         "type": "string",
-                        "example": "llama3",
+                        "example": "mistral",
                         "description": "The model's unique identifier and settings."
                     },
                     "instructions": {
@@ -2245,46 +2279,6 @@
                 },
                 "required": [
                     "assistants"
-                ]
-            },
-            "ThreadEntity": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "object": {
-                        "type": "string"
-                    },
-                    "title": {
-                        "type": "string"
-                    },
-                    "assistants": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AssistantEntity"
-                        }
-                    },
-                    "created_at": {
-                        "type": "number"
-                    },
-                    "tool_resources": {
-                        "type": "object",
-                        "nullable": true
-                    },
-                    "metadata": {
-                        "type": "object",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "id",
-                    "object",
-                    "title",
-                    "assistants",
-                    "created_at",
-                    "tool_resources",
-                    "metadata"
                 ]
             },
             "ContentDto": {
@@ -2506,81 +2500,6 @@
                 "required": [
                     "role",
                     "content"
-                ]
-            },
-            "MessageEntity": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "object": {
-                        "type": "string"
-                    },
-                    "thread_id": {
-                        "type": "string"
-                    },
-                    "assistant_id": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "role": {
-                        "type": "object"
-                    },
-                    "status": {
-                        "type": "object"
-                    },
-                    "metadata": {
-                        "type": "object",
-                        "nullable": true
-                    },
-                    "run_id": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "completed_at": {
-                        "type": "number",
-                        "nullable": true
-                    },
-                    "content": {
-                        "type": "array",
-                        "items": {
-                            "type": "object"
-                        }
-                    },
-                    "incomplete_details": {
-                        "type": "object",
-                        "nullable": true
-                    },
-                    "created_at": {
-                        "type": "number"
-                    },
-                    "attachments": {
-                        "type": "array",
-                        "items": {
-                            "type": "object"
-                        }
-                    },
-                    "incomplete_at": {
-                        "type": "number",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "id",
-                    "object",
-                    "thread_id",
-                    "assistant_id",
-                    "role",
-                    "status",
-                    "metadata",
-                    "run_id",
-                    "completed_at",
-                    "content",
-                    "incomplete_details",
-                    "created_at",
-                    "attachments",
-                    "incomplete_at"
                 ]
             },
             "UpdateMessageDto": {
