@@ -13,20 +13,20 @@ import TabItem from "@theme/TabItem";
 
 Cortex's Chat API is compatible with OpenAI’s [Models API](https://platform.openai.com/docs/api-reference/models) endpoint. It is a drop-in replacement for model management. Additionally, Cortex exposes lower level operations for managing models like downloading models from a model hub and model loading.
 
+:::info
 Cortex also supports multiple model formats and architectures, including `GGUF`, `ONNX`, and `TensorRT-LLM`.
+:::
 
 ## Usage
 
 <Tabs>
   <TabItem  value="CLI" label="CLI" default>
     ```bash 
-    cortex models pull <repo_name-or-filepath>
-    cortex models start
-    cortex models stop
+    cortex models
     ```
   </TabItem>
-  <TabItem value="Javascript" label="Javascript">
-  </TabItem>
+  {/* <TabItem value="Javascript" label="Javascript">
+  </TabItem> */}
   <TabItem value="CURL" label="CURL">
   ## Load Models
     Cortex provides two ways to load your local model into the Cortex server.
@@ -94,10 +94,22 @@ Cortex also supports multiple model formats and architectures, including `GGUF`,
   </TabItem>
 </Tabs>
 
-{/* ## Capabilities
+## Capabilities
 
-### Model Orchestration
+### Download Models
+The Model Operations feature in Cortex allows you to download built-in models from our [Models hub](https://huggingface.co/cortexso). You can download any models in `GGUF`, `ONNX`, or `TensorRT-LLM` formats on [HuggingFace](https://huggingface.co/).
+```bash
+# Download a built-in model
+cortex models pull mistral
+# Download a specific variant
+cortex models pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
+```
 
-### Model Routing
-
-### Model Conversion */}
+### Models Management
+Cortex offers functionality to delete or update the configuration of a downloaded model. To do this, use the following command:
+```bash
+# Delete a model
+cortex models remove
+# Update a model
+cortex models update
+```
