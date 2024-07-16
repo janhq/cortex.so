@@ -174,15 +174,17 @@ const OAIReplacement = () => {
                   >
                     {x.name}
                   </h4>
-                  <span
-                    className={twMerge(
-                      "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
-                      x.status === "work in progress" &&
-                        "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
-                    )}
-                  >
-                    {x.status}
-                  </span>
+                  {x?.status && (
+                    <span
+                      className={twMerge(
+                        "py-0.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg font-medium text-neutral-500",
+                        x.status === "work in progress" &&
+                          "bg-blue-100 dark:bg-blue-800/40 dark:text-blue-300 text-blue-500"
+                      )}
+                    >
+                      {x.status}
+                    </span>
+                  )}
                 </div>
               );
             })}
