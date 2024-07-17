@@ -15,9 +15,11 @@ import {
 
 import { ExternalLinkIcon } from "lucide-react";
 import CopyCommand from "@site/src/components/CopyCommand";
+import { yamlToJSON } from "@site/src/utils";
 
 const ModelsPage = () => {
   const listModels = usePluginData("list-models");
+  console.log(listModels);
   const [searchValue, setSearchValue] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
   const [tabActive, setTabActive] = useState("hgf");
@@ -155,8 +157,17 @@ const ModelsPage = () => {
         <div className="w-full p-4 lg:p-8">
           <div className="w-full lg:w-3/4 mx-auto px-4">
             {(filteredModels as any[]).map((model, i) => {
-              if (model.files.some((file) => file.path === "model.yml"))
+              const modelYaml = JSON.parse(yamlToJSON(model.modelContent));
+              if (
+                modelYaml.engine === "openai" ||
+                modelYaml.engine === "anthropic" ||
+                modelYaml.engine === "cohere" ||
+                modelYaml.engine === "martian" ||
+                modelYaml.engine === "groq" ||
+                modelYaml.engine === "mistral"
+              ) {
                 return null;
+              }
 
               return (
                 <div

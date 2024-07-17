@@ -40,3 +40,53 @@ export const toGibibytes = (
     return input + (options?.hideUnit ? "" : "B");
   }
 };
+
+export function yamlToJSON(yamlString: string): string {
+  const lines = yamlString.split("\n");
+  const jsonObject: any = {};
+  let currentObject: any = jsonObject;
+  const stack: any[] = [];
+
+  lines.forEach((line) => {
+    line = line.trim();
+    if (line.startsWith("#") || line === "") return; // Skip comments and empty lines
+
+    if (line.includes(":")) {
+      const [key, value] = line.split(/:(.+)/).map((str) => str.trim());
+      if (value === undefined) {
+        const newObject: any = {};
+        stack.push(currentObject);
+        currentObject[key] = newObject;
+        currentObject = newObject;
+      } else {
+        if (value === "" || value === "-") {
+          const newObject: any = {};
+          stack.push(currentObject);
+          currentObject[key] = newObject;
+          currentObject = newObject;
+        } else {
+          currentObject[key] = isNaN(Number(value))
+            ? value === "true" || value === "false"
+              ? value === "true"
+              : value
+            : parseFloat(value);
+        }
+      }
+    } else if (line === "-") {
+      if (!Array.isArray(currentObject)) {
+        const arrayKey = Object.keys(stack[stack.length - 1]).find(
+          (key) => stack[stack.length - 1][key] === currentObject
+        );
+        currentObject = stack[stack.length - 1][arrayKey] = [];
+      }
+      const newObject: any = {};
+      currentObject.push(newObject);
+      stack.push(currentObject);
+      currentObject = newObject;
+    }
+  });
+
+  while (stack.length) currentObject = stack.pop(); // Return to top level object
+
+  return JSON.stringify(jsonObject, null, 2);
+}
