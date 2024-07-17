@@ -63,8 +63,6 @@ export default function OAICoverage() {
     {}
   );
 
-  console.log(groupedDates);
-
   const firstDates = Object.values(groupedDates).map((group) => {
     return group.reduce((earliest, current) => {
       const [, currentDay] = current.date.split("-");

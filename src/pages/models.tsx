@@ -19,7 +19,6 @@ import { yamlToJSON } from "@site/src/utils";
 
 const ModelsPage = () => {
   const listModels = usePluginData("list-models");
-  console.log(listModels);
   const [searchValue, setSearchValue] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
   const [tabActive, setTabActive] = useState("hgf");

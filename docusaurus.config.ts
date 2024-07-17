@@ -103,7 +103,6 @@ const config: Config = {
                       path: "model.yml",
                     });
                     if (response && response.text) {
-                      console.log(response);
                       modelContent = await response.text();
                     }
                   }
