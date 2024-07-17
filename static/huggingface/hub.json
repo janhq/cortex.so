@@ -17,7 +17,7 @@
     },
     {
       "url": "https://huggingface.co/legraphista/llm-compiler-7b-ftd-IMat-GGUF/blob/main/llm-compiler-7b-ftd.Q4_K_S.gguf",
-      "author": "",
+      "author": "Meta",
       "logo": "",
       "model_name": "LLM Compiler 7B FTD IMat GGUF",
       "note": "Small + Code"
@@ -38,7 +38,7 @@
     },
     {
       "url": "https://huggingface.co/israellaguan/TinyLlama_v1.1_math_code-Q6_K-GGUF/tree/main",
-      "author": "Microsoft",
+      "author": "Tiny‌Llama",
       "logo": "",
       "model_name": "TinyLlama v1.1 Math Code Q6 K GGUF",
       "note": "Super Tiny + Chat"
