@@ -212,7 +212,7 @@ const config: Config = {
     [
       "@scalar/docusaurus",
       {
-        label: "API",
+        label: "API Reference",
         route: "/api-reference",
         configuration: {
           spec: {
@@ -358,8 +358,8 @@ const config: Config = {
           docId: "overview",
           label: "Docs",
         },
-        { to: "/models", label: "Models", position: "left" },
         { to: "/docs/cli", label: "CLI", position: "left" },
+        { to: "/models", label: "Models", position: "right" },
         {
           type: "search",
           position: "right",
@@ -380,7 +380,7 @@ const config: Config = {
               to: "/docs",
             },
             { to: "/docs/cli", label: "CLI" },
-            { href: "/api-reference", label: "API" },
+            { href: "/api-reference", label: "API Reference" },
             { to: "/models", label: "Models" },
           ],
         },
