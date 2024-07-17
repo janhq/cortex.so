@@ -43,17 +43,17 @@ const sidebars: SidebarsConfig = {
     },
     { type: "doc", id: "model-yaml", label: "Model YAML" },
     { type: "doc", id: "built-in-models", label: "Built-in Models" },
-    {
-      type: "category",
-      label: "Model Formats",
-      link: { type: "doc", id: "formats/index" },
-      collapsed: true,
-      items: [
-        { type: "doc", id: "formats/gguf", label: "GGUF" },
-        { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
-        { type: "doc", id: "formats/onnx", label: "ONNX" },
-      ],
-    },
+    // {
+    //   type: "category",
+    //   label: "Model Formats",
+    //   link: { type: "doc", id: "formats/index" },
+    //   collapsed: true,
+    //   items: [
+    //     { type: "doc", id: "formats/gguf", label: "GGUF" },
+    //     { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
+    //     { type: "doc", id: "formats/onnx", label: "ONNX" },
+    //   ],
+    // },
     {
       type: "category",
       label: "Model Registries",
@@ -61,8 +61,8 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "hub/hugging-face", label: "Hugging Face" },
-        { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Hub" },
-        { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia NGC" },
+        // { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Hub" },
+        // { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia NGC" },
       ],
     },
     // BASIC USAGE
