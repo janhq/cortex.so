@@ -76,13 +76,14 @@ const config: Config = {
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
           try {
-            const fetchedModels = [];
+            let fetchedModels = [];
             for await (const model of listModels({
               search: { owner: "cortexso" },
             })) {
               try {
                 const files = [];
                 let readmeContent = "README.md not available";
+                let modelContent = "model.yml not available";
                 for await (const fileInfo of listFiles({
                   repo: model.name,
                 })) {
@@ -96,6 +97,15 @@ const config: Config = {
                       readmeContent = await response.text();
                     }
                   }
+                  if (fileInfo.path === "model.yml") {
+                    const response = await downloadFile({
+                      repo: model.name,
+                      path: "model.yml",
+                    });
+                    if (response && response.text) {
+                      modelContent = await response.text();
+                    }
+                  }
                 }
                 try {
                   let refs = {};
@@ -107,6 +117,7 @@ const config: Config = {
                     ...model,
                     files,
                     readmeContent,
+                    modelContent,
                     ...refs,
                   });
                 } catch (error) {
@@ -118,6 +129,7 @@ const config: Config = {
                   ...model,
                   files: [],
                   readmeContent: "Error fetching README.md",
+                  modelContent: "Error fetching model.yml",
                   error: "Error fetching files",
                 });
               }
