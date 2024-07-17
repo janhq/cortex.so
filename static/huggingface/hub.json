@@ -3,7 +3,7 @@
   "quickstart_models": [
      {
       "url": "https://huggingface.co/NousResearch/Hermes-2-Theta-Llama-3-8B-GGUF/blob/main/Hermes-2-Pro-Llama-3-Instruct-Merged-DPO-Q4_K_M.gguf",
-      "author": "Meta",
+      "author": "NousResearch",
       "logo": "",
       "model_name": "Hermes 2 Theta Llama 3 8B GGUF",
       "note": "Small + Smart"
