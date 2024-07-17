@@ -74,7 +74,7 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "command-line", label: "CLI" },
     { type: "doc", id: "ts-library", label: "Typescript Library" },
     { type: "doc", id: "py-library", label: "Python Library" },
-    { type: "doc", id: "server", label: "Server Endpoint" },
+    // { type: "doc", id: "server", label: "Server Endpoint" },
     // CAPABILITIES
     {
       type: "html",
