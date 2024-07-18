@@ -1,26 +1,20 @@
 ---
-title: Python Library
-description: Cortex Python Library.
+title: cortex.py
+description: How to integrate cortex.py with a Python application.
 slug: "py-library"
 ---
 
 :::warning
 🚧 Cortex is under construction.
 :::
-
-Cortex also provides a Python client library that is a **direct substitute for OpenAI's** [Python library](https://github.com/openai/openai-python), enabling easy integration and streamlined workflows.
-
+Cortex can be used in a Python application with the `cortex.py` library. Cortex provides a Python client library as a **fork of OpenAI's [Python library](https://github.com/openai/openai-python)** with additional methods for Local AI.
 ## Installation
-
-Use the following pip command to install the Cortex library in your project:
 
 ```py
 pip install @janhq/cortex-python
 ```
 
 ## Usage
-
-Switching to the Cortex Client Library from the OpenAI Python Library involves simple updates.
 
 1. Replace the OpenAI import with Cortex in your application:
 

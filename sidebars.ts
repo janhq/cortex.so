@@ -28,12 +28,27 @@ const sidebars: SidebarsConfig = {
       },
       collapsed: true,
       items: [
-        { type: "doc", id: "installation/mac", label: "Mac" },
         { type: "doc", id: "installation/windows", label: "Windows" },
+        { type: "doc", id: "installation/mac", label: "Mac" },
         { type: "doc", id: "installation/linux", label: "Linux" },
+        { type: "doc", id: "installation/docker", label: "Docker" },
+        { type: "doc", id: "installation/gpu-acceleration", label: "GPU Acceleration" },
       ],
     },
-    { type: "doc", id: "requirements", label: "Requirements" },
+    {
+      type: "category",
+      label: "Basic Usage",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "basic-usage/command-line", label: "CLI" },
+        { type: "doc", id: "basic-usage/server", label: "API Server" },
+        { type: "doc", id: "basic-usage/js-library", label: "cortex.js" },
+        { type: "doc", id: "basic-usage/py-library", label: "cortex.py" },
+      ],
+    },
     { type: "doc", id: "telemetry", label: "Telemetry" },
     // MODELs
     {
@@ -41,50 +56,51 @@ const sidebars: SidebarsConfig = {
       value: "MODELS",
       className: "sidebar-divider",
     },
-    { type: "doc", id: "model-yaml", label: "Model YAML" },
+    { type: "doc", id: "model-overview", label: "Overview" },
+    { type: "doc", id: "using-models", label: "Using Models" },
     { type: "doc", id: "built-in-models", label: "Built-in Models" },
-    // {
-    //   type: "category",
-    //   label: "Model Formats",
-    //   link: { type: "doc", id: "formats/index" },
-    //   collapsed: true,
-    //   items: [
-    //     { type: "doc", id: "formats/gguf", label: "GGUF" },
-    //     { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
-    //     { type: "doc", id: "formats/onnx", label: "ONNX" },
-    //   ],
-    // },
+    { type: "doc", id: "model-yaml", label: "model.yaml" },
     {
       type: "category",
-      label: "Model Registries",
+      label: "Model Formats",
+      link: { type: "doc", id: "formats/index" },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "formats/gguf", label: "GGUF" },
+        { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
+        { type: "doc", id: "formats/onnx", label: "ONNX" },
+      ],
+    },
+    {
+      type: "category",
+      label: "Model Repositories",
       link: { type: "doc", id: "hub/index" },
       collapsed: true,
       items: [
-        { type: "doc", id: "hub/hugging-face", label: "Hugging Face" },
-        // { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Hub" },
-        // { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia NGC" },
+        { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Repos" },
+        { type: "doc", id: "hub/hugging-face", label: "HuggingFace Repos" },
+        { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia Catalog (Coming Soon)" },
       ],
     },
     // BASIC USAGE
-    {
-      type: "html",
-      value: "BASIC USAGE",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "command-line", label: "CLI" },
-    { type: "doc", id: "ts-library", label: "Typescript Library" },
-    { type: "doc", id: "py-library", label: "Python Library" },
+    // {
+    //   type: "html",
+    //   value: "BASIC USAGE",
+    //   className: "sidebar-divider",
+    // },
+    // { type: "doc", id: "command-line", label: "CLI" },
+    // { type: "doc", id: "ts-library", label: "Typescript Library" },
+    // { type: "doc", id: "py-library", label: "Python Library" },
     // { type: "doc", id: "server", label: "Server Endpoint" },
     // CAPABILITIES
     {
       type: "html",
-      value: "CAPABILITIES",
+      value: "ENDPOINTS",
       className: "sidebar-divider",
     },
     { type: "doc", id: "chat-completions", label: "Chat Completions" },
     { type: "doc", id: "embeddings", label: "Embeddings" },
     { type: "doc", id: "benchmarking", label: "Benchmarking" },
-    { type: "doc", id: "model-operations", label: "Model Operations" },
     // ARCHITECTURE
     {
       type: "html",
@@ -101,20 +117,20 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "cortex-llamacpp", label: "llama.cpp" },
-        { type: "doc", id: "cortex-onnx", label: "ONNX" },
         { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
+        { type: "doc", id: "cortex-onnx", label: "ONNX" },
       ],
     },
     {
       type: "category",
-      label: "Capabilities",
+      label: "Infrastructure",
       link: {
         type: "generated-index",
       },
       collapsed: true,
       items: [
-        { type: "doc", id: "telemetry-architecture", label: "Telemetry" },
-        { type: "doc", id: "benchmarking-architecture", label: "Benchmarking" },
+        { type: "doc", id: "telemetry-architecture", label: "Telemetry Infra" },
+        { type: "doc", id: "benchmarking-architecture", label: "Benchmarking Infra" },
       ],
     },
   ],

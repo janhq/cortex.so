@@ -17,19 +17,16 @@ The Cortex Embeddings feature is fully compatible with OpenAI-compatible endpoin
 :::
 
 ## Usage
-
+### CLI
+```bash 
+# Without Flag
+cortex embeddings "Hello World"
+# With model_id Flag
+cortex embeddings [options] [model_id] "Hello World"
+```
+### API
 <Tabs>
-  <TabItem  value="CLI" label="CLI" default>
-
-    ```bash 
-    # Without Flag
-    cortex embeddings "Hello World"
-    # With model_id Flag
-    cortex embeddings [options] [model_id] "Hello World"
-    ```
-  </TabItem>
-  <TabItem value="CURL" label="CURL">
-  ### **Request Example**
+  <TabItem value="request" label="Request Example">
   To generate an embedding, send a text string and the embedding model name **(e.g., 'nomic-embed-text-v1.5.f16')** to the Embeddings API endpoint.
   The Cortex-cpp server will return a list of floating-point numbers, which can be stored in a vector database for later use.
   ```bash
@@ -43,8 +40,8 @@ curl http://127.0.0.1:3928/v1/embeddings \
 
 
   ```
-  ### **Endpoint Response**
-  Below are examples of the embedding endpoint response from the Cortex server:
+  </TabItem>
+  <TabItem value="response" label="Endpoint Response">
   ```bash
 {
     "data": [

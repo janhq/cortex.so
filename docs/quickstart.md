@@ -33,16 +33,15 @@ cortex run mistral:tensorrt-llm
 :::info
 For more CLI help, please visit:
 
-- [CLI Overview](/docs/command-line)
+- [CLI Overview](/docs/basic-usage/command-line)
 - [CLI Reference](/docs/cli)
   :::
 
 ## Server
 
-To start a server at port 1337, run:
-
 ```bash
-cortex serve
+# Start a server at port 1337
+cortex
 
 ## Run in a separate shell
 cortex models start MODEL-ID
@@ -53,7 +52,7 @@ Then visit the [OpenAPI Playground](http://localhost:1337/api) to invoke the API
 :::info
 For more server help, please visit:
 
-- [Server Overview](/docs/server)
+- [Server Overview](/docs/basic-usage/server)
 - [`cortex serve` command](/docs/cli/serve)
   :::
 
@@ -70,12 +69,10 @@ cortex pull mistral
 ```
 
 :::info
-Read more about [model operations](./model-operations).
+Read more about [using models](./using-models).
 :::
 
 ## Get Help
-
-Finally, to see all available commands, run:
 
 ```bash
 cortex

@@ -16,14 +16,15 @@ Cortex collects telemetry data to enhance our product. This data provides detail
 We do not collect any sensitive or personal information.
 :::
 ## Usage
-Run the following CLI command:
 ```bash
 cortex telemetry crash
 ```
 ## Dataflow
 To understand how our telemetry system operates and how data flows from your hardware into our system, please refer to the [Telemetry architecture](/docs/telemetry-architecture).
 ## Telemetry Metrics
-The collected telemetry metrics for Cortex are divided into two main categories: `CrashReportResource` and `CrashReportPayload`.
+The collected telemetry metrics for Cortex are divided into two main categories: 
+- `CrashReportResource`
+- `CrashReportPayload`
 <Tabs>
   <TabItem value="1" label="`CrashReportResource`" default>
 This category includes metrics related to the operating system and hardware details. It captures the following metrics:
@@ -51,7 +52,6 @@ This category focuses on metrics related to specific operations within Cortex. I
 </Tabs>
 
 ## Turn Off Telemetry
-You can turn off our Telemetry feature by running the following command:
 <Tabs>
   <TabItem value="linux" label="Linux" default>
   ```bash
@@ -83,7 +83,6 @@ You can turn off our Telemetry feature by running the following command:
 
 
 ## Export to Otel Collector
-We also provide the option to export telemetry data to your own observability tools. You can export our telemetry to your own Otel Collector setup by running the following command:
 <Tabs>
   <TabItem value="linux" label="Linux" default>
   ```bash

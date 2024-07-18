@@ -39,7 +39,7 @@ Cortex is equipped with **MySQL** and **SQLite** databases, offering flexible da
 
 - **SQLite**: This database is used for simplicity and minimal setup. It can handle the small model size from the core extensions and any data from the External extensions.
 
-- **File System**: Cortex uses a filesystem approach for managing configuration files, such as `model.yaml` files. These files are stored in a structured directory hierarchy, enabling efficient data retrieval and management.
+- **File System**: Cortex uses a filesystem approach for managing configuration files, such as `model.yaml` files. These files are stored in a structured directory hierarchy.
 
 ### Providers
 Cortex uses three different types of providers:
@@ -52,7 +52,7 @@ Cortex uses three different types of providers:
 
 ### Key Dependencies
 
-Cortex developed using NestJS and operates via a Node.js server framework, handling all incoming and outgoing requests. It also has a C++ runtime to handle stateless requests.
+Cortex was developed using NestJS and operates via a Node.js server framework, handling all incoming and outgoing requests. It also has a C++ runtime to handle stateless requests.
 
 Below is a detailed overview of its core architecture components:
 
@@ -109,10 +109,6 @@ main.ts                    # Entrypoint
 
 ```
 
-:::info
-The structure above promotes clean architecture principles, allowing for scalable and maintainable Cortex development.
-:::
-
 ## Runtime
 ![cortex runtime](/img/docs/cortex-runtime.png)
 
@@ -142,11 +138,3 @@ Our development roadmap outlines key features and epics we will focus on in the 
 :::info
 For a full list of Cortex development roadmap, please see [here](https://discord.com/channels/1107178041848909847/1230770299730001941).
 :::
-## Risks & Technical Debt
-
-Cortex CLI, built with Nest-commander, incorporates extensions to integrate various inference providers. This flexibility, however, introduces certain risks related to dependency management and the objective of bundling the CLI into a single executable binary.
-
-### Key Risks
-
-1. **Complex Dependencies**: Utilizing Nest-commander involves a deep dependency tree, risking version conflicts and complicating updates.
-2. **Bundling Issues**: Converting to a single executable can reveal issues with `npm` dependencies and relative asset paths, leading to potential runtime errors due to unresolved assets or incompatible binary dependencies.

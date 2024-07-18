@@ -22,17 +22,15 @@ For local inference, Cortex is [multi-engine](#multiple-local-engines) and suppo
 Cortex routes requests to multiple APIs for remote inference while providing a single, easy-to-use, OpenAI-compatible endpoint.
 
 ## Usage
+### CLI
 
+```bash 
+# Streaming 
+cortex chat --model janhq/TinyLlama-1.1B-Chat-v1.0-GGUF
+```
+### API
 <Tabs>
-  <TabItem  value="CLI" label="CLI" default>
-    ```bash 
-    # Streaming 
-    cortex chat --model janhq/TinyLlama-1.1B-Chat-v1.0-GGUF
-    ```
-  </TabItem>
-  <TabItem value="CURL" label="CURL">
-  ### Single Request Example
-  To send a single query to your chosen LLM, use the following in your request:
+  <TabItem value="single" label="Single Request Example">
   ```bash
   curl http://localhost:1337/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -57,8 +55,8 @@ Cortex routes requests to multiple APIs for remote inference while providing a s
   }'
 
   ```
-  ### Dialog Request Example
-  For ongoing conversations or multiple queries, structure a multi-turn conversation as follows:
+  </TabItem>
+  <TabItem value="dialogue" label="Dialogue Request Example">
   ```bash
   curl http://localhost:1337/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -94,8 +92,8 @@ Cortex routes requests to multiple APIs for remote inference while providing a s
   }'
 
   ```
-  ### Endpoint Response
-  Below are examples of the chat completions endpoint response from the Cortex server:
+  </TabItem>
+  <TabItem value="response" label="Endpoint Response">
   ```bash
   {
   "choices": [
@@ -143,11 +141,8 @@ Cortex also acts as an aggregator for remote inference requests from a single en
 
 - OpenAI
 - Groq
-- Cohere
 - Anthropic
 - MistralAI
-- Martian
-- OpenRouter
 
 :::note
 Learn more about Chat Completions capabilities:

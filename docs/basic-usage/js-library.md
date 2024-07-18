@@ -1,6 +1,6 @@
 ---
-title: Typescript Library
-description: Cortex Node Client Library
+title: cortex.js
+description: How to integrate cortex.js with a Typescript application.
 slug: "ts-library"
 ---
 
@@ -8,19 +8,15 @@ slug: "ts-library"
 🚧 Cortex is under construction.
 :::
 
-Cortex provides a robust Typescript client library designed as a **direct substitute for OpenAI's** [Node.js/Typescript library](https://github.com/openai/openai-node), enabling easy integration and streamlined workflows.
+Cortex can be used in a Typescript application with the `cortex.js` library. Cortex provides a Typescript client library as a **fork of OpenAI's [Typescript library](https://github.com/openai/openai-node)** with additional methods for Local AI.
 
 ## Installation
-
-Install the package via npm with the following command in your project:
 
 ```ts
 npm install @janhq/cortexso-node
 ```
 
 ## Usage
-
-Transitioning to the Cortex Client Library from the OpenAI Client Library involves minimal changes, mostly updating the import statement.
 
 1. Replace the OpenAI import with Cortex in your application:
 

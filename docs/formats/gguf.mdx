@@ -1,0 +1,61 @@
+---
+title: GGUF
+description: GGUF Model Format.
+---
+
+:::warning
+🚧 Cortex is under construction.
+:::
+Cortex uses `llama.cpp` as the default engine by default the `GGUF` format is supported by Cortex.
+
+## Run Model
+```bash
+## To ensure you have the dependencies installed correctly
+cortex engines llamacpp init
+
+## Run a GGUF model
+cortex run mistral:7b-gguf
+```
+## Example `yaml`
+```yaml
+name: mistral
+model: mistral:7B
+version: 1
+
+# Results Preferences
+stop:
+  - </s>
+top_p: 0.95
+temperature: 0.7
+frequency_penalty: 0
+presence_penalty: 0
+max_tokens: 4096 # Infer from base config.json -> max_position_embeddings
+stream: true # true | false
+
+# Engine / Model Settings
+ngl: 33 # Infer from base config.json -> num_attention_heads
+ctx_len: 4096 # Infer from base config.json -> max_position_embeddings
+engine: cortex.llamacpp
+prompt_template: "{system_message} [INST] {prompt} [/INST]"
+
+```
+## Model Parameters
+
+| **Parameter**          | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| `top_p`                | The cumulative probability threshold for token sampling.                             |
+| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    |
+| `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       |
+| `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            |
+| `max_tokens`           | Maximum number of tokens in the output; inferred from base config.json.              |
+| `stream`               | Enables or disables streaming mode for the output (true or false).                   |
+| `ngl`                  | Number of attention heads; inferred from base config.json.                           |
+| `ctx_len`              | Context length (maximum number of tokens). Inferred from base config.json.           |
+| `engine`               | Specifies the engine to be used for model execution.         |
+| `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      |
+
+:::info
+You can download a `GGUF` from the following:
+- [Cortex Model Repos](/docs/hub/cortex-hub)
+- [HuggingFace Model Repos](/docs/hub/hugging-face)
+:::

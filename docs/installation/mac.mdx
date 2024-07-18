@@ -12,15 +12,41 @@ import TabItem from '@theme/TabItem';
 :::
 
 ## Prerequisites
-Before installing, please ensure your device meets the Cortex [system requirements](/docs/requirements).
+
+### Dependencies
+- **Homebrew**: Needed to manage packages.
+
+:::info
+When you install Cortex, all necessary dependencies for running it on your hardware, whether in CPU or GPU mode, will be automatically installed.
+:::
+
+### Hardware
+
+<Tabs>
+  <TabItem value="Mac Intel CPU" label="Mac Intel CPU" default>
+  </TabItem>
+  <TabItem value="Mac Apple Silicon" label="Mac Apple Silicon">
+  </TabItem>
+</Tabs>
+
+
+<Tabs>
+  <TabItem value="Operating System" label="Operating System" default>
+    - MacOSX 13.6 or higher.
+  </TabItem>
+  <TabItem value="Memory" label="Memory">
+    - 8GB for running up to 3B models.
+    - 16GB for running up to 7B models.
+    - 32GB for running up to 13B models.
+  </TabItem>
+  <TabItem value="Disk" label="Disk">
+    - At least 10GB for app and model download.
+  </TabItem>
+</Tabs>
 
 ## Cortex Installation
 
-To install Cortex, follow the steps below:
-
 ### Step 1: Install Cortex
-
-Run the following command to install Cortex globally on your machine:
 
 :::info
 You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
@@ -48,8 +74,6 @@ cortex -h
 2. Cortex is ready to use!
 ## Build from Source
 
-To install Cortex from the source, follow the steps below:
-
 1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
 2. Navigate to the `cortex-js` folder.
 3. Open the terminal and run the following command to build the Cortex project:
@@ -76,8 +100,6 @@ npm link
 cortex -h
 ```
 ## Uninstall Cortex
-
-Run the following command to uninstall Cortex globally on your machine:
 ```sh
 # Uninstall globally using NPM
 npm uninstall -g cortexso

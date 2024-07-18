@@ -1,0 +1,62 @@
+---
+title: ONNX
+description: ONNX Model Format.
+---
+
+:::warning
+🚧 Cortex is under construction.
+:::
+Cortex uses `onnxruntime-genai` with DirectML to provide GPU acceleration for AMD, Intel, NVIDIA, and Qualcomm GPUs.
+
+## Run Model
+```bash
+## Initialize the ONNX engine
+cortex engines onnx init
+
+## Run an ONNX model
+cortex run mistral:7b-onnx
+```
+## Example `yaml`
+```yaml
+name: mistral
+model: mistral:7b
+version: 1
+
+# files:
+files: []
+
+# Results Preferences
+top_p: 0.95
+temperature: 0.7
+frequency_penalty: 0
+presence_penalty: 0
+max_tokens: 4096 # Infer from base config.json -> max_position_embeddings
+stream: true # true | false
+
+# Engine / Model Settings
+ngl: 32 # Infer from base config.json -> num_attention_heads
+ctx_len: 4096 # Infer from base config.json -> max_position_embeddings
+engine: cortex.onnx
+prompt_template: "{system_message} [INST] {prompt} [/INST]"
+
+```
+## Model Parameters
+
+| **Parameter**          | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| `top_p`                | The cumulative probability threshold for token sampling.                             |
+| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    |
+| `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       |
+| `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            |
+| `max_tokens`           | Maximum number of tokens in the output; inferred from base config.json.              |
+| `stream`               | Enables or disables streaming mode for the output (true or false).                   |
+| `ngl`                  | Number of attention heads; inferred from base config.json.                           |
+| `ctx_len`              | Context length (maximum number of tokens). Inferred from base config.json.           |
+| `engine`               | Specifies the engine to be used for model execution.         |
+| `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      |
+
+:::info
+You can download a `ONNX` from the following:
+- [Cortex Model Repos](/docs/hub/cortex-hub)
+- [HuggingFace Model Repos](/docs/hub/hugging-face)
+:::
