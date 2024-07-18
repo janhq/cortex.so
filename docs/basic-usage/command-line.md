@@ -8,7 +8,7 @@ slug: "command-line"
 🚧 Cortex is under construction.
 :::
 
-The Cortex CLI provides an Ollama-inspired CLI for managing and operating large language models (LLMs).
+The Cortex CLI provides an Ollama-inspired CLI for managing and operating Large Language Models (LLMs).
 
 :::info
 The Cortex CLI is OpenAI-compatible.
