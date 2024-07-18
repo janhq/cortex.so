@@ -23,9 +23,7 @@ The server will be started on port `1337`.
 :::
 
 ### Request Example
-<Tabs>
-  <TabItem value="API" label="API" default>
-    ```bash
+```bash
 curl -X POST http://localhost:1337/v1/chat/completions \
         -H 'Content-Type: application/json' \
         -d '{
@@ -46,13 +44,11 @@ curl -X POST http://localhost:1337/v1/chat/completions \
                 "temperature": 0.8,
                 "top_p": 0.95
             }'
-    ```
-  </TabItem>
-  <TabItem value="cortex.js" label="cortex.js">
-  </TabItem>
-  <TabItem value="cortex.py" label="cortex.py">
-  </TabItem>
-</Tabs>
+ ```
+You can also initiate a request using the following Cortex library:
+- [JavaScript](/docs/basic-usage/ts-library)
+- [Python](/docs/basic-usage/py-library)
+
 ## Playground
 
 You can open an interactive playground at http://localhost:1337/api.
