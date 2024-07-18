@@ -1,0 +1,121 @@
+---
+title: Built-in Models
+description: Cortex Curated Models
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Cortex provides built-in models that have been configured with optimal runtime configurations, specified through [Model YAMLs](./model-yaml.mdx).
+
+
+## Model Variants
+
+Built-in models are made available across the following variants: 
+
+- **By format**: `gguf`, `onnx`, and `tensorrt-llm`
+- **By Size**: `7b`, `13b`, and more.
+- **By quantizations**: `q4`, `q8`, and more.
+
+:::info
+Each model variant is stored in the model repository's **branches**, in Git fashion. 
+:::
+
+### Run Model 
+
+Built-in models can be run via Docker-like syntax:
+
+```bash
+# Run a model
+cortex run model-id
+# Run a model variant
+cortex run model-id:branch
+```
+
+Or more verbosely, as follows:
+
+<Tabs>
+  <TabItem  value="GGUF" label="GGUF" default>
+
+    ```bash 
+    cortex pull mistral
+    cortex pull mistral:gguf
+    cortex pull mistral:7b-gguf
+    ```
+  </TabItem>
+  <TabItem value="ONNX" label="ONNX">
+
+    ```bash 
+    cortex pull mistral:onnx
+    ```
+  </TabItem>
+  <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
+    
+    TensorRT-LLM engines are specific to the hardware you are running on.
+
+    ```bash 
+    cortex pull mistral:7b-tensorrt-llm
+    ```
+  </TabItem>
+</Tabs>
+
+## List of Built-in Models
+Here is a list of our supported models:
+:::info
+We are working on supporting more models.
+:::
+<Tabs>
+  <TabItem  value="GGUF" label="GGUF" default>
+| Model Name      | Variant (Branch)                                | CLI Command                       |
+|-----------------|-------------------------------------------------|-----------------------------------|
+| `qwen2`         | [7b-gguf](https://huggingface.co/cortexso/qwen2/tree/7b-gguf)         | `cortex run qwen2:7b-gguf`        |
+| `tinyllama`     | [1b-gguf](https://huggingface.co/cortexso/tinyllama/tree/1b-gguf)     | `cortex run tinyllama:1b-gguf`    |
+| `phi3`          | [mini-gguf](https://huggingface.co/cortexso/phi3/tree/mini-gguf)      | `cortex run phi3:mini-gguf`       |
+| `phi3`          | [medium-gguf](https://huggingface.co/cortexso/phi3/tree/medium-gguf)  | `cortex run phi3:medium-gguf`     |
+| `openhermes-2.5`| [7b-gguf](https://huggingface.co/cortexso/openhermes-2.5/tree/7b-gguf)| `cortex run openhermes-2.5:7b-gguf`|
+| `mixtral`       | [7x8b-gguf](https://huggingface.co/cortexso/mixtral/tree/7x8b-gguf)  | `cortex run mixtral:7x8b-gguf`    |
+| `mistral`       | [7b-gguf](https://huggingface.co/cortexso/mistral/tree/7b-gguf)      | `cortex run mistral:7b-gguf`      |
+| `llama3`        | [gguf](https://huggingface.co/cortexso/llama3/tree/gguf)             | `cortex run llama3:gguf`          |
+| `gemma`         | [7b-gguf](https://huggingface.co/cortexso/gemma/tree/7b-gguf)        | `cortex run gemma:7b-gguf`        |
+| `command-r`     | [35b-gguf](https://huggingface.co/cortexso/command-r/tree/35b-gguf)  | `cortex run command-r:35b-gguf`   |
+| `codestral`     | [22b-gguf](https://huggingface.co/cortexso/codestral/tree/22b-gguf)  | `cortex run codestral:22b-gguf`   |
+
+
+
+  </TabItem>
+  <TabItem value="ONNX" label="ONNX">
+| Model Name     | Variant (Branch)                                | CLI Command                          |
+|----------------|-------------------------------------------------|--------------------------------------|
+| `phi3`         | [mini-onnx](https://huggingface.co/cortexso/phi3/tree/mini-onnx)      | `cortex run phi3:mini-onnx`          |
+| `phi3`         | [medium-onnx](https://huggingface.co/cortexso/phi3/tree/medium-onnx)  | `cortex run phi3:medium-onnx`        |
+| `openhermes-2.5`| [7b-onnx](https://huggingface.co/cortexso/openhermes-2.5/tree/7b-onnx)| `cortex run openhermes-2.5:7b-onnx`  |
+| `mistral`      | [7b-onnx](https://huggingface.co/cortexso/mistral/tree/7b-onnx)      | `cortex run mistral:7b-onnx`         |
+| `llama3`       | [onnx](https://huggingface.co/cortexso/llama3/tree/onnx)             | `cortex run llama3:onnx`             |
+| `gemma`        | [7b-onnx](https://huggingface.co/cortexso/gemma/tree/7b-onnx)        | `cortex run gemma:7b-onnx`           |
+
+
+
+  </TabItem>
+  {/* <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
+
+  :::info
+  - `frequency_penalty`and `presence_penalty` is not available for the tensorrt-llm engine.
+  - Template format parameters are hard-coded from the engine side.
+  :::
+  | **Parameter**          | **Description**                                                                      |
+  |------------------------|--------------------------------------------------------------------------------------|
+  | `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.     |
+  | `max_tokens`           | Maximum number of tokens in the output; inferred from base config.json.               |
+  | `stream`               | Enables or disables streaming mode for the output (true or false).                    |
+  | `engine`               | Specifies the engine to be used for model execution (e.g., cortex.tensorrt-llm).      |
+  | `os`                   | Operating system used (e.g., windows).                                               |
+  | `gpu_arch`             | GPU architecture used (e.g., ada).                                                   |
+  | `quantization_method`  | Method used for quantization (e.g., awq).                                            |
+  | `precision`            | Precision level used (e.g., int4).                                                   |
+  | `tp`                   | Number of tensor parallelism partitions.                                             |
+  | `trtllm_version`       | Version of TensorRT-LLM being used.                                                  |
+  | `ctx_len`              | Context length (maximum number of tokens); inferred from base config.json.            |
+  | `text_model`           | Indicates if the text model is being used (true or false).                           |
+
+  </TabItem> */}
+</Tabs>
