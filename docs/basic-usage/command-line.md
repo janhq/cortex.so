@@ -8,7 +8,7 @@ slug: "command-line"
 🚧 Cortex is under construction.
 :::
 
-The Cortex CLI provides a user-friendly platform for managing and operating large language models (LLMs), inspired by tools like Docker and GitHub CLI. Designed for straightforward installation and use, it simplifies the integration and management of LLMs.
+The Cortex CLI provides an Ollama-inspired CLI for managing and operating large language models (LLMs).
 
 :::info
 The Cortex CLI is OpenAI-compatible.
@@ -46,10 +46,6 @@ You can find the respective folders within the `/lib/node_modules/@janhq/cortex/
   :::
 
 ## CLI Syntax
-
-The Cortex CLI improves the developer experience by incorporating command chaining and syntactic enhancements.
-This approach automatically combines multiple operations into a single command, streamlining complex workflows. It simplifies the execution of extensive processes through integrated commands.
-
 ### OpenAI API Equivalence
 
 The design of Cortex CLI commands strictly adheres to the method names used in the OpenAI API as a standard practice. This ensures a smooth transition for users familiar with OpenAI’s system.
@@ -66,4 +62,5 @@ Cortex CLI’s command chaining support allows multiple commands to be executed 
 
 For example:
 
-- The [`cortex run`](/docs/cli/run), inspired by Docker and Github, starts the models and the inference engine, and provides a command line chat interface for easy testing.
+- [`cortex run`](/docs/cli/run): Downloads and starts the models along with the inference engine.
+- [`cortex chat`](/docs/cli/chat): Starts a model and provides a chat interface to chat with the models.

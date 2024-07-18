@@ -21,8 +21,6 @@ In addition to `llama.cpp`, `cortex.llamacpp` adds:
 - OpenAI compatibility for the stateless endpoints.
 - Model orchestration, like model warm-up and concurrent models.
 
-This guide walks you through how to use `cortex.llamacpp` as a standalone library in any custom C++ server.
-
 :::warning
 `cortex.llamacpp` is bundled by default in our product, [Jan](https://jan.ai/docs) and [Cortex](/docs).
 :::

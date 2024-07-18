@@ -1,0 +1,58 @@
+---
+title: Cortex Server
+description: Cortex Server.
+slug: "server"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+Cortex can run in headless server mode, providing an [OpenAI-API compatible](https://platform.openai.com/docs/api-reference/introduction) endpoint.
+
+## Usage
+
+```sh
+cortex
+```
+:::info
+The server will be started on port `1337`.
+:::
+
+### Request Example
+<Tabs>
+  <TabItem value="API" label="API" default>
+    ```bash
+curl -X POST http://localhost:1337/v1/chat/completions \
+        -H 'Content-Type: application/json' \
+        -d '{
+                "messages": [
+                    {
+                    "content": "Hello Word",
+                    "role": "user"
+                    }
+                ],
+                "model": "mistral",
+                "stream": true,
+                "max_tokens": 4096,
+                "stop": [
+                    "End"
+                ],
+                "frequency_penalty": 0.2,
+                "presence_penalty": 0.6,
+                "temperature": 0.8,
+                "top_p": 0.95
+            }'
+    ```
+  </TabItem>
+  <TabItem value="cortex.js" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py" label="cortex.py">
+  </TabItem>
+</Tabs>
+## Playground
+
+You can open an interactive playground at http://localhost:1337/api.
