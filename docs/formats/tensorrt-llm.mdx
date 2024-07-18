@@ -10,10 +10,10 @@ Cortex uses the `tensorrt-llm` inference library for NVIDIA GPUs acceleration.
 
 ## Usage
 ```bash
-## Initialize the tensorrt-llm engine
+## Initialize the TensorRT-LLM engine
 cortex engines tensorrt-llm init
 
-## Run a tensorrt-llm model
+## Run a TensorRT-LLM model
 cortex run openhermes-2.5:tensorrt-llm
 ```
 ## Example `yaml`
@@ -41,10 +41,6 @@ prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>us
 
 ```
 ## Model Parameters
-`model.yaml` contains the all parameters needed to run models. Three main parameters are required in a `model.yaml`:
-- Results Preferences
-- Engine/Model Settings
-- Template formats
 
 | **Parameter**          | **Description**                                                                      |
 |------------------------|--------------------------------------------------------------------------------------|
@@ -61,3 +57,10 @@ prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>us
 | `ctx_len`              | Context length (maximum number of tokens). Inferred from base config.json.            |
 | `text_model`           | Indicates if the text model is being used (true or false).                           |
 | `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      |
+
+:::info
+You can download a `TensorRT-LLM` from the following:
+- [Cortex Model Repos](/docs/hub/cortex-hub)
+- [HuggingFace Model Repos](/docs/hub/hugging-face)
+- Nvidia Catalog (Coming Soon!)
+:::

@@ -40,10 +40,6 @@ prompt_template: "{system_message} [INST] {prompt} [/INST]"
 
 ```
 ## Model Parameters
-`model.yaml` contains the all parameters needed to run models. Three main parameters are required in a `model.yaml`:
-- Results Preferences
-- Engine/Model Settings
-- Template formats
 
 | **Parameter**          | **Description**                                                                      |
 |------------------------|--------------------------------------------------------------------------------------|
@@ -57,3 +53,9 @@ prompt_template: "{system_message} [INST] {prompt} [/INST]"
 | `ctx_len`              | Context length (maximum number of tokens). Inferred from base config.json.           |
 | `engine`               | Specifies the engine to be used for model execution.         |
 | `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      |
+
+:::info
+You can download a `GGUF` from the following:
+- [Cortex Model Repos](/docs/hub/cortex-hub)
+- [HuggingFace Model Repos](/docs/hub/hugging-face)
+:::
