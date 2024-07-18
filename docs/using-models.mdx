@@ -17,25 +17,15 @@ Cortex's Chat API is compatible with OpenAI’s [Models API](https://platform.op
 Cortex also supports multiple model formats and architectures, including `GGUF`, `ONNX`, and `TensorRT-LLM`.
 :::
 
-## Usage
-
+## Model Operations
+Model Operations allows you to pull, run, and stop models.
+### Run Model
+:::info
+The Run Model CLI and endpoint will automatically pull a model if it has not been downloaded yet.
+:::
 <Tabs>
-  <TabItem  value="CLI" label="CLI" default>
-    ```bash 
-    cortex models
-    ```
-  </TabItem>
-  {/* <TabItem value="Javascript" label="Javascript">
-  </TabItem> */}
-  <TabItem value="CURL" label="CURL">
-  ## Load Models
-    Cortex provides two ways to load your local model into the Cortex server.
-
-    You can load the model using the CLI or the CURL following command:
-
-      ### Request
-      To load a model, use the following in your request:
-      ```bash
+  <TabItem  value="API" label="API" default>
+    ```bash
         curl -X POST "http://localhost:1337/models/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}/start" \
         -H "Content-Type: application/json" \
         -d '{
@@ -58,58 +48,148 @@ Cortex also supports multiple model formats and architectures, including `GGUF`,
 
 
       ```
-      ### Endpoint Response
-      Below are examples of the `start model` endpoint response from the Cortex server:
-      ```bash
-    {
-      "message": "Model started successfully",
-      "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
-    }
-
-      ```
-
-    ## Unload Models
-    Cortex provides two ways to unload your local model from the Cortex server.
-
-    You can unload the model using the CLI or the CURL following command:
-
-      ### Request
-      To unload a model, use the following in your request:
-      ```bash
+  </TabItem>
+  <TabItem  value="CLI" label="CLI" default>
+    ```bash 
+    cortex models run model_id
+    ```
+  </TabItem>
+  <TabItem value="cortex.js" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py" label="cortex.py">
+  </TabItem>
+</Tabs>
+### Stop Model
+<Tabs>
+  <TabItem  value="API-stop" label="API" default>
+    ```bash
         curl --request POST \
         --url http://localhost:1337/models/janhq/TinyLlama-1.1B-Chat-v1.0-GGUF/stop
 
 
 
       ```
-      ### Endpoint Response
-      Below are examples of the `stop model` endpoint response from the Cortex server:
-      ```bash
-    {
-      "message": "Model stopped successfully",
-      "modelId": "janhq/TinyLlama-1.1B-Chat-v1.0-GGUF"
-    }
+  </TabItem>
+  <TabItem  value="CLI-stop" label="CLI" default>
+    ```bash 
+    cortex models stop model_id
+    ```
+  </TabItem>
+  <TabItem value="cortex.js-stop" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py-stop" label="cortex.py">
+  </TabItem>
+</Tabs>
+### Pull Model
+<Tabs>
+  <TabItem  value="API-pull" label="API" default>
+    ```bash
+        curl --request GET \
+        --url 'http://localhost:1337/v1/models/download/TinyLlama-1.1B-Chat-v1.0-GGUF'
+
+
 
       ```
   </TabItem>
+  <TabItem  value="CLI-pull" label="CLI" default>
+    ```bash 
+    # Download a built-in model
+    cortex models pull mistral
+    # Download a specific variant
+    cortex models pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
+    ```
+  </TabItem>
+  <TabItem value="cortex.js-pull" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py-pull" label="cortex.py">
+  </TabItem>
 </Tabs>
 
-## Capabilities
+## Models Management
+Model Management allows you to manage your local models, which can be found in `~users/user_name/cortex/models`.
+### List Models
+<Tabs>
+  <TabItem  value="API-pull" label="API" default>
+    ```bash
+        curl --request GET \
+        --url http://localhost:1337/v1/models
 
-### Download Models
-The Model Operations feature in Cortex allows you to download built-in models from our [Models hub](https://huggingface.co/cortexso). You can download any models in `GGUF`, `ONNX`, or `TensorRT-LLM` formats on [HuggingFace](https://huggingface.co/).
-```bash
-# Download a built-in model
-cortex models pull mistral
-# Download a specific variant
-cortex models pull bartowski/Hermes-2-Theta-Llama-3-70B-GGUF
-```
 
-### Models Management
-Cortex offers functionality to delete or update the configuration of a downloaded model. To do this, use the following command:
-```bash
-# Delete a model
-cortex models remove
-# Update a model
-cortex models update
-```
+
+      ```
+  </TabItem>
+  <TabItem  value="CLI-pull" label="CLI" default>
+    ```bash 
+    cortex models list
+    ```
+  </TabItem>
+  <TabItem value="cortex.js-pull" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py-pull" label="cortex.py">
+  </TabItem>
+</Tabs>
+### Get Model
+<Tabs>
+  <TabItem  value="API-pull" label="API" default>
+    ```bash
+        curl --request GET \
+        --url http://localhost:1337/v1/models/TinyLlama-1.1B-Chat-v1.0-GGUF
+
+
+
+      ```
+  </TabItem>
+  <TabItem  value="CLI-pull" label="CLI" default>
+    ```bash 
+    cortex models get model_id
+    ```
+  </TabItem>
+  <TabItem value="cortex.js-pull" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py-pull" label="cortex.py">
+  </TabItem>
+</Tabs>
+### Remove Model
+<Tabs>
+  <TabItem  value="API-pull" label="API" default>
+    ```bash
+        curl --request DELETE \
+        --url http://localhost:1337/v1/models/TinyLlama-1.1B-Chat-v1.0-GGUF
+
+
+
+      ```
+  </TabItem>
+  <TabItem  value="CLI-pull" label="CLI" default>
+    ```bash 
+    cortex models remove model_id
+    ```
+  </TabItem>
+  <TabItem value="cortex.js-pull" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py-pull" label="cortex.py">
+  </TabItem>
+</Tabs>
+### Update Model
+<Tabs>
+  <TabItem  value="API-pull" label="API" default>
+    ```bash
+        curl --request POST \
+        --url http://localhost:1337/v1/models/TinyLlama-1.1B-Chat-v1.0-GGUF/config \
+        --header 'Content-Type: application/json' \
+        --data '{}'
+
+
+
+      ```
+  </TabItem>
+  <TabItem  value="CLI-pull" label="CLI" default>
+    ```bash 
+    cortex models update
+    ```
+  </TabItem>
+  <TabItem value="cortex.js-pull" label="cortex.js">
+  </TabItem>
+  <TabItem value="cortex.py-pull" label="cortex.py">
+  </TabItem>
+</Tabs>
