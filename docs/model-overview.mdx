@@ -1,4 +1,25 @@
 ---
-title: Overview
+title: Model Overview
 description: The Model section overview
 ---
+
+When Cortex is started, it automatically starts an API server, this is inspired by Docker CLI. This server manages various model endpoints. These endpoints facilitate the following:
+- **Model Operations**: Run and stop models.
+- **Model Management**: Manage your local models.
+:::info
+The model in the API server is automatically loaded/unloaded by using the [`/chat/completions`](/api-reference#tag/inference/post/v1/chat/completions) endpoint.
+:::
+## Model Formats
+Cortex supports three model formats:
+- GGUF
+- ONNX
+- TensorRT-LLM
+
+:::info
+For details on each format, see the [Model Formats](/docs/model-formats) page.
+:::
+
+## Next steps
+- Learn more about using models in Cortex [here](/docs/using-models).
+- Cortex requires a `model.yaml` file to run a model. Find out more [here](/docs/model-yaml).
+- Cortex supports multiple model hubs hosting built-in models. See details [here](/docs/model-registries).

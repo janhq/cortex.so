@@ -1,4 +1,59 @@
 ---
 title: TensorRT-LLM
-description: TensorRT-LLM
+description: TensorRT-LLM Model Format.
 ---
+Cortex uses the `tensorrt-llm` inference library for NVIDIA GPUs acceleration.
+
+## Usage
+```bash
+## Initialize the tensorrt-llm engine
+cortex engines tensorrt-llm init
+
+## Run a tensorrt-llm model
+cortex run openhermes-2.5:tensorrt-llm
+```
+## Example `yaml`
+```yaml
+name: Openhermes-2.5 7b Windo‌ws Am‌‌pere
+model: openhermes-2.5:7B-tensorrt-llm
+version: 1
+
+# Results Preferences
+temperature: 0.7
+max_tokens: 2048
+stream: true # true | false
+
+# Engine / Model Settings
+engine: cortex.tensorrt-llm
+os: windows
+gpu_arch: ampere
+quantization_method: None
+precision: fp16
+tp: 1
+trtllm_version: 0.9.0
+ctx_len: 2048 # Infer from base config.json -> max_position_embeddings
+text_model: false
+prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
+
+```
+## Model Parameters
+`model.yaml` contains the all parameters needed to run models. Three main parameters are required in a `model.yaml`:
+- Results Preferences
+- Engine/Model Settings
+- Template formats
+
+| **Parameter**          | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.     |
+| `max_tokens`           | Maximum number of tokens in the output; inferred from base config.json.               |
+| `stream`               | Enables or disables streaming mode for the output (true or false).                    |
+| `engine`               | Specifies the engine to be used for model execution.      |
+| `os`                   | Operating system used.                                               |
+| `gpu_arch`             | GPU architecture used.                                                   |
+| `quantization_method`  | Method used for quantization.                                            |
+| `precision`            | Precision level used.                                                   |
+| `tp`                   | Number of tensor parallelism partitions.                                             |
+| `trtllm_version`       | Version of TensorRT-LLM being used.                                                  |
+| `ctx_len`              | Context length (maximum number of tokens). Inferred from base config.json.            |
+| `text_model`           | Indicates if the text model is being used (true or false).                           |
+| `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      |

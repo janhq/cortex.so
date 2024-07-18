@@ -1,6 +1,6 @@
 ---
-title: Typescript Library
-description: Cortex Node Client Library
+title: cortex.js
+description: How to integrate cortex.js with a Typescript application.
 slug: "ts-library"
 ---
 

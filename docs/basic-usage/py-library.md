@@ -1,6 +1,6 @@
 ---
-title: Python Library
-description: Cortex Python Library.
+title: cortex.py
+description: How to integrate cortex.py with a Python application.
 slug: "py-library"
 ---
 

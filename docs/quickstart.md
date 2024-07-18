@@ -69,7 +69,7 @@ cortex pull mistral
 ```
 
 :::info
-Read more about [model operations](./model-operations).
+Read more about [using models](./using-models).
 :::
 
 ## Get Help

@@ -33,7 +33,6 @@ To include `cortex.llamacpp` in your own server implementation, follow the steps
 
 You can download precompiled models from the [Cortex Hub](https://huggingface.co/cortexso) on Hugging Face. These models include configurations, tokenizers, and dependencies tailored for optimal performance with this engine.
 
-Read more about [model operations](./model-operations).
 
 ## Interface
 

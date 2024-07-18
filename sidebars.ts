@@ -57,7 +57,7 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "model-overview", label: "Overview" },
-    { type: "doc", id: "model-operations", label: "Using Models" },
+    { type: "doc", id: "using-models", label: "Using Models" },
     { type: "doc", id: "built-in-models", label: "Built-in Models" },
     { type: "doc", id: "model-yaml", label: "model.yaml" },
     {

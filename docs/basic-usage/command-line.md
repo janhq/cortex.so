@@ -1,6 +1,6 @@
 ---
 title: Command Line Interface
-description: Cortex CLI.
+description: Cortex CLI Overview.
 slug: "command-line"
 ---
 
