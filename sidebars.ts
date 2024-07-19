@@ -57,9 +57,16 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "model-overview", label: "Overview" },
-    { type: "doc", id: "using-models", label: "Using Models" },
-    { type: "doc", id: "built-in-models", label: "Built-in Models" },
-    { type: "doc", id: "model-yaml", label: "model.yaml" },
+    {
+      type: "category",
+      label: "Using Models",
+      link: { type: "doc", id: "using-models" },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "model-yaml", label: "model.yaml" },
+        { type: "doc", id: "built-in-models", label: "Built-in Models" },
+      ],
+    },
     {
       type: "category",
       label: "Model Formats",
