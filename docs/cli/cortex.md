@@ -29,6 +29,14 @@ cortex [command] [options]
 | `-v`, `--version` | Display the Cortex version.               | No       | `false`       | `-v`    |
 | `-h`, `--help`    | Display help information for the command. | No       | -             | `-h`    |
 
+## Command Chaining
+Cortex CLI's command chaining support allows multiple commands to be executed in sequence with a simplified syntax.
+
+For example:
+
+- [cortex run](/docs/cli/run)
+- [cortex chat](/docs/cli/chat)
+
 ## Sub Commands
 
 - [cortex models](/docs/cli/models): Manage and configure models.
@@ -40,5 +48,5 @@ cortex [command] [options]
 - [cortex presets](/docs/cli/presets): Show all the available model presets within Cortex.
 - [cortex embeddings](/docs/cli/embeddings): Create an embedding vector representing the input text.
 - [cortex pull|download](/docs/cli/pull): Download a model.
-- [cortex run](/docs/cli/run): Shortcut to start a model and chat **(EXPERIMENTAL)**.
+- [cortex run](/docs/cli/run): Shortcut to start a model and chat.
 - [cortex telemetry](/docs/cli/telemetry): Retrieve telemetry logs for monitoring and analysis.
