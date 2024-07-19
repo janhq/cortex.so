@@ -13,16 +13,15 @@ Built-in models are Cortex Model Repositories hosted on HuggingFace and pre-comp
 :::info
 For more information regarding our Cortex Model Repos, please see [here](/docs/hub/cortex-hub).
 :::
-## Model Variants
+## Built-in Model Variants
 Built-in models are made available across the following variants: 
 
 - **By format**: `gguf`, `onnx`, and `tensorrt-llm`
 - **By Size**: `7b`, `13b`, and more.
 - **By quantizations**: `q4`, `q8`, and more.
-
-## Built-in Models List
+:::info
 You can see our full list of Built-in Models [here](/models). 
-
+:::
 ### Run Model 
 
 Built-in models can be run via Docker-like syntax:
@@ -33,7 +32,7 @@ cortex run model-id
 # Run a model variant
 cortex run model-id:branch
 ```
-For specific variant:
+For example:
 
 ```bash
 # Run Mistral Built-in Model
