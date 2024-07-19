@@ -11,7 +11,7 @@ slug: "command-line"
 The Cortex CLI provides a Docker and Ollama-inspired CLI for running AI.
 
 ## How It Works
-Running the CLI automatically starts the Cortex API server, similar to how the Docker CLI operates. Any CLI command will invoke the API server to perform operations.
+Running the CLI automatically starts the Cortex API server, inspired by the Docker CLI. The CLI commands will invoke the API server to perform operations.
 
 
 ## Usage
