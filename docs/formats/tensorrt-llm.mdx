@@ -48,6 +48,7 @@ stream: true # true | false
 | `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    | No           |
 | `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       | No           |
 | `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            | No           |
+| `stop`                 | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. | No           |
 | `max_tokens`           | Maximum number of tokens in the output.                                              | Yes          |
 | `stream`               | Enables or disables streaming mode for the output (true or false).                   | Yes          |
 | `engine`               | Specifies the engine to be used for model execution.                                 | Yes          |
@@ -60,8 +61,6 @@ stream: true # true | false
 | `ctx_len`              | Context length (maximum number of tokens).                                           | Yes          |
 | `text_model`           | Indicates if the text model is being used (true or false).                           | Yes          |
 | `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      | Yes          |
-| `stop`                 | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. | No           |
-
 
 :::info
 You can download a `TensorRT-LLM` model from the following:
