@@ -138,11 +138,11 @@ function Footer(): JSX.Element | null {
           <FooterCopyright copyright={copyright} />
           <ThemedImage
             alt={logo.alt}
-            width={200}
+            width={160}
             className="mb-4"
             sources={{
-              light: useBaseUrl("/img/logos/homebrew.svg"),
-              dark: useBaseUrl("/img/logos/homebrew.svg"),
+              light: useBaseUrl("/img/logos/homebrew-dark.svg"),
+              dark: useBaseUrl("/img/logos/homebrew-white.svg"),
             }}
           />
         </div>
