@@ -1,8 +1,42 @@
 ---
 title: Cortex Model Repos
-description: Cortex Model Repos
+description: Cortex's built-in models are hosted on Huggingface, supporting multi-engine repositories.
 ---
 
 :::warning
 🚧 Cortex is under construction.
 :::
+
+![cortex repo](/img/docs/repo.png)
+
+[Cortex Model Repos](https://huggingface.co/cortexso) are Cortex's built-in models hosted on Huggingface, which uses a single Git repository to hold different versions of a model, which can be pulled using Docker or Ollama-like syntax.
+
+:::info
+We also plan to provide alternative hosting locations or servers to replicate the content, ensuring access in regions where HuggingFace is blocked or has slow download speeds.
+::: 
+
+## Why HuggingFace?
+Cortex Model Repos are hosted on Huggingface for several reasons:
+- **Tag-Based Formats**: Inspired by Docker and Ollama, Cortex Model Repos uses a tag-based format (`model:version`) that simplifies managing multiple versions and formats of a model.
+- **Git and Git-LFS Based (Inspired by Ollama)**: Using Git and Git-LFS makes mirroring and version control easy.
+- **Mirror-Friendly Setup**: If Huggingface is blocked or slow, repositories can be mirrored across different locations.
+
+## Usage
+Download a built-in model from the [Cortex Model Repos](https://huggingface.co/cortexso) using a `model_id`. You can obtain the `model_id` from the Cortex model repository or the model's specific branch.
+```bash
+# Download the default mistral model from: https://huggingface.co/cortexso/mistral/tree/main
+cortex pull mistral
+
+# Init the ONNX engine in Cortex
+cortex engines onnx init
+# Download an ONNX version of the mistral model from: https://huggingface.co/cortexso/mistral/tree/onnx
+cortex pull mistral:onnx
+
+# Init the TensorRT-LLM engine in Cortex
+cortex engines tensorrt-llm init
+# Download a TensorRT-LLM version of the mistral model from: https://huggingface.co/cortexso/mistral/tree/tensorrt-llm-linux-ada
+cortex pull mistral:tensorrt-llm-linux-ada
+
+# Download a 7B version of the mistral model from: https://huggingface.co/cortexso/mistral/tree/7b-gguf
+cortex pull mistral:7b-gguf
+```

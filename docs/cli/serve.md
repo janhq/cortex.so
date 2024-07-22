@@ -12,9 +12,7 @@ slug: "serve"
 
 This command runs the API endpoint server for the Cortex back-end.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Usage
 

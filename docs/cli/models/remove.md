@@ -11,9 +11,7 @@ description: Cortex models subcommands.
 
 This command deletes a local model defined by a `model_id`.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Usage
 

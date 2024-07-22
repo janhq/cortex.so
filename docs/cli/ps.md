@@ -12,9 +12,7 @@ slug: "ps"
 
 This command shows the running model and its status.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Usage
 

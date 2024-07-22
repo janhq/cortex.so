@@ -22,27 +22,25 @@ The Run Model CLI and endpoint will automatically pull a model if it has not bee
 <Tabs>
   <TabItem  value="API" label="API" default>
     ```bash
-        curl -X POST "http://localhost:1337/models/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}/start" \
-        -H "Content-Type: application/json" \
-        -d '{
-        "ctx_len": 512,
-        "ngl": 4,
-        "embedding": true,
-        "n_parallel": 2,
-        "cpu_threads": 8,
-        "prompt_template": "Hello, this is a predefined text",
-        "system_prompt": "System prompt text",
-        "ai_prompt": "AI specific prompt text",
-        "user_prompt": "User provided prompt text",
-        "llama_model_path": "/path/to/llama/model",
-        "mmproj": "Projection matrix details",
-        "cont_batching": true,
-        "vision_model": false,
-        "text_model": true
-        }'
-
-
-
+        curl --request POST \
+        --url http://localhost:1337/v1/models/mistral/start \
+        --header 'Content-Type: application/json' \
+        --data '{
+        "prompt_template": "system\n{system_message}\nuser\n{prompt}\nassistant",
+        "stop": [],
+        "ngl": 4096,
+        "ctx_len": 4096,
+        "cpu_threads": 10,
+        "n_batch": 2048,
+        "caching_enabled": true,
+        "grp_attn_n": 1,
+        "grp_attn_w": 512,
+        "mlock": false,
+        "flash_attn": true,
+        "cache_type": "f16",
+        "use_mmap": true,
+        "engine": "cortex.llamacpp"
+      }'
       ```
   </TabItem>
   <TabItem  value="CLI" label="CLI" default>

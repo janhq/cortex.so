@@ -20,7 +20,7 @@ The following guide details Cortex's core components, providing insights and ins
 
 ### Main Components
 
-Cortex is architected with several key components, each designed to fulfill specific roles within the system, ensuring efficient processing and response to client requests.
+Cortex is architected with several key components:
 
 1. **Cortex JS**: This component acts as the interface layer where requests are received and responses are sent.
 2. **Server:** The central processing unit of Cortex, this component coordinates all activities across the system. It manages the data flow and ensures operations are correctly executed.

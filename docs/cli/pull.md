@@ -14,9 +14,7 @@ This command facilitates downloading machine learning models from various model 
 
 By default, models are downloaded to the `node_modules library path. For additional information on storage paths and options, refer [here](/docs/cli).
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Alias
 
