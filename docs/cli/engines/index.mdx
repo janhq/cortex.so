@@ -10,18 +10,110 @@ title: Cortex Engines
 
 This command allows you to manage various engines available within Cortex.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
 
-## Usage
+
+**Usage**:
 
 ```bash
 cortex engines [options]
 ```
 
-## Options
+**Options**:
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
+
+## `cortex engines get`
+
+This command returns an engine detail defined by an engine `name`.
+
+
+
+**Usage**:
+
+```bash
+cortex engines get <name>
+```
+For example, it returns the following:
+```bash
+┌─────────────┬────────────────────────────────────────────────────────────────────────────┐
+│ (index)     │ Values                                                                     │
+├─────────────┼────────────────────────────────────────────────────────────────────────────┤
+│ name        │ 'cortex.onnx'                                                              │
+│ description │ 'This extension enables chat completion API calls using the Cortex engine' │
+│ version     │ '0.0.1'                                                                    │
+│ productName │ 'Cortex Inference Engine'                                                  │
+└─────────────┴────────────────────────────────────────────────────────────────────────────┘
+```
+:::info
+To get an engine name, run the [`engines list`](/docs/cli/engines/list) command first.
+:::
+
+
+**Options**:
+
+| Option            | Description                                           | Required | Default value | Example         |
+|-------------------|-------------------------------------------------------|----------|---------------|-----------------|
+| `name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `cortex.llamacpp`|
+| `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
+
+## `cortex engines init`
+This command sets up and downloads the required dependencies to run the available engines within Cortex. Currently, Cortex supports three engines:
+- `Llama.cpp`
+- `Onnx`
+- `Tensorrt-llm`
+**Usage**:
+```bash
+cortex engines init [options] <name>
+```
+For Example:
+```bash
+## Llama.cpp engine
+cortex engines init cortex.llamacpp
+
+## ONNX engine
+cortex engines init cortex.onnx
+
+## Tensorrt-LLM engine
+cortex engines init cortex.tensorrt-llm
+
+```
+
+**Options**:
+
+| Option                    | Description                                        | Required | Default value | Example              |
+|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
+| `name`            | The name of the engine you want to run.                         | Yes       | -             | -             |
+| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
+## `cortex engines list`
+
+This command lists all the Cortex's engines.
+
+
+
+**Usage**:
+
+```bash
+cortex engines list [options]
+```
+For example, it returns the following:
+```bash
+┌─────────┬───────────────────────┬────────────────────────────────────────────────────────────────────────────┬─────────┬──────────────────────────────┐
+│ (index) │ name                  │ description                                                                │ version │ productName                  │
+├─────────┼───────────────────────┼────────────────────────────────────────────────────────────────────────────┼─────────┼──────────────────────────────┤
+│ 0       │ 'cortex.llamacpp'     │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
+│ 1       │ 'cortex.onnx'         │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
+│ 2       │ 'cortex.tensorrt-llm' │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
+│ 3       │ 'openai'              │ 'This extension enables OpenAI chat completion API calls'                  │ '0.0.1' │ 'OpenAI Inference Engine'    │
+│ 4       │ 'groq'                │ 'This extension enables fast Groq chat completion API calls'               │ '0.0.1' │ 'Groq Inference Engine'      │
+│ 5       │ 'mistral'             │ 'This extension enables Mistral chat completion API calls'                 │ '0.0.1' │ 'Mistral Inference Engine'   │
+│ 6       │ 'anthropic'           │ 'This extension enables Anthropic chat completion API calls'               │ '0.0.1' │ 'Anthropic Inference Engine' │
+└─────────┴───────────────────────┴────────────────────────────────────────────────────────────────────────────┴─────────┴──────────────────────────────┘
+```
+
+**Options**:
+
+| Option                    | Description                                        | Required | Default value | Example              |
+|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
+| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |

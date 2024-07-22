@@ -12,9 +12,7 @@ slug: "chat"
 
 This command starts a chat session with a specified model, allowing you to interact directly with it through an interactive chat interface.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Usage
 

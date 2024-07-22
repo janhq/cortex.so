@@ -11,9 +11,7 @@ description: Cortex models subcommands.
 
 This command lists all local and remote models.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Usage
 

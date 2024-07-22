@@ -11,9 +11,7 @@ description: Cortex models subcommands.
 
 This command downloads a model. You can use a HuggingFace `model_id` to download a model.
 
-:::info
-This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-:::
+
 
 ## Usage
 
