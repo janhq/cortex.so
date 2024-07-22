@@ -18,9 +18,8 @@ We also plan to provide alternative hosting locations or servers to replicate th
 ## Why HuggingFace?
 Cortex Model Repos are hosted on Huggingface for several reasons:
 - **Tag-Based Formats**: Inspired by Docker and Ollama, Cortex Model Repos uses a tag-based format (`model:version`) that simplifies managing multiple versions and formats of a model.
-- **Git and Git-LFS Based**: Using Git and Git-LFS makes mirroring and version control easy. Huggingface supports this setup, aiding in model management and distribution.
-- **Mirror-Friendly Setup**: If Huggingface is blocked or slow, users can pull from alternative mirrors like Gitlab or Gitea, ensuring consistent access.
-- **Self-Hosting and Mirroring**: Users can host their own Git repository, push updates to Huggingface, and create mirrors for better accessibility.
+- **Git and Git-LFS Based (Inspired by Ollama)**: Using Git and Git-LFS makes mirroring and version control easy.
+- **Mirror-Friendly Setup**: If Huggingface is blocked or slow, repositories can be mirrored across different locations.
 
 ## Usage
 Download a built-in model from the [Cortex Model Repos](https://huggingface.co/cortexso) using a `model_id`. You can obtain the `model_id` from the Cortex model repository or the model's specific branch.
