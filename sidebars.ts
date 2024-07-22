@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "model-yaml", label: "model.yaml" },
+        { type: "doc", id: "model-presets", label: "Model Presets" },
         { type: "doc", id: "built-in-models", label: "Built-in Models" },
       ],
     },
@@ -86,7 +87,6 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Repos" },
         { type: "doc", id: "hub/hugging-face", label: "HuggingFace Repos" },
-        { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia Catalog (Coming Soon)" },
       ],
     },
     // BASIC USAGE

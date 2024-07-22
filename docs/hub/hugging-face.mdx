@@ -6,13 +6,40 @@ description: Hugging Face Hub
 :::warning
 🚧 Cortex is under construction.
 :::
-Cortex directly supports all `GGUF`, `ONNX` and `TensorRT` models hosted on [Hugging Face Hub](https://huggingface.co).
 
-## Usage
 
-Simply `cortex pull` the full model path as follows.
+Cortex supports all `GGUF` and `ONNX` models from the [Hugging Face Hub](https://huggingface.co), along with its built-in models. For `TensorRT-LLM` models, only built-in models in the [Cortex Model Repos](/docs/hub/cortex-hub) are supported.
 
+:::info
+To pull a supported model from HuggingFace, use the format `ORG_ID/MODEL_ID`.
+:::
+## GGUF
+![HF GGUF](/img/docs/gguf.png)
+To view all available `GGUF` models on HuggingFace, select the `GGUF` tag in the Libraries section.
 ```bash 
-# cortex pull ORG_ID/MODEL_ID
+# Pull the Codestral-22B-v0.1-GGUF model from the bartowski organization
 cortex pull bartowski/Codestral-22B-v0.1-GGUF
+
+# Pull the gemma-7b model from the google organization
+cortex pull google/gemma-7b
+
 ```
+
+## ONNX
+![HF ONNX](/img/docs/onnx.png)
+To view all available `ONNX` models on HuggingFace, select the `ONNX` tag in the Libraries section.
+```bash
+# Init the ONNX engine in Cortex
+cortex engines onnx init
+
+# Pull the XLM-Roberta-Large-Vit-B-16Plus model from the immich-app organization
+cortex pull immich-app/XLM-Roberta-Large-Vit-B-16Plus
+
+# Pull the mt0-base model from the bigscience organization
+cortex pull bigscience/mt0-base
+
+
+```
+
+## TensorRT-LLM
+We are still working to support all available `TensorRT-LLM` models on HuggingFace. For now, Cortex only supports built-in `TensorRT-LLM` models, which can be downloaded from the [Cortex Model Repos](/docs/hub/cortex-hub).
