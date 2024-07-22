@@ -4,4 +4,16 @@ title: Model Registries
 ---
 import DocCardList from '@theme/DocCardList';
 
-<DocCardList />
+
+Cortex allows users to pull models from multiple repositories, offering flexibility and extensive model access. Here are the supported repositories:
+
+## [Cortex Model Repos](/docs/hub/cortex-hub)
+Cortex's built-in models are hosted on Huggingface, supporting multi-engine repositories with features like:
+- **Git + Git LFS-based**: Efficient handling of large model files.
+- **Tag-based (Inspired by Ollama)**: Versioning and organizing models.
+- **Mirror-able**: Repositories can be mirrored across different locations
+
+## [Huggingface](/docs/hub/hugging-face)
+Cortex supports all `GGUF` and `ONNX` models available in Huggingface repositories, providing access to a wide range of pre-trained models.
+## Nvidia NGC (Coming Soon)
+Cortex will soon support Nvidia NGC, enabling users to download a wider variety of `TensorRT-LLM` models.
