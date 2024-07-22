@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import useWindowSize from "@site/src/hooks/useWindowSize";
 import { CirclePlusIcon } from "lucide-react";
+import React, { useState } from "react";
 
 const floatingAnimations = [
   {
@@ -138,6 +139,7 @@ const list = [
 
 const OAIReplacement = () => {
   const size = useWindowSize();
+  const [tabActive, setTabActive] = useState("hgf");
 
   return (
     <div className="container">
@@ -526,37 +528,65 @@ const OAIReplacement = () => {
                 dark: "/img/homepage/model-registry-dark.png",
               }}
             />
-            <div className="relative w-full lg:w-3/4 mx-auto mt-1 pb-4">
+            <div className="relative w-full mx-auto mt-1 pb-4">
               <div
-                className="rounded-lg border-neutral-800 border border-solid w-full bg-neutral-900 overflow-hidden flex flex-col"
+                className="rounded-lg border-neutral-800 border border-solid w-full bg-neutral-900 overflow-hidden flex flex-col mx-auto"
                 style={{
                   boxShadow:
                     "0px 0px 0px 0.5px rgba(255, 255, 255, 0.20), 0px 5px 12px 0px rgba(0, 0, 0, 0.50), 0px 16px 40px 0px rgba(0, 0, 0, 0.46)",
                 }}
               >
-                <div className="flex border-b border-neutral-700 bg-neutral-800 gap-2 py-3 w-full">
-                  <div className="rounded-full w-3 h-3 bg-red-500 ml-3" />
-                  <div className="rounded-full w-3 h-3 bg-yellow-500" />
-                  <div className="rounded-full w-3 h-3 bg-green-500" />
+                <div className="flex items-start h-full bg-neutral-800 w-full">
+                  <div
+                    className={twMerge(
+                      "h-full p-3 text-white cursor-pointer",
+                      tabActive === "hgf" && "bg-neutral-600"
+                    )}
+                    onClick={() => setTabActive("hgf")}
+                  >
+                    <div className="flex items-center gap-2">
+                      <ThemedImage
+                        alt="Illustration Robots"
+                        width={20}
+                        sources={{
+                          light: "/img/logos/hf.svg",
+                          dark: "/img/logos/hf.svg",
+                        }}
+                      />
+                      <span>Hugging Face</span>
+                    </div>
+                  </div>
+                  <div
+                    className={twMerge(
+                      "h-full p-3 text-white cursor-pointer",
+                      tabActive === "ngc" && "bg-neutral-600"
+                    )}
+                  >
+                    <div className="flex items-center gap-2">
+                      <ThemedImage
+                        alt="Illustration Robots"
+                        width={20}
+                        sources={{
+                          light: "/img/logos/nvidia.svg",
+                          dark: "/img/logos/nvidia.svg",
+                        }}
+                      />
+                      <span>Nvidia NGC</span>
+                      <span className="py-0.5 px-2 bg-neutral-600 rounded-lg font-medium text-neutral-200 text-sm">
+                        coming soon
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div className="w-full">
                   <div className="p-4 text-left">
                     <code className="bg-transparent border-none inline-block">
-                      <p className="text-neutral-500 mb-0"># Run</p>
-                      <p className="mb-0">
+                      <p className="mb-4">
                         <span className="text-green-600">cortex&nbsp;</span>
-                        <span className="text-white">run&nbsp;</span>
-                        <span className="text-cyan-600">llama3</span>
-                      </p>
-                      <p className="mb-0">
-                        <span className="text-green-600">cortex&nbsp;</span>
-                        <span className="text-white">run&nbsp;</span>
-                        <span className="text-cyan-600">mistral</span>
-                      </p>
-                      <p className="mb-0">
-                        <span className="text-green-600">cortex&nbsp;</span>
-                        <span className="text-white">run&nbsp;</span>
-                        <span className="text-cyan-600">gemma</span>
+                        <span className="text-white">pull&nbsp;</span>
+                        <span className="text-cyan-600">
+                          bartowski/Codestral-22B-v0.1-GGUF
+                        </span>
                       </p>
                     </code>
                   </div>
