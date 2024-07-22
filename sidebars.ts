@@ -87,6 +87,7 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Repos" },
         { type: "doc", id: "hub/hugging-face", label: "HuggingFace Repos" },
+        { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia Catalog (Coming Soon)" },
       ],
     },
     // BASIC USAGE
