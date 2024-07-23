@@ -108,7 +108,7 @@ const fileTrees = [
 
 const modelRegistry = [
   {
-    name: "Cortex",
+    name: "Built-in Models",
     logo: "/img/logos/cortex-logo-mark.svg",
     link: "/models",
   },
@@ -139,7 +139,7 @@ const list = [
 
 const OAIReplacement = () => {
   const size = useWindowSize();
-  const [tabActive, setTabActive] = useState("hgf");
+  const [tabActive, setTabActive] = useState("cortex");
 
   return (
     <div className="container">
@@ -457,23 +457,16 @@ const OAIReplacement = () => {
       </div>
 
       {/* Models */}
-      <div className="mt-16 flex flex-col lg:flex-row gap-10">
-        <div>
+      <div className="w-full lg:w-1/2 mx-auto gap-10">
+        <div className="text-center">
           <h2 className="text-4xl font-grotesk leading-relaxed">
-            Pull From Any Model Hub
+            Model Sources
           </h2>
           <p className="text-black/60 dark:text-white/60 mb-2 mx-auto text-lg">
-            Cortex allows you to pull and run models from anywhere using a
-            simple, Docker-inspired command syntax.
+            Cortex pulls and runs models from anywhere with a simple,
+            Docker-like command syntax.
           </p>
-          <div className="mt-8">
-            <Link
-              to="/models"
-              className="inline-flex py-2 px-4 font-medium bg-black dark:bg-white text-white dark:text-black border dark:border-gray-600 rounded-lg items-center hover:no-underline hover:text-white hover:dark:text-black"
-            >
-              Curated Models
-            </Link>
-          </div>
+
           <div className="mt-6">
             {modelRegistry.map((x, i) => {
               return (
@@ -515,19 +508,14 @@ const OAIReplacement = () => {
                 <h4 className="font-medium mb-0 text-neutral-400">
                   Your own repositories
                 </h4>
+                <Link to="./docs/model-registries" className="mb-0 text-sm">
+                  View models
+                </Link>
               </div>
             </div>
           </div>
-        </div>
-        <div className="pb-8 lg:w-1/2 w-full flex-shrink-0">
-          <div className="cardContainer w-full h-full rounded-xl">
-            <ThemedImage
-              alt="Illustration Robots"
-              sources={{
-                light: "/img/homepage/model-registry.png",
-                dark: "/img/homepage/model-registry-dark.png",
-              }}
-            />
+
+          <div className="mt-16">
             <div className="relative w-full mx-auto mt-1 pb-4">
               <div
                 className="rounded-lg border-neutral-800 border border-solid w-full bg-neutral-900 overflow-hidden flex flex-col mx-auto"
@@ -537,6 +525,25 @@ const OAIReplacement = () => {
                 }}
               >
                 <div className="flex items-start h-full bg-neutral-800 w-full">
+                  <div
+                    className={twMerge(
+                      "h-full p-3 text-white cursor-pointer",
+                      tabActive === "cortex" && "bg-neutral-600"
+                    )}
+                    onClick={() => setTabActive("cortex")}
+                  >
+                    <div className="flex items-center gap-2">
+                      <ThemedImage
+                        alt="Illustration Robots"
+                        width={20}
+                        sources={{
+                          light: "/img/logos/cortex-logo-mark.svg",
+                          dark: "/img/logos/cortex-logo-mark.svg",
+                        }}
+                      />
+                      <span>Built-in Models</span>
+                    </div>
+                  </div>
                   <div
                     className={twMerge(
                       "h-full p-3 text-white cursor-pointer",
@@ -581,13 +588,22 @@ const OAIReplacement = () => {
                 <div className="w-full">
                   <div className="p-4 text-left">
                     <code className="bg-transparent border-none inline-block">
-                      <p className="mb-4">
-                        <span className="text-green-600">cortex&nbsp;</span>
-                        <span className="text-white">pull&nbsp;</span>
-                        <span className="text-cyan-600">
-                          bartowski/Codestral-22B-v0.1-GGUF
-                        </span>
-                      </p>
+                      {tabActive === "cortex" && (
+                        <p className="mb-4">
+                          <span className="text-green-600">cortex&nbsp;</span>
+                          <span className="text-white">pull&nbsp;</span>
+                          <span className="text-cyan-600">llama3</span>
+                        </p>
+                      )}
+                      {tabActive === "hgf" && (
+                        <p className="mb-4">
+                          <span className="text-green-600">cortex&nbsp;</span>
+                          <span className="text-white">pull&nbsp;</span>
+                          <span className="text-cyan-600">
+                            bartowski/Codestral-22B-v0.1-GGUF
+                          </span>
+                        </p>
+                      )}
                     </code>
                   </div>
                 </div>
