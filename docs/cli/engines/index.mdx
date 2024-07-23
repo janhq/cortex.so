@@ -25,7 +25,10 @@ cortex engines [options]
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex engines get`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Get Engine](/api-reference#tag/engines/get/v1/engines/{name})
+:::
 This command returns an engine detail defined by an engine `name`.
 
 
@@ -87,7 +90,10 @@ cortex engines init cortex.tensorrt-llm
 | `name`            | The name of the engine you want to run.                         | Yes       | -             | -             |
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
 ## `cortex engines list`
-
+:::info
+This CLI command calls the following API endpoint:
+- [List Engines](/api-reference#tag/engines/get/v1/engines)
+:::
 This command lists all the Cortex's engines.
 
 

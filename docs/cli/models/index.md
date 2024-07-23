@@ -11,7 +11,6 @@ title: Cortex Models
 This command allows you to start, stop, and manage various local or remote model operations within Cortex.
 
 
-
 **Usage**:
 
 ```bash
@@ -25,9 +24,11 @@ cortex models [options]
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex models pull`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId})
+:::
 This command downloads a model. You can use a HuggingFace `model_id` to download a model.
-
 
 
 **Usage**:
@@ -58,7 +59,10 @@ The following alias is also available for downloading models:
 | `-h`, `--help`              | Display help for command.                | No       | -             | `-h`                   |
 
 ## `cortex models get`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Get Model](/api-reference#tag/models/get/v1/models/{id})
+:::
 This command returns a model detail defined by a `model_id`.
 
 
@@ -105,7 +109,10 @@ This command uses a `model_id` from the model that you have downloaded or availa
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex models list`
-
+:::info
+This CLI command calls the following API endpoint:
+- [List Model](/api-reference#tag/models/get/v1/models)
+:::
 This command lists all local and remote models.
 
 
@@ -139,7 +146,10 @@ For example, it returns the following:
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
 
 ## `cortex models remove`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Remove Model](/api-reference#tag/models/delete/v1/models/{id})
+:::
 This command deletes a local model defined by a `model_id`.
 
 
@@ -159,7 +169,10 @@ This command uses a `model_id` from the model that you have downloaded or availa
 | `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
 
 ## `cortex models start`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
+:::
 This command starts a model defined by a `model_id`.
 
 
@@ -193,7 +206,10 @@ cortex models start [model_id]:[engine] [options]
 | `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
 
 ## `cortex models stop`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Stop Model](/api-reference#tag/models/post/v1/models/{modelId}/stop)
+:::
 This command stops a model defined by a `model_id`.
 
 
@@ -214,7 +230,10 @@ cortex models stop <model_id>
 | `-h`, `--help`            | Display help information for the command.                                   | No       | -                    | `-h`               |
 
 ## `cortex models update`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Update Model](/api-reference#tag/models/post/v1/models/{model}/config)
+:::
 This command updates a model configuration defined by a `model_id`.
 
 

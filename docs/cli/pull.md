@@ -9,7 +9,10 @@ slug: "pull"
 :::
 
 # `cortex pull`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId})
+:::
 This command facilitates downloading machine learning models from various model hubs, including the popular 🤗 [Hugging Face](https://huggingface.co/).
 
 By default, models are downloaded to the `node_modules library path. For additional information on storage paths and options, refer [here](/docs/cli).
