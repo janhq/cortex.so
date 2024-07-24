@@ -44,7 +44,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "basic-usage/command-line", label: "CLI" },
-        { type: "doc", id: "basic-usage/server", label: "Server" },
+        { type: "doc", id: "basic-usage/server", label: "API" },
         { type: "doc", id: "basic-usage/js-library", label: "cortex.js" },
         { type: "doc", id: "basic-usage/py-library", label: "cortex.py" },
       ],
@@ -168,6 +168,7 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "cli/ps", label: "cortex ps" },
+    { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
     { type: "doc", id: "cli/configs/index", label: "cortex configs" },
     {
       type: "html",

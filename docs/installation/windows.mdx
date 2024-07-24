@@ -13,7 +13,9 @@ import Admonition from '@theme/Admonition';
 :::
 
 ## Overview
-For Windows, Cortex can be installed either directly on **Windows** or on **[Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/faq)**.
+For Windows, Cortex can be installed in two ways:
+- [Windows](#windows)
+- [Windows Subsystem for Linux (WSL)](#windows-subsystem-linux)
 
 ## Windows
 ### Install Cortex
@@ -32,25 +34,29 @@ npm uninstall -g cortexso
 Delete the Cortex data folder located in your home folder.
 :::
 ## Windows Subsystem Linux
+:::info
+Windows Subsystem Linux allows running Linux tools and workflows seamlessly alongside Windows applications. For more information, please see this [article](https://learn.microsoft.com/en-us/windows/wsl/faq).
+:::
 ### Install Cortex
 Before installation, make sure that you have met the required [dependencies](#windows-subsystem-for-linux) and [hardware](#hardware) to run Cortex.
 
 ```sh
-# Install using NPM
-npm i -g cortexso
-
 # Install using Brew
 brew install cortexso
+
+# Install using NPM (Not Recommended)
+npm i -g cortexso
+
 ```
 
 ### Uninstall Cortex
 
 ```sh
-# Uninstall using NPM
-npm uninstall -g cortexso
-
 # Uninstall using Brew
 brew uninstall cortexso
+
+# Uninstall using NPM
+npm uninstall -g cortexso
 ```
 :::info
 Delete the Cortex data folder located in your home folder.

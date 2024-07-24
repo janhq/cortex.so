@@ -1,0 +1,124 @@
+---
+title: Quickstart
+description: Cortex Quickstart.
+slug: quickstart
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+
+:::warning
+🚧 Cortex is under construction.
+:::
+
+## Installation
+```sh
+# Install using Brew for Mac and Linux
+brew install cortexso
+
+# Install using NPM for Windows
+npm i -g cortexso
+
+```
+## Run a Model
+```sh
+cortex run mistral
+```
+:::info
+All model files are stored in the `~users/cortex/models` folder.
+:::
+## Using the Model
+<Tabs>
+  <TabItem  value="CLI" label="CLI" default>
+    ```bash 
+    cortex chat mistral
+    ```
+  </TabItem>
+  <TabItem  value="API" label="API" default>
+    ```bash
+        curl http://localhost:1337/v1/chat/completions \
+        -H "Content-Type: application/json" \
+        -d '{
+          "model": "",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Hello"
+            },
+          ],
+          "model": "mistral",
+          "stream": true,
+          "max_tokens": 1,
+          "stop": [
+              null
+          ],
+          "frequency_penalty": 1,
+          "presence_penalty": 1,
+          "temperature": 1,
+          "top_p": 1
+        }'
+
+      ```
+  </TabItem>
+  <TabItem value="cortex.js" label="cortex.js">
+  ```js
+  const resp = await cortex.chat.completions.create({
+    model: "mistral",
+    messages: [
+      { role: "system", content: "You are a chatbot." },
+      { role: "user", content: "What is the capital of the United States?" },
+    ],
+  });
+  ```
+  </TabItem>
+  <TabItem value="cortex.py" label="cortex.py">
+  ```py
+  completion = client.chat.completions.create(
+    model=mistral,
+    messages=[
+        {
+            "role": "user",
+            "content": "Say this is a test",
+        },
+    ],
+)
+  ```
+  </TabItem>
+</Tabs>
+## Stop a Model
+ ```bash 
+cortex stop
+```
+## Show the System State
+ ```bash 
+# Show a model and cortex system status
+cortex ps
+
+# Fetch telemetry logs to assess the cortex's performance, usage, and health.
+cortex telemetry
+
+# Show the Cortex logs
+cortex logs
+```
+## Run Different Model Variants
+:::info
+All model files are stored in the `~users/cortex/models` folder.
+:::
+```bash
+# Run HuggingFace model with HuggingFace Repo
+cortex run TheBloke/Mistral-7B-Instruct-v0.2-GGUF
+
+# Run Mistral in ONNX format
+cortex run mistral:onnx
+
+# Run Mistral in TensorRT-LLM format
+cortex run mistral:tensorrt-llm
+```
+
+:::info
+Cortex is still in early development, so if you have any questions, please reach out to us:
+
+- [GitHub](https://github.com/janhq/cortex)
+- [Discord](https://discord.gg/YFKKeuVu)
+  :::
