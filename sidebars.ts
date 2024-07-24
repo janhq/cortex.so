@@ -168,6 +168,7 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "cli/ps", label: "cortex ps" },
+    { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
     { type: "doc", id: "cli/configs/index", label: "cortex configs" },
     {
       type: "html",
