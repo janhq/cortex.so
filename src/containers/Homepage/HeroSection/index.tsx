@@ -22,7 +22,7 @@ const HeroSection = () => {
   };
 
   const [tabActive, setTabActive] = useState(getOs());
-  const words = ["On-Device", "On-Prem", "Local"];
+  const words = ["Local AI"];
 
   const installationScript = () => {
     if (tabActive === "win") {
@@ -56,10 +56,10 @@ const HeroSection = () => {
       <div className="text-center">
         <h1 className="text-6xl font-grotesk">
           <FlipWords words={words} />
-          AI
         </h1>
-        <p className="text-xl text-black/60 dark:text-white/60">
-          Self-Hosted, Open-Source Replacement for OpenAI Platform
+        <p className="text-xl w-full mx-auto lg:w-1/2 text-black/60 dark:text-white/60">
+          Self-hosted alternative to the OpenAI Platform, built for on-prem and
+          on-device use cases. Powers 👋 Jan.
         </p>
         <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
           <DropdownDownload lastRelease={latestRelease} />
