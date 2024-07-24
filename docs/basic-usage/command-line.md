@@ -23,12 +23,12 @@ cortex
 ### Run Model
 ```bash
 # Pull and start a model
-cortex run model_id
+cortex run <model_id>
 ```
 ### Chat with Model
 ```bash
 # chat with a model
-cortex chat model_id
+cortex chat <model_id>
 ```
 ### Show the Model State 
 ```bash
@@ -38,10 +38,10 @@ cortex ps
 ### Stop Model
 ```bash
 # Stop a model
-cortex stop
+cortex models stop <model_id>
 ```
 ### Pull Model
 ```bash
 # Pull a model
-cortex pull model_id
+cortex pull <model_id>
 ```
