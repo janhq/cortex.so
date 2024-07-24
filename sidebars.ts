@@ -44,7 +44,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "basic-usage/command-line", label: "CLI" },
-        { type: "doc", id: "basic-usage/server", label: "Server" },
+        { type: "doc", id: "basic-usage/server", label: "API" },
         { type: "doc", id: "basic-usage/js-library", label: "cortex.js" },
         { type: "doc", id: "basic-usage/py-library", label: "cortex.py" },
       ],
