@@ -8,25 +8,40 @@ slug: "command-line"
 🚧 Cortex is under construction.
 :::
 
-The Cortex CLI provides a Docker and Ollama-inspired CLI for running AI.
+Cortex has a [Docker](https://docs.docker.com/engine/reference/commandline/cli/) and [Ollama](https://ollama.com/)-inspired [CLI syntax](/docs/cli) for running model operations. 
 
 ## How It Works
-Running the CLI automatically starts the Cortex API server, inspired by the Docker CLI. The CLI commands will invoke the API server to perform operations.
+Cortex’s CLI invokes the Cortex Engine’s API, which runs in the background on port `1337`. 
 
 
-## Usage
-The Cortex CLI has a robust command set that streamlines your LLM interactions.
+## Basic Usage
+### Start Cortex Server
 ```bash
-# Starts Cortex
+# By default the server will be started on port `1337`
 cortex
-# Pulls and starts a model
-cortex run model_id
-# Shows a model and cortex system status
-cortex ps
-# Stops a model
-cortex stop
 ```
-
-:::info
-Check out the [CLI reference pages](/docs/cli) for all available commands and their specific functions.
-:::
+### Run Model
+```bash
+# Pull and start a model
+cortex run <model_id>
+```
+### Chat with Model
+```bash
+# chat with a model
+cortex chat <model_id>
+```
+### Show the Model State 
+```bash
+# Show a model and cortex system status
+cortex ps
+```
+### Stop Model
+```bash
+# Stop a model
+cortex kill
+```
+### Pull Model
+```bash
+# Pull a model
+cortex pull <model_id>
+```

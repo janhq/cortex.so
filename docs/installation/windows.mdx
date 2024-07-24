@@ -12,119 +12,50 @@ import Admonition from '@theme/Admonition';
 🚧 Cortex is under construction.
 :::
 
-## Prerequisites
+## Overview
+For Windows, Cortex can be installed either directly on **Windows** or on **[Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/faq)**.
 
-### Dependencies
-
-- **Node.js**: Version 18 and above is required to run the installation.
-- **NPM**: Needed to manage packages.
-- **Windows Subsystem Linux (Ubuntu)**: Required to install for WSL2 installation.
-
-:::info
-When you install Cortex, all necessary dependencies for running it on your hardware, whether in CPU or GPU mode, will be automatically installed.
-:::
-
-### Hardware
-<Tabs>
-  <TabItem value="OS" label="OS" default>
-    - Windows 10 or higher.
-  </TabItem>
-  <TabItem value="CPU" label="CPU">
-    <Tabs>
-      <TabItem value="Intel" label="Intel" default>
-        <Admonition type="info">
-          - Jan supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
-          - We support older processors with AVX and AVX-512, though this is not recommended.
-        </Admonition>
-        - Haswell processors (Q2 2013) and newer.
-        - Tiger Lake (Q3 2020) and newer for Celeron and Pentium processors.
-      </TabItem>
-      <TabItem value="AMD" label="AMD">
-        <Admonition type="info">
-          - Jan supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
-          - We support older processors with AVX and AVX-512, though this is not recommended.
-        </Admonition>
-        - Excavator processors (Q2 2015) and newer.
-      </TabItem>
-    </Tabs>
-  </TabItem>
-  <TabItem value="RAM" label="RAM">
-    - 8GB for running up to 3B models (int4).
-    - 16GB for running up to 7B models (int4).
-    - 32GB for running up to 13B models (int4).
-      <Admonition type="info">  
-        We support DDR2 RAM as the minimum requirement but recommend using newer generations of RAM for improved performance.
-      </Admonition>
-  </TabItem>
-  <TabItem value="GPU" label="GPU">
-    - 6GB can load the 3B model (int4) with `ngl` at 120 ~ full speed on CPU/ GPU.
-    - 8GB can load the 7B model (int4) with `ngl` at 120 ~ full speed on CPU/ GPU.
-    - 12GB can load the 13B model (int4) with `ngl` at 120 ~ full speed on CPU/ GPU.
-    <Admonition type="info">  
-    - [NVIDIA driver](https://www.nvidia.com/Download/index.aspx) version 470.63.01 or higher.
-    - [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) version 12.3 or higher.
-    </Admonition>
-  </TabItem>
-  <TabItem value="Disk" label="Disk">
-    - At least 10GB for app storage and model download.
-  </TabItem>
-</Tabs>
-
-## Cortex Installation
-
-### Step 1: Install Cortex
-
-:::info
-You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
-:::
-
+## Windows
+### Install Cortex
+Before installation, make sure that you have met the required [dependencies](#windows) and [hardware](#hardware) to run Cortex.
 ```sh
-# Install globally on your system
+# Install using NPM
 npm i -g cortexso
 ```
-:::info
-Cortex automatically detects your CPU and GPU, downloading the appropriate CPU instruction sets and required dependencies to optimize GPU performance.
-:::
 
-### Step 2: Verify the Installation
-
-1. After installation, you can verify that Cortex is installed correctly by getting help information.
-
+### Uninstall Cortex
 ```sh
-# Get the help information
-cortex -h
+# Uninstall using NPM
+npm uninstall -g cortexso
 ```
-2. Cortex is ready to use!
-
-## Windows Subsystem Linux
-
-### Step 1: Open your WSL2 Terminal
-
-Open your Linux terminal in WSL2. For WSL2, you can use the Linux distribution terminal, which is Ubuntu.
-
-### Step 2: Install Cortex
-
 :::info
-You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
+Delete the Cortex data folder located in your home folder.
 :::
+## Windows Subsystem Linux
+### Install Cortex
+Before installation, make sure that you have met the required [dependencies](#windows-subsystem-for-linux) and [hardware](#hardware) to run Cortex.
 
 ```sh
-# Install globally on your system
+# Install using NPM
 npm i -g cortexso
 
 # Install using Brew
 brew install cortexso
 ```
-:::info
-Cortex automatically detects your CPU and GPU, downloading the appropriate CPU instruction sets and required dependencies to optimize GPU performance.
-:::
 
-### Step 3: Verify the Installation
+### Uninstall Cortex
 
 ```sh
-# Get the help information
-cortex -h
+# Uninstall using NPM
+npm uninstall -g cortexso
+
+# Uninstall using Brew
+brew uninstall cortexso
 ```
+:::info
+Delete the Cortex data folder located in your home folder.
+:::
+
 ## Build from Source
 
 1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
@@ -153,11 +84,48 @@ npm link
 cortex -h
 ```
 
-## Uninstall Cortex
-```sh
-# Uninstall globally on your system
-npm uninstall -g cortexso
+## Prerequisites
+### Dependencies
+#### Windows
+- Node.js version 18 and higher
+- NPM
+#### Windows Subsystem for Linux
+- Node.js version 18 and higher
+- NPM
+- Homebrew
+- Windows Subsystem for Linux (Ubuntu)
+- OpenMPI
 
-# Uninstall using Brew
-brew uninstall cortexso
-```
+### Hardware
+#### Operating System
+- Windows 10 or higher.
+#### CPU
+:::info
+- Cortex supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
+- We support older processors with AVX and AVX-512, though this is not recommended.
+:::
+##### Intel CPU
+- Haswell processors (Q2 2013) and newer.
+- Tiger Lake (Q3 2020) and newer for Celeron and Pentium processors.
+##### AMD CPU
+- Excavator processors (Q2 2015) and newer.
+#### RAM
+:::info
+We support DDR2 RAM as the minimum requirement but recommend using newer generations of RAM for improved performance.
+:::
+- 8GB for running up to 3B models (int4).
+- 16GB for running up to 7B models (int4).
+- 32GB for running up to 13B models (int4).
+#### GPU
+:::info
+Having at least 6GB VRAM when using NVIDIA, AMD, or Intel Arc GPUs is recommended.
+:::
+- 6GB can load the 3B model (int4) with `ngl` at 120 ~ full speed on CPU/ GPU.
+- 8GB can load the 7B model (int4) with `ngl` at 120 ~ full speed on CPU/ GPU.
+- 12GB can load the 13B model (int4) with `ngl` at 120 ~ full speed on CPU/ GPU.
+:::info
+- [NVIDIA driver](https://www.nvidia.com/Download/index.aspx) version 470.63.01 or higher.
+- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) version 12.3 or higher.
+:::
+#### Disk
+- At least 10GB for app storage and model download.

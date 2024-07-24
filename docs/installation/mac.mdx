@@ -11,46 +11,8 @@ import TabItem from '@theme/TabItem';
 🚧 Cortex is under construction.
 :::
 
-## Prerequisites
-
-### Dependencies
-- **Homebrew**: Needed to manage packages.
-
-:::info
-When you install Cortex, all necessary dependencies for running it on your hardware, whether in CPU or GPU mode, will be automatically installed.
-:::
-
-### Hardware
-
-<Tabs>
-  <TabItem value="Mac Intel CPU" label="Mac Intel CPU" default>
-  </TabItem>
-  <TabItem value="Mac Apple Silicon" label="Mac Apple Silicon">
-  </TabItem>
-</Tabs>
-
-
-<Tabs>
-  <TabItem value="Operating System" label="Operating System" default>
-    - MacOSX 13.6 or higher.
-  </TabItem>
-  <TabItem value="Memory" label="Memory">
-    - 8GB for running up to 3B models.
-    - 16GB for running up to 7B models.
-    - 32GB for running up to 13B models.
-  </TabItem>
-  <TabItem value="Disk" label="Disk">
-    - At least 10GB for app and model download.
-  </TabItem>
-</Tabs>
-
 ## Cortex Installation
-
-### Step 1: Install Cortex
-
-:::info
-You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
-:::
+Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
 
 ```sh
 # Install globally on your system
@@ -60,18 +22,8 @@ npm i -g cortexso
 brew install cortexso
 ```
 :::info
-Cortex automatically detects your CPU and GPU, downloading the appropriate CPU instruction sets and required dependencies to optimize GPU performance.
+You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
 :::
-
-### Step 2: Verify the Installation
-
-1. After installation, you can verify that Cortex is installed correctly by getting help information.
-
-```sh
-# Get the help information
-cortex -h
-```
-2. Cortex is ready to use!
 ## Build from Source
 
 1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
@@ -107,3 +59,24 @@ npm uninstall -g cortexso
 # Uninstall using Brew
 brew uninstall cortexso
 ```
+:::info
+Delete the Cortex data folder located in your home folder.
+:::
+
+## Prerequisites
+
+### Dependencies
+- Homebrew
+
+### Hardware
+#### Operating System
+- MacOSX 13.6 or higher.
+#### CPU
+- Mac Intel CPU
+- Mac Apple Silicon
+#### RAM
+- 8GB for running up to 3B models.
+- 16GB for running up to 7B models.
+- 32GB for running up to 13B models.
+#### Disk
+- At least 10GB for app storage and model download.
