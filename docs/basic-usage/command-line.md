@@ -38,7 +38,7 @@ cortex ps
 ### Stop Model
 ```bash
 # Stop a model
-cortex models stop <model_id>
+cortex kill
 ```
 ### Pull Model
 ```bash
