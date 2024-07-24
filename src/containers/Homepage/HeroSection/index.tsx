@@ -58,9 +58,8 @@ const HeroSection = () => {
           {/* <FlipWords words={words} /> */}
           <h1 className="text-6xl">Local AI</h1>
         </h1>
-        <p className="text-xl w-full mx-auto lg:w-1/2 text-black/60 dark:text-white/60">
-          Self-hosted alternative to the OpenAI Platform, built for on-prem and
-          on-device use cases. Powers 👋 Jan.
+        <p className="text-xl w-full mx-auto lg:w-2/3 text-black/60 dark:text-white/60">
+          Self-hosted alternative to the OpenAI Platform Powers 👋 Jan
         </p>
         <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
           <DropdownDownload lastRelease={latestRelease} />
