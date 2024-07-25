@@ -11,7 +11,7 @@ slug: "run"
 # `cortex run`
 :::info
 This CLI command calls the following API endpoint:
-- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId})
+- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId}) (The command only calls this endpoint if the specified model is not already downloaded.)
 - [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
 :::
 

@@ -15,33 +15,33 @@ Cortex’s CLI invokes the Cortex Engine’s API, which runs in the background o
 
 
 ## Basic Usage
-### Start Cortex Server
+### [Start Cortex Server](/docs/cli)
 ```bash
 # By default the server will be started on port `1337`
 cortex
 ```
-### Run Model
+### [Run Model](/docs/cli/run)
 ```bash
 # Pull and start a model
-cortex run model_id
+cortex run <model_id>
 ```
-### Chat with Model
+### [Chat with Model](/docs/cli/chat)
 ```bash
 # chat with a model
-cortex chat model_id
+cortex chat <model_id>
 ```
-### Show the Model State 
+### [Show the Model State](/docs/cli/ps) 
 ```bash
 # Show a model and cortex system status
 cortex ps
 ```
-### Stop Model
+### [Stop Model](/docs/cli/kill)
 ```bash
 # Stop a model
 cortex stop
 ```
-### Pull Model
+### [Pull Model](/docs/cli/pull)
 ```bash
 # Pull a model
-cortex pull model_id
+cortex pull <model_id>
 ```

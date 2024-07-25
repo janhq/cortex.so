@@ -9,7 +9,10 @@ slug: "ps"
 :::
 
 # `cortex ps`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Get Model Status](/api-reference#tag/events/get/v1/events/model)
+:::
 This command shows the running model and its status.
 
 

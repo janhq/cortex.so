@@ -1,5 +1,5 @@
 ---
-title: Cortex Server
+title: API
 description: Cortex Server Overview.
 slug: "server"
 ---
@@ -20,9 +20,9 @@ Cortex has an [API server](https://cortex.so/api-reference) that runs at `localh
 # By default the server will be started on port `1337`
 cortex
 # Start a server with different port number
-cortex -a address -p port_number
-# Start with a specified data folder
-cortex --dataFolder
+cortex -a <address> -p <port_number>
+# Set the data folder directory
+cortex --dataFolder <dataFolderPath>
 ```
 ### Run Model
 ```bash

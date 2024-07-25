@@ -28,11 +28,13 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 ## Options
 
-| Option                      | Description                                                                                         | Required | Default value                              | Example                                      |
-|-----------------------------|-----------------------------------------------------------------------------------------------------|----------|-------------------------------------------|----------------------------------------------|
-| `model_id`                  | The identifier of the model you want to chat with.                                                  | No       | `Prompt to select from the available models` | `tinyllama`                             |
-| `-t`, `--thread <thread_id>`  | Specify the Thread ID.                                                                              | No       | `Create a new thread`                     | `-t jan_1717650808`                             |
-| `-m`, `--message <message>`   | Message to send to the model.                                                                       | Yes      | -                                         | `-m Hello World`            |
-| `-a`, `--attach`              | Attach to an interactive chat session.                                                              | No       | `false`                                   | `-a`                                   |
-| `-h`, `--help`                | Display help information for the command.                                                           | No       | -                                         | `-h`                                     |
+| Option                        | Description                                                                                     | Required | Default value | Example                       |
+| ----------------------------- | ----------------------------------------------------------------------------------------------- | -------- | ------------- | ----------------------------- |
+| `model_id`                    | Model ID to chat with. If there is no model_id provided, it will prompt to select from running models. | No       | -             | `12345`                       |
+| `message`                     | Message to send to the model                                                                     | No       | -             | `Hello, model!`               |
+| `-t`, `--thread <thread_id>`  | Thread ID. If not provided, will create new thread                                               | No       | -             | `-t 98765`                    |
+| `-m`, `--message <message>`   | Message to send to the model                                                                     | No       | -             | `-m "Hello, model!"`          |
+| `-a`, `--attach`              | Attach to interactive chat session                                                               | No       | `false`       | `-a`                          |
+| `-p`, `--preset <preset>`     | Apply a chat preset to the chat session                                                          | No       | -             | `-p default`                  |
+| `-h`, `--help`                | Display help information for the command                                                         | No       | -             | `-h`                          |
 
