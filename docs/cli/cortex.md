@@ -10,7 +10,7 @@ slug: /cli
 
 # Cortex
 
-This command starts an API server that runs as a daemon process.
+This command starts the Cortex process and the API server, which runs on port 1337 by default.
 
 ## Usage
 
