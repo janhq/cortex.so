@@ -46,7 +46,7 @@ For example:
 - [cortex presets](/docs/cli/presets): Show all the available model presets within Cortex.
 - [cortex embeddings](/docs/cli/embeddings): Create an embedding vector representing the input text.
 - [cortex benchmark](/docs/cli/benchmark): Benchmark and analyze the performance of a specific AI model using your system.
-- [cortex engine](/docs/cli/engines): Manage Cortex engines.
+- [cortex engines](/docs/cli/engines): Manage Cortex engines.
 - [cortex pull|download](/docs/cli/pull): Download a model.
 - [cortex run](/docs/cli/run): Shortcut to start a model and chat.
 - [cortex telemetry](/docs/cli/telemetry): Retrieve telemetry logs for monitoring and analysis.
