@@ -15,7 +15,7 @@ This command allows you to manage various engines available within Cortex.
 **Usage**:
 
 ```bash
-cortex engines [options]
+cortex engines [options] <command|parameter> [subcommand] 
 ```
 
 **Options**:
@@ -37,7 +37,7 @@ This command returns an engine detail defined by an engine `name`.
 **Usage**:
 
 ```bash
-cortex engines get <name>
+cortex engines <name> get
 ```
 For example, it returns the following:
 ```bash
@@ -69,7 +69,7 @@ This command sets up and downloads the required dependencies to run the availabl
 - `Tensorrt-llm`
 **Usage**:
 ```bash
-cortex engines init [options] <name>
+cortex engines <name> init [options]
 ```
 For Example:
 ```bash
@@ -125,3 +125,22 @@ For example, it returns the following:
 |---------------------------|----------------------------------------------------|----------|---------------|----------------------|
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
 
+## `cortex engines set`
+
+This command updates an engine configuration.
+
+
+**Usage**:
+
+```bash
+cortex engines <name> set <config> <value>  
+```
+
+**Options**:
+
+| Option                    | Description                                        | Required | Default value | Example              |
+|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
+| `name`            | The name of the engine you want to update.                         | Yes       | -             | -             |
+| `config` | Configuration name.                 | Yes      | -             | `openai` |
+| `value` | Configuration value.                 | Yes      | -             | `sk-xxxxx` |
+| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
