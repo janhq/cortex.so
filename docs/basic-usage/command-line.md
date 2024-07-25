@@ -35,7 +35,7 @@ cortex chat <model_id>
 # Show a model and cortex system status
 cortex ps
 ```
-### [Stop Model](/docs/cli/kill)
+### [Stop Model](/docs/cli/stop)
 ```bash
 # Stop a model
 cortex stop
