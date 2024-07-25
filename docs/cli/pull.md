@@ -9,10 +9,15 @@ slug: "pull"
 :::
 
 # `cortex pull`
+:::info
+This CLI command calls the following API endpoint:
+- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId})
+:::
+This command downloads models from supported [model repositories](/docs/model-repositories).
 
-This command facilitates downloading machine learning models from various model hubs, including the popular 🤗 [Hugging Face](https://huggingface.co/).
-
-By default, models are downloaded to the `node_modules library path. For additional information on storage paths and options, refer [here](/docs/cli).
+:::info
+The downloaded model will be stored in the Cortex folder in your home data directory.
+:::
 
 
 
@@ -28,20 +33,6 @@ The following alias is also available for downloading models:
 cortex pull <model_id>
 ```
 
-### Preconfigured Models
-Cortex provides preconfigured models with optimal runtime parameters and templates available from the [Cortex Model Hub](https://huggingface.co/cortexso) on Hugging Face.
-You can find the `model_id` for your desired model from our [Cortex Model Hub](https://huggingface.co/cortexso) or any supported model on Hugging Face, or the [Models](/models) section on our Cortex website.
-
-:::info
-Currently Cortex only supports the following model format: **GGUF**, **ONNX**, and **TensorRT-LLM**.
-:::
-
-```bash
-## To use our preconfigured models
-cortex pull mistral
-## To use other supported format models outside our repository:
-cortex pull microsoft/Phi-3-mini-4k-instruct-gguf
-```
 ## Options
 
 | Option         | Description                                       | Required | Default value | Example     |

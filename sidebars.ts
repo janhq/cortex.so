@@ -159,7 +159,6 @@ const sidebars: SidebarsConfig = {
     },
     { type: "doc", id: "cli/pull", label: "cortex pull" },
     { type: "doc", id: "cli/run", label: "cortex run" },
-    { type: "doc", id: "cli/kill", label: "cortex kill" },
     { type: "doc", id: "cli/models/index", label: "cortex models" },
     { type: "doc", id: "cli/engines/index", label: "cortex engines" },
     {
@@ -167,9 +166,9 @@ const sidebars: SidebarsConfig = {
       value: "System",
       className: "sidebar-divider",
     },
+    { type: "doc", id: "cli/stop", label: "cortex stop" },
     { type: "doc", id: "cli/ps", label: "cortex ps" },
     { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
-    { type: "doc", id: "cli/configs/index", label: "cortex configs" },
     {
       type: "html",
       value: "Benchmarking",

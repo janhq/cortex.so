@@ -9,12 +9,16 @@ slug: "run"
 :::
 
 # `cortex run`
+:::info
+This CLI command calls the following API endpoint:
+- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId}) (The command only calls this endpoint if the specified model is not already downloaded.)
+- [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
+:::
 
 This command facilitates the initiation of an interactive chat shell with a specified machine-learning model.
 
 :::info
-- This command is compatible with all OpenAI and OpenAI-compatible endpoints.
-- This command supports both local and remote models.
+This command supports both local and remote models.
 :::
 ## Usage
 

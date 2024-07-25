@@ -1,23 +1,23 @@
 ---
-title: Cortex Kill
-description: Cortex kill command.
-slug: "kill"
+title: Cortex Stop
+description: Cortex stop command.
+slug: "stop"
 ---
 
 :::warning
 🚧 Cortex is under construction.
 :::
 
-# `cortex kill`
+# `cortex stop`
 
-This command stops the currently running cortex processes.
+This command stops the API server.
 
 
 
 ## Usage
 
 ```bash
-cortex kill
+cortex stop
 ```
 
 ## Options
