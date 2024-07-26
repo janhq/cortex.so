@@ -4,6 +4,9 @@ description: cortex.llamacpp Architecture
 slug: "cortex-llamacpp"
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex is under construction.
 :::
@@ -26,8 +29,63 @@ In addition to `llama.cpp`, `cortex.llamacpp` adds:
 :::
 
 ## Usage
+```sh
+cortex engines llama.cpp init
+```
+The command will check, download, and install these dependencies:
+<Tabs>
+  <TabItem  value="Windows" label="Windows" default>
+    ```
+    - engine.dll
+    - Cuda 11.7:
+      - cublas64_11.dll
+      - cublasLt64_11.dll
+      - cudart64_110.dll
 
+    - Cuda 12.2
+      - cublas64_12.dll
+      - cublasLt64_12.dll
+      - cudart64_12.dll
+      - cudnn_ops_infer64_8.dll
+      - cudnn64_8.dll
+
+    - Cuda 12.4
+      - cublas64_12.dll
+      - cublasLt64_12.dll
+      - cudart64_12.dll
+      - nvrtc64_120_0.dll
+
+    - MSBuild libraries:
+      - msvcp140.dll
+      - vcruntime140.dll
+      - vcruntime140_1.dll
+      ```
+  </TabItem>
+  <TabItem  value="Linux" label="Linux" default>
+    ```
+    - libengine.so
+    - Cuda 11.7:
+      - libcublas.so.11
+      - libcublasLt.so.11
+      - libcudart.so.11.0
+    - Cuda 12.2:
+      - libcublas.so.12
+      - libcublasLt.so.12
+      - libcudart.so.12
+    - Cuda 12.4:
+      - libcublasLt.so.12   
+      - libcublas.so.12
+    ```
+  </TabItem>
+  <TabItem  value="MacOs" label="MacOs" default>
+    ```
+    - libengine.dylib
+    ```
+  </TabItem>
+</Tabs>
+:::info
 To include `cortex.llamacpp` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.llamacpp/tree/main/examples/server).
+:::
 
 #### Get GGUF Models
 
