@@ -37,5 +37,5 @@ cortex pull <model_id>
 
 | Option         | Description                                       | Required | Default value | Example     |
 | -------------- | ------------------------------------------------- | -------- | ------------- | ----------- |
-| `model_id`     | The identifier of the model you want to download. | Yes      | -             | `tinyllama` |
+| `model_id`     | The identifier of the model you want to download. | Yes      | -             | `mistral` |
 | `-h`, `--help` | Display help information for the command.         | No       | -             | `-h`        |

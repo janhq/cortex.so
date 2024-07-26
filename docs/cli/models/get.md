@@ -51,6 +51,6 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `model_id`        | The identifier of the model you want to retrieve.     | Yes      | -             | `tinyllama`|
+| `model_id`        | The identifier of the model you want to retrieve.     | Yes      | -             | `mistral`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 

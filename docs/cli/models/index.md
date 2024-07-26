@@ -72,7 +72,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `model_id`        | The identifier of the model you want to retrieve.     | Yes      | -             | `tinyllama`|
+| `model_id`        | The identifier of the model you want to retrieve.     | Yes      | -             | `mistral`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex models list`
@@ -132,7 +132,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 **Options**:
 | Option                    | Description                                                                 | Required | Default value        | Example                |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
-| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `tinyllama`       |
+| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `mistral`       |
 | `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
 
 ## `cortex models start`
@@ -167,7 +167,7 @@ cortex models start [model_id]:[engine] [options]
 
 | Option                    | Description                                                               | Required | Default value                                | Example                |
 |---------------------------|---------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
-| `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `tinyllama`       |
+| `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `mistral`       |
 | `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
 | `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    |
 | `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
@@ -193,7 +193,7 @@ cortex models stop <model_id>
 
 | Option                    | Description                                                                 | Required | Default value        | Example                |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
-| `model_id`                | The identifier of the model you want to stop.                               | Yes      | -                    | `tinyllama`       |
+| `model_id`                | The identifier of the model you want to stop.                               | Yes      | -                    | `mistral`       |
 | `-h`, `--help`            | Display help information for the command.                                   | No       | -                    | `-h`               |
 
 ## `cortex models update`
@@ -217,6 +217,6 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option                      | Description                                                                                           | Required | Default value        | Example                                                   |
 |-----------------------------|-------------------------------------------------------------------------------------------------------|----------|----------------------|-----------------------------------------------------------|
-| `model_id`                  | The identifier of the model you want to update.                                                       | Yes      | -                    | `tinyllama`                                          |
+| `model_id`                  | The identifier of the model you want to update.                                                       | Yes      | -                    | `mistral`                                          |
 | `-c`, `--options <options...>` | Specify the options to update the model. Syntax: `-c option1=value1 option2=value2`.  | Yes      | -                    | `-c max_tokens=100 temperature=0.5`                        |
 | `-h`, `--help`              | Display help information for the command.                                                             | No       | -                    | `-h`                                                  |
