@@ -25,7 +25,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option                      | Description                                                                                           | Required | Default value        | Example                                                   |
 |-----------------------------|-------------------------------------------------------------------------------------------------------|----------|----------------------|-----------------------------------------------------------|
-| `model_id`                  | The identifier of the model you want to update.                                                       | Yes      | -                    | `tinyllama`                                          |
+| `model_id`                  | The identifier of the model you want to update.                                                       | Yes      | -                    | `mistral`                                          |
 | `-c`, `--options <options...>` | Specify the options to update the model. Syntax: `-c option1=value1 option2=value2`.  | Yes      | -                    | `-c max_tokens=100 temperature=0.5`                        |
 | `-h`, `--help`              | Display help information for the command.                                                             | No       | -                    | `-h`                                                  |
 

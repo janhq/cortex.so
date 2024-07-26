@@ -36,7 +36,7 @@ The following alias is also available for downloading models:
 
 | Option                    | Description                              | Required | Default value | Example                    |
 |---------------------------|------------------------------------------|----------|---------------|----------------------------|
-| `model_id`                | The identifier of the model you want to download. | Yes      | -             | `tinyllama`           |
+| `model_id`                | The identifier of the model you want to download. | Yes      | -             | `mistral`           |
 | `-h`, `--help`              | Display help for command.                | No       | -             | `-h`                   |
 
 
