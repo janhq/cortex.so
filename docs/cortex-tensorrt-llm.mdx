@@ -4,6 +4,9 @@ description: NVIDIA TensorRT-LLM Architecture
 slug: "cortex-tensorrt-llm"
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex is under construction.
 :::
@@ -23,8 +26,41 @@ TensorRT-LLM is by default bundled in Cortex.
 :::
 
 ## Usage
+```sh
+cortex engines llama.cpp init
+```
+The command will check, download, and install these dependencies:
+<Tabs>
+  <TabItem  value="Windows" label="Windows" default>
+    ```
+   - engine.dll
+   - nvinfer_10.dll
+   - tensorrt_llm.dll
+   - nvinfer_plugin_tensorrt_llm.dll
+   - tensorrt_llm_nvrtc_wrapper.dll
+   - pcre2-8.dll
+   - Cuda 12.4
+   - MSBuild libraries:
+      - msvcp140.dll
+      - vcruntime140.dll
+      - vcruntime140_1.dll
+      ```
+  </TabItem>
+  <TabItem  value="Linux" label="Linux" default>
+    ```
+   - Cuda 12.4
+   - libengine.so
+   - libnvinfer.so.10
+   - libtensorrt_llm.so
+   - libnvinfer_plugin_tensorrt_llm.so.10
+   - libtensorrt_llm_nvrtc_wrapper.so
+   - libnccl.so.2
+    ```
+  </TabItem>
+</Tabs>
+:::info
 To include `cortex.tensorrt-llm` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.tensorrt-llm/tree/rel).
-
+:::
 
 #### Get TensorRT-LLM Models
 

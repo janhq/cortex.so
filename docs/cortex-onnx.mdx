@@ -24,8 +24,24 @@ The current valid combinations for executor and precision are:
 :::
 
 ## Usage
+```sh
+cortex engines onnx init
+```
+The command will check, download, and install these dependencies for Windows:
+```
+- engine.dll
+- D3D12Core.dll
+- DirectML.dll
+- onnxruntime.rel.dll
+- onnxruntime-genai.dll
+- MSBuild libraries:
+   - msvcp140.dll
+   - vcruntime140.dll
+   - vcruntime140_1.dll
+```
+:::info
 To include `cortex.onnx` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.onnx/tree/main/examples/server).
-
+:::
 
 #### Get ONNX Models
 You can download precompiled ONNX models from the [Cortex Hub](https://huggingface.co/cortexso) on Hugging Face. These models include configurations, tokenizers, and dependencies tailored for optimal performance with the `onnx` engine.
