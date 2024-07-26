@@ -9,6 +9,9 @@ slug: /cli
 :::
 
 # Cortex
+:::info
+This is the initial command you need to run to start using Cortex.
+:::
 
 This command starts the Cortex process and the API server, which runs on port 1337 by default.
 
