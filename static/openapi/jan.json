@@ -1221,7 +1221,7 @@
         },
         {
             "name": "System",
-            "description": "Endpoints for stopping the Cortex API server and retrieving the Cortex status."
+            "description": "Endpoints for stopping the Cortex API server, checking its status, and fetching system events."
         }
     ],
     "servers": [
