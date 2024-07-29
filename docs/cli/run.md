@@ -13,7 +13,7 @@ slug: "run"
 This CLI command calls the following API endpoint:
 - [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId}) (The command only calls this endpoint if the specified model is not already downloaded.)
 - [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
-- [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions) (The command makes a call to this endpoint if the `-c` option is used)
+- [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions) (The command makes a call to this endpoint if the `-c` option is used.)
 :::
 
 This command facilitates the initiation of an interactive chat shell with a specified machine-learning model.

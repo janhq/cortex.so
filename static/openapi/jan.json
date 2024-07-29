@@ -348,54 +348,14 @@
                 ]
             }
         },
-        "/v1/models/download/{modelId}": {
-            "get": {
-                "operationId": "ModelsController_downloadModel",
-                "summary": "Download model",
-                "description": "Downloads a specific model instance.",
+        "/v1/models/{pull_id}/pull": {
+            "delete": {
+                "operationId": "ModelsController_abortPullModel",
+                "summary": "Abort model pull",
+                "description": "Abort the model pull operation.",
                 "parameters": [
                     {
-                        "name": "modelId",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "fileName",
-                        "required": true,
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Ok",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/DownloadModelResponseDto"
-                                }
-                            }
-                        }
-                    }
-                },
-                "tags": [
-                    "Models"
-                ]
-            }
-        },
-        "/v1/models/abort-download/{download_id}": {
-            "get": {
-                "operationId": "ModelsController_abortDownloadModel",
-                "summary": "Abort model download",
-                "description": "Abort the model download operation.",
-                "parameters": [
-                    {
-                        "name": "download_id",
+                        "name": "pull_id",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -413,11 +373,11 @@
                 ]
             }
         },
-        "/v1/models/pull/{modelId}": {
-            "get": {
+        "/v1/models/{modelId}/pull": {
+            "post": {
                 "operationId": "ModelsController_pullModel",
-                "summary": "Download a remote model",
-                "description": "Pulls a remote model template from cortex hub or huggingface and downloads it.",
+                "summary": "Pull a model",
+                "description": "Pulls a model from cortex hub or huggingface and downloads it.",
                 "parameters": [
                     {
                         "name": "modelId",
@@ -429,12 +389,18 @@
                         }
                     },
                     {
+                        "name": "persistedModelId",
+                        "required": false,
+                        "in": "path",
+                        "description": "The unique identifier of the model in your local storage.",
+                        "schema": {}
+                    },
+                    {
                         "name": "fileName",
-                        "required": true,
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "required": false,
+                        "in": "path",
+                        "description": "The file name of the model to download.",
+                        "schema": {}
                     }
                 ],
                 "responses": {
@@ -518,8 +484,8 @@
                 ]
             }
         },
-        "/v1/models/{model}/config": {
-            "post": {
+        "/v1/models/{model}": {
+            "patch": {
                 "operationId": "ModelsController_update",
                 "summary": "Update model",
                 "description": "Updates a model instance defined by a model's `id`.",
@@ -985,9 +951,23 @@
                 }
             }
         },
-        "/v1/health": {
+        "/v1/system": {
+            "delete": {
+                "operationId": "SystemController_delete",
+                "summary": "Stop api server",
+                "description": "Stops the Cortex API endpoint server for the detached mode.",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "System"
+                ]
+            },
             "get": {
-                "operationId": "StatusController_get",
+                "operationId": "SystemController_get",
                 "summary": "Get health status",
                 "description": "Retrieves the health status of your Cortex's system.",
                 "parameters": [],
@@ -997,29 +977,13 @@
                     }
                 },
                 "tags": [
-                    "Status"
+                    "System"
                 ]
             }
         },
-        "/v1/process": {
-            "delete": {
-                "operationId": "ProcessController_delete",
-                "summary": "Terminate service",
-                "description": "Terminates the Cortex API endpoint server for the detached mode.",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Processes"
-                ]
-            }
-        },
-        "/v1/events/download": {
+        "/v1/system/events/download": {
             "get": {
-                "operationId": "EventsController_downloadEvent",
+                "operationId": "SystemController_downloadEvent",
                 "summary": "Get download status",
                 "description": "Retrieves the model's download status.",
                 "parameters": [],
@@ -1036,13 +1000,13 @@
                     }
                 },
                 "tags": [
-                    "Events"
+                    "System"
                 ]
             }
         },
-        "/v1/events/model": {
+        "/v1/system/events/model": {
             "get": {
-                "operationId": "EventsController_modelEvent",
+                "operationId": "SystemController_modelEvent",
                 "summary": "Get model status",
                 "description": "Retrieves all the available model statuses within Cortex.",
                 "parameters": [],
@@ -1059,13 +1023,13 @@
                     }
                 },
                 "tags": [
-                    "Events"
+                    "System"
                 ]
             }
         },
-        "/v1/events/resources": {
+        "/v1/system/events/resources": {
             "get": {
-                "operationId": "EventsController_resourcesEvent",
+                "operationId": "SystemController_resourcesEvent",
                 "summary": "Get resources status",
                 "description": "Retrieves the resources status of the system.",
                 "parameters": [],
@@ -1082,106 +1046,7 @@
                     }
                 },
                 "tags": [
-                    "Events"
-                ]
-            }
-        },
-        "/v1/configs": {
-            "get": {
-                "operationId": "ConfigsController_findAll",
-                "summary": "List configs",
-                "description": "Lists the currently available configs, including the default and user-defined configurations.",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Ok",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "tags": [
-                    "Configurations"
-                ]
-            }
-        },
-        "/v1/configs/{name}": {
-            "get": {
-                "operationId": "ConfigsController_findOne",
-                "summary": "Get a config",
-                "description": "Retrieves a config instance, providing basic information about the config.",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "required": true,
-                        "in": "path",
-                        "description": "The unique identifier of the config.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Ok",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "tags": [
-                    "Configurations"
-                ]
-            },
-            "post": {
-                "operationId": "ConfigsController_update",
-                "summary": "Configure a model",
-                "description": "Updates a specific configuration setting by its group and key.",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ConfigUpdateDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "The config has been successfully updated.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CommonResponseDto"
-                                }
-                            }
-                        }
-                    }
-                },
-                "tags": [
-                    "Configurations"
+                    "System"
                 ]
             }
         },
@@ -1242,6 +1107,80 @@
                 "tags": [
                     "Engines"
                 ]
+            },
+            "patch": {
+                "operationId": "EnginesController_update",
+                "summary": "Update an engine",
+                "description": "Updates the engine with configurations.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "required": true,
+                        "in": "path",
+                        "description": "The unique identifier of the engine.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfigUpdateDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CommonResponseDto"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Engines"
+                ]
+            }
+        },
+        "/v1/engines/{name}/init": {
+            "post": {
+                "operationId": "EnginesController_initialize",
+                "summary": "Initialize an engine",
+                "description": "Initializes an engine instance with the given name. It will download the engine if it is not available locally.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "required": true,
+                        "in": "path",
+                        "description": "The unique identifier of the engine.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CommonResponseDto"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Engines"
+                ]
             }
         }
     },
@@ -1277,24 +1216,12 @@
             "description": "Endpoint for creating and retrieving embedding vectors from text inputs using specified models."
         },
         {
-            "name": "Status",
-            "description": "Endpoint for actively querying the health status of the Cortex's API server."
-        },
-        {
-            "name": "Processes",
-            "description": "Endpoint for terminating the Cortex API server processes."
-        },
-        {
-            "name": "Events",
-            "description": "Endpoints for observing Cortex statuses through event notifications."
-        },
-        {
-            "name": "Configurations",
-            "description": "Endpoints for customizing the Cortex's configurations."
-        },
-        {
             "name": "Engines",
             "description": "Endpoints for managing the available engines within Cortex."
+        },
+        {
+            "name": "System",
+            "description": "Endpoints for stopping the Cortex API server and retrieving the Cortex status."
         }
     ],
     "servers": [
@@ -1953,19 +1880,6 @@
                     }
                 }
             },
-            "DownloadModelResponseDto": {
-                "type": "object",
-                "properties": {
-                    "message": {
-                        "type": "string",
-                        "example": "Starting download mistral-ins-7b-q4",
-                        "description": "Message indicates Jan starting download corresponding model."
-                    }
-                },
-                "required": [
-                    "message"
-                ]
-            },
             "CommonResponseDto": {
                 "type": "object",
                 "properties": {
@@ -2613,30 +2527,6 @@
                     "deleted"
                 ]
             },
-            "ConfigUpdateDto": {
-                "type": "object",
-                "properties": {
-                    "key": {
-                        "type": "string",
-                        "example": "apiKey",
-                        "description": "The configuration API key."
-                    },
-                    "value": {
-                        "type": "string",
-                        "example": "sk-xxxxxx",
-                        "description": "The value of the configuration API key."
-                    },
-                    "name": {
-                        "type": "string",
-                        "example": "openai",
-                        "description": "The name of the configuration."
-                    }
-                },
-                "required": [
-                    "key",
-                    "value"
-                ]
-            },
             "EngineDto": {
                 "type": "object",
                 "properties": {
@@ -2659,10 +2549,34 @@
                         "type": "string",
                         "example": "0.0.1",
                         "description": "The version of the engine."
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": true,
+                        "description": "The status of the engine."
                     }
                 },
                 "required": [
                     "name"
+                ]
+            },
+            "ConfigUpdateDto": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "example": "apiKey",
+                        "description": "The configuration API key."
+                    },
+                    "value": {
+                        "type": "string",
+                        "example": "sk-xxxxxx",
+                        "description": "The value of the configuration API key."
+                    }
+                },
+                "required": [
+                    "config",
+                    "value"
                 ]
             }
         }
