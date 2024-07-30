@@ -14,14 +14,21 @@ import OAICoverage from "@site/src/components/OAICoverage"
 
 ![Cortex Cover Image](/img/social-card.jpg)
 
-Self-hosted alternative to the OpenAI Platform, 
-built for on-prem and on-device use cases. Powers 👋 Jan.
+Cortex lets you run AI easily on your computer. 
 
-Cortex can run on different hardware types:
+We're a self-hosted alternative to the OpenAI Platform, built for on-prem and on-device use cases.
 
-- Desktop & Laptops: [Llama.cpp](https://github.com/ggerganov/llama.cpp)
-- Windows Copilot & PCs (Snapdragon NPUs): [ONNX Runtime](https://github.com/microsoft/onnxruntime)
-- Nvidia GPUs: [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
+## Supported Accelerators
+- Nvidia CUDA
+- Apple Metal
+- Qualcomm AI Engine
+
+## Supported Inference Backends
+- [llama.cpp](https://github.com/ggerganov/llama.cpp): cross-platform, supports most laptops, desktops and OSes
+- [ONNX Runtime](https://github.com/microsoft/onnxruntime): supports Windows Copilot+ PCs & NPUs
+- [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM): supports Nvidia GPUs 
+
+If GPU hardware is available, Cortex is GPU accelerated by default.
 
 :::info
 **Real-world Use**: Cortex powers [Jan](https://jan.ai), our on-device ChatGPT-alternative.
@@ -29,12 +36,25 @@ Cortex can run on different hardware types:
 Cortex has been battle-tested across 1 million+ downloads and handles a variety of hardware configurations.
 :::
 
-## Roadmap
+## Supported Models
 
-Cortex aims to be compatible with [OpenAI API](https://platform.openai.com/docs/api-reference).
+Cortex supports the list of [Built-in Models](/models), such as:
+- Mistral
+- Llama
+- Gemma
+- Phi3
 
-Our goal is to make it easy for developers to provide on-device AI and to build more secure applications, using a fully open-source stack.
+Cortex supports pulling `GGUF` and `ONNX` models from the [Hugging Face Hub](https://huggingface.co). Read how to [Pull models from Hugging Face](/docs/hub/hugging-face/)
 
-## OpenAI Equivalence
 
-<OAICoverage /> 
+## OpenAI API Equivalence
+
+Cortex aims to be fully compatible with [OpenAI API](https://platform.openai.com/docs/api-reference) endpoints.
+
+Our goal is to help developers to build applications with on-device AI and with a fully open-source stack. 
+
+Cortex is currently compatible with the following OpenAI API endpoints:
+- [/chat/completions](/api-reference#tag/inference/post/v1/chat/completions)
+- [/embeddings](/api-reference#tag/embeddings/post/v1/embeddings)
+
+<!--<OAICoverage /-->>

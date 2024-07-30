@@ -21,6 +21,7 @@ Cortex’s CLI invokes the Cortex Engine’s API, which runs in the background o
 cortex
 ```
 ### [Run Model](/docs/cli/run)
+Cortex supports these [Built-in Models](/models)
 ```bash
 # Pull and start a model
 cortex run <model_id>
