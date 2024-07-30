@@ -9,7 +9,10 @@ slug: "stop"
 :::
 
 # `cortex stop`
-
+:::info
+This CLI command calls the following API endpoint:
+- [Stop Cortex](/api-reference#tag/system/delete/v1/system)
+:::
 This command stops the API server.
 
 

@@ -58,7 +58,7 @@ The Run Model CLI and endpoint will automatically pull a model if it has not bee
   <TabItem  value="API-stop" label="API" default>
     ```bash
         curl --request POST \
-        --url http://localhost:1337/models/janhq/TinyLlama-1.1B-Chat-v1.0-GGUF/stop
+        --url http://localhost:1337/models/mistral/stop
 
 
 
@@ -78,8 +78,8 @@ The Run Model CLI and endpoint will automatically pull a model if it has not bee
 <Tabs>
   <TabItem  value="API-pull" label="API" default>
     ```bash
-        curl --request GET \
-        --url 'http://localhost:1337/v1/models/download/TinyLlama-1.1B-Chat-v1.0-GGUF'
+        curl --request POST \
+        --url http://localhost:1337/v1/models/mistral/pull
 
 
 
@@ -127,7 +127,7 @@ Model Management allows you to manage your local models, which can be found in `
   <TabItem  value="API-pull" label="API" default>
     ```bash
         curl --request GET \
-        --url http://localhost:1337/v1/models/TinyLlama-1.1B-Chat-v1.0-GGUF
+        --url http://localhost:1337/v1/models/mistral
 
 
 
@@ -143,12 +143,12 @@ Model Management allows you to manage your local models, which can be found in `
   <TabItem value="cortex.py-pull" label="cortex.py">
   </TabItem>
 </Tabs>
-### Remove Model
+### Delete Model
 <Tabs>
   <TabItem  value="API-pull" label="API" default>
     ```bash
         curl --request DELETE \
-        --url http://localhost:1337/v1/models/TinyLlama-1.1B-Chat-v1.0-GGUF
+        --url http://localhost:1337/v1/models/mistral
 
 
 
@@ -168,8 +168,8 @@ Model Management allows you to manage your local models, which can be found in `
 <Tabs>
   <TabItem  value="API-pull" label="API" default>
     ```bash
-        curl --request POST \
-        --url http://localhost:1337/v1/models/TinyLlama-1.1B-Chat-v1.0-GGUF/config \
+      curl --request PATCH \
+        --url http://localhost:1337/v1/models/mistral \
         --header 'Content-Type: application/json' \
         --data '{}'
 

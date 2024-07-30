@@ -115,7 +115,7 @@ For example, it returns the following:
 ## `cortex models remove`
 :::info
 This CLI command calls the following API endpoint:
-- [Remove Model](/api-reference#tag/models/delete/v1/models/{id})
+- [Delete Model](/api-reference#tag/models/delete/v1/models/{id})
 :::
 This command deletes a local model defined by a `model_id`.
 
@@ -199,7 +199,7 @@ cortex models stop <model_id>
 ## `cortex models update`
 :::info
 This CLI command calls the following API endpoint:
-- [Update Model](/api-reference#tag/models/post/v1/models/{model}/config)
+- [Update Model](/api-reference#tag/models/patch/v1/models/{model})
 :::
 This command updates a model configuration defined by a `model_id`.
 
