@@ -409,11 +409,11 @@ const config: Config = {
             },
             {
               label: "Twitter",
-              href: "https://x.com/janframework",
+              href: "https://x.com/cortex_so",
             },
             {
               label: "Linkedin",
-              href: "https://www.linkedin.com/company/janframework/",
+              href: "https://www.linkedin.com/company/homebrewltd/",
             },
           ],
         },
