@@ -11,6 +11,7 @@ slug: "chat"
 # `cortex chat`
 :::info
 This CLI command calls the following API endpoint:
+- [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
 - [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions)
 :::
 

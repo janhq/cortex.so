@@ -63,6 +63,10 @@ To get an engine name, run the [`engines list`](/docs/cli/engines/list) command 
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex engines init`
+:::info
+This CLI command calls the following API endpoint:
+- [Init Engine](/api-reference#tag/engines/post/v1/engines/{name}/init)
+:::
 This command sets up and downloads the required dependencies to run the available engines within Cortex. Currently, Cortex supports three engines:
 - `Llama.cpp`
 - `Onnx`
@@ -126,6 +130,10 @@ For example, it returns the following:
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
 
 ## `cortex engines set`
+:::info
+This CLI command calls the following API endpoint:
+- [Update Engine](/api-reference#tag/engines/patch/v1/engines/{name})
+:::
 
 This command updates an engine configuration.
 

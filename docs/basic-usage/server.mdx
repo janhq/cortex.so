@@ -27,11 +27,11 @@ cortex --dataFolder <dataFolderPath>
 ### Run Model
 ```bash
 # Pull a model
-curl --request GET \
-  --url 'http://localhost:1337/v1/models/download/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}'
+curl --request POST \
+  --url http://localhost:1337/v1/models/mistral/pull
 # Start the model
 curl --request POST \
-  --url http://localhost:1337/v1/models/tinyllama/start \
+  --url http://localhost:1337/v1/models/mistral/start \
   --header 'Content-Type: application/json' \
   --data '{
   "prompt_template": "system\n{system_message}\nuser\n{prompt}\nassistant",
@@ -54,7 +54,7 @@ curl --request POST \
 ```bash
 # Check the model status
 curl --request GET \
-  --url http://localhost:1337/v1/events/model
+  --url http://localhost:1337/v1/system/events/model
 ```
 ### Chat with Model
 ```bash
@@ -69,7 +69,7 @@ curl http://localhost:1337/v1/chat/completions \
       "content": "Hello"
     },
   ],
-  "model": "tinyllama",
+  "model": "mistral",
   "stream": true,
   "max_tokens": 1,
   "stop": [
@@ -85,11 +85,11 @@ curl http://localhost:1337/v1/chat/completions \
 ```bash
 # Stop a model
 curl --request POST \
-  --url http://localhost:1337/v1/models/tinyllama/stop
+  --url http://localhost:1337/v1/models/mistral/stop
 ```
 ### Pull Model
 ```bash
 # Pull a model
-curl --request GET \
-  --url 'http://localhost:1337/v1/models/download/{janhq/TinyLlama-1.1B-Chat-v1.0-GGUF}'
+curl --request POST \
+  --url http://localhost:1337/v1/models/mistral/pull
 ```

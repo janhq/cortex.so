@@ -11,7 +11,7 @@ slug: "pull"
 # `cortex pull`
 :::info
 This CLI command calls the following API endpoint:
-- [Download Model](/api-reference#tag/models/get/v1/models/download/{modelId})
+- [Download Model](/api-reference#tag/models/post/v1/models/{modelId}/pull)
 :::
 This command downloads models from supported [model repositories](/docs/model-repositories).
 

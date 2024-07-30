@@ -19,11 +19,10 @@ Before installation, make sure that you have met the required [dependencies](#de
 # Install OpenMPI dependency
 sudo apt install openmpi-bin libopenmpi-dev
 
-# Install using Brew
-brew install cortexso
-
-# Install using NPM (Not Recommended)
-npm i -g cortexso
+# Install Cortex
+sudo add-apt-repository ppa:homebrew-computer/main
+sudo apt update
+sudo apt install cortexso
 ```
 :::info
 You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
@@ -58,11 +57,8 @@ cortex -h
 ```
 ## Uninstall Cortex
 ```sh
-# Uninstall using Brew
-brew uninstall cortexso
-
-# Uninstall using NPM
-npm uninstall -g cortexso
+# Uninstall cortex
+sudo apt remove cortexso
 ```
 :::info
 Delete the Cortex data folder located in your home folder.
