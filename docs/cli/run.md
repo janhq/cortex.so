@@ -31,13 +31,7 @@ cortex run [options] [model_id]:[engine]
 cortex run [options] [model_id]:[engine] -c
 ```
 ### `model_id`
-You can find the `model_id` for your desired model from:
-- [Cortex Model Hub](https://huggingface.co/cortexso)
-- [HuggingFace](https://huggingface.co/models)
-- [Models](/models)
-:::info
-Currently Cortex only supports the following model format: **GGUF**, **ONNX**, and **TensorRT-LLM**.
-:::
+You can use the [Built-in models](/docs/hub/cortex-hub) or Supported [HuggingFace models](/docs/hub/hugging-face).
 ### Local Model
 To run a local model in Cortex:
 ```bash
