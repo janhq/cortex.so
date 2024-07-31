@@ -1224,6 +1224,28 @@
             "description": "Endpoints for stopping the Cortex API server, checking its status, and fetching system events."
         }
     ],
+    "x-tagGroups": [
+        {
+            "name": "Endpoints",
+            "tags": [
+                "Inference",
+                "Embeddings",
+                "Engines",
+                "Events",
+                "Models",
+                "Processes",
+                "Status"
+            ]
+        },
+        {
+            "name": "Assistants",
+            "tags": [
+                "Assistants",
+                "Messages",
+                "Threads"
+            ]
+        }
+    ],
     "servers": [
         {
             "url": "http://localhost:1337"
