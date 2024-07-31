@@ -37,10 +37,10 @@
       "note": "Tiny + Chat"
     },
     {
-      "url": "https://huggingface.co/QuantFactory/TinyLlama-1.1B-Chat-v1.0-GGUF/blob/main/TinyLlama-1.1B-Chat-v1.0.Q4_K_M.gguf",
+      "url": "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/blob/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
       "author": "Tiny‌Llama",
       "logo": "https://cdn-avatars.huggingface.co/v1/production/uploads/63565cc56d7fcf1bedb7d347/DRv8Ln7nvK22iXkLmAGb_.png",
-      "model_name": "TinyLlama v1.1B Chat Q6_K_M GGUF",
+      "model_name": "TinyLlama v1.1B Chat Q4_K_M GGUF",
       "note": "Super Tiny + Chat"
     }
   ],
