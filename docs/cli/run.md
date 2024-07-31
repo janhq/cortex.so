@@ -18,9 +18,9 @@ This CLI command calls the following API endpoint:
 
 This command facilitates the initiation of an interactive chat shell with a specified machine-learning model.
 
-:::info
+
 This command supports both local and remote models.
-:::
+
 ## Usage
 
 ```bash

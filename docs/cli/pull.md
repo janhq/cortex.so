@@ -15,9 +15,7 @@ This CLI command calls the following API endpoint:
 :::
 This command downloads models from supported [model repositories](/docs/model-repositories).
 
-:::info
 The downloaded model will be stored in the Cortex folder in your home data directory.
-:::
 
 
 
