@@ -426,7 +426,7 @@ const config: Config = {
             },
             {
               label: "Careers",
-              href: "https://janai.bamboohr.com/careers",
+              href: "https://homebrew.bamboohr.com/careers",
             },
           ],
         },
