@@ -40,21 +40,10 @@ Cortex has been battle-tested across 1 million+ downloads and handles a variety 
 
 ## Supported Models
 
-Cortex supports the list of [Built-in Models](/models), such as:
+Cortex supports the following list of [Built-in Models](/models):
 
 <Tabs>
-  <TabItem  value="ONNX" label="ONNX" default>
-| Model ID         | Variant (Branch) | Model size        | CLI command                        |
-|------------------|------------------|-------------------|------------------------------------|
-| gemma            | 7b-onnx          | 7B                | `cortex run gemma:7b-onnx`         |
-| llama3           | onnx             | 8B                | `cortex run llama3:onnx`           |
-| mistral          | 7b-onnx          | 7B                | `cortex run mistral:7b-onnx`       |
-| openhermes-2.5   | 7b-onnx          | 7B                | `cortex run openhermes-2.5:7b-onnx`|
-| phi3             | mini-onnx        | 3.82B - 4k ctx len| `cortex run phi3:mini-onnx`        |
-| phi3             | medium-onnx      | 14B - 4k ctx len  | `cortex run phi3:medium-onnx`      |
-
-  </TabItem>
-  <TabItem  value="Llama.cpp" label="Llama.cpp" default>
+ <TabItem  value="Llama.cpp" label="Llama.cpp" default>
 | Model ID         | Variant (Branch) | Model size        | CLI command                        |
 |------------------|------------------|-------------------|------------------------------------|
 | codestral        | 22b-gguf         | 22B               | `cortex run codestral:22b-gguf`    |
@@ -69,6 +58,17 @@ Cortex supports the list of [Built-in Models](/models), such as:
 | phi3             | mini-gguf        | 3.82B - 4k ctx len| `cortex run phi3:mini-gguf`        |
 | qwen2            | 7b-gguf          | 7B                | `cortex run qwen2:7b-gguf`         |
 | tinyllama        | 1b-gguf          | 1.1B              | `cortex run tinyllama:1b-gguf`     |
+  </TabItem>
+  <TabItem  value="ONNX" label="ONNX" default>
+| Model ID         | Variant (Branch) | Model size        | CLI command                        |
+|------------------|------------------|-------------------|------------------------------------|
+| gemma            | 7b-onnx          | 7B                | `cortex run gemma:7b-onnx`         |
+| llama3           | onnx             | 8B                | `cortex run llama3:onnx`           |
+| mistral          | 7b-onnx          | 7B                | `cortex run mistral:7b-onnx`       |
+| openhermes-2.5   | 7b-onnx          | 7B                | `cortex run openhermes-2.5:7b-onnx`|
+| phi3             | mini-onnx        | 3.82B - 4k ctx len| `cortex run phi3:mini-onnx`        |
+| phi3             | medium-onnx      | 14B - 4k ctx len  | `cortex run phi3:medium-onnx`      |
+
   </TabItem>
   <TabItem value="TensorRT-LLM" label="TensorRT-LLM">
 | Model ID         | Variant (Branch)              | Model size        | CLI command                        |
