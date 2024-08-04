@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-const EngineCompability = () => {
-  const [Compability, setCompability] = useState({
+const EngineCompatibility = () => {
+  const [Compatibility, setCompatibility] = useState({
     os: "",
     cpu: "",
     accelerator: "",
@@ -47,27 +47,27 @@ const EngineCompability = () => {
         {
           name: "Nvdia GPU",
           value: "nvdia",
-          disabled: Compability.os === "mac",
+          disabled: Compatibility.os === "mac",
         },
         {
           name: "AMD GPU",
           value: "amd",
-          disabled: Compability.os === "mac",
+          disabled: Compatibility.os === "mac",
         },
         {
           name: "Intel GPU",
           value: "intel",
-          disabled: Compability.os === "mac",
+          disabled: Compatibility.os === "mac",
         },
         {
           name: "Apple Metal",
           value: "apple",
-          disabled: Compability.os !== "mac",
+          disabled: Compatibility.os !== "mac",
         },
         {
           name: "Snapdragon NPU",
           value: "snapdragon",
-          disabled: Compability.os !== "win",
+          disabled: Compatibility.os !== "win",
         },
       ],
     },
@@ -77,21 +77,21 @@ const EngineCompability = () => {
         {
           name: "ONNX Runtime",
           value: "onnx",
-          disabled: Compability.os === "mac",
+          disabled: Compatibility.os === "mac",
         },
         {
           name: "Llama.cpp",
           value: "llama",
-          disabled: Compability.accelerator === "snapdragon",
+          disabled: Compatibility.accelerator === "snapdragon",
         },
         {
           name: "TensorRT-LLM",
           value: "tensorRT-LLM",
           disabled:
-            Compability.os === "mac" ||
-            Compability.accelerator === "amd" ||
-            Compability.accelerator === "intel" ||
-            Compability.accelerator === "snapdragon",
+            Compatibility.os === "mac" ||
+            Compatibility.accelerator === "amd" ||
+            Compatibility.accelerator === "intel" ||
+            Compatibility.accelerator === "snapdragon",
         },
         {
           name: "CoreML",
@@ -107,21 +107,21 @@ const EngineCompability = () => {
           name: "ONNX",
           value: "onnx-model",
           disabled:
-            Compability.engine === "llama" ||
-            Compability.engine === "tensorRT-LLM",
+            Compatibility.engine === "llama" ||
+            Compatibility.engine === "tensorRT-LLM",
         },
         {
           name: "GGUF",
           value: "gguf",
           disabled:
-            Compability.engine === "onnx" ||
-            Compability.engine === "tensorRT-LLM",
+            Compatibility.engine === "onnx" ||
+            Compatibility.engine === "tensorRT-LLM",
         },
         {
           name: "TensorRT-LLM",
           value: "tensorRT-LLM",
           disabled:
-            Compability.engine === "onnx" || Compability.engine === "llama",
+            Compatibility.engine === "onnx" || Compatibility.engine === "llama",
         },
       ],
     },
@@ -129,8 +129,8 @@ const EngineCompability = () => {
 
   const handleClick = (level: string, value: string, disabled: boolean) => {
     if (disabled) return;
-    setCompability((prev) => {
-      const updatedCompability = {
+    setCompatibility((prev) => {
+      const updatedCompatibility = {
         ...prev,
         [level]: prev[level] === value && level === "accelerator" ? "" : value,
       };
@@ -141,26 +141,26 @@ const EngineCompability = () => {
 
       // Reset subsequent levels
       for (let i = levelIndex + 1; i < levels.length; i++) {
-        updatedCompability[levels[i].name.toLowerCase()] = "";
+        updatedCompatibility[levels[i].name.toLowerCase()] = "";
       }
 
-      return updatedCompability;
+      return updatedCompatibility;
     });
   };
 
   const isPreviousLevelSelected = (index: number) => {
     if (index === 0) return true; // The first level (OS) is always enabled
-    if (index === 3) return !!Compability.cpu; // Enable Engine if CPU is selected
+    if (index === 3) return !!Compatibility.cpu; // Enable Engine if CPU is selected
     const previousLevelName = levels[index - 1].name.toLowerCase();
-    return !!Compability[previousLevelName]; // Enable other levels based on previous selection
+    return !!Compatibility[previousLevelName]; // Enable other levels based on previous selection
   };
 
   const renderCortexResult = () => {
-    if (Compability.os === "") return "-";
-    if (Compability.engine === "onnx") return "cortex run  llama3:onnx";
-    if (Compability.engine === "tensorRT-LLM")
+    if (Compatibility.os === "") return "-";
+    if (Compatibility.engine === "onnx") return "cortex run  llama3:onnx";
+    if (Compatibility.engine === "tensorRT-LLM")
       return "cortex run  llama3:tensorrt-llm";
-    if (Compability.engine === "llama") return "cortex run llama3 (gguf)";
+    if (Compatibility.engine === "llama") return "cortex run llama3 (gguf)";
 
     return "cortex run llama3:onnx / llama3:tensorrt-llm / llama3 (gguf)";
   };
@@ -176,7 +176,7 @@ const EngineCompability = () => {
                 key={c.value}
                 className={twMerge(
                   `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer`,
-                  Compability[level.name.toLowerCase()] === c.value
+                  Compatibility[level.name.toLowerCase()] === c.value
                     ? "bg-neutral-900 text-white"
                     : isPreviousLevelSelected(i)
                     ? ""
@@ -212,4 +212,4 @@ const EngineCompability = () => {
   );
 };
 
-export default EngineCompability;
+export default EngineCompatibility;
