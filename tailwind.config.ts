@@ -9,6 +9,7 @@ const config: Config = {
   content: [
     "./src/**/*.{jsx,tsx,html,md,scss}",
     "./src/components/**/*.{jsx,tsx,html,md,scss}",
+    "./src/containers/**/*.{jsx,tsx,html,md,scss}",
   ],
   theme: {
     container: {
