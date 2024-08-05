@@ -239,15 +239,16 @@ const EngineCompatibility = () => {
                 <div
                   key={c.value}
                   className={twMerge(
-                    `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer flex items-center`,
+                    `border border-neutral-200 dark:border-neutral-700 dark:text-white border-solid text-black p-4 my-2 rounded-lg cursor-pointer flex items-center`,
                     Compatibility[
                       level.name.toLowerCase().replace(" ", "_")
                     ] === c.value
-                      ? "bg-neutral-900 text-white"
+                      ? "bg-neutral-900 dark:bg-neutral-100 dark:text-black text-white"
                       : isPreviousLevelSelected(i)
                       ? ""
-                      : "opacity-50 bg-neutral-100 cursor-not-allowed",
-                    c?.disabled && "bg-neutral-100 cursor-not-allowed"
+                      : "opacity-50 dark:opacity-20 bg-neutral-100 dark:bg-neutral-900 cursor-not-allowed",
+                    c?.disabled &&
+                      "bg-neutral-100 dark:bg-neutral-900 cursor-not-allowed"
                   )}
                   onClick={() =>
                     isPreviousLevelSelected(i) &&
@@ -271,10 +272,10 @@ const EngineCompatibility = () => {
         <div className="flex w-3/4 gap-4">
           <div
             className={twMerge(
-              `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer w-full relative`
+              `border border-neutral-200 dark:border-neutral-700 border-solid text-black p-4 my-2 rounded-lg cursor-pointer w-full relative`
             )}
           >
-            <code className="bg-transparent border-none">
+            <code className="bg-transparent border-none text-black dark:text-white">
               {renderCortexResult()}
             </code>
             <div
@@ -289,7 +290,7 @@ const EngineCompatibility = () => {
                 </>
               ) : (
                 <>
-                  <CopyIcon size={18} />
+                  <CopyIcon size={18} className="text-black dark:text-white" />
                 </>
               )}
             </div>
