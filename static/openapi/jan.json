@@ -1123,16 +1123,6 @@
                         }
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ConfigUpdateDto"
-                            }
-                        }
-                    }
-                },
                 "responses": {
                     "200": {
                         "description": "Ok",
@@ -1248,7 +1238,7 @@
     ],
     "servers": [
         {
-            "url": "http://localhost:1337"
+            "url": "http://127.0.0.1:1337"
         }
     ],
     "components": {
@@ -2580,25 +2570,6 @@
                 },
                 "required": [
                     "name"
-                ]
-            },
-            "ConfigUpdateDto": {
-                "type": "object",
-                "properties": {
-                    "config": {
-                        "type": "string",
-                        "example": "apiKey",
-                        "description": "The configuration API key."
-                    },
-                    "value": {
-                        "type": "string",
-                        "example": "sk-xxxxxx",
-                        "description": "The value of the configuration API key."
-                    }
-                },
-                "required": [
-                    "config",
-                    "value"
                 ]
             }
         }
