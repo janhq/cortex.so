@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { FaWindows, FaApple, FaLinux } from "react-icons/fa";
 
 const EngineCompatibility = () => {
   const [Compatibility, setCompatibility] = useState({
@@ -17,14 +18,17 @@ const EngineCompatibility = () => {
         {
           name: "Windows",
           value: "win",
+          logo: FaWindows,
         },
         {
           name: "Mac",
           value: "mac",
+          logo: FaApple,
         },
         {
           name: "Linux",
           value: "linux",
+          logo: FaLinux,
         },
       ],
     },
@@ -62,7 +66,7 @@ const EngineCompatibility = () => {
         {
           name: "Apple Metal",
           value: "apple",
-          disabled: Compatibility.os !== "mac",
+          disabled: Compatibility.os !== "mac" || Compatibility.cpu === "amd",
         },
         {
           name: "Snapdragon NPU",
@@ -127,6 +131,8 @@ const EngineCompatibility = () => {
     },
   ];
 
+  // console.log(Compatibility);
+
   const handleClick = (level: string, value: string, disabled: boolean) => {
     if (disabled) return;
     setCompatibility((prev) => {
@@ -147,7 +153,6 @@ const EngineCompatibility = () => {
       return updatedCompatibility;
     });
   };
-
   const isPreviousLevelSelected = (index: number) => {
     if (index === 0) return true; // The first level (OS) is always enabled
     if (index === 3) return !!Compatibility.cpu; // Enable Engine if CPU is selected
@@ -165,32 +170,50 @@ const EngineCompatibility = () => {
     return "cortex run llama3:onnx / llama3:tensorrt-llm / llama3:gguf";
   };
 
+  useEffect(() => {
+    return () => {
+      console.log(Compatibility);
+      // if (Compatibility.os === "mac") {
+      //   console.log(Compatibility);
+      //   setCompatibility({
+      //     ...Compatibility,
+      //     accelerator: "apple",
+      //     engine: "llama",
+      //     format: "gguf",
+      //   });
+      // }
+    };
+  }, [Compatibility]);
+
   return (
     <div>
       {levels.map((level, i) => (
         <div key={i} className="flex justify-between items-center gap-4">
           <h5 className="mb-0">{level.name}</h5>
           <div className="flex w-3/4 gap-4">
-            {level.child.map((c) => (
-              <div
-                key={c.value}
-                className={twMerge(
-                  `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer`,
-                  Compatibility[level.name.toLowerCase()] === c.value
-                    ? "bg-neutral-900 text-white"
-                    : isPreviousLevelSelected(i)
-                    ? ""
-                    : "opacity-50 bg-neutral-100 cursor-not-allowed",
-                  c?.disabled && "bg-neutral-100 cursor-not-allowed"
-                )}
-                onClick={() =>
-                  isPreviousLevelSelected(i) &&
-                  handleClick(level.name.toLowerCase(), c.value, c.disabled)
-                }
-              >
-                {c.name}
-              </div>
-            ))}
+            {level.child.map((c) => {
+              return (
+                <div
+                  key={c.value}
+                  className={twMerge(
+                    `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer flex items-center`,
+                    Compatibility[level.name.toLowerCase()] === c.value
+                      ? "bg-neutral-900 text-white"
+                      : isPreviousLevelSelected(i)
+                      ? ""
+                      : "opacity-50 bg-neutral-100 cursor-not-allowed",
+                    c?.disabled && "bg-neutral-100 cursor-not-allowed"
+                  )}
+                  onClick={() =>
+                    isPreviousLevelSelected(i) &&
+                    handleClick(level.name.toLowerCase(), c.value, c.disabled)
+                  }
+                >
+                  {c.logo && <c.logo className="h-4 mr-2" />}
+                  {c.name}
+                </div>
+              );
+            })}
           </div>
         </div>
       ))}
