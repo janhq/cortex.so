@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { FaWindows, FaApple, FaLinux } from "react-icons/fa";
+import { useClipboard } from "@site/src/hooks/useClipboard";
+import { CopyIcon, CheckIcon } from "lucide-react";
 
 const EngineCompatibility = () => {
   const [Compatibility, setCompatibility] = useState({
@@ -56,7 +58,10 @@ const EngineCompatibility = () => {
         {
           name: "AMD GPU",
           value: "amd",
-          disabled: Compatibility.os === "mac",
+          disabled:
+            Compatibility.os === "mac" ||
+            (Compatibility.os === "win" && Compatibility.cpu === "arm64") ||
+            (Compatibility.os === "linux" && Compatibility.cpu === "arm64"),
         },
         {
           name: "Intel GPU",
@@ -66,12 +71,15 @@ const EngineCompatibility = () => {
         {
           name: "Apple Metal",
           value: "apple",
-          disabled: Compatibility.os !== "mac" || Compatibility.cpu === "amd",
+          disabled: Compatibility.os !== "mac" || Compatibility.cpu === "x86",
         },
         {
           name: "Snapdragon NPU",
           value: "snapdragon",
-          disabled: Compatibility.os !== "win",
+          disabled:
+            Compatibility.os === "mac" ||
+            Compatibility.os === "linux" ||
+            Compatibility.cpu === "x86",
         },
       ],
     },
@@ -123,7 +131,7 @@ const EngineCompatibility = () => {
         },
         {
           name: "TensorRT-LLM",
-          value: "tensorRT-LLM",
+          value: "tensorRT-LLM-model",
           disabled:
             Compatibility.engine === "onnx" || Compatibility.engine === "llama",
         },
@@ -131,28 +139,6 @@ const EngineCompatibility = () => {
     },
   ];
 
-  // console.log(Compatibility);
-
-  const handleClick = (level: string, value: string, disabled: boolean) => {
-    if (disabled) return;
-    setCompatibility((prev) => {
-      const updatedCompatibility = {
-        ...prev,
-        [level]: prev[level] === value && level === "accelerator" ? "" : value,
-      };
-
-      const levelIndex = levels.findIndex(
-        (l) => l.name.toLowerCase() === level
-      );
-
-      // Reset subsequent levels
-      for (let i = levelIndex + 1; i < levels.length; i++) {
-        updatedCompatibility[levels[i].name.toLowerCase()] = "";
-      }
-
-      return updatedCompatibility;
-    });
-  };
   const isPreviousLevelSelected = (index: number) => {
     if (index === 0) return true; // The first level (OS) is always enabled
     if (index === 3) return !!Compatibility.cpu; // Enable Engine if CPU is selected
@@ -171,19 +157,76 @@ const EngineCompatibility = () => {
   };
 
   useEffect(() => {
-    return () => {
-      console.log(Compatibility);
-      // if (Compatibility.os === "mac") {
-      //   console.log(Compatibility);
-      //   setCompatibility({
-      //     ...Compatibility,
-      //     accelerator: "apple",
-      //     engine: "llama",
-      //     format: "gguf",
-      //   });
-      // }
-    };
-  }, [Compatibility]);
+    if (Compatibility.os === "mac" && Compatibility.cpu === "arm64") {
+      setCompatibility((prev) => ({
+        ...prev,
+        accelerator: "apple",
+        engine: "llama",
+        model_format: "gguf",
+      }));
+    }
+    if (Compatibility.os === "mac" && Compatibility.cpu === "x86") {
+      setCompatibility((prev) => ({
+        ...prev,
+        engine: "llama",
+        model_format: "gguf",
+      }));
+    }
+    if (Compatibility.engine === "onnx") {
+      setCompatibility((prev) => ({
+        ...prev,
+        model_format: "onnx-model",
+      }));
+    }
+    if (Compatibility.engine === "llama") {
+      setCompatibility((prev) => ({
+        ...prev,
+        model_format: "gguf",
+      }));
+    }
+    if (Compatibility.engine === "llama") {
+      setCompatibility((prev) => ({
+        ...prev,
+        model_format: "gguf",
+      }));
+    }
+    if (Compatibility.engine === "tensorRT-LLM") {
+      setCompatibility((prev) => ({
+        ...prev,
+        model_format: "tensorRT-LLM-model",
+      }));
+    }
+  }, [Compatibility.os, Compatibility.cpu, Compatibility.engine]);
+
+  const handleClick = useCallback(
+    (level: string, value: string, disabled: boolean) => {
+      if (!disabled) {
+        setCompatibility((prev) => {
+          const updatedCompatibility = {
+            ...prev,
+            [level]:
+              prev[level] === value && level === "accelerator" ? "" : value,
+          };
+
+          const levelIndex = levels.findIndex(
+            (l) => l.name.toLowerCase().replace(" ", "_") === level
+          );
+
+          // Reset subsequent levels
+          for (let i = levelIndex + 1; i < levels.length; i++) {
+            updatedCompatibility[
+              levels[i].name.toLowerCase().replace(" ", "_")
+            ] = "";
+          }
+
+          return updatedCompatibility;
+        });
+      }
+    },
+    [Compatibility]
+  );
+
+  const clipboard = useClipboard({ timeout: 1000 });
 
   return (
     <div>
@@ -197,7 +240,9 @@ const EngineCompatibility = () => {
                   key={c.value}
                   className={twMerge(
                     `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer flex items-center`,
-                    Compatibility[level.name.toLowerCase()] === c.value
+                    Compatibility[
+                      level.name.toLowerCase().replace(" ", "_")
+                    ] === c.value
                       ? "bg-neutral-900 text-white"
                       : isPreviousLevelSelected(i)
                       ? ""
@@ -206,7 +251,11 @@ const EngineCompatibility = () => {
                   )}
                   onClick={() =>
                     isPreviousLevelSelected(i) &&
-                    handleClick(level.name.toLowerCase(), c.value, c.disabled)
+                    handleClick(
+                      level.name.toLowerCase().replace(" ", "_"),
+                      c.value,
+                      c.disabled
+                    )
                   }
                 >
                   {c.logo && <c.logo className="h-4 mr-2" />}
@@ -222,12 +271,28 @@ const EngineCompatibility = () => {
         <div className="flex w-3/4 gap-4">
           <div
             className={twMerge(
-              `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer w-full`
+              `border border-neutral-200 border-solid text-black p-4 my-2 rounded-lg cursor-pointer w-full relative`
             )}
           >
             <code className="bg-transparent border-none">
               {renderCortexResult()}
             </code>
+            <div
+              className="absolute top-1/2 -translate-y-1/2 right-3 flex h-10 w-10 items-center justify-center border border-neutral-200 dark:border-neutral-700 rounded-lg cursor-pointer"
+              onClick={() => {
+                clipboard.copy(renderCortexResult());
+              }}
+            >
+              {clipboard.copied ? (
+                <>
+                  <CheckIcon size={14} className="text-green-600" />
+                </>
+              ) : (
+                <>
+                  <CopyIcon size={18} />
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
