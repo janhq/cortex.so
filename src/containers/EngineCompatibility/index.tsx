@@ -160,9 +160,9 @@ const EngineCompatibility = () => {
     if (Compatibility.engine === "onnx") return "cortex run  llama3:onnx";
     if (Compatibility.engine === "tensorRT-LLM")
       return "cortex run  llama3:tensorrt-llm";
-    if (Compatibility.engine === "llama") return "cortex run llama3 (gguf)";
+    if (Compatibility.engine === "llama") return "cortex run llama3:gguf";
 
-    return "cortex run llama3:onnx / llama3:tensorrt-llm / llama3 (gguf)";
+    return "cortex run llama3:onnx / llama3:tensorrt-llm / llama3:gguf";
   };
 
   return (
