@@ -117,15 +117,14 @@ The sequence diagram above outlines the interactions between various components 
 1. **User Request**: The user initiates an interaction by requesting “a joke” via the Cortex CLI.
 2. **Model Activation**:
    - The API directs the request to the `Model Controller/Service`.
-   - The service pulls and starts the appropriate model and posts a request to `'/completions'` to prepare the model for processing.
+   - The service pulls and starts the appropriate model and posts a request to `/completions` to prepare the model for processing.
 3. **Chat Processing**:
-   - The `Chat Controller/Service` processes the user's request using `Chat UseCases`.
-   - The `Chat UseCases` interact with the Model Entity and Extension Repository to gather necessary data and logic.
+   - The `Chat Controller/Service` processes the user's request by interacting with the Model Entity and Extension Repository to gather necessary data and logic.
 4. **Data Handling and Response Formation**:
    - The `Model Entity` and `Extension Repository` perform data operations, which may involve calling a `Provider` for additional processing.
    - Data is fetched, stored, and an inference is performed as needed.
 5. **Response Delivery**:
-   - The response is formatted by the `Chat UseCases` and streamed back to the user through the API.
+   - The response is formatted by the `Chat Controller/Service` and streamed back to the user through the API.
    - The user receives the processed response, completing the cycle of interaction.
 
 ## Roadmap
