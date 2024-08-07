@@ -141,6 +141,12 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "benchmarking-architecture", label: "Benchmarking Infra" },
       ],
     },
+    {
+      type: "html",
+      value: "TROUBLESHOOTING",
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
   ],
   cli: [
     {
