@@ -28,6 +28,48 @@ To resolve this issue:
     </TabItem>
 </Tabs>
 
+## Axios Error
+```bash
+AxiosError: getaddrinfo ENOTFOUND api.github.com
+```
+
+This issue occurs for several reasons:
+
+- Bad internet connection when Cortex trying to download the model or the engine data.
+- If you attempt to run a model with a specific engine that has not been initialized yet after installing Cortex.
+
+To resolve this issue:
+
+1. Ensure your internet connection is good, or restart your model.
+2.  Follow the command below to restart the Cortex process:
+
+```bash
+# Stop the Cortex process
+cortex stop
+# Start the Cortex process
+cortex
+# Init the engine
+cortex engines <engine_name> init
+```
+
+## Engine Installation Error
+
+```bash
+Installing engine . . .Error:EPERM: operation not permitted
+```
+This issue occurs when an engine runs in the background and you attempt to run a different engine without stopping the previous one.
+
+To resolve this issue, follow the steps below:
+
+```bash
+# Stop the Cortex process
+cortex stop
+# Start the Cortex process
+cortex
+# Init the engine
+cortex run <model_id>:<engine_name>
+```
+
 ## 500 Status Code
 
 "500 status code ("no body") indicates an internal server error with no additional details provided. This issue may occur for several reasons:
@@ -79,48 +121,6 @@ To resolve this issue:
     2. Rerun `cortex` → run the model you want to use.
     </TabItem>
 </Tabs>
-
-## Axios Error
-```bash
-AxiosError: getaddrinfo ENOTFOUND api.github.com
-```
-
-This issue occurs for several reasons:
-
-- Bad internet connection when Cortex trying to download the model or the engine data.
-- If you attempt to run a model with a specific engine that has not been initialized yet after installing Cortex.
-
-To resolve this issue:
-
-1. Ensure your internet connection is good, or restart your model.
-2.  Follow the command below to restart the Cortex process:
-
-```bash
-# Stop the Cortex process
-cortex stop
-# Start the Cortex process
-cortex
-# Init the engine
-cortex engines <engine_name> init
-```
-
-## Engine Installation Error
-
-```bash
-Installing engine . . .Error:EPERM: operation not permitted
-```
-This issue occurs when an engine runs in the background and you attempt to run a different engine without stopping the previous one.
-
-To resolve this issue, follow the steps below:
-
-```bash
-# Stop the Cortex process
-cortex stop
-# Start the Cortex process
-cortex
-# Init the engine
-cortex run <model_id>:<engine_name>
-```
 
 ## 426 Error Code
 
