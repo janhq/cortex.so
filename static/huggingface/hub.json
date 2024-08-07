@@ -2,10 +2,10 @@
 {
   "quickstart_models": [
      {
-      "url": "https://huggingface.co/NousResearch/Hermes-2-Theta-Llama-3-8B-GGUF/blob/main/Hermes-2-Pro-Llama-3-Instruct-Merged-DPO-Q4_K_M.gguf",
-      "author": "NousResearch",
-      "logo": "https://cdn-avatars.huggingface.co/v1/production/uploads/6317aade83d8d2fd903192d9/tPLjYEeP6q1w0j_G2TJG_.png",
-      "model_name": "Hermes 2 Theta Llama 3 8B Q4_K_M GGUF",
+      "url": "https://huggingface.co/BafS/gemma-2-2b-it-Q4_K_M-GGUF/blob/main/gemma-2-2b-it-q4_k_m.gguf",
+      "author": "Google",
+      "logo": "https://cdn-avatars.huggingface.co/v1/production/uploads/5dd96eb166059660ed1ee413/WtA3YYitedOr9n02eHfJe.png",
+      "model_name": "Gemma2 2B Instruct Q4_K_M GGUF",
       "note": "Small + Smart"
     },
     {
