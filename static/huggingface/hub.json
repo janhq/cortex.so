@@ -2,7 +2,7 @@
 {
   "quickstart_models": [
      {
-      "url": "https://huggingface.co/BafS/gemma-2-2b-it-Q4_K_M-GGUF/blob/main/gemma-2-2b-it-q4_k_m.gguf",
+      "url": "https://huggingface.co/cortexso/gemma2/blob/2b-gguf/model.gguf",
       "author": "Google",
       "logo": "https://cdn-avatars.huggingface.co/v1/production/uploads/5dd96eb166059660ed1ee413/WtA3YYitedOr9n02eHfJe.png",
       "model_name": "Gemma2 2B Instruct Q4_K_M GGUF",
