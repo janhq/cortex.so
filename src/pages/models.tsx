@@ -139,7 +139,7 @@ const ModelsPage = () => {
             <SelectTrigger className="w-[180px] placeholder:text-red-200 font-semibold">
               <SelectValue placeholder="Select a Engine" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="dark:bg-neutral-900 bg-white">
               <SelectItem className="font-semibold" value="gguf">
                 GGUF
               </SelectItem>
@@ -171,9 +171,9 @@ const ModelsPage = () => {
               return (
                 <div
                   key={model.id}
-                  className="flex justify-between items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none"
+                  className="flex justify-between md:items-center py-4 border-b border-neutral-200 dark:border-neutral-700 last:border-none flex-col md:flex-row"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+                  <div className="flex flex-col md:flex-row gap-4">
                     <Link
                       to={`https://huggingface.co/${model.name}`}
                       target="_blank"
@@ -191,7 +191,7 @@ const ModelsPage = () => {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <div className="bg-neutral-100 flex items-center py-1 h-10 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer w-[340px]">
+                    <div className="bg-neutral-100 flex items-center py-1 h-10 px-4 rounded-lg font-medium dark:bg-neutral-800 text-black dark:text-white hover:no-underline !cursor-pointer w-full md:w-[340px]">
                       <code className="bg-transparent border-none text-left line-clamp-1">
                         {checkedItems.length > 0
                           ? `cortex run ${model.name.replace(
