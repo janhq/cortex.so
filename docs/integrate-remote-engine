@@ -36,6 +36,7 @@ class <NewEngine>EngineExtension extends OAIEngineExtension {
   apiKey?: string;
 }
 ```
+
 ### 3. Register the New Engine
 
 1. **Open** `cortex-js/src/extensions/extensions.module.ts`.
