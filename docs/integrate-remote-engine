@@ -1,11 +1,19 @@
 ---
 title: Integrate Remote Engine
 description: How to integrate remote engine
+slug: "integrate-remote-engine"
 ---
 
-# Adding a Remote Engine Model to Cortex
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
+:::warning
+🚧 Cortex is under construction.
+:::
+
+:::info
 This document provides a step-by-step guide to adding a new engine to the Cortex codebase, similar to the `OpenAIEngineExtension`.
+:::
 
 ## Steps to Add a New Engine
 
