@@ -32,16 +32,6 @@ class <NewEngine>EngineExtension extends OAIEngineExtension {
   apiKey?: string;
 }
 ```
-Each parameter in the above is defined as follows:
-| **Value**                   | **Description**                                                                                  |
-|------------------------------------|--------------------------------------------------------------------------------------------------|
-| `apiUrl`                           | This is the URL endpoint for the new engine's API. It is used to make chat completion requests.   |
-| `name`                             | This is a unique identifier for the engine. It is used internally to reference the engine.        |
-| `productName`                      | This is a human-readable name for the engine. It is used for display purposes.                    |
-| `description`                      | This provides a brief description of what the engine does. It is used for documentation and display purposes. |
-| `version`                          | This indicates the version of the engine extension. It is used for version control and display purposes. |
-| `eventEmmitter.on('config.updated')` | This is an event listener that listens for configuration updates. When the configuration for the engine is updated, this listener updates the `apiKey` and the engine's status. |
-| `onLoad`                           | This method is called when the engine extension is loaded. It retrieves the engine's configuration (such as the `apiKey`) and sets the engine's status based on whether the `apiKey` is available. |
 
 :::info
 Be sure to replace all placeholders with the appropriate values for your engine.
@@ -60,6 +50,17 @@ Be sure to replace all placeholders with the appropriate values for your engine.
     new <NewEngine>EngineExtension(httpService, configUsecases, eventEmitter),
 ]
 ```
+
+## Explanation of Key Properties and Methods
+| **Value**                   | **Description**                                                                                  |
+|------------------------------------|--------------------------------------------------------------------------------------------------|
+| `apiUrl`                           | This is the URL endpoint for the new engine's API. It is used to make chat completion requests.   |
+| `name`                             | This is a unique identifier for the engine. It is used internally to reference the engine.        |
+| `productName`                      | This is a human-readable name for the engine. It is used for display purposes.                    |
+| `description`                      | This provides a brief description of what the engine does. It is used for documentation and display purposes. |
+| `version`                          | This indicates the version of the engine extension. It is used for version control and display purposes. |
+| `eventEmmitter.on('config.updated')` | This is an event listener that listens for configuration updates. When the configuration for the engine is updated, this listener updates the `apiKey` and the engine's status. |
+| `onLoad`                           | This method is called when the engine extension is loaded. It retrieves the engine's configuration (such as the `apiKey`) and sets the engine's status based on whether the `apiKey` is available. |
 
 ## Advanced: Transforming Payloads and Responses
 
