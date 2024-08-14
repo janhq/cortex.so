@@ -90,7 +90,6 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia Catalog (Coming Soon)" },
       ],
     },
-    { type: "doc", id: "integrate-remote-engine", label: "Integrate Remote Engine" },
     // BASIC USAGE
     // {
     //   type: "html",
@@ -128,6 +127,7 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "cortex-llamacpp", label: "llama.cpp" },
         { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
         { type: "doc", id: "cortex-onnx", label: "ONNX" },
+        { type: "doc", id: "integrate-remote-engine", label: "Integrate Remote Engine" },
       ],
     },
     {
