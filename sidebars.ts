@@ -90,6 +90,7 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia Catalog (Coming Soon)" },
       ],
     },
+    { type: "doc", id: "integrate-remote-engine", label: "How to Integrate Remote Engine" },
     // BASIC USAGE
     // {
     //   type: "html",
