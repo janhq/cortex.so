@@ -1,6 +1,6 @@
 ---
 title: Integrate Remote Engine
-description: How to integrate remote engine
+description: How to integrate remote engine into Cortex.
 ---
 
 import Tabs from "@theme/Tabs";
@@ -10,20 +10,17 @@ import TabItem from "@theme/TabItem";
 🚧 Cortex is under construction.
 :::
 
-:::info
+
 This document provides a step-by-step guide to adding a new engine to the Cortex codebase, similar to the `OpenAIEngineExtension`.
-:::
 
-## Steps to Add a New Engine
 
-### 1. Create a New Engine Extension File
+## Integrate a New Remote Engine
 
-- Navigate to the `cortex-js/src/extensions` directory.
-- Create a new file named `<new-engine>.engine.ts` (replace `<new-engine>` with the name of your engine).
+### Step 1: Create the New Engine Extension
 
-### 2. Implement the New Engine Extension Class
-
-Use the following template to implement your new engine extension class. Replace placeholders with appropriate values for your engine.
+1. Navigate to the `cortex-js/src/extensions` directory.
+2. Create a new file named `<new-engine>.engine.ts` (replace `<new-engine>` with the name of your engine).
+3. Implement your new engine extension class using the following template:
 
 ```typescript
 class <NewEngine>EngineExtension extends OAIEngineExtension {
@@ -35,12 +32,26 @@ class <NewEngine>EngineExtension extends OAIEngineExtension {
   apiKey?: string;
 }
 ```
+Each parameter in the above is defined as follows:
+| **Value**                   | **Description**                                                                                  |
+|------------------------------------|--------------------------------------------------------------------------------------------------|
+| `apiUrl`                           | This is the URL endpoint for the new engine's API. It is used to make chat completion requests.   |
+| `name`                             | This is a unique identifier for the engine. It is used internally to reference the engine.        |
+| `productName`                      | This is a human-readable name for the engine. It is used for display purposes.                    |
+| `description`                      | This provides a brief description of what the engine does. It is used for documentation and display purposes. |
+| `version`                          | This indicates the version of the engine extension. It is used for version control and display purposes. |
+| `eventEmmitter.on('config.updated')` | This is an event listener that listens for configuration updates. When the configuration for the engine is updated, this listener updates the `apiKey` and the engine's status. |
+| `onLoad`                           | This method is called when the engine extension is loaded. It retrieves the engine's configuration (such as the `apiKey`) and sets the engine's status based on whether the `apiKey` is available. |
 
-### 3. Register the New Engine
+:::info
+Be sure to replace all placeholders with the appropriate values for your engine.
+:::
 
-1. **Open** `cortex-js/src/extensions/extensions.module.ts`.
+### Step 2: Register the New Engine
 
-2. **Register your new engine in the provider array:**
+1. Open the `extensions.module.ts` located at `cortex-js/src/extensions/`.
+
+2. Register your new engine in the provider array using the following code:
 
 ```typescript
 [
@@ -49,29 +60,6 @@ class <NewEngine>EngineExtension extends OAIEngineExtension {
     new <NewEngine>EngineExtension(httpService, configUsecases, eventEmitter),
 ]
 ```
-
-## Explanation of Key Properties and Methods
-
-### `apiUrl`
-This is the URL endpoint for the new engine's API. It is used to make chat completion requests. 
-
-### `name`
-This is a unique identifier for the engine. It is used internally to reference the engine. 
-
-### `productName`
-This is a human-readable name for the engine. It is used for display purposes. 
-
-### `description`
-This provides a brief description of what the engine does. It is used for documentation and display purposes. 
-
-### `version`
-This indicates the version of the engine extension. It is used for version control and display purposes. 
-
-### `eventEmmitter.on('config.updated')`
-This is an event listener that listens for configuration updates. When the configuration for the engine is updated, this listener updates the `apiKey` and the engine's status. 
-
-### `onLoad`
-This method is called when the engine extension is loaded. It retrieves the engine's configuration (such as the `apiKey`) and sets the engine's status based on whether the `apiKey` is available. 
 
 ## Advanced: Transforming Payloads and Responses
 
