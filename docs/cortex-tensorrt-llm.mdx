@@ -119,7 +119,24 @@ These are the main components that interact to provide an API for `inference` ta
 ### Communication Protocols
 
 #### Load a Model
-![Load Model](/img/docs/trt-2.png)
+```mermaid
+sequenceDiagram
+    participant JS as Cortex-JS
+    participant CPP as Cortex-CPP
+    participant TRT as Cortex.tensorrt-llm
+
+    JS->>CPP: HTTP request load model
+    CPP->>CPP: Load model
+    CPP->>TRT: Load model
+    TRT->>TRT: Cache chat template
+    TRT->>TRT: Create tokenizer
+    TRT->>TRT: Load config
+    TRT->>TRT: Initialize GPT Session
+    TRT-->>CPP: Callback
+    CPP-->>JS: HTTP response
+
+```
+
 The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.tensorrt-llm` when using the `tensorrt-llm` engine in Cortex:
 
 1. **HTTP Request Load Model (cortex-js to cortex-cpp)**:
@@ -151,7 +168,28 @@ The diagram above illustrates the interaction between three components: `cortex-
 
 
 #### Inference
-![Inference](/img/docs/trt-3.png)
+```mermaid
+sequenceDiagram
+    participant JS as Cortex-JS
+    participant CPP as Cortex-CPP
+    participant TRT as Cortex.tensorrt-llm
+
+    JS->>CPP: HTTP request chat completion
+    CPP->>TRT: Request chat completion
+    TRT->>TRT: Apply chat template
+    TRT->>TRT: Encode
+    TRT->>TRT: Set sampling config
+    TRT->>TRT: Create generator input/output
+    loop Wait for done
+        TRT->>TRT: Copy new token from GPU
+        TRT->>TRT: Decode new token
+        TRT-->>CPP: Callback
+        CPP-->>JS: HTTP stream response
+    end
+
+
+```
+
 The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.tensorrt-llm` when using the `tensorrt-llm` engine to call the `chat completions endpoint` with the inference option:
 
 1. **HTTP Request Chat Completion (cortex-js to cortex-cpp)**:
