@@ -234,6 +234,7 @@ const config: Config = {
         },
       } as ScalarOptions,
     ],
+    "docusaurus-plugin-dotenv",
   ],
 
   scripts: [
@@ -370,7 +371,7 @@ const config: Config = {
           docId: "overview",
           label: "Docs",
         },
-        { to: "/docs/cli", label: "CLI", position: "left" },
+        // { to: "/docs/cli", label: "CLI", position: "left" },
         { to: "/models", label: "Models", position: "right" },
         {
           type: "search",

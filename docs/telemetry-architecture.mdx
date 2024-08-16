@@ -13,7 +13,9 @@ import TabItem from '@theme/TabItem';
 :::
 
 ## Architecture
-![cortex-architecture.png](/img/docs/telemetry1.png)
+import Diagram from "../src/components/Diagram"
+
+<Diagram diagramPath={"/diagrams/Telemetry.excalidraw"} />
 The telemetry capability comprises several key components:
 1. **Telemetry Collector**: This component gathers telemetry data from the Cortex and exports it to other observability tools for further analysis and monitoring.
 2. **Jan Telemetry Server**: This component ingests telemetry data from Cortex. It processes this data and forwards events to Google Logging for further handling.

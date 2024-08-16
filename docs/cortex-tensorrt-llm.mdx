@@ -104,7 +104,11 @@ All the interfaces above contain the following parameters:
 
 
 ## Architecture
-![tensorrt-llm Architecture](/img/docs/trt1.png)
+
+import Diagram from "../src/components/Diagram"
+
+<Diagram diagramPath={"/diagrams/TensorRT-LLM.excalidraw"} />
+
 These are the main components that interact to provide an API for `inference` tasks using the `tensorrt-llm`:
 1. **cortex-cpp**: Acts as an intermediary between `cortex-js` and the inference engine (`cortex.tensorrt-llm`). It processes incoming HTTP requests and forwards them to the appropriate components for handling. Once a response is generated, it sends it back to `cortex-js`.
 
