@@ -154,7 +154,21 @@ The telemetry capability comprises several key components:
 }
 ```
 ## Implementation
-![catch-crash.png](/img/docs/telemetry2.png)
+```mermaid
+sequenceDiagram
+    participant User
+    participant Server as Cortex Server Main Process
+    participant Child as Child Process
+    participant Dir as Local Dir
+
+    User->>Server: Command/Request
+    Server->>Child: Fork child process
+    Server-->>Server: Catch uncaughtException, unhandledRejection event from process
+    Server->>Dir: Fork child process
+    Child->>Server: Interval ping to main process
+    Child->>Dir: Insert crash report
+```
+
 The diagram illustrates the implementation of handling crashes in the Cortex server environment:
 
 1. **User Interaction**

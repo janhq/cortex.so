@@ -110,7 +110,21 @@ main.ts                    # Entrypoint
 ```
 
 ## Runtime
-![cortex runtime](/img/docs/cortex-runtime.png)
+```mermaid
+sequenceDiagram
+    User-)Cortex: "Tell me a joke"
+    Cortex->>Model Controller/Service: Pull the Model
+    Cortex->>Model Controller/Service: Load the model
+    Cortex->>Chat Controller/Service: createChatCompletions()
+    Chat Controller/Service -->> Model Entity: findOne()
+    Cortex->>Model Entity: Store the model data
+    Chat Controller/Service -->> Extension Repository: findAll()
+
+    %% Responses
+    Extension Repository ->> Chat Controller/Service: Response stream
+    Chat Controller/Service ->> Chat Controller/Service: Formatted response/stream
+    Chat Controller/Service ->> User: "Your mama"
+```
 
 The sequence diagram above outlines the interactions between various components in the Cortex system during runtime, particularly when handling user requests via a CLI. Here’s a detailed breakdown of the runtime sequence:
 
