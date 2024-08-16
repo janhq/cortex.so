@@ -21,12 +21,18 @@ For Windows, Cortex can be installed in two ways:
 ### Install Cortex
 Before installation, make sure that you have met the required [dependencies](#windows) and [hardware](#hardware) to run Cortex.
 ```sh
-# Install using NPM
+# Install using winget
+winget install cortexso
+
+# Install using NPM (Not Recommended)
 npm i -g cortexso
 ```
 
 ### Uninstall Cortex
 ```sh
+# Uninstall using winget
+winget uninstall cortexso
+
 # Uninstall using NPM
 npm uninstall -g cortexso
 ```
@@ -44,6 +50,12 @@ Before installation, make sure that you have met the required [dependencies](#wi
 # Install using Brew
 brew install cortexso
 
+# Install Cortex
+sudo apt install openmpi-bin libopenmpi-dev
+sudo add-apt-repository ppa:homebrew-computer/main
+sudo apt update
+sudo apt install cortexso
+
 # Install using NPM (Not Recommended)
 npm i -g cortexso
 
@@ -54,6 +66,9 @@ npm i -g cortexso
 ```sh
 # Uninstall using Brew
 brew uninstall cortexso
+
+# Uninstall cortex
+sudo apt remove cortexso
 
 # Uninstall using NPM
 npm uninstall -g cortexso

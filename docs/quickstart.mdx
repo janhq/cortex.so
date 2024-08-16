@@ -17,9 +17,19 @@ import TabItem from "@theme/TabItem";
 # Install using Brew for Mac and Linux
 brew install cortexso
 
-# Install using NPM for Windows
-npm i -g cortexso
+# Install using winger for Windows
+winget install cortexso
 
+# Install using Sudo for Linux
+sudo add-apt-repository ppa:homebrew-computer/main
+sudo apt update
+sudo apt install cortexso
+
+```
+## Start Cortex Processes and API Server
+```sh
+# By default the server will be started on port `1337`
+cortex
 ```
 ## Run a Model
 ```sh
@@ -95,11 +105,8 @@ cortex stop
 # Show a model and cortex system status
 cortex ps
 
-# Fetch telemetry logs to assess the cortex's performance, usage, and health.
+# Fetch telemetry logs to assess the cortex's crash.
 cortex telemetry
-
-# Show the Cortex logs
-cortex logs
 ```
 ## Run Different Model Variants
 :::info

@@ -16,7 +16,9 @@ The following guide details Cortex's core components, providing insights and ins
 
 ## Architecture
 
-![Architecture](/img/docs/architecture.png)
+import Diagram from "../src/components/Diagram"
+
+<Diagram diagramPath={"/diagrams/Architecture.excalidraw"} />
 
 ### Main Components
 
@@ -119,7 +121,6 @@ sequenceDiagram
     Chat Controller/Service -->> Model Entity: findOne()
     Cortex->>Model Entity: Store the model data
     Chat Controller/Service -->> Extension Repository: findAll()
-
     %% Responses
     Extension Repository ->> Chat Controller/Service: Response stream
     Chat Controller/Service ->> Chat Controller/Service: Formatted response/stream

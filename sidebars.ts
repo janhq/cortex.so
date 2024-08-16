@@ -109,6 +109,24 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "chat-completions", label: "Chat Completions" },
     { type: "doc", id: "embeddings", label: "Embeddings" },
     { type: "doc", id: "benchmarking", label: "Benchmarking" },
+    // CLI
+    {
+      type: "html",
+      value: "CLI",
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "cli/cortex", label: "cortex" },
+    { type: "doc", id: "cli/chat", label: "cortex chat" },
+    { type: "doc", id: "cli/embeddings", label: "cortex embeddings" },
+    { type: "doc", id: "cli/presets", label: "cortex presets" },
+    { type: "doc", id: "cli/pull", label: "cortex pull" },
+    { type: "doc", id: "cli/run", label: "cortex run" },
+    { type: "doc", id: "cli/models/index", label: "cortex models" },
+    { type: "doc", id: "cli/engines/index", label: "cortex engines" },
+    { type: "doc", id: "cli/stop", label: "cortex stop" },
+    { type: "doc", id: "cli/ps", label: "cortex ps" },
+    { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
+    { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
     // ARCHITECTURE
     {
       type: "html",
@@ -148,40 +166,6 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
-  ],
-  cli: [
-    {
-      type: "html",
-      value: "Usage",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "cli/cortex", label: "cortex" },
-    { type: "doc", id: "cli/chat", label: "cortex chat" },
-    { type: "doc", id: "cli/embeddings", label: "cortex embeddings" },
-    { type: "doc", id: "cli/presets", label: "cortex presets" },
-    {
-      type: "html",
-      value: "Model Operations",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "cli/pull", label: "cortex pull" },
-    { type: "doc", id: "cli/run", label: "cortex run" },
-    { type: "doc", id: "cli/models/index", label: "cortex models" },
-    { type: "doc", id: "cli/engines/index", label: "cortex engines" },
-    {
-      type: "html",
-      value: "System",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "cli/stop", label: "cortex stop" },
-    { type: "doc", id: "cli/ps", label: "cortex ps" },
-    { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
-    {
-      type: "html",
-      value: "Benchmarking",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
   ],
 };
 

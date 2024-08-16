@@ -132,7 +132,9 @@ You can download precompiled models from the [Cortex Hub](https://huggingface.co
 
 ## Architecture
 
-![Cortex llamacpp architecture](/img/docs/llama-cpp1.png)
+import Diagram from "../src/components/Diagram"
+
+<Diagram diagramPath={"/diagrams/llamacpp1.excalidraw"} />
 
 ### Main Components
 
@@ -145,7 +147,8 @@ You can download precompiled models from the [Cortex Hub](https://huggingface.co
 
 ### Communication Protocols
 
-![Cortex llamacpp architecture](/img/docs/llama-cpp2.png)
+<Diagram diagramPath={"/diagrams/llamacpp2.excalidraw"} />
+
 The diagram above illustrates how `cortex.llamacpp` communication protocol works:
 
 - `Streaming`: Responses are processed and returned one token at a time.
