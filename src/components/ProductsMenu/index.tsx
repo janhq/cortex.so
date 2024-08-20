@@ -6,7 +6,7 @@ const ProductsMenu = () => {
 
   return (
     <Menu setActive={setActive}>
-      <MenuItem setActive={setActive} active={active} item="Services">
+      <MenuItem setActive={setActive} active={active} item="Products">
         <div className="flex flex-col space-y-3 text-sm min-w-52">
           <HoveredLink href="/docs">
             <div className="py-1">
