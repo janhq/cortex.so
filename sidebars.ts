@@ -167,6 +167,14 @@ const sidebars: SidebarsConfig = {
     },
     { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
   ],
+  platform: [
+    {
+      type: "html",
+      value: "GET STARTED",
+      className: "sidebar-divider",
+    },
+    "cortex-platform/overview",
+  ]
 };
 
 export default sidebars;

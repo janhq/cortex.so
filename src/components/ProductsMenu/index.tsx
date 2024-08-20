@@ -16,7 +16,7 @@ const ProductsMenu = () => {
               </p>
             </div>
           </HoveredLink>
-          <HoveredLink href="/docs">
+          <HoveredLink href="/docs/cortex-platform">
             <div className="py-1">
               <h4 className="mb-1">Cortex Platform</h4>
               <p className="mb-0 text-neutral-600 dark:text-neutral-400">
@@ -24,17 +24,17 @@ const ProductsMenu = () => {
               </p>
             </div>
           </HoveredLink>
-          <HoveredLink href="/docs">
+          <HoveredLink>
             <div className="py-1">
-              <h4 className="mb-1">Cortex Desktop</h4>
+              <h4 className="mb-1">Cortex Desktop (Coming Soon)</h4>
               <p className="mb-0 text-neutral-600 dark:text-neutral-400">
                 Easy-to-use Desktop app
               </p>
             </div>
           </HoveredLink>
-          <HoveredLink href="/docs">
+          <HoveredLink>
             <div className="py-1">
-              <h4 className="mb-1">Cortex Server</h4>
+              <h4 className="mb-1">Cortex Server (Coming Soon)</h4>
               <p className="mb-0 text-neutral-600 dark:text-neutral-400">
                 Run Cortex in Production
               </p>
