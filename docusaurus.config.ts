@@ -378,6 +378,10 @@ const config: Config = {
           position: "right",
         },
         // { to: "/docs/cli", label: "CLI", position: "left" },
+        {
+          type: "custom-productMegaMenu",
+          position: "left",
+        },
         { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
