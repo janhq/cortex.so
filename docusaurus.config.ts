@@ -367,12 +367,12 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          position: "left",
+          position: "right",
           docId: "overview",
           label: "Docs",
         },
         // { to: "/docs/cli", label: "CLI", position: "left" },
-        { to: "/models", label: "Models", position: "right" },
+        { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
           position: "right",
