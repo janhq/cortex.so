@@ -6,6 +6,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { ScalarOptions } from "@scalar/docusaurus";
 import { downloadFile, listModels, listFiles } from "@huggingface/hub";
 import { remarkCodeHike } from "@code-hike/mdx";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 const date = new Date();
 
@@ -58,6 +61,14 @@ const config: Config = {
   staticDirectories: ["static"],
 
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "changelog",
+        path: "changelog",
+        routeBasePath: "changelog",
+      },
+    ],
     "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
       return {
@@ -159,6 +170,47 @@ const config: Config = {
           } catch (error) {
             console.error("Error fetching models:", error);
           }
+        },
+      };
+    },
+    async function getChangelogList(context, options) {
+      return {
+        name: "changelog-list",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+          const getChangelog = fs
+            .readdirSync(path.join(process.cwd(), "changelog"))
+            .filter((file) => {
+              return (
+                path.extname(file).toLowerCase() === ".mdx" &&
+                !file.startsWith("index")
+              );
+            });
+          const changelog = [];
+
+          for (const item of getChangelog) {
+            const content = fs.readFileSync(
+              path.join(process.cwd(), `changelog/${item}`),
+              "utf8"
+            );
+            const frontmatter = matter(content);
+
+            if (!frontmatter.data.unlisted) {
+              changelog.push({
+                url: item.replace(".mdx", ""),
+                title: frontmatter?.data?.title || "",
+                ogImage: frontmatter?.data?.ogImage || null,
+                version: frontmatter?.data?.version || null,
+                description: frontmatter?.data?.description || null,
+                date: String(frontmatter?.data?.date) || null,
+              });
+            }
+            changelog.sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            );
+          }
+          setGlobalData(changelog);
+          console.log(changelog);
         },
       };
     },
@@ -372,17 +424,8 @@ const config: Config = {
           docId: "overview",
           label: "Docs",
         },
-        {
-          to: "/api-reference",
-          label: "API Reference",
-          position: "left",
-        },
-        // { to: "/docs/cli", label: "CLI", position: "left" },
-        // {
-        //   type: "custom-productMegaMenu",
-        //   position: "left",
-        // },
-        { to: "/models", label: "Models", position: "left" },
+        { to: "/models", label: "Models", position: "right" },
+        { to: "/changelog", label: "Changelog", position: "right" },
         {
           type: "search",
           position: "right",
@@ -405,6 +448,7 @@ const config: Config = {
             { to: "/docs/cli", label: "CLI" },
             { href: "/api-reference", label: "API Reference" },
             { to: "/models", label: "Models" },
+            { to: "/changelog", label: "Changelog" },
           ],
         },
         {

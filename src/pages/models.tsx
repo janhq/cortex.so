@@ -56,7 +56,7 @@ const ModelsPage = () => {
   );
 
   return (
-    <Layout title="Homepage">
+    <Layout title="Models">
       <main>
         <div className="w-full lg:w-1/2 mx-auto text-center mt-16">
           <h2 className="text-4xl font-grotesk">Models</h2>
