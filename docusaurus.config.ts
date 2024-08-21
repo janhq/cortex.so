@@ -222,9 +222,10 @@ const config: Config = {
       };
     },
     [
-      "@scalar/docusaurus",
+      "./src/plugins/scalar/index.ts",
       {
         label: "API Reference",
+        showNavLink: false,
         route: "/api-reference",
         configuration: {
           spec: {
@@ -367,12 +368,21 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          position: "left",
+          position: "right",
           docId: "overview",
           label: "Docs",
         },
+        {
+          to: "/api-reference",
+          label: "API Reference",
+          position: "right",
+        },
         // { to: "/docs/cli", label: "CLI", position: "left" },
-        { to: "/models", label: "Models", position: "right" },
+        {
+          type: "custom-productMegaMenu",
+          position: "left",
+        },
+        { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
           position: "right",

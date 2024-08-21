@@ -1216,7 +1216,7 @@
     ],
     "x-tagGroups": [
         {
-            "name": "Endpoints",
+            "name": "CORTEX.CPP",
             "tags": [
                 "Inference",
                 "Embeddings",
@@ -1228,7 +1228,7 @@
             ]
         },
         {
-            "name": "Assistants",
+            "name": "CORTEX PLATFORM",
             "tags": [
                 "Assistants",
                 "Messages",
