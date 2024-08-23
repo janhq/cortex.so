@@ -45,8 +45,18 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: "doc", id: "basic-usage/command-line", label: "CLI" },
         { type: "doc", id: "basic-usage/server", label: "API" },
-        { type: "doc", id: "basic-usage/js-library", label: "cortex.js" },
-        { type: "doc", id: "basic-usage/py-library", label: "cortex.py" },
+        {
+          type: "category",
+          label: "Embeddable",
+          link: {
+            type: "generated-index",
+          },
+          collapsed: true,
+          items: [
+            { type: "doc", id: "basic-usage/embeddable/js-library", label: "cortex.js" },
+            { type: "doc", id: "basic-usage/embeddable/py-library", label: "cortex.py" },
+          ],
+        },
       ],
     },
     { type: "doc", id: "telemetry", label: "Telemetry" },
