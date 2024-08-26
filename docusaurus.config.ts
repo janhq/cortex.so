@@ -368,21 +368,21 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          position: "right",
+          position: "left",
           docId: "overview",
           label: "Docs",
         },
         {
           to: "/api-reference",
           label: "API Reference",
-          position: "right",
-        },
-        // { to: "/docs/cli", label: "CLI", position: "left" },
-        {
-          type: "custom-productMegaMenu",
           position: "left",
         },
-        { to: "/models", label: "Models", position: "left" },
+        // { to: "/docs/cli", label: "CLI", position: "left" },
+        // {
+        //   type: "custom-productMegaMenu",
+        //   position: "left",
+        // },
+        { to: "/models", label: "Models", position: "right" },
         {
           type: "search",
           position: "right",

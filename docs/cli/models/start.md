@@ -4,7 +4,7 @@ description: Cortex models subcommands.
 ---
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex models start`

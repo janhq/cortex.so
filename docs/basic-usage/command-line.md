@@ -5,7 +5,7 @@ slug: "command-line"
 ---
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 Cortex has a [Docker](https://docs.docker.com/engine/reference/commandline/cli/) and [Ollama](https://ollama.com/)-inspired [CLI syntax](/docs/cli) for running model operations. 

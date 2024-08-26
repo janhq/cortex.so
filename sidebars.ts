@@ -47,19 +47,19 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "basic-usage/server", label: "API" },
         {
           type: "category",
-          label: "Embeddable",
+          label: "Integration",
           link: {
             type: "generated-index",
           },
           collapsed: true,
           items: [
-            { type: "doc", id: "basic-usage/embeddable/js-library", label: "cortex.js" },
-            { type: "doc", id: "basic-usage/embeddable/py-library", label: "cortex.py" },
+            { type: "doc", id: "basic-usage/integration/js-library", label: "cortex.js" },
+            { type: "doc", id: "basic-usage/integration/py-library", label: "cortex.py" },
           ],
         },
       ],
     },
-    { type: "doc", id: "telemetry", label: "Telemetry" },
+    // { type: "doc", id: "telemetry", label: "Telemetry" },
     // MODELs
     {
       type: "html",
@@ -116,8 +116,8 @@ const sidebars: SidebarsConfig = {
       value: "ENDPOINTS",
       className: "sidebar-divider",
     },
-    { type: "doc", id: "chat-completions", label: "Chat Completions" },
-    { type: "doc", id: "embeddings", label: "Embeddings" },
+    // { type: "doc", id: "chat-completions", label: "Chat Completions" },
+    // { type: "doc", id: "embeddings", label: "Embeddings" },
     { type: "doc", id: "benchmarking", label: "Benchmarking" },
     // CLI
     {
@@ -135,7 +135,7 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "cli/engines/index", label: "cortex engines" },
     { type: "doc", id: "cli/stop", label: "cortex stop" },
     { type: "doc", id: "cli/ps", label: "cortex ps" },
-    { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
+    // { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
     { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
     // ARCHITECTURE
     {
@@ -183,7 +183,14 @@ const sidebars: SidebarsConfig = {
       value: "GET STARTED",
       className: "sidebar-divider",
     },
-    "cortex-platform/overview",
+    "cortex-platform/about",
+    {
+      type: "html",
+      value: "ENDPOINTS",
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "cortex-platform/chat-completions", label: "Chat Completions" },
+    { type: "doc", id: "cortex-platform/embeddings", label: "Embeddings" },
   ]
 };
 

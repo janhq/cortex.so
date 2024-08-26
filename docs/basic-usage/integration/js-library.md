@@ -5,7 +5,7 @@ slug: "ts-library"
 ---
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 Cortex can be used in a Typescript application with the `cortex.js` library. Cortex provides a Typescript client library as a **fork of OpenAI's [Typescript library](https://github.com/openai/openai-node)** with additional methods for Local AI.

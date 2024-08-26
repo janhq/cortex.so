@@ -9,24 +9,14 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 ## Cortex Installation
 Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
 
 ```sh
-# Install OpenMPI dependency
-sudo apt install openmpi-bin libopenmpi-dev
-
-# Install Cortex
-sudo add-apt-repository ppa:homebrew-computer/main
-sudo apt update
-sudo apt install cortexso
-
-# Install using NPM (Not Recommended as this installs the latest nightly build)
-npm i -g cortexso
-
+sudo apt install cortex-engine
 ```
 :::info
 You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
@@ -34,11 +24,7 @@ You can also install Cortex using the Cortex Installer available on [GitHub Rele
 
 ## Uninstall Cortex
 ```sh
-# Uninstall cortex
-sudo apt remove cortexso
-
-# Uninstall using NPM
-npm uninstall -g cortexso
+sudo apt remove cortex-engine
 ```
 :::info
 Delete the Cortex data folder located in your home folder.

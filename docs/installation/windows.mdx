@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 ## Overview
@@ -21,20 +21,12 @@ For Windows, Cortex can be installed in two ways:
 ### Install Cortex
 Before installation, make sure that you have met the required [dependencies](#windows) and [hardware](#hardware) to run Cortex.
 ```sh
-# Install using winget
-winget install cortexso
-
-# Install using NPM (Not Recommended as this installs the latest nightly build)
-npm i -g cortexso
+winget install cortex-engine
 ```
 
 ### Uninstall Cortex
 ```sh
-# Uninstall using winget
-winget uninstall cortexso
-
-# Uninstall using NPM
-npm uninstall -g cortexso
+winget uninstall cortex-engine
 ```
 :::info
 Delete the Cortex data folder located in your home folder.
@@ -48,30 +40,20 @@ Before installation, make sure that you have met the required [dependencies](#wi
 
 ```sh
 # Install using Brew
-brew install cortexso
+brew install cortex-engine
 
-# Install Cortex
-sudo apt install openmpi-bin libopenmpi-dev
-sudo add-apt-repository ppa:homebrew-computer/main
-sudo apt update
-sudo apt install cortexso
-
-# Install using NPM (Not Recommended as this installs the latest nightly build)
-npm i -g cortexso
-
+# Install using Sudo
+sudo apt install cortex-engine
 ```
 
 ### Uninstall Cortex
 
 ```sh
 # Uninstall using Brew
-brew uninstall cortexso
+brew uninstall cortex-engine
 
 # Uninstall cortex
-sudo apt remove cortexso
-
-# Uninstall using NPM
-npm uninstall -g cortexso
+sudo apt remove cortex-engine
 ```
 :::info
 Delete the Cortex data folder located in your home folder.
