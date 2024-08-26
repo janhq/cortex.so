@@ -15,7 +15,18 @@ const sidebars: SidebarsConfig = {
   sidebar: [
     {
       type: "html",
+      value:
+        '<div class="mt-4"><a class="menu__link" href="/docs/">Cortex</a></div>',
+    },
+    {
+      type: "html",
+      value:
+        '<div><a class="menu__link" href="/docs/cortex-platform/">Platform<span class="bg-black dark:bg-white dark:text-black text-white rounded-full px-2 py-1 ml-2 text-xs">Coming Soon</span></a></div>',
+    },
+    {
+      type: "html",
       value: "GET STARTED",
+
       className: "sidebar-divider",
     },
     "overview",
@@ -32,7 +43,11 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "installation/mac", label: "Mac" },
         { type: "doc", id: "installation/linux", label: "Linux" },
         { type: "doc", id: "installation/docker", label: "Docker" },
-        { type: "doc", id: "installation/gpu-acceleration", label: "GPU Acceleration" },
+        {
+          type: "doc",
+          id: "installation/gpu-acceleration",
+          label: "GPU Acceleration",
+        },
       ],
     },
     {
@@ -53,8 +68,16 @@ const sidebars: SidebarsConfig = {
           },
           collapsed: true,
           items: [
-            { type: "doc", id: "basic-usage/integration/js-library", label: "cortex.js" },
-            { type: "doc", id: "basic-usage/integration/py-library", label: "cortex.py" },
+            {
+              type: "doc",
+              id: "basic-usage/integration/js-library",
+              label: "cortex.js",
+            },
+            {
+              type: "doc",
+              id: "basic-usage/integration/py-library",
+              label: "cortex.py",
+            },
           ],
         },
       ],
@@ -97,7 +120,11 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Repos" },
         { type: "doc", id: "hub/hugging-face", label: "HuggingFace Repos" },
-        { type: "doc", id: "hub/nvidia-ngc", label: "Nvidia Catalog (Coming Soon)" },
+        {
+          type: "doc",
+          id: "hub/nvidia-ngc",
+          label: "Nvidia Catalog (Coming Soon)",
+        },
       ],
     },
     // BASIC USAGE
@@ -155,7 +182,11 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "cortex-llamacpp", label: "llama.cpp" },
         { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
         { type: "doc", id: "cortex-onnx", label: "ONNX" },
-        { type: "doc", id: "integrate-remote-engine", label: "Integrate Remote Engine" },
+        {
+          type: "doc",
+          id: "integrate-remote-engine",
+          label: "Integrate Remote Engine",
+        },
       ],
     },
     {
@@ -167,7 +198,11 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         { type: "doc", id: "telemetry-architecture", label: "Telemetry Infra" },
-        { type: "doc", id: "benchmarking-architecture", label: "Benchmarking Infra" },
+        {
+          type: "doc",
+          id: "benchmarking-architecture",
+          label: "Benchmarking Infra",
+        },
       ],
     },
     {
@@ -189,9 +224,13 @@ const sidebars: SidebarsConfig = {
       value: "ENDPOINTS",
       className: "sidebar-divider",
     },
-    { type: "doc", id: "cortex-platform/chat-completions", label: "Chat Completions" },
+    {
+      type: "doc",
+      id: "cortex-platform/chat-completions",
+      label: "Chat Completions",
+    },
     { type: "doc", id: "cortex-platform/embeddings", label: "Embeddings" },
-  ]
+  ],
 };
 
 export default sidebars;
