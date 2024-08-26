@@ -16,6 +16,8 @@ type Changelog = {
 const Changelog = () => {
   const data = usePluginData("changelog-list") as Changelog[];
 
+  console.log(data);
+
   return (
     <Layout title="Changelog">
       <main>
@@ -31,30 +33,30 @@ const Changelog = () => {
             {data?.map((log: Changelog, i: number) => {
               return (
                 <div key={i} className="flex gap-8 items-start">
-                  <div className="w-3/12 -mt-2">
+                  <div className="w-3/12 -mt-2 text-right pl-4">
                     <p className="text-black/60 dark:text-white/60 font-medium">
                       {format(log?.date, "MMMM do, yyyy")}
                     </p>
                   </div>
                   <a
                     href={`./changelog/${log?.url}`}
-                    className="border-l dark:nx-border-neutral-800 w-full cursor-pointer"
+                    className="border-l dark:nx-border-neutral-800 w-full cursor-pointer no-underline hover:no-underline group inline-block"
                   >
                     <div className="flex gap-8 items-start w-full">
                       <div className="w-2 h-2 relative -left-1 bg-blue-500 rounded-full flex-shrink-0" />
-                      <div className="pb-14 w-full -mt-2">
+                      <div className="pb-12 -mt-2">
                         <div className="w-full pb-4 px-8 rounded-lg flex flex-col lg:flex-row justify-between">
                           <div>
-                            <h6 className="text-lg lg:text-2xl font-bold">
+                            <h6 className="text-base mb-1 lg:text-2xl font-bold text-black dark:text-white group-hover:text-blue-700">
                               {log?.title}
                             </h6>
                             {log?.description && (
-                              <p className="mt-2 text-medium">
+                              <p className="text-medium mb-0">
                                 {log?.description}
                               </p>
                             )}
-                            <p className="mt-2 text-black/60 dark:text-white/60 text-medium">
-                              New release Jan App v{log?.version}
+                            <p className="text-black/60 dark:text-white/60 text-medium mb-0">
+                              New release Cortex v{log?.version}
                             </p>
                           </div>
                         </div>

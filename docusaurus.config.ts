@@ -81,6 +81,7 @@ const config: Config = {
         },
       };
     },
+
     async function modelsPagesGenPlugin(context, options) {
       return {
         name: "list-models",
@@ -173,6 +174,7 @@ const config: Config = {
         },
       };
     },
+
     async function getChangelogList(context, options) {
       return {
         name: "changelog-list",
@@ -210,10 +212,10 @@ const config: Config = {
             );
           }
           setGlobalData(changelog);
-          console.log(changelog);
         },
       };
     },
+
     async function getRepoInfo(context, options) {
       return {
         name: "repo-info",
@@ -281,7 +283,7 @@ const config: Config = {
         route: "/api-reference",
         configuration: {
           spec: {
-            url: "https://raw.githubusercontent.com/janhq/cortex-web/main/static/openapi/jan.json",
+            url: "https://raw.githubusercontent.com/janhq/cortex.so/main/static/openapi/jan.json",
           },
           hideModels: true,
         },
@@ -352,7 +354,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/janhq/cortex-web/tree/main/",
+          editUrl: "https://github.com/janhq/cortex.so/tree/main/",
         },
         sitemap: {
           changefreq: "daily",
@@ -424,8 +426,18 @@ const config: Config = {
           docId: "overview",
           label: "Docs",
         },
-        { to: "/models", label: "Models", position: "right" },
+        {
+          to: "/api-reference",
+          label: "API Reference",
+          position: "right",
+        },
+        // { to: "/docs/cli", label: "CLI", position: "left" },
         { to: "/changelog", label: "Changelog", position: "right" },
+        {
+          type: "custom-productMegaMenu",
+          position: "left",
+        },
+        { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
           position: "right",

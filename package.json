@@ -13,6 +13,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
+    "create:changelog": "plop create-changelog",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -30,6 +31,8 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@scalar/docusaurus": "^0.3.5",
     "autoprefixer": "^10.4.19",
+    "chalk": "^5.3.0",
+    "chokidar": "^3.6.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
@@ -39,6 +42,8 @@
     "highlight.js": "^11.9.0",
     "lucide-react": "^0.395.0",
     "markdown-it": "^14.1.0",
+    "plop": "^4.0.1",
+    "plop-helper-date": "^1.0.0",
     "postcss": "^8.4.38",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
