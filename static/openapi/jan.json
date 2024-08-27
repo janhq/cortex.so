@@ -1216,7 +1216,7 @@
     ],
     "x-tagGroups": [
         {
-            "name": "CORTEX.CPP",
+            "name": "CORTEX",
             "tags": [
                 "Inference",
                 "Embeddings",

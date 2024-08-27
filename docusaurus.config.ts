@@ -382,7 +382,7 @@ const config: Config = {
         //   type: "custom-productMegaMenu",
         //   position: "left",
         // },
-        { to: "/models", label: "Models", position: "right" },
+        { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
           position: "right",
