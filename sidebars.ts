@@ -143,9 +143,8 @@ const sidebars: SidebarsConfig = {
       value: "ENDPOINTS",
       className: "sidebar-divider",
     },
-    // { type: "doc", id: "chat-completions", label: "Chat Completions" },
-    // { type: "doc", id: "embeddings", label: "Embeddings" },
-    { type: "doc", id: "benchmarking", label: "Benchmarking" },
+    { type: "doc", id: "chat-completions", label: "Chat Completions" },
+    { type: "doc", id: "embeddings", label: "Embeddings" },
     // CLI
     {
       type: "html",
@@ -215,6 +214,16 @@ const sidebars: SidebarsConfig = {
   platform: [
     {
       type: "html",
+      value:
+        '<div class="mt-4"><a class="menu__link" href="/docs/">Cortex</a></div>',
+    },
+    {
+      type: "html",
+      value:
+        '<div><a class="menu__link" href="/docs/cortex-platform/">Platform<span class="bg-black dark:bg-white dark:text-black text-white rounded-full px-2 py-1 ml-2 text-xs">Coming Soon</span></a></div>',
+    },
+    {
+      type: "html",
       value: "GET STARTED",
       className: "sidebar-divider",
     },
@@ -224,12 +233,7 @@ const sidebars: SidebarsConfig = {
       value: "ENDPOINTS",
       className: "sidebar-divider",
     },
-    {
-      type: "doc",
-      id: "cortex-platform/chat-completions",
-      label: "Chat Completions",
-    },
-    { type: "doc", id: "cortex-platform/embeddings", label: "Embeddings" },
+    { type: "doc", id: "cortex-platform/benchmarking", label: "Benchmarking" },
   ],
 };
 
