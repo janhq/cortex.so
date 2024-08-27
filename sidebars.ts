@@ -114,7 +114,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Model Repositories",
+      label: "Model Sources",
       link: { type: "doc", id: "hub/index" },
       collapsed: true,
       items: [
@@ -162,7 +162,7 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "cli/stop", label: "cortex stop" },
     { type: "doc", id: "cli/ps", label: "cortex ps" },
     // { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
-    { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
+    // { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
     // ARCHITECTURE
     {
       type: "html",
@@ -234,6 +234,12 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "cortex-platform/benchmarking", label: "Benchmarking" },
+    {
+      type: "html",
+      value: "CLI",
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
   ],
 };
 
