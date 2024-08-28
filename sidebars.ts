@@ -52,36 +52,56 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Basic Usage",
+      label: "Integration",
       link: {
         type: "generated-index",
       },
       collapsed: true,
       items: [
-        { type: "doc", id: "basic-usage/command-line", label: "CLI" },
-        { type: "doc", id: "basic-usage/server", label: "API" },
         {
-          type: "category",
-          label: "Integration",
-          link: {
-            type: "generated-index",
-          },
-          collapsed: true,
-          items: [
-            {
-              type: "doc",
-              id: "basic-usage/integration/js-library",
-              label: "cortex.js",
-            },
-            {
-              type: "doc",
-              id: "basic-usage/integration/py-library",
-              label: "cortex.py",
-            },
-          ],
+          type: "doc",
+          id: "basic-usage/integration/js-library",
+          label: "cortex.js",
+        },
+        {
+          type: "doc",
+          id: "basic-usage/integration/py-library",
+          label: "cortex.py",
         },
       ],
     },
+    // {
+    //   type: "category",
+    //   label: "Basic Usage",
+    //   link: {
+    //     type: "generated-index",
+    //   },
+    //   collapsed: true,
+    //   items: [
+    //     { type: "doc", id: "basic-usage/command-line", label: "CLI" },
+    //     { type: "doc", id: "basic-usage/server", label: "API" },
+        // {
+        //   type: "category",
+        //   label: "Integration",
+        //   link: {
+        //     type: "generated-index",
+        //   },
+        //   collapsed: true,
+        //   items: [
+        //     {
+        //       type: "doc",
+        //       id: "basic-usage/integration/js-library",
+        //       label: "cortex.js",
+        //     },
+        //     {
+        //       type: "doc",
+        //       id: "basic-usage/integration/py-library",
+        //       label: "cortex.py",
+        //     },
+        //   ],
+        // },
+    //   ],
+    // },
     // { type: "doc", id: "telemetry", label: "Telemetry" },
     // MODELs
     {
@@ -90,28 +110,30 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "model-overview", label: "Overview" },
-    {
-      type: "category",
-      label: "Using Models",
-      link: { type: "doc", id: "using-models" },
-      collapsed: true,
-      items: [
-        { type: "doc", id: "model-yaml", label: "model.yaml" },
-        { type: "doc", id: "model-presets", label: "Model Presets" },
-        { type: "doc", id: "built-in-models", label: "Built-in Models" },
-      ],
-    },
-    {
-      type: "category",
-      label: "Model Formats",
-      link: { type: "doc", id: "formats/index" },
-      collapsed: true,
-      items: [
-        { type: "doc", id: "formats/gguf", label: "GGUF" },
-        { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
-        { type: "doc", id: "formats/onnx", label: "ONNX" },
-      ],
-    },
+    { type: "doc", id: "model-yaml", label: "model.yaml" },
+    // { type: "doc", id: "built-in-models", label: "Built-in Models" },
+    // {
+    //   type: "category",
+    //   label: "Using Models",
+    //   link: { type: "doc", id: "using-models" },
+    //   collapsed: true,
+    //   items: [
+    //     { type: "doc", id: "model-yaml", label: "model.yaml" },
+    //     // { type: "doc", id: "model-presets", label: "Model Presets" },
+    //     { type: "doc", id: "built-in-models", label: "Built-in Models" },
+    //   ],
+    // },
+    // {
+    //   type: "category",
+    //   label: "Model Formats",
+    //   link: { type: "doc", id: "formats/index" },
+    //   collapsed: true,
+    //   items: [
+    //     { type: "doc", id: "formats/gguf", label: "GGUF" },
+    //     { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
+    //     { type: "doc", id: "formats/onnx", label: "ONNX" },
+    //   ],
+    // },
     {
       type: "category",
       label: "Model Sources",
@@ -164,52 +186,52 @@ const sidebars: SidebarsConfig = {
     // { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
     { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
     // ARCHITECTURE
-    {
-      type: "html",
-      value: "ARCHITECTURE",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "architecture", label: "Cortex" },
-    {
-      type: "category",
-      label: "Engines",
-      link: {
-        type: "generated-index",
-      },
-      collapsed: true,
-      items: [
-        { type: "doc", id: "cortex-llamacpp", label: "llama.cpp" },
-        { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
-        { type: "doc", id: "cortex-onnx", label: "ONNX" },
-        {
-          type: "doc",
-          id: "integrate-remote-engine",
-          label: "Integrate Remote Engine",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Infrastructure",
-      link: {
-        type: "generated-index",
-      },
-      collapsed: true,
-      items: [
-        { type: "doc", id: "telemetry-architecture", label: "Telemetry Infra" },
-        {
-          type: "doc",
-          id: "benchmarking-architecture",
-          label: "Benchmarking Infra",
-        },
-      ],
-    },
-    {
-      type: "html",
-      value: "TROUBLESHOOTING",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
+    // {
+    //   type: "html",
+    //   value: "ARCHITECTURE",
+    //   className: "sidebar-divider",
+    // },
+    // { type: "doc", id: "architecture", label: "Cortex" },
+    // {
+    //   type: "category",
+    //   label: "Engines",
+    //   link: {
+    //     type: "generated-index",
+    //   },
+    //   collapsed: true,
+    //   items: [
+    //     { type: "doc", id: "cortex-llamacpp", label: "llama.cpp" },
+    //     { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
+    //     { type: "doc", id: "cortex-onnx", label: "ONNX" },
+    //     {
+    //       type: "doc",
+    //       id: "integrate-remote-engine",
+    //       label: "Integrate Remote Engine",
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: "category",
+    //   label: "Infrastructure",
+    //   link: {
+    //     type: "generated-index",
+    //   },
+    //   collapsed: true,
+    //   items: [
+    //     { type: "doc", id: "telemetry-architecture", label: "Telemetry Infra" },
+    //     {
+    //       type: "doc",
+    //       id: "benchmarking-architecture",
+    //       label: "Benchmarking Infra",
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: "html",
+    //   value: "TROUBLESHOOTING",
+    //   className: "sidebar-divider",
+    // },
+    // { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
   ],
   platform: [
     {
