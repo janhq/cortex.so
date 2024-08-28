@@ -160,13 +160,13 @@ const sidebars: SidebarsConfig = {
     // { type: "doc", id: "py-library", label: "Python Library" },
     // { type: "doc", id: "server", label: "Server Endpoint" },
     // CAPABILITIES
-    {
-      type: "html",
-      value: "ENDPOINTS",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "chat-completions", label: "Chat Completions" },
-    { type: "doc", id: "embeddings", label: "Embeddings" },
+    // {
+    //   type: "html",
+    //   value: "ENDPOINTS",
+    //   className: "sidebar-divider",
+    // },
+    // { type: "doc", id: "chat-completions", label: "Chat Completions" },
+    // { type: "doc", id: "embeddings", label: "Embeddings" },
     // CLI
     {
       type: "html",
