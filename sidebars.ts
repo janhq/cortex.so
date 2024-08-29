@@ -226,12 +226,12 @@ const sidebars: SidebarsConfig = {
     //     },
     //   ],
     // },
-    // {
-    //   type: "html",
-    //   value: "TROUBLESHOOTING",
-    //   className: "sidebar-divider",
-    // },
-    // { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
+    {
+      type: "html",
+      value: "TROUBLESHOOTING",
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "troubleshooting", label: "Troubleshooting" },
   ],
   platform: [
     {
@@ -256,6 +256,63 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "cortex-platform/benchmarking", label: "Benchmarking" },
+    {
+        type: "html",
+        value: "ARCHITECTURE",
+        className: "sidebar-divider",
+      },
+      { type: "doc", id: "architecture", label: "Cortex" },
+      {
+        type: "category",
+        label: "Engines",
+        link: {
+          type: "generated-index",
+        },
+        collapsed: true,
+        items: [
+          { type: "doc", id: "cortex-llamacpp", label: "llama.cpp" },
+          { type: "doc", id: "cortex-tensorrt-llm", label: "TensorRT-LLM" },
+          { type: "doc", id: "cortex-onnx", label: "ONNX" },
+          {
+            type: "doc",
+            id: "integrate-remote-engine",
+            label: "Integrate Remote Engine",
+          },
+        ],
+      },
+    {
+      type: "category",
+      label: "Infrastructure",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "telemetry-architecture", label: "Telemetry Infra" },
+        {
+          type: "doc",
+          id: "benchmarking-architecture",
+          label: "Benchmarking Infra",
+        },
+      ],
+    },
+    {
+      type: "html",
+      value: "CLI",
+      className: "sidebar-divider",
+    },
+    // { type: "doc", id: "cli/cortex", label: "cortex" },
+    // { type: "doc", id: "cli/chat", label: "cortex chat" },
+    // { type: "doc", id: "cli/embeddings", label: "cortex embeddings" },
+    { type: "doc", id: "cli/presets", label: "cortex presets" },
+    // { type: "doc", id: "cli/pull", label: "cortex pull" },
+    // { type: "doc", id: "cli/run", label: "cortex run" },
+    // { type: "doc", id: "cli/models/index", label: "cortex models" },
+    // { type: "doc", id: "cli/engines/index", label: "cortex engines" },
+    // { type: "doc", id: "cli/stop", label: "cortex stop" },
+    // { type: "doc", id: "cli/ps", label: "cortex ps" },
+    // { type: "doc", id: "cli/telemetry", label: "cortex telemetry" },
+    { type: "doc", id: "cli/benchmark", label: "cortex benchmark" },
   ],
 };
 
