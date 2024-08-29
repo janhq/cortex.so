@@ -3,7 +3,6 @@ title: Cortex Models
 ---
 
 :::warning
-🚧
 - Cortex is still under construction.
 - The current release will soon be deprecated in favor of a pure C++ implementation.
 - READMEs and documentation may be out of sync as we focus on product development.
