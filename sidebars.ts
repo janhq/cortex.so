@@ -16,12 +16,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "html",
       value:
-        '<div class="mt-4"><a class="menu__link" href="/docs/">Cortex</a></div>',
+        '<div class="mt-4"><a class="menu__link" href="/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide mr-2 lucide-brain-circuit w-7 h-7 p-1 border rounded border-gray-200 dark:border-gray-700"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M9 13a4.5 4.5 0 0 0 3-4"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M12 13h4"></path><path d="M12 18h6a2 2 0 0 1 2 2v1"></path><path d="M12 8h8"></path><path d="M16 8V5a2 2 0 0 1 2-2"></path><circle cx="16" cy="13" r=".5"></circle><circle cx="18" cy="3" r=".5"></circle><circle cx="20" cy="21" r=".5"></circle><circle cx="20" cy="8" r=".5"></circle></svg>Cortex</a></div>',
     },
     {
       type: "html",
       value:
-        '<div><a class="menu__link" href="/docs/cortex-platform/">Platform<span class="bg-black dark:bg-white dark:text-black text-white rounded-full px-2 py-1 ml-2 text-xs">Coming Soon</span></a></div>',
+        '<div><a class="menu__link" href="/docs/cortex-platform/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide mr-2 lucide-blocks w-7 h-7 p-1 border rounded border-gray-200 dark:border-gray-700"><rect width="7" height="7" x="14" y="3" rx="1"></rect><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"></path></svg>Platform<span class="bg-black dark:bg-white dark:text-black text-white rounded-full px-2 py-1 ml-2 text-xs">Coming Soon</span></a></div>',
     },
     {
       type: "html",
@@ -80,26 +80,26 @@ const sidebars: SidebarsConfig = {
     //   items: [
     //     { type: "doc", id: "basic-usage/command-line", label: "CLI" },
     //     { type: "doc", id: "basic-usage/server", label: "API" },
-        // {
-        //   type: "category",
-        //   label: "Integration",
-        //   link: {
-        //     type: "generated-index",
-        //   },
-        //   collapsed: true,
-        //   items: [
-        //     {
-        //       type: "doc",
-        //       id: "basic-usage/integration/js-library",
-        //       label: "cortex.js",
-        //     },
-        //     {
-        //       type: "doc",
-        //       id: "basic-usage/integration/py-library",
-        //       label: "cortex.py",
-        //     },
-        //   ],
-        // },
+    // {
+    //   type: "category",
+    //   label: "Integration",
+    //   link: {
+    //     type: "generated-index",
+    //   },
+    //   collapsed: true,
+    //   items: [
+    //     {
+    //       type: "doc",
+    //       id: "basic-usage/integration/js-library",
+    //       label: "cortex.js",
+    //     },
+    //     {
+    //       type: "doc",
+    //       id: "basic-usage/integration/py-library",
+    //       label: "cortex.py",
+    //     },
+    //   ],
+    // },
     //   ],
     // },
     // { type: "doc", id: "telemetry", label: "Telemetry" },
@@ -237,12 +237,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "html",
       value:
-        '<div class="mt-4"><a class="menu__link" href="/docs/">Cortex</a></div>',
+        '<div class="mt-4"><a class="menu__link" href="/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide mr-2 lucide-brain-circuit w-7 h-7 p-1 border rounded border-gray-200 dark:border-gray-700"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M9 13a4.5 4.5 0 0 0 3-4"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M12 13h4"></path><path d="M12 18h6a2 2 0 0 1 2 2v1"></path><path d="M12 8h8"></path><path d="M16 8V5a2 2 0 0 1 2-2"></path><circle cx="16" cy="13" r=".5"></circle><circle cx="18" cy="3" r=".5"></circle><circle cx="20" cy="21" r=".5"></circle><circle cx="20" cy="8" r=".5"></circle></svg>Cortex</a></div>',
     },
     {
       type: "html",
       value:
-        '<div><a class="menu__link" href="/docs/cortex-platform/">Platform<span class="bg-black dark:bg-white dark:text-black text-white rounded-full px-2 py-1 ml-2 text-xs">Coming Soon</span></a></div>',
+        '<div><a class="menu__link" href="/docs/cortex-platform/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide mr-2 lucide-blocks w-7 h-7 p-1 border rounded border-gray-200 dark:border-gray-700"><rect width="7" height="7" x="14" y="3" rx="1"></rect><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"></path></svg>Platform<span class="bg-black dark:bg-white dark:text-black text-white rounded-full px-2 py-1 ml-2 text-xs">Coming Soon</span></a></div>',
     },
     {
       type: "html",
