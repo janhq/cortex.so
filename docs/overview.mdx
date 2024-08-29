@@ -11,14 +11,14 @@ import TabItem from "@theme/TabItem";
 # Cortex
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 ![Cortex Cover Image](/img/social-card.jpg)
 
 Cortex lets you run AI easily on your computer. 
 
-We're a self-hosted alternative to the OpenAI Platform, built for on-prem and on-device use cases.
+Cortex is a C++ command-line interface (CLI) that serves as an alternative to Ollama, capable of running with three different engines: `llama.cpp`, `ONNX`, and `TensorRT-LLM`.
 
 ## Supported Accelerators
 - Nvidia CUDA
@@ -90,15 +90,3 @@ Cortex supports the following list of [Built-in Models](/models):
 :::info
 Cortex supports pulling `GGUF` and `ONNX` models from the [Hugging Face Hub](https://huggingface.co). Read how to [Pull models from Hugging Face](/docs/hub/hugging-face/)
 :::
-
-## OpenAI API Equivalence
-
-Cortex aims to be fully compatible with [OpenAI API](https://platform.openai.com/docs/api-reference) endpoints.
-
-Our goal is to help developers to build applications with on-device AI and with a fully open-source stack. 
-
-Cortex is currently compatible with the following OpenAI API endpoints:
-- [/chat/completions](/api-reference#tag/inference/post/v1/chat/completions)
-- [/embeddings](/api-reference#tag/embeddings/post/v1/embeddings)
-
-<!--<OAICoverage /-->>

@@ -9,29 +9,28 @@ import TabItem from "@theme/TabItem";
 
 
 :::warning
-🚧 Cortex is under construction.
+🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 ## Installation
 ```sh
 # Install using Brew for Mac
-brew install cortexso
+brew install cortex-engine
 
 # Install using Winget for Windows
-winget install cortexso
+winget install cortex-engine
 
 # Install using Sudo for Linux
-sudo add-apt-repository ppa:homebrew-computer/main
-sudo apt update
-sudo apt install cortexso
+sudo apt install cortex-engine
 
 ```
 ## Start Cortex Processes and API Server
+This command starts the Cortex API server at `localhost:1337`.
 ```sh
-# By default the server will be started on port `1337`
 cortex
 ```
 ## Run a Model
+This command downloads the default `gguf` model format from the [Cortex Hub](https://huggingface.co/cortexso) and starts the model.
 ```sh
 cortex run mistral
 ```
@@ -39,52 +38,48 @@ cortex run mistral
 All model files are stored in the `~users/cortex/models` folder.
 :::
 ## Using the Model
-<Tabs>
-  <TabItem  value="CLI" label="CLI" default>
-    ```bash 
-    cortex chat mistral
-    ```
-  </TabItem>
-  <TabItem  value="API" label="API" default>
-    ```bash
-        curl http://localhost:1337/v1/chat/completions \
-        -H "Content-Type: application/json" \
-        -d '{
-          "model": "",
-          "messages": [
-            {
-              "role": "user",
-              "content": "Hello"
-            },
-          ],
-          "model": "mistral",
-          "stream": true,
-          "max_tokens": 1,
-          "stop": [
-              null
-          ],
-          "frequency_penalty": 1,
-          "presence_penalty": 1,
-          "temperature": 1,
-          "top_p": 1
-        }'
-
-      ```
-  </TabItem>
-  <TabItem value="cortex.js" label="cortex.js">
-  ```js
-  const resp = await cortex.chat.completions.create({
+### CLI
+```sh
+# CLI
+cortex chat mistral
+```
+### API
+```curl
+curl http://localhost:1337/v1/chat/completions \
+-H "Content-Type: application/json" \
+-d '{
+  "model": "",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello"
+    },
+  ],
+  "model": "mistral",
+  "stream": true,
+  "max_tokens": 1,
+  "stop": [
+      null
+  ],
+  "frequency_penalty": 1,
+  "presence_penalty": 1,
+  "temperature": 1,
+  "top_p": 1
+}'
+```
+### Cortex.js
+```js
+const resp = await cortex.chat.completions.create({
     model: "mistral",
     messages: [
       { role: "system", content: "You are a chatbot." },
       { role: "user", content: "What is the capital of the United States?" },
     ],
   });
-  ```
-  </TabItem>
-  <TabItem value="cortex.py" label="cortex.py">
-  ```py
-  completion = client.chat.completions.create(
+```
+### Cortex-python
+```py
+completion = client.chat.completions.create(
     model=mistral,
     messages=[
         {
@@ -93,20 +88,16 @@ All model files are stored in the `~users/cortex/models` folder.
         },
     ],
 )
-  ```
-  </TabItem>
-</Tabs>
+```
 ## Stop a Model
+This command stops the running model and the Cortex API server.
  ```bash 
 cortex stop
 ```
 ## Show the System State
+This command displays the running model and the hardware system status.
  ```bash 
-# Show a model and cortex system status
 cortex ps
-
-# Fetch telemetry logs to assess the cortex's crash.
-cortex telemetry
 ```
 ## Run Different Model Variants
 :::info
