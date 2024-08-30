@@ -15,7 +15,7 @@ This command allows you to manage various engines available within Cortex.
 **Usage**:
 
 ```bash
-cortex engines [options] <command|parameter> [subcommand] 
+cortex engines <command|parameter> [options] [subcommand] 
 ```
 
 **Options**:
@@ -37,7 +37,7 @@ This command returns an engine detail defined by an engine `name`.
 **Usage**:
 
 ```bash
-cortex engines <name> get
+cortex engines get <engine_name>
 ```
 For example, it returns the following:
 ```bash
@@ -62,30 +62,30 @@ To get an engine name, run the [`engines list`](/docs/cli/engines/list) command 
 | `name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `cortex.llamacpp`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
-## `cortex engines init`
+## `cortex engines install`
 :::info
 This CLI command calls the following API endpoint:
 - [Init Engine](/api-reference#tag/engines/post/v1/engines/{name}/init)
 :::
-This command sets up and downloads the required dependencies to run the available engines within Cortex. Currently, Cortex supports three engines:
+This command downloads the required dependencies and installs the engine within Cortex. Currently, Cortex supports three engines:
 - `Llama.cpp`
 - `Onnx`
 - `Tensorrt-llm`
 
 **Usage**:
 ```bash
-cortex engines <name> init [options]
+cortex engines install <engine_name> [options]
 ```
 For Example:
 ```bash
 ## Llama.cpp engine
-cortex engines init cortex.llamacpp
+cortex engines install cortex.llamacpp
 
 ## ONNX engine
-cortex engines init cortex.onnx
+cortex engines install cortex.onnx
 
 ## Tensorrt-LLM engine
-cortex engines init cortex.tensorrt-llm
+cortex engines install cortex.tensorrt-llm
 
 ```
 
@@ -93,8 +93,38 @@ cortex engines init cortex.tensorrt-llm
 
 | Option                    | Description                                        | Required | Default value | Example              |
 |---------------------------|----------------------------------------------------|----------|---------------|----------------------|
-| `name`            | The name of the engine you want to run.                         | Yes       | -             | -             |
+| `name`            | The name of the engine you want to install.                         | Yes       | -             | -             |
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
+
+## `cortex engines uninstall`
+
+This command uninstalls the engine within Cortex.
+
+**Usage**:
+```bash
+cortex engines uninstall <engine_name> [options]
+```
+For Example:
+```bash
+## Llama.cpp engine
+cortex engines uninstall cortex.llamacpp
+
+## ONNX engine
+cortex engines uninstall cortex.onnx
+
+## Tensorrt-LLM engine
+cortex engines uninstall cortex.tensorrt-llm
+
+```
+
+**Options**:
+
+| Option                    | Description                                        | Required | Default value | Example              |
+|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
+| `name`            | The name of the engine you want to uninstall.                         | Yes       | -             | -             |
+| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
+
+
 ## `cortex engines list`
 :::info
 This CLI command calls the following API endpoint:
@@ -128,28 +158,4 @@ For example, it returns the following:
 
 | Option                    | Description                                        | Required | Default value | Example              |
 |---------------------------|----------------------------------------------------|----------|---------------|----------------------|
-| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
-
-## `cortex engines set`
-:::info
-This CLI command calls the following API endpoint:
-- [Update Engine](/api-reference#tag/engines/patch/v1/engines/{name})
-:::
-
-This command updates an engine configuration.
-
-
-**Usage**:
-
-```bash
-cortex engines <name> set <config> <value>  
-```
-
-**Options**:
-
-| Option                    | Description                                        | Required | Default value | Example              |
-|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
-| `name`            | The name of the engine you want to update.                         | Yes       | -             | -             |
-| `config` | Configuration name.                 | Yes      | -             | `openai` |
-| `value` | Configuration value.                 | Yes      | -             | `sk-xxxxx` |
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |

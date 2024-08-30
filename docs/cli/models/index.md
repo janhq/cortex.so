@@ -109,8 +109,8 @@ For example, it returns the following:
 
 | Option                    | Description                                        | Required | Default value | Example              |
 |---------------------------|----------------------------------------------------|----------|---------------|----------------------|
-| `-f`, `--format <format>` | Specify output format for the models list.         | No       | `json`        | `-f json`       |
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
+<!-- | `-f`, `--format <format>` | Specify output format for the models list.         | No       | `json`        | `-f json`       | -->
 
 ## `cortex models remove`
 :::info
@@ -168,9 +168,9 @@ cortex models start [model_id]:[engine] [options]
 | Option                    | Description                                                               | Required | Default value                                | Example                |
 |---------------------------|---------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
 | `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `mistral`       |
-| `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
-| `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    |
 | `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
+<!-- | `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
+| `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    | -->
 
 ## `cortex models stop`
 :::info
