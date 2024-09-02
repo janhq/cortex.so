@@ -22,7 +22,7 @@ cortex engines <command|parameter> [options] [subcommand]
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `-vk`, `--vulkan`             | Install Vulkan engine                                                                           | No       | `false`       | `-vk`                         |
+| `-vk`, `--vulkan`             | Install Vulkan engine.                                                                           | No       | `false`       | `-vk`                         |
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex engines get`
@@ -61,6 +61,42 @@ To get an engine name, run the [`engines list`](/docs/cli/engines/list) command 
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
 | `name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `cortex.llamacpp`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
+
+## `cortex engines list`
+:::info
+This CLI command calls the following API endpoint:
+- [List Engines](/api-reference#tag/engines/get/v1/engines)
+:::
+This command lists all the Cortex's engines.
+
+
+
+**Usage**:
+
+```bash
+cortex engines list [options]
+```
+For example, it returns the following:
+```bash
+┌─────────┬───────────────────────┬────────────────────────────────────────────────────────────────────────────┬─────────┬──────────────────────────────┐
+│ (index) │ name                  │ description                                                                │ version │ productName                  │
+├─────────┼───────────────────────┼────────────────────────────────────────────────────────────────────────────┼─────────┼──────────────────────────────┤
+│ 0       │ 'cortex.llamacpp'     │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
+│ 1       │ 'cortex.onnx'         │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
+│ 2       │ 'cortex.tensorrt-llm' │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
+│ 3       │ 'openai'              │ 'This extension enables OpenAI chat completion API calls'                  │ '0.0.1' │ 'OpenAI Inference Engine'    │
+│ 4       │ 'groq'                │ 'This extension enables fast Groq chat completion API calls'               │ '0.0.1' │ 'Groq Inference Engine'      │
+│ 5       │ 'mistral'             │ 'This extension enables Mistral chat completion API calls'                 │ '0.0.1' │ 'Mistral Inference Engine'   │
+│ 6       │ 'anthropic'           │ 'This extension enables Anthropic chat completion API calls'               │ '0.0.1' │ 'Anthropic Inference Engine' │
+└─────────┴───────────────────────┴────────────────────────────────────────────────────────────────────────────┴─────────┴──────────────────────────────┘
+```
+
+**Options**:
+
+| Option                    | Description                                        | Required | Default value | Example              |
+|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
+| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
+
 
 ## `cortex engines install`
 :::info
@@ -122,40 +158,4 @@ cortex engines uninstall cortex.tensorrt-llm
 | Option                    | Description                                        | Required | Default value | Example              |
 |---------------------------|----------------------------------------------------|----------|---------------|----------------------|
 | `name`            | The name of the engine you want to uninstall.                         | Yes       | -             | -             |
-| `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
-
-
-## `cortex engines list`
-:::info
-This CLI command calls the following API endpoint:
-- [List Engines](/api-reference#tag/engines/get/v1/engines)
-:::
-This command lists all the Cortex's engines.
-
-
-
-**Usage**:
-
-```bash
-cortex engines list [options]
-```
-For example, it returns the following:
-```bash
-┌─────────┬───────────────────────┬────────────────────────────────────────────────────────────────────────────┬─────────┬──────────────────────────────┐
-│ (index) │ name                  │ description                                                                │ version │ productName                  │
-├─────────┼───────────────────────┼────────────────────────────────────────────────────────────────────────────┼─────────┼──────────────────────────────┤
-│ 0       │ 'cortex.llamacpp'     │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
-│ 1       │ 'cortex.onnx'         │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
-│ 2       │ 'cortex.tensorrt-llm' │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
-│ 3       │ 'openai'              │ 'This extension enables OpenAI chat completion API calls'                  │ '0.0.1' │ 'OpenAI Inference Engine'    │
-│ 4       │ 'groq'                │ 'This extension enables fast Groq chat completion API calls'               │ '0.0.1' │ 'Groq Inference Engine'      │
-│ 5       │ 'mistral'             │ 'This extension enables Mistral chat completion API calls'                 │ '0.0.1' │ 'Mistral Inference Engine'   │
-│ 6       │ 'anthropic'           │ 'This extension enables Anthropic chat completion API calls'               │ '0.0.1' │ 'Anthropic Inference Engine' │
-└─────────┴───────────────────────┴────────────────────────────────────────────────────────────────────────────┴─────────┴──────────────────────────────┘
-```
-
-**Options**:
-
-| Option                    | Description                                        | Required | Default value | Example              |
-|---------------------------|----------------------------------------------------|----------|---------------|----------------------|
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |

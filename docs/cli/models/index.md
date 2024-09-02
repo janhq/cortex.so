@@ -112,29 +112,6 @@ For example, it returns the following:
 | `-h`, `--help`            | Display help for command.                          | No       | -             | `-h`             |
 <!-- | `-f`, `--format <format>` | Specify output format for the models list.         | No       | `json`        | `-f json`       | -->
 
-## `cortex models remove`
-:::info
-This CLI command calls the following API endpoint:
-- [Delete Model](/api-reference#tag/models/delete/v1/models/{id})
-:::
-This command deletes a local model defined by a `model_id`.
-
-
-
-**Usage**:
-
-```bash
-cortex models remove <model_id>
-```
-:::info
-This command uses a `model_id` from the model that you have downloaded or available in your file system.
-:::
-**Options**:
-| Option                    | Description                                                                 | Required | Default value        | Example                |
-|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
-| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `mistral`       |
-| `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
-
 ## `cortex models start`
 :::info
 This CLI command calls the following API endpoint:
@@ -220,3 +197,26 @@ This command uses a `model_id` from the model that you have downloaded or availa
 | `model_id`                  | The identifier of the model you want to update.                                                       | Yes      | -                    | `mistral`                                          |
 | `-c`, `--options <options...>` | Specify the options to update the model. Syntax: `-c option1=value1 option2=value2`.  | Yes      | -                    | `-c max_tokens=100 temperature=0.5`                        |
 | `-h`, `--help`              | Display help information for the command.                                                             | No       | -                    | `-h`                                                  |
+
+## `cortex models remove`
+:::info
+This CLI command calls the following API endpoint:
+- [Delete Model](/api-reference#tag/models/delete/v1/models/{id})
+:::
+This command deletes a local model defined by a `model_id`.
+
+
+
+**Usage**:
+
+```bash
+cortex models remove <model_id>
+```
+:::info
+This command uses a `model_id` from the model that you have downloaded or available in your file system.
+:::
+**Options**:
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `mistral`       |
+| `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
