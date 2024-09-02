@@ -21,7 +21,7 @@ This command shows the running model and its status.
 ## Usage
 
 ```bash
-cortex ps
+cortex ps [options]
 ```
 
 For example, it returns the following table:

@@ -20,7 +20,7 @@ This command starts a chat session with a specified model, allowing you to inter
 ## Usage
 
 ```bash
-cortex chat [model_id] [message]
+cortex chat [options] [model_id] 
 ```
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.

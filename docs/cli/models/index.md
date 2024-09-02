@@ -125,13 +125,13 @@ This command starts a model defined by a `model_id`.
 
 ```bash
 # Start a model
-cortex models start [model_id]
+cortex models start <model_id>
 
 # Start a model with a preset
-cortex models start [model_id] [options]
+cortex models start <model_id> [options]
 
 # Start with a specified engine
-cortex models start [model_id]:[engine] [options]
+cortex models start <model_id>:[engine] [options]
 ```
 
 

@@ -20,7 +20,7 @@ This command stops the API server.
 ## Usage
 
 ```bash
-cortex stop
+cortex stop [options]
 ```
 
 ## Options
