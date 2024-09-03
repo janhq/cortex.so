@@ -42,27 +42,58 @@ cortex models get <model_id>
 For example, it returns the following:
 
 ```bash
-{
-  name: 'tinyllama',
-  model: 'tinyllama',
-  version: 1,
-  files: [ 'C:\\Users\\ACER\\cortex\\models\\tinyllama\\model.gguf' ],
-  stop: [ '</s>' ],
-  top_p: 0.95,
-  temperature: 0.7,
-  frequency_penalty: 0,
-  presence_penalty: 0,
-  max_tokens: 4096,
-  stream: true,
-  ngl: 33,
-  ctx_len: 4096,
-  engine: 'cortex.llamacpp',
-  prompt_template: '<|system|>\n{system_message}<|user|>\n{prompt}<|assistant|>',
-  id: 'tinyllama',
-  created: 1720659351720,
-  object: 'model',
-  owned_by: ''
-}
+ModelConfig Details:
+-------------------
+id: tinyllama
+name: tinyllama 1B
+model: tinyllama:1B
+version: 1
+stop: [</s>]
+top_p: 0.95
+temperature: 0.7
+frequency_penalty: 0
+presence_penalty: 0
+max_tokens: 4096
+stream: true
+ngl: 33
+ctx_len: 4096
+engine: cortex.llamacpp
+prompt_template:
+
+<|system|>
+{system_message}</s>
+
+
+
+
+<|user|>
+{prompt}</s>
+
+
+<|assistant|>
+
+
+system_template:
+
+<|system|>
+
+user_template: </s>
+
+
+
+
+<|user|>
+
+ai_template: </s>
+
+
+<|assistant|>
+
+
+tp: 0
+text_model: false
+files: [model_path]
+created: 1725342964
 ```
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.
@@ -91,17 +122,13 @@ cortex models list [options]
 ```
 For example, it returns the following:
 ```bash
-┌─────────┬───────────────────────────────────────────────┬──────────────────────────────┬───────────┐
-│ (index) │ id                                            │ engine                       │ version   │
-├─────────┼───────────────────────────────────────────────┼──────────────────────────────┼───────────┤
-│ 0       │ 'gpt-3.5-turbo'                               │ 'openai'                     │ 1         │
-│ 1       │ 'gpt-4o'                                      │ 'openai'                     │ 1         │
-│ 2       │ 'llama3:onnx'                                 │ 'cortex.onnx'                │ 1         │
-│ 3       │ 'llama3'                                      │ 'cortex.llamacpp'            │ undefined │
-│ 4       │ 'openhermes-2.5:tensorrt-llm-windows-ada'     │ 'cortex.tensorrt-llm'        │ 1         │
-│ 5       │ 'openhermes-2.5:tensorrt-llm'                 │ 'cortex.tensorrt-llm'        │ 1         │
-│ 6       │ 'tinyllama'                                   │ 'cortex.llamacpp'            │ undefined │
-└─────────┴───────────────────────────────────────────────┴──────────────────────────────┴───────────┘
++---------+----------------+-----------------+---------+
+| (Index) |       ID       |      engine     | version |
++---------+----------------+-----------------+---------+
+|    1    | tinyllama-gguf | cortex.llamacpp |    1    |
++---------+----------------+-----------------+---------+
+|    2    | tinyllama      | cortex.llamacpp |    1    |
++---------+----------------+-----------------+---------+
 
 ```
 
@@ -136,8 +163,7 @@ cortex models start <model_id>:[engine] [options]
 
 
 :::info
-- This command uses a `model_id` from the model that you have downloaded or available in your file system.
-- Model preset is applied only at the start of the model and does not change during the chat session.
+This command uses a `model_id` from the model that you have downloaded or available in your file system.
 :::
 
 **Options**:
@@ -164,7 +190,7 @@ This command stops a model defined by a `model_id`.
 cortex models stop <model_id>
 ```
 :::info
-- This command uses a `model_id` from the model that you have started before.
+This command uses a `model_id` from the model that you have started before.
 :::
 **Options**:
 
