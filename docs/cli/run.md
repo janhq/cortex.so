@@ -25,8 +25,6 @@ This command facilitates the initiation of an interactive chat shell with a spec
 cortex run [options] <model_id>
 # With a specified engine
 cortex run [options] <model_id>:[engine]
-# Start chatting once the model started
-cortex run [options] <model_id>:[engine] -c
 ```
 ### `model_id`
 You can use the [Built-in models](/docs/hub/cortex-hub) or Supported [HuggingFace models](/docs/hub/hugging-face).

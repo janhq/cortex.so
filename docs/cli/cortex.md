@@ -27,10 +27,10 @@ cortex [command] [options]
 | ---------------------------- | ----------------------------------------- | -------- | ------------- | ----------------------------- |
 | `-a`, `--address <address>`  | Address to use.                            | No       | -             | `-a 192.168.1.1`              |
 | `-p`, `--port <port>`        | Port to serve the application.             | No       | -             | `-p 1337`                     |
-| `-v`, `--version`            | Show version.                              | No       | `false`       | `-v`                          |
+| `-v`, `--version`            | Show version.                              | No       | -       | `-v`                          |
 | `-h`, `--help`               | Display help information for the command.  | No       | -             | `-h`                          |
-<!-- | `-l`, `--logs`               | Show logs                                 | No       | `false`       | `-l`                          |
-| `--dataFolder <dataFolder>`  | Set the data folder directory             | No       | -             | `--dataFolder /path/to/data`  | -->
+| `--verbose`               | Show the detailed command logs                                 | No       | -       | `--verbose`                          |
+<!--| `--dataFolder <dataFolder>`  | Set the data folder directory             | No       | -             | `--dataFolder /path/to/data`  | -->
 
 
 ## Command Chaining
