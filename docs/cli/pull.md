@@ -18,17 +18,10 @@ This command downloads models from supported [model repositories](/docs/model-so
 The downloaded model will be stored in the Cortex folder in your home data directory.
 
 
-
-## Alias
-
-The following alias is also available for downloading models:
-
-- `cortex download _`
-
 ## Usage
 
 ```bash
-cortex pull <model_id>
+cortex pull [options] <model_id> 
 ```
 
 ## Options
