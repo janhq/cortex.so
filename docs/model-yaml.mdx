@@ -11,9 +11,9 @@ import TabItem from "@theme/TabItem";
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-Cortex uses a `model.yaml` file to specify the configuration for running a model. Models can be downloaded from the Cortex Model Hub or Hugging Face repositories. Once downloaded, the model data is parsed and stored in two locations:
+Cortex.cpp uses a `model.yaml` file to specify the configuration for running a model. Models can be downloaded from the Cortex Model Hub or Hugging Face repositories. Once downloaded, the model data is parsed and stored in two locations:
 - `/cortexcpp/models/<model_id>/<model>.yml`: Contains the original model data.
-- `/cortexcpp/models/<model>.yaml`: Manages model settings for Cortex.
+- `/cortexcpp/models/<model>.yaml`: Manages model settings for Cortex.cpp.
 
 
 ## `model.yaml` High Level Structure
@@ -46,7 +46,7 @@ name: openhermes-2.5
 model: openhermes-2.5:7B
 version: 1
 ```
-Cortex Meta consists of essential metadata that identifies the model within Cortex. The required parameters include:
+Cortex Meta consists of essential metadata that identifies the model within Cortex.cpp. The required parameters include:
 | **Parameter** | **Description** |
 |---------------|-----------------|
 | `name`        | The identifier name of the model, used as the `model_id`. |
@@ -62,7 +62,7 @@ ctx_len: 4096
 prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
 
 ```
-Engine/Model Settings include the options that control how Cortex runs the model. The required parameters include:
+Engine/Model Settings include the options that control how Cortex.cpp runs the model. The required parameters include:
 | **Parameter** | **Description** |
 |---------------|-----------------|
 | `engine`               | Specifies the engine to be used for model execution.         |
