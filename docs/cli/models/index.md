@@ -3,7 +3,7 @@ title: Cortex Models
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex models`
@@ -224,7 +224,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 | `-c`, `--options <options...>` | Specify the options to update the model. Syntax: `-c option1=value1 option2=value2`.  | Yes      | -                    | `-c max_tokens=100 temperature=0.5`                        |
 | `-h`, `--help`              | Display help information for the command.                                                             | No       | -                    | `-h`                                                  |
 
-## `cortex models remove`
+## `cortex models delete`
 :::info
 This CLI command calls the following API endpoint:
 - [Delete Model](/api-reference#tag/models/delete/v1/models/{id})
@@ -236,7 +236,7 @@ This command deletes a local model defined by a `model_id`.
 **Usage**:
 
 ```bash
-cortex models remove <model_id>
+cortex models delete <model_id>
 ```
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.
@@ -244,5 +244,5 @@ This command uses a `model_id` from the model that you have downloaded or availa
 **Options**:
 | Option                    | Description                                                                 | Required | Default value        | Example                |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
-| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `mistral`       |
+| `model_id`                | The identifier of the model you want to delete.                             | Yes      | -                    | `mistral`       |
 | `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |

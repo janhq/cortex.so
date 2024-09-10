@@ -5,7 +5,7 @@ slug: "py-library"
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 Cortex can be used in a Python application with the `cortex.py` library. Cortex provides a Python client library as a **fork of OpenAI's [Python library](https://github.com/openai/openai-python)** with additional methods for Local AI.
 ## Installation
