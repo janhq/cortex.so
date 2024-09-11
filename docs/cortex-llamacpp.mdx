@@ -1,6 +1,6 @@
 ---
 title: llama.cpp
-description: cortex.llamacpp Architecture
+description: llamacpp Architecture
 slug: "cortex-llamacpp"
 ---
 
@@ -12,19 +12,19 @@ import TabItem from "@theme/TabItem";
 :::
 
 :::info
-`cortex.llamacpp` is formerly called "Nitro".
+`llamacpp` is formerly called "Nitro".
 :::
 
 ## Introduction
 
-`cortex.llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference. llama.cpp runs on CPU and GPU, and is optimized for inference.
+`llamacpp` is a C++ inference library that any server can load at runtime. It submodules (and occasionally upstreams) [llama.cpp](https://github.com/ggerganov/llama.cpp) for GGUF inference. llama.cpp runs on CPU and GPU, and is optimized for inference.
 
-In addition to `llama.cpp`, `cortex.llamacpp` adds:
+In addition to `llama.cpp`, `llamacpp` adds:
 
 - Model orchestration, like model warm-up and concurrent models.
 
 :::warning
-`cortex.llamacpp` is bundled by default in our product, [Jan](https://jan.ai/docs) and [Cortex](/docs).
+`llamacpp` is bundled by default in our product, [Jan](https://jan.ai/docs) and [Cortex](/docs).
 :::
 
 ## Usage
@@ -80,7 +80,7 @@ The command will check, download, and install these dependencies:
   </TabItem>
 </Tabs>
 :::info
-To include `cortex.llamacpp` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.llamacpp/tree/main/examples/server).
+To include `llamacpp` in your own server implementation, follow the steps [here](https://github.com/janhq/llamacpp/tree/main/examples/server).
 :::
 
 #### Get GGUF Models
@@ -90,7 +90,7 @@ You can download precompiled models from the [Cortex Hub](https://huggingface.co
 
 ## Interface
 
-`cortex.llamacpp` has the following Interfaces:
+`llamacpp` has the following Interfaces:
 
 - **HandleChatCompletion:** Processes chat completion tasks.
   ```cpp
@@ -137,7 +137,7 @@ import Diagram from "../src/components/Diagram"
 
 ### Main Components
 
-`cortex.llamacpp` is architected with several key components:
+`llamacpp` is architected with several key components:
 
 - **enginei**: An engine interface definition that extends to all engines, handling endpoint logic and facilitating communication between `cortex.cpp` and `llama engine`.
 - **llama engine**: Exposes APIs for embedding and inference. It loads and unloads models and simplifies API calls to `llama.cpp`.
@@ -148,7 +148,7 @@ import Diagram from "../src/components/Diagram"
 
 <Diagram diagramPath={"/diagrams/llamacpp2.excalidraw"} />
 
-The diagram above illustrates how `cortex.llamacpp` communication protocol works:
+The diagram above illustrates how `llamacpp` communication protocol works:
 
 - `Streaming`: Responses are processed and returned one token at a time.
 - `RESTful`: The response is processed as a whole. After the llama server context completes the entire process, a single result returns to `cortex.cpp`.
@@ -173,7 +173,7 @@ The diagram above illustrates how `cortex.llamacpp` communication protocol works
 │   │   └── llama_context             # Struct for llama context management
 |   |   └── chat_completion           # Struct for chat completion management
 |   |   └── embedding                 # Struct for embedding management
-├── third-party                       # Dependencies of the cortex.llamacpp project
+├── third-party                       # Dependencies of the llamacpp project
 │   └── (list of third-party dependencies)
 ```
 
@@ -181,11 +181,11 @@ The diagram above illustrates how `cortex.llamacpp` communication protocol works
 
 ## Roadmap
 
-The future plans for `cortex.llamacpp` are focused on enhancing performance and expanding capabilities. Key areas of improvement include:
+The future plans for `llamacpp` are focused on enhancing performance and expanding capabilities. Key areas of improvement include:
 
 - **Performance Enhancements**: Optimizing speed and reducing memory usage to ensure efficient processing of tasks.
 - **Multimodal Model Compatibility**: Expanding support to include a variety of multimodal models, enabling a broader range of applications and use cases.
 
 :::info
-To follow the latest developments of `cortex.llamacpp`, please see the [GitHub Repository](https://github.com/janhq/cortex.llamacpp).
+To follow the latest developments of `llamacpp`, please see the [GitHub Repository](https://github.com/janhq/llamacpp).
 :::

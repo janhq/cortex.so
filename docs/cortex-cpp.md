@@ -42,7 +42,7 @@ See [Quickstart](/docs/quickstart)
 │ └── ...
 ```
 
-`cortex-cpp` folder contains stateless implementations, most of which call into `cortex.llamacpp` and `cortex.tensorrt-llm`, depending on the engine at runtime.
+`cortex-cpp` folder contains stateless implementations, most of which call into `llamacpp` and `tensorrt-llm`, depending on the engine at runtime.
 
 Here you will find the implementations for stateless endpoints:
 

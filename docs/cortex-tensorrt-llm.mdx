@@ -13,9 +13,9 @@ import TabItem from "@theme/TabItem";
 
 ## Introduction
 
-[Cortex.tensorrt-llm](https://github.com/janhq/cortex.tensorrt-llm) is a C++ inference library for NVIDIA GPUs. It submodules NVIDIA’s [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) for GPU accelerated inference.
+[Cortex.tensorrt-llm](https://github.com/janhq/tensorrt-llm) is a C++ inference library for NVIDIA GPUs. It submodules NVIDIA’s [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) for GPU accelerated inference.
 
-In addition to TensorRT-LLM, `cortex.tensorrt-llm` adds: 
+In addition to TensorRT-LLM, `tensorrt-llm` adds: 
 
 - Tokenizers for popular model architectures
 - Prebuilt model engines compatible with popular GPUs
@@ -58,7 +58,7 @@ The command will check, download, and install these dependencies:
   </TabItem>
 </Tabs>
 :::info
-To include `cortex.tensorrt-llm` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.tensorrt-llm/tree/rel).
+To include `tensorrt-llm` in your own server implementation, follow the steps [here](https://github.com/janhq/tensorrt-llm/tree/rel).
 :::
 
 #### Get TensorRT-LLM Models
@@ -68,7 +68,7 @@ You can download precompiled models from the [Cortex Hub](https://huggingface.co
 
 ## Interface
 
-`cortex.tensorrt-llm` has the following Interfaces:
+`tensorrt-llm` has the following Interfaces:
 
 - **HandleChatCompletion:** Processes chat completion tasks.
   ```cpp
@@ -109,7 +109,7 @@ import Diagram from "../src/components/Diagram"
 <Diagram diagramPath={"/diagrams/TensorRT-LLM.excalidraw"} />
 
 These are the main components that interact to provide an API for `inference` tasks using the `tensorrt-llm`:
-1. **cortex-cpp**: Acts as an intermediary between `cortex-js` and the inference engine (`cortex.tensorrt-llm`). It processes incoming HTTP requests and forwards them to the appropriate components for handling. Once a response is generated, it sends it back to `cortex-js`.
+1. **cortex-cpp**: Acts as an intermediary between `cortex-js` and the inference engine (`tensorrt-llm`). It processes incoming HTTP requests and forwards them to the appropriate components for handling. Once a response is generated, it sends it back to `cortex-js`.
 
 2. **enginei**: Serves as an interface for the inference engine. It defines the methods and protocols used for running inference tasks.
 
@@ -140,7 +140,7 @@ sequenceDiagram
 
 ```
 
-The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.tensorrt-llm` when using the `tensorrt-llm` engine in Cortex:
+The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `tensorrt-llm` when using the `tensorrt-llm` engine in Cortex:
 
 1. **HTTP Request Load Model (cortex-js to cortex-cpp)**:
    - `cortex-js` sends an HTTP request to `cortex-cpp` to load the model.
@@ -148,23 +148,23 @@ The diagram above illustrates the interaction between three components: `cortex-
 2. **Load Engine (cortex-cpp)**:
    - `cortex-cpp` processes the request and starts by loading the engine.
 
-3. **Load Model (cortex-cpp to cortex.tensorrt-llm)**:
-   - `cortex-cpp` then sends a request to `cortex.tensorrt-llm` to load the model.
+3. **Load Model (cortex-cpp to tensorrt-llm)**:
+   - `cortex-cpp` then sends a request to `tensorrt-llm` to load the model.
 
-4. **Load Config (cortex.tensorrt-llm)**:
-   - `cortex.tensorrt-llm` begins by loading the necessary configuration. This includes parameters, settings, and other essential information needed to run the model.
+4. **Load Config (tensorrt-llm)**:
+   - `tensorrt-llm` begins by loading the necessary configuration. This includes parameters, settings, and other essential information needed to run the model.
 
-5. **Create Tokenizer (cortex.tensorrt-llm)**:
-   - After loading the configuration, `cortex.tensorrt-llm` creates a tokenizer. The tokenizer is responsible for converting input text into tokens that the model can understand and process.
+5. **Create Tokenizer (tensorrt-llm)**:
+   - After loading the configuration, `tensorrt-llm` creates a tokenizer. The tokenizer is responsible for converting input text into tokens that the model can understand and process.
 
-6. **Cache Chat Template (cortex.tensorrt-llm)**:
-   - Following the creation of the tokenizer, `cortex.tensorrt-llm` caches a chat template.
+6. **Cache Chat Template (tensorrt-llm)**:
+   - Following the creation of the tokenizer, `tensorrt-llm` caches a chat template.
 
-7. **Initialize GPT Session (cortex.tensorrt-llm)**:
-   - Finally, `cortex.tensorrt-llm` initializes the GPT session, setting up the necessary environment and resources required for the session.
+7. **Initialize GPT Session (tensorrt-llm)**:
+   - Finally, `tensorrt-llm` initializes the GPT session, setting up the necessary environment and resources required for the session.
 
-8. **Callback (cortex.tensorrt-llm to cortex-cpp)**:
-   - After completing the initialization, `cortex.tensorrt-llm` sends a callback to `cortex-cpp` to indicate that the model loading process is complete.
+8. **Callback (tensorrt-llm to cortex-cpp)**:
+   - After completing the initialization, `tensorrt-llm` sends a callback to `cortex-cpp` to indicate that the model loading process is complete.
 
 9. **HTTP Response (cortex-cpp to cortex-js)**:
    - `cortex-cpp` then sends an HTTP response back to `cortex-js`, indicating that the model has been successfully loaded.
@@ -193,34 +193,34 @@ sequenceDiagram
 
 ```
 
-The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.tensorrt-llm` when using the `tensorrt-llm` engine to call the `chat completions endpoint` with the inference option:
+The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `tensorrt-llm` when using the `tensorrt-llm` engine to call the `chat completions endpoint` with the inference option:
 
 1. **HTTP Request Chat Completion (cortex-js to cortex-cpp)**:
    - `cortex-js` sends an HTTP request to `cortex-cpp` to request chat completion.
 
-2. **Request Chat Completion (cortex-cpp to cortex.tensorrt-llm)**:
-   - `cortex-cpp` processes the request and forwards it to `cortex.tensorrt-llm` to handle the chat completion.
+2. **Request Chat Completion (cortex-cpp to tensorrt-llm)**:
+   - `cortex-cpp` processes the request and forwards it to `tensorrt-llm` to handle the chat completion.
 
-3. **Apply Chat Template (cortex.tensorrt-llm)**:
-   - `cortex.tensorrt-llm` starts by applying the chat template to the incoming request.
+3. **Apply Chat Template (tensorrt-llm)**:
+   - `tensorrt-llm` starts by applying the chat template to the incoming request.
 
-4. **Encode (cortex.tensorrt-llm)**:
+4. **Encode (tensorrt-llm)**:
    - The next step involves encoding the input data.
 
-5. **Set Sampling Config (cortex.tensorrt-llm)**:
+5. **Set Sampling Config (tensorrt-llm)**:
    - After encoding, the sampling configuration is set. This configuration might include parameters that control the generation process, such as temperature and top-k sampling.
 
-6. **Create Generation Input/Output (cortex.tensorrt-llm)**:
-   - `cortex.tensorrt-llm` then creates the generation input and output structures. These structures are used to manage the data flowing in and out of the model during generation.
+6. **Create Generation Input/Output (tensorrt-llm)**:
+   - `tensorrt-llm` then creates the generation input and output structures. These structures are used to manage the data flowing in and out of the model during generation.
 
-7. **Copy New Token from GPU (cortex.tensorrt-llm)**:
+7. **Copy New Token from GPU (tensorrt-llm)**:
    - During the generation process, new tokens are copied from the GPU as they are generated.
 
-8. **Decode New Token (cortex.tensorrt-llm)**:
+8. **Decode New Token (tensorrt-llm)**:
    - The newly generated tokens are then decoded back.
 
-9. **Callback (cortex.tensorrt-llm to cortex-cpp)**:
-   - After processing the request, `cortex.tensorrt-llm` sends a callback to `cortex-cpp` indicating that the chat completion process is done.
+9. **Callback (tensorrt-llm to cortex-cpp)**:
+   - After processing the request, `tensorrt-llm` sends a callback to `cortex-cpp` indicating that the chat completion process is done.
 
 10. **HTTP Stream Response (cortex-cpp to cortex-js)**:
     - `cortex-cpp` streams the response back to `cortex-js`, which waits for the completion of the process.
@@ -229,7 +229,7 @@ The diagram above illustrates the interaction between three components: `cortex-
 ## Code Structure
 ```
 .
-cortex.tensorrt-llm            # Forks from nvidia tensorrt-llm repository
+tensorrt-llm            # Forks from nvidia tensorrt-llm repository
 |__ ...
 |__cpp  
 |  |_ ...
@@ -244,7 +244,7 @@ cortex.tensorrt-llm            # Forks from nvidia tensorrt-llm repository
 |	 | 	  │   ├── chat_completion_request.h   # OpenAI compatible request handling
 │  |    |   ├── tensorrt-llm_engine.h   # Implementation tensorrt-llm engine of model loading and inference 
 |  |    |   ├── tensorrt-llm_engine.cc
-|  |    ├── third-party                 # Dependencies of the cortex.tensorrt-llm project
+|  |    ├── third-party                 # Dependencies of the tensorrt-llm project
 |  |        └── (list of third-party dependencies)
 |  |__ ... 
 |__ ...

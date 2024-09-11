@@ -57,7 +57,7 @@ max_tokens: 4096
 stream: true
 ngl: 33
 ctx_len: 4096
-engine: cortex.llamacpp
+engine: llamacpp
 prompt_template:
 
 <|system|>
@@ -125,9 +125,9 @@ For example, it returns the following:
 +---------+----------------+-----------------+---------+
 | (Index) |       ID       |      engine     | version |
 +---------+----------------+-----------------+---------+
-|    1    | tinyllama-gguf | cortex.llamacpp |    1    |
+|    1    | tinyllama-gguf | llamacpp |    1    |
 +---------+----------------+-----------------+---------+
-|    2    | tinyllama      | cortex.llamacpp |    1    |
+|    2    | tinyllama      | llamacpp |    1    |
 +---------+----------------+-----------------+---------+
 
 ```

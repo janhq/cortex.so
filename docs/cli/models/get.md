@@ -35,7 +35,7 @@ For example, it returns the following:
   stream: true,
   ngl: 33,
   ctx_len: 4096,
-  engine: 'cortex.llamacpp',
+  engine: 'llamacpp',
   prompt_template: '<|system|>\n{system_message}<|user|>\n{prompt}<|assistant|>',
   id: 'tinyllama',
   created: 1720659351720,

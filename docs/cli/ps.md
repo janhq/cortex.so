@@ -33,7 +33,7 @@ For example, it returns the following table:
 ┌─────────┬──────────────────────┬───────────────────┬───────────┬──────────┬─────┬──────┐
 │ (index) │ modelId              │ engine            │ status    │ duration │ ram │ vram │
 ├─────────┼──────────────────────┼───────────────────┼───────────┼──────────┼─────┼──────┤
-│ 0       │ 'janhq/tinyllama/1b' │ 'cortex.llamacpp' │ 'running' │ '7s'     │ '-' │ '-'  │
+│ 0       │ 'janhq/tinyllama/1b' │ 'llamacpp' │ 'running' │ '7s'     │ '-' │ '-'  │
 └─────────┴──────────────────────┴───────────────────┴───────────┴──────────┴─────┴──────┘
 √ API server is offline
 ## The ps command also provides information on the percentage of system resources being used.

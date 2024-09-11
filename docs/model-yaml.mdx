@@ -56,7 +56,7 @@ Cortex Meta consists of essential metadata that identifies the model within Cort
 ### Engine / Model Settings
 ```yaml
 # Engine / Model Settings
-engine: cortex.llamacpp
+engine: llamacpp
 ngl: 33 
 ctx_len: 4096 
 prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
@@ -96,7 +96,7 @@ model: openhermes-2.5:7B
 version: 1
 
 # Engine / Model Settings
-engine: cortex.llamacpp
+engine: llamacpp
 ngl: 33 # Infer from base config.json -> num_attention_heads
 ctx_len: 4096 # Infer from base config.json -> max_position_embeddings
 prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
@@ -135,7 +135,7 @@ model: openhermes
 version: 1
 
 # Engine / Model Settings
-engine: cortex.onnx
+engine: onnx
 prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
 
 # Results Preferences
@@ -171,7 +171,7 @@ model: openhermes-2.5:7B-tensorrt-llm
 version: 1
 
 # Engine / Model Settings
-engine: cortex.tensorrt-llm
+engine: tensorrt-llm
 os: linux
 gpu_arch: ada
 quantization_method: awq

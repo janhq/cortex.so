@@ -25,11 +25,11 @@ For example, it returns the following:
 ├─────────┼───────────────────────────────────────────────┼──────────────────────────────┼───────────┤
 │ 0       │ 'gpt-3.5-turbo'                               │ 'openai'                     │ 1         │
 │ 1       │ 'gpt-4o'                                      │ 'openai'                     │ 1         │
-│ 2       │ 'llama3:onnx'                                 │ 'cortex.onnx'                │ 1         │
-│ 3       │ 'llama3'                                      │ 'cortex.llamacpp'            │ undefined │
-│ 4       │ 'openhermes-2.5:tensorrt-llm-windows-ada'     │ 'cortex.tensorrt-llm'        │ 1         │
-│ 5       │ 'openhermes-2.5:tensorrt-llm'                 │ 'cortex.tensorrt-llm'        │ 1         │
-│ 6       │ 'tinyllama'                                   │ 'cortex.llamacpp'            │ undefined │
+│ 2       │ 'llama3:onnx'                                 │ 'onnx'                │ 1         │
+│ 3       │ 'llama3'                                      │ 'llamacpp'            │ undefined │
+│ 4       │ 'openhermes-2.5:tensorrt-llm-windows-ada'     │ 'tensorrt-llm'        │ 1         │
+│ 5       │ 'openhermes-2.5:tensorrt-llm'                 │ 'tensorrt-llm'        │ 1         │
+│ 6       │ 'tinyllama'                                   │ 'llamacpp'            │ undefined │
 └─────────┴───────────────────────────────────────────────┴──────────────────────────────┴───────────┘
 
 ```
