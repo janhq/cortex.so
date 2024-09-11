@@ -12,7 +12,7 @@ slug: "run"
 :::info
 This CLI command calls the following API endpoint:
 - [Download Model](/api-reference#tag/models/post/v1/models/{modelId}/pull) (The command only calls this endpoint if the specified model is not downloaded yet.)
-- Download Engine (The command only calls this endpoint if the specified engine is not downloaded yet.)
+- Install Engine (The command only calls this endpoint if the specified engine is not downloaded yet.)
 - [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
 - [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions) (The command makes a call to this endpoint if the `-c` option is used.)
 :::

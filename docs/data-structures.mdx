@@ -22,11 +22,18 @@ These are the executable files of the Cortex.cpp application. The file format va
 - **macOS**: `.pkg` located at `/usr/local/bin/cortexcpp<env>`
 
 ## Configuration Files
-These files store the settings and preferences of the Cortex.cpp application. The configuration file is named `.cortexrc` and is stored in the following locations:
+This file stores the path to the user data folder and the port for the Cortex.cpp application, allowing you to modify the data folder path and port settings.. The configuration file is named `.cortexrc` and is stored in the following locations:
 
 - **Windows**: `C:\Users\<username>\.cortexrc<env>`
 - **Linux**: `/home/<username>/.cortexrc<env>`
 - **macOS**: `/Users/<username>/.cortexrc<env>`
+
+The following is the sample of the configuration file:
+```
+dataFolderPath: /Users/<user>/cortexcpp
+apiServerHost: 127.0.0.1
+apiServerPort: 3928
+```
 
 ## Cortex.cpp Data Folder
 The data folder stores the engines, models, and logs required by Cortex.cpp. This folder is located at:
