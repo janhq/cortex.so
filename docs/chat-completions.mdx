@@ -32,7 +32,7 @@ cortex chat --model mistral
 <Tabs>
   <TabItem value="single" label="Single Request Example">
   ```bash
-  curl http://localhost:1337/v1/chat/completions \
+  curl http://localhost:3928/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "",
@@ -58,7 +58,7 @@ cortex chat --model mistral
   </TabItem>
   <TabItem value="dialogue" label="Dialogue Request Example">
   ```bash
-  curl http://localhost:1337/v1/chat/completions \
+  curl http://localhost:3928/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "messages": [

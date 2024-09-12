@@ -23,7 +23,7 @@ The Run Model CLI and endpoint will automatically pull a model if it has not bee
   <TabItem  value="API" label="API" default>
     ```bash
         curl --request POST \
-        --url http://localhost:1337/v1/models/mistral/start \
+        --url http://localhost:3928/v1/models/mistral/start \
         --header 'Content-Type: application/json' \
         --data '{
         "prompt_template": "system\n{system_message}\nuser\n{prompt}\nassistant",
@@ -58,7 +58,7 @@ The Run Model CLI and endpoint will automatically pull a model if it has not bee
   <TabItem  value="API-stop" label="API" default>
     ```bash
         curl --request POST \
-        --url http://localhost:1337/models/mistral/stop
+        --url http://localhost:3928/models/mistral/stop
 
 
 
@@ -79,7 +79,7 @@ The Run Model CLI and endpoint will automatically pull a model if it has not bee
   <TabItem  value="API-pull" label="API" default>
     ```bash
         curl --request POST \
-        --url http://localhost:1337/v1/models/mistral/pull
+        --url http://localhost:3928/v1/models/mistral/pull
 
 
 
@@ -106,7 +106,7 @@ Model Management allows you to manage your local models, which can be found in `
   <TabItem  value="API-pull" label="API" default>
     ```bash
         curl --request GET \
-        --url http://localhost:1337/v1/models
+        --url http://localhost:3928/v1/models
 
 
 
@@ -127,7 +127,7 @@ Model Management allows you to manage your local models, which can be found in `
   <TabItem  value="API-pull" label="API" default>
     ```bash
         curl --request GET \
-        --url http://localhost:1337/v1/models/mistral
+        --url http://localhost:3928/v1/models/mistral
 
 
 
@@ -148,7 +148,7 @@ Model Management allows you to manage your local models, which can be found in `
   <TabItem  value="API-pull" label="API" default>
     ```bash
         curl --request DELETE \
-        --url http://localhost:1337/v1/models/mistral
+        --url http://localhost:3928/v1/models/mistral
 
 
 
@@ -169,7 +169,7 @@ Model Management allows you to manage your local models, which can be found in `
   <TabItem  value="API-pull" label="API" default>
     ```bash
       curl --request PATCH \
-        --url http://localhost:1337/v1/models/mistral \
+        --url http://localhost:3928/v1/models/mistral \
         --header 'Content-Type: application/json' \
         --data '{}'
 

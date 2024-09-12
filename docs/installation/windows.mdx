@@ -20,9 +20,9 @@ For Windows, Cortex.cpp can be installed in two ways:
 ## Windows
 ### Install Cortex.cpp
 Before installation, make sure that you have met the required [dependencies](#windows) and [hardware](#hardware) to run Cortex.
-```sh
-winget install cortex.cpp
-```
+- Stable:
+- Beta:
+- Nightly:
 #### Data Folder
 By default, Cortex.cpp is installed in the following directory:
 ```
@@ -33,9 +33,7 @@ C:\Users\<username>\AppData\Local\cortexcpp
 C:\Users\<username>\.cortexcpp
 ```
 ### Uninstall Cortex.cpp
-```sh
-winget uninstall cortex.cpp
-```
+To uninstall Cortex.cpp, simply run the `uninstaller.exe` located in the binary data folder after installation.
 :::info
 Delete the Cortex.cpp data folder located in your home folder.
 :::
@@ -46,13 +44,10 @@ Windows Subsystem Linux allows running Linux tools and workflows seamlessly alon
 ### Install Cortex.cpp
 Before installation, make sure that you have met the required [dependencies](#windows-subsystem-for-linux) and [hardware](#hardware) to run Cortex.
 
-```sh
-# Install using Brew
-brew install cortex.cpp
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 
-# Install using Sudo
-sudo apt install cortex.cpp
-```
 #### Data Folder
 By default, Cortex.cpp is installed in the following directory:
 ```
@@ -63,14 +58,7 @@ C:\Users\<username>\AppData\Local\cortexcpp\cortex<env>.exe
 C:\Users\<username>\.cortexcpp<env>
 ```
 ### Uninstall Cortex.cpp
-
-```sh
-# Uninstall using Brew
-brew uninstall cortex.cpp
-
-# Uninstall cortex
-sudo apt remove cortex.cpp
-```
+To uninstall Cortex.cpp, simply run the `uninstaller.exe` located in the binary data folder after installation.
 :::info
 Delete the Cortex.cpp data folder located in your home folder.
 :::
@@ -83,7 +71,10 @@ Delete the Cortex.cpp data folder located in your home folder.
 
 ```bash
 cd vcpkg
+## Windows
 ./bootstrap-vcpkg.bat
+## WSL
+./bootstrap-vcpkg.sh
 vcpkg install
 ```
 4. Build the Cortex.cpp inside the `build` folder:
@@ -91,7 +82,11 @@ vcpkg install
 ```bash
 mkdir build
 cd build
+## Windows
 cmake .. -DBUILD_SHARED_LIBS=OFF -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows-static
+## WSL
+cmake .. -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake
+make -j4
 ```
 5. Use Visual Studio with the C++ development kit to build the project using the files generated in the `build` folder.
 6. Verify that Cortex.cpp is installed correctly by getting help information.

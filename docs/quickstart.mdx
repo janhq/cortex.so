@@ -20,7 +20,7 @@ To install Cortex, download the installer for your operating system from the fol
   - [Linux (Debian)](https://github.com/janhq/cortex.cpp/releases)
   - [Linux (Fedora)](https://github.com/janhq/cortex.cpp/releases)
 ## Start Cortex.cpp Processes and API Server
-This command starts the Cortex.cpp API server at `localhost:1337`.
+This command starts the Cortex.cpp API server at `localhost:3928`.
 ```sh
 cortex
 ```
@@ -40,7 +40,7 @@ cortex chat mistral
 ```
 ### API
 ```curl
-curl http://localhost:1337/v1/chat/completions \
+curl http://localhost:3928/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
   "model": "",

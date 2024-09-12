@@ -14,10 +14,15 @@ import Admonition from '@theme/Admonition';
 
 ## Cortex.cpp Installation
 Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
+### .deb
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 
-```sh
-sudo apt install cortex.cpp
-```
+### .appImage
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 :::info
 You can also install Cortex.cpp using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
 :::
@@ -32,21 +37,28 @@ By default, Cortex.cpp is installed in the following directory:
 ```
 ## Uninstall Cortex.cpp
 ```sh
-sudo apt remove cortex.cpp
+# Uninstall Jan
+sudo apt-get remove cortexcpp
+
+# Remove all user data
+rm -rf ~/.cortexcpp<env>
+
+# Delete the application data
+rm -rf ~/.cortexrc<env>
+
 ```
 :::info
 Delete the Cortex.cpp data folder located in your home folder.
 :::
 
 ## Build from Source
-
 1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).
 2. Navigate to the `engine > vcpkg` folder.
 3. Configure the vpkg:
 
 ```bash
 cd vcpkg
-./bootstrap-vcpkg.bat
+./bootstrap-vcpkg.sh
 vcpkg install
 ```
 4. Build the Cortex.cpp inside the `build` folder:
@@ -54,7 +66,8 @@ vcpkg install
 ```bash
 mkdir build
 cd build
-cmake .. -DBUILD_SHARED_LIBS=OFF -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows-static
+cmake .. -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake
+make -j4
 ```
 5. Use Visual Studio with the C++ development kit to build the project using the files generated in the `build` folder.
 6. Verify that Cortex.cpp is installed correctly by getting help information.

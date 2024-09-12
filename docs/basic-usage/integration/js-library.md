@@ -30,7 +30,7 @@ npm install @janhq/cortexso-node
 ```diff
 - const openai = new OpenAI({
 + const cortex = new Cortex({
-    baseURL: "BASE_URL", // The default base URL for Cortex is 'http://localhost:1337'
+    baseURL: "BASE_URL", // The default base URL for Cortex is 'http://localhost:3928'
     apiKey: "OPENAI_API_KEY", // This can be omitted if using the default
 });
 
@@ -43,7 +43,7 @@ import Cortex from "@janhq/cortexso-node";
 
 async function inference() {
   const cortex = new Cortex({
-    baseURL: "http://localhost:1337/v1",
+    baseURL: "http://localhost:3928/v1",
     apiKey: "",
   });
 
