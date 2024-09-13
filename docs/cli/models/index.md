@@ -155,10 +155,10 @@ This command starts a model defined by a `model_id`.
 cortex models start <model_id>
 
 # Start a model with a preset
-cortex models start <model_id> [options]
+cortex models start [options] <model_id>
 
 # Start with a specified engine
-cortex models start <model_id>:[engine] [options]
+cortex models start [options] <model_id>:[engine]
 ```
 
 
