@@ -170,7 +170,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option                    | Description                                                               | Required | Default value                                | Example                |
 |---------------------------|---------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
-| `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `mistral`       |
+| `model_id`                | The identifier of the model you want to start.                            | Yes       | `Prompt to select from the available models` | `mistral`       |
 | `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
 <!-- | `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
 | `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    | -->

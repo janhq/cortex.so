@@ -30,8 +30,8 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option                        | Description                                                                                     | Required | Default value | Example                       |
 | ----------------------------- | ----------------------------------------------------------------------------------------------- | -------- | ------------- | ----------------------------- |
-| `model_id`                    | Model ID to chat with. | No       | -             | `mistral`                       |
-| `-m`, `--message <message>`   | Message to send to the model                                                                     | No       | -             | `-m "Hello, model!"`          |
+| `model_id`                    | Model ID to chat with. | Yes       | -             | `mistral`                       |
+| `-m`, `--message <message>`   | Message to send to the model                                                                     | Yes       | -             | `-m "Hello, model!"`          |
 | `-h`, `--help`                | Display help information for the command.                                                         | No       | -             | `-h`                          |
 
 <!-- | `-t`, `--thread <thread_id>`  | Thread ID. If not provided, will create new thread                                               | No       | -             | `-t 98765`                    | -->

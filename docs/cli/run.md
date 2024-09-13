@@ -38,7 +38,7 @@ This command downloads and installs the model if not already available in your f
 
 | Option                      | Description                                                                 | Required | Default value                                | Example                |
 |-----------------------------|-----------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
-| `model_id`                  | The identifier of the model you want to chat with.                          | No       | `Prompt to select from the available models` | `mistral`       |
+| `model_id`                  | The identifier of the model you want to chat with.                          | Yes       | `Prompt to select from the available models` | `mistral`       |
 | `-h`, `--help`                | Display help information for the command.                                   | No       | -                                            | `-h`               |
 <!-- | `-t`, `--thread <thread_id>`  | Specify the Thread ID. Defaults to creating a new thread if none specified. | No       | -                                            | `-t jan_1717650808`       |
 | `-p`, `--preset`              | Apply a chat preset to the chat session.                                    | No       | -                                            | `-p friendly`    |
