@@ -5,15 +5,15 @@ slug: /cli
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # Cortex
 :::info
-This is the initial command you need to run to start using Cortex.
+This is the initial command you need to run to start using Cortex.cpp.
 :::
 
-This command starts the Cortex process and the API server, which runs on port `1337` by default.
+This command starts the Cortex.cpp process and the API server, which runs on port `1337` by default.
 
 ## Usage
 
@@ -25,11 +25,11 @@ cortex [command] [options]
 
 | Option                       | Description                               | Required | Default value | Example                       |
 | ---------------------------- | ----------------------------------------- | -------- | ------------- | ----------------------------- |
-| `-a`, `--address <address>`  | Address to use.                            | No       | -             | `-a 192.168.1.1`              |
-| `-p`, `--port <port>`        | Port to serve the application.             | No       | -             | `-p 1337`                     |
 | `-v`, `--version`            | Show version.                              | No       | -       | `-v`                          |
 | `-h`, `--help`               | Display help information for the command.  | No       | -             | `-h`                          |
 | `--verbose`               | Show the detailed command logs                                 | No       | -       | `--verbose`                          |
+<!-- | `-a`, `--address <address>`  | Address to use.                            | No       | -             | `-a 192.168.1.1`              |
+| `-p`, `--port <port>`        | Port to serve the application.             | No       | -             | `-p 1337`                     | -->
 <!--| `--dataFolder <dataFolder>`  | Set the data folder directory             | No       | -             | `--dataFolder /path/to/data`  | -->
 
 
@@ -46,11 +46,8 @@ For example:
 - [cortex models](/docs/cli/models): Manage and configure models.
 - [cortex chat](/docs/cli/chat): Send a chat request to a model.
 - [cortex ps](/docs/cli/ps): Display active models and their operational status.
-- [cortex presets](/docs/cli/presets): Show all the available model presets within Cortex.
 - [cortex embeddings](/docs/cli/embeddings): Create an embedding vector representing the input text.
-- [cortex benchmark](/docs/cli/benchmark): Benchmark and analyze the performance of a specific AI model using your system.
-- [cortex engines](/docs/cli/engines): Manage Cortex engines.
+- [cortex engines](/docs/cli/engines): Manage Cortex.cpp engines.
 - [cortex pull|download](/docs/cli/pull): Download a model.
 - [cortex run](/docs/cli/run): Shortcut to start a model and chat.
-- [cortex telemetry](/docs/cli/telemetry): Retrieve telemetry logs for monitoring and analysis.
-- [cortex stop](/docs/cli/stop): Stop the API server.
+- [cortex update](/docs/cli/stop): Update the Cortex.cpp version.

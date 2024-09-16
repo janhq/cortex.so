@@ -4,7 +4,7 @@ description: GGUF Model Format.
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 Cortex uses `llama.cpp` as the default engine by default the `GGUF` format is supported by Cortex.
@@ -25,7 +25,7 @@ model: openhermes-2.5:7B
 version: 1
 
 # Engine / Model Settings
-engine: cortex.llamacpp
+engine: llamacpp
 ngl: 33 # Infer from base config.json -> num_attention_heads
 ctx_len: 4096 # Infer from base config.json -> max_position_embeddings
 prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"

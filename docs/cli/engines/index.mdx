@@ -3,7 +3,7 @@ title: Cortex Engines
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex engines`
@@ -22,8 +22,8 @@ cortex engines <command|parameter> [options] [subcommand]
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `-vk`, `--vulkan`             | Install Vulkan engine.                                                                           | No       | `false`       | `-vk`                         |
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
+{/* | `-vk`, `--vulkan`             | Install Vulkan engine.                                                                           | No       | `false`       | `-vk`                         | */}
 
 ## `cortex engines get`
 :::info
@@ -44,7 +44,7 @@ For example, it returns the following:
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────┐
 │ (index)     │ Values                                                                     │
 ├─────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ name        │ 'cortex.onnx'                                                              │
+│ name        │ 'onnx'                                                              │
 │ description │ 'This extension enables chat completion API calls using the Cortex engine' │
 │ version     │ '0.0.1'                                                                    │
 │ productName │ 'Cortex Inference Engine'                                                  │
@@ -59,7 +59,7 @@ To get an engine name, run the [`engines list`](/docs/cli/engines/list) command 
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `engine_name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `cortex.llamacpp`|
+| `engine_name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `llamacpp`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex engines list`
@@ -81,13 +81,13 @@ For example, it returns the following:
 +---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
 | (Index) |         name        |                                  description                                  | version |         product name         |      status     |
 +---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-|    1    | cortex.onnx         | This extension enables chat completion API calls using the Onnx engine        | 0.0.1
+|    1    | onnx         | This extension enables chat completion API calls using the Onnx engine        | 0.0.1
   | Onnx Inference Engine        | not_initialized |
 +---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-|    2    | cortex.llamacpp     | This extension enables chat completion API calls using the LlamaCPP engine    | 0.0.1
+|    2    | llamacpp     | This extension enables chat completion API calls using the LlamaCPP engine    | 0.0.1
   | LlamaCPP Inference Engine    | ready           |
 +---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-|    3    | cortex.tensorrt-llm | This extension enables chat completion API calls using the TensorrtLLM engine | 0.0.1
+|    3    | tensorrt-llm | This extension enables chat completion API calls using the TensorrtLLM engine | 0.0.1
   | TensorrtLLM Inference Engine | not_initialized |
 +---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
 ```
@@ -111,18 +111,18 @@ This command downloads the required dependencies and installs the engine within 
 
 **Usage**:
 ```bash
-cortex engines install <engine_name> [options]
+cortex engines install [options] <engine_name>
 ```
 For Example:
 ```bash
 ## Llama.cpp engine
-cortex engines install cortex.llamacpp
+cortex engines install llamacpp
 
 ## ONNX engine
-cortex engines install cortex.onnx
+cortex engines install onnx
 
 ## Tensorrt-LLM engine
-cortex engines install cortex.tensorrt-llm
+cortex engines install tensorrt-llm
 
 ```
 
@@ -139,18 +139,18 @@ This command uninstalls the engine within Cortex.
 
 **Usage**:
 ```bash
-cortex engines uninstall <engine_name> [options]
+cortex engines uninstall [options] <engine_name>
 ```
 For Example:
 ```bash
 ## Llama.cpp engine
-cortex engines uninstall cortex.llamacpp
+cortex engines uninstall llamacpp
 
 ## ONNX engine
-cortex engines uninstall cortex.onnx
+cortex engines uninstall onnx
 
 ## Tensorrt-LLM engine
-cortex engines uninstall cortex.tensorrt-llm
+cortex engines uninstall tensorrt-llm
 
 ```
 

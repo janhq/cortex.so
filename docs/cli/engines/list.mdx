@@ -4,7 +4,7 @@ description: Cortex engines subcommands.
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex engines list`
@@ -20,17 +20,13 @@ cortex engines list [options]
 ```
 For example, it returns the following:
 ```bash
-┌─────────┬───────────────────────┬────────────────────────────────────────────────────────────────────────────┬─────────┬──────────────────────────────┐
-│ (index) │ name                  │ description                                                                │ version │ productName                  │
-├─────────┼───────────────────────┼────────────────────────────────────────────────────────────────────────────┼─────────┼──────────────────────────────┤
-│ 0       │ 'cortex.llamacpp'     │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
-│ 1       │ 'cortex.onnx'         │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
-│ 2       │ 'cortex.tensorrt-llm' │ 'This extension enables chat completion API calls using the Cortex engine' │ '0.0.1' │ 'Cortex Inference Engine'    │
-│ 3       │ 'openai'              │ 'This extension enables OpenAI chat completion API calls'                  │ '0.0.1' │ 'OpenAI Inference Engine'    │
-│ 4       │ 'groq'                │ 'This extension enables fast Groq chat completion API calls'               │ '0.0.1' │ 'Groq Inference Engine'      │
-│ 5       │ 'mistral'             │ 'This extension enables Mistral chat completion API calls'                 │ '0.0.1' │ 'Mistral Inference Engine'   │
-│ 6       │ 'anthropic'           │ 'This extension enables Anthropic chat completion API calls'               │ '0.0.1' │ 'Anthropic Inference Engine' │
-└─────────┴───────────────────────┴────────────────────────────────────────────────────────────────────────────┴─────────┴──────────────────────────────┘
++---+---------------+--------------------+---------+--------------+
+| # | Name          | Supported Formats  | Version | Status       |
++---+---------------+--------------------+---------+--------------+
+| 1 | ONNXRuntime   | ONNX               | 0.0.1   | Incompatible |
+| 2 | llama.cpp     | GGUF               | 0.0.1   | Ready        |
+| 3 | TensorRT-LLM  | TensorRT Engines   | 0.0.1   | Incompatible |
++---+---------------+--------------------+---------+--------------+
 ```
 
 ## Options

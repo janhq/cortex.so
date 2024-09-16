@@ -5,9 +5,9 @@ slug: "py-library"
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
-Cortex can be used in a Python application with the `cortex.py` library. Cortex provides a Python client library as a **fork of OpenAI's [Python library](https://github.com/openai/openai-python)** with additional methods for Local AI.
+Cortex.cpp can be used in a Python application with the `cortex.py` library. Cortex.cpp provides a Python client library as a **fork of OpenAI's [Python library](https://github.com/openai/openai-python)** with additional methods for Local AI.
 ## Installation
 
 ```py
@@ -16,14 +16,14 @@ pip install @janhq/cortex-python
 
 ## Usage
 
-1. Replace the OpenAI import with Cortex in your application:
+1. Replace the OpenAI import with Cortex.cpp in your application:
 
 ```diff
 - from openai import OpenAI
 + from @janhq/cortex-python import Cortex
 ```
 
-2. Modify the initialization of the client to use Cortex:
+2. Modify the initialization of the client to use Cortex.cpp:
 
 ```diff
 - client = OpenAI(api_key='your-api-key')
@@ -36,7 +36,7 @@ pip install @janhq/cortex-python
 ```py
 from @janhq/cortex-python import Cortex
 
-client = OpenAI(base_url="http://localhost:1337", api_key="cortex")
+client = OpenAI(base_url="http://localhost:3928", api_key="cortex")
 
 model = "TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF"
 client.models.start(model=model)

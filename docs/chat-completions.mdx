@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 Cortex's Chat API is compatible with OpenAI’s [Chat Completions](https://platform.openai.com/docs/api-reference/chat) endpoint. It is a drop-in replacement for local inference.
@@ -32,7 +32,7 @@ cortex chat --model mistral
 <Tabs>
   <TabItem value="single" label="Single Request Example">
   ```bash
-  curl http://localhost:1337/v1/chat/completions \
+  curl http://localhost:3928/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "",
@@ -58,7 +58,7 @@ cortex chat --model mistral
   </TabItem>
   <TabItem value="dialogue" label="Dialogue Request Example">
   ```bash
-  curl http://localhost:1337/v1/chat/completions \
+  curl http://localhost:3928/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "messages": [
@@ -131,9 +131,9 @@ To configure each engine, refer to the [`cortex engines init`](/docs/cli/engines
 Learn more about our engine architecture:
 
 - cortex.cpp
-- [cortex.llamacpp](/docs/cortex-llamacpp)
-- cortex.tensorrt-llm
-- [cortex.onnx](/docs/cortex-onnx)
+- [llamacpp](/docs/cortex-llamacpp)
+- tensorrt-llm
+- [onnx](/docs/cortex-onnx)
 
 ### Multiple Remote APIs
 

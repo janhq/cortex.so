@@ -9,78 +9,87 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 ## Overview
-For Windows, Cortex can be installed in two ways:
+For Windows, Cortex.cpp can be installed in two ways:
 - [Windows](#windows)
 - [Windows Subsystem for Linux (WSL)](#windows-subsystem-linux)
 
 ## Windows
-### Install Cortex
+### Install Cortex.cpp
 Before installation, make sure that you have met the required [dependencies](#windows) and [hardware](#hardware) to run Cortex.
-```sh
-winget install cortex-engine
+- Stable:
+- Beta:
+- Nightly:
+#### Data Folder
+By default, Cortex.cpp is installed in the following directory:
 ```
+# Binary Location
+C:\Users\<username>\AppData\Local\cortexcpp
 
-### Uninstall Cortex
-```sh
-winget uninstall cortex-engine
+# Application Data (Engines, Models and Logs folders)
+C:\Users\<username>\.cortexcpp
 ```
+### Uninstall Cortex.cpp
+To uninstall Cortex.cpp, simply run the `uninstaller.exe` located in the binary data folder after installation.
 :::info
-Delete the Cortex data folder located in your home folder.
+Delete the Cortex.cpp data folder located in your home folder.
 :::
 ## Windows Subsystem Linux
 :::info
 Windows Subsystem Linux allows running Linux tools and workflows seamlessly alongside Windows applications. For more information, please see this [article](https://learn.microsoft.com/en-us/windows/wsl/faq).
 :::
-### Install Cortex
+### Install Cortex.cpp
 Before installation, make sure that you have met the required [dependencies](#windows-subsystem-for-linux) and [hardware](#hardware) to run Cortex.
 
-```sh
-# Install using Brew
-brew install cortex-engine
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 
-# Install using Sudo
-sudo apt install cortex-engine
+#### Data Folder
+By default, Cortex.cpp is installed in the following directory:
 ```
+# Binary Location
+C:\Users\<username>\AppData\Local\cortexcpp\cortex<env>.exe
 
-### Uninstall Cortex
-
-```sh
-# Uninstall using Brew
-brew uninstall cortex-engine
-
-# Uninstall cortex
-sudo apt remove cortex-engine
+# Application Data (Engines, Models and Logs folders)
+C:\Users\<username>\.cortexcpp<env>
 ```
+### Uninstall Cortex.cpp
+To uninstall Cortex.cpp, simply run the `uninstaller.exe` located in the binary data folder after installation.
 :::info
-Delete the Cortex data folder located in your home folder.
+Delete the Cortex.cpp data folder located in your home folder.
 :::
 
 ## Build from Source
 
-1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
-2. Navigate to the `cortex-js` folder.
-3. Open the terminal and run the following command to build the Cortex project:
+1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).
+2. Navigate to the `engine > vcpkg` folder.
+3. Configure the vpkg:
 
-```sh
-npx nest build
+```bash
+cd vcpkg
+## Windows
+./bootstrap-vcpkg.bat
+## WSL
+./bootstrap-vcpkg.sh
+vcpkg install
 ```
+4. Build the Cortex.cpp inside the `build` folder:
 
-4. Make the `command.js` executable:
-
-```sh
-node "[path-to]\cortex\cortex-js\dist\src\command.js"
+```bash
+mkdir build
+cd build
+## Windows
+cmake .. -DBUILD_SHARED_LIBS=OFF -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows-static
+## WSL
+cmake .. -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake
+make -j4
 ```
-
-5. Link the package globally:
-
-```sh
-npm link
-```
-6. Verify that Cortex is installed correctly by getting help information.
+5. Use Visual Studio with the C++ development kit to build the project using the files generated in the `build` folder.
+6. Verify that Cortex.cpp is installed correctly by getting help information.
 
 ```sh
 # Get the help information
@@ -104,7 +113,7 @@ cortex -h
 - Windows 10 or higher.
 #### CPU
 :::info
-- Cortex supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
+- Cortex.cpp supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
 - We support older processors with AVX and AVX-512, though this is not recommended.
 :::
 ##### Intel CPU

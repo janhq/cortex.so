@@ -4,7 +4,7 @@ description: Cortex models subcommands.
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex models get`
@@ -35,7 +35,7 @@ For example, it returns the following:
   stream: true,
   ngl: 33,
   ctx_len: 4096,
-  engine: 'cortex.llamacpp',
+  engine: 'llamacpp',
   prompt_template: '<|system|>\n{system_message}<|user|>\n{prompt}<|assistant|>',
   id: 'tinyllama',
   created: 1720659351720,

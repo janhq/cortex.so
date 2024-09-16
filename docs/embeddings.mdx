@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 An embedding is a vector that represents a piece of text, with the distance between vectors indicating similarity, which means closer distances mean more similar texts, while farther distances mean less similar texts.
@@ -71,7 +71,7 @@ curl http://127.0.0.1:3928/v1/embeddings \
 </Tabs>
 ## Capabilities
 ### Batch Embeddings
-Cortex's Embedding feature, powered by the [`cortex.llamacpp`](/docs/cortex-llamacpp) engine, offers an OpenAI-compatible endpoint. It supports processing multiple input data prompts simultaneously for batch embeddings.
+Cortex's Embedding feature, powered by the [`llamacpp`](/docs/cortex-llamacpp) engine, offers an OpenAI-compatible endpoint. It supports processing multiple input data prompts simultaneously for batch embeddings.
 ### Pre-configured Models
 We provide a selection of pre-configured models designed to integrate seamlessly with embedding features. These optimized models include:
 - Mistral Instruct 7B Q4

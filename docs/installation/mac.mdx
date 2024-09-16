@@ -8,48 +8,65 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-## Cortex Installation
+## Cortex.cpp Installation
 Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
-
-```sh
-brew install cortex-engine
-```
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 :::info
-You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
+You can also install Cortex.cpp using the Cortex.cpp Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
 :::
+### Data Folder
+By default, Cortex.cpp is installed in the following directory:
+```
+# Binary Location
+/usr/local/bin/cortexcpp<env>
 
-## Uninstall Cortex
-```sh
-brew uninstall cortex-engine
+# Application Data (Engines, Models and Logs folders)
+/Users/<username>/.cortexcpp<env>
+```
+## Uninstall Cortex.cpp
+1. Open the Finder menu.
+2. Click the Applications option from the sidebar.
+3. Find the Jan app or type in the search bar.
+4. Use any of these ways to move the Jan app to the Trash:
+    - Drag the app to the Trash.
+    - Select the app and choose the Move to Trash option.
+    - Select the app and press Command-Delete on your keyboard.
+5. Use the following command to delete Jan's user data and app cache:
+```bash
+# Remove all user data
+rm -rf ~/.cortexcpp<env>
+
+# Delete the application data
+rm -rf ~/.cortexrc<env>
 ```
 :::info
-Delete the Cortex data folder located in your home folder.
+Delete the Cortex.cpp data folder located in your home folder.
 :::
 ## Build from Source
+1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).
+2. Navigate to the `engine > vcpkg` folder.
+3. Configure the vpkg:
 
-1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
-2. Navigate to the `cortex-js` folder.
-3. Open the terminal and run the following command to build the Cortex project:
-
-```sh
-npx nest build
+```bash
+cd vcpkg
+./bootstrap-vcpkg.sh
+vcpkg install
 ```
+4. Build the Cortex.cpp inside the `build` folder:
 
-4. Make the `command.js` executable:
-
-```sh
-chmod +x '[path-to]/cortex/cortex-js/dist/src/command.js'
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake
+make -j4
 ```
-
-5. Link the package globally:
-
-```sh
-npm link
-```
-6. Verify that Cortex is installed correctly by getting help information.
+5. Use Visual Studio with the C++ development kit to build the project using the files generated in the `build` folder.
+6. Verify that Cortex.cpp is installed correctly by getting help information.
 
 ```sh
 # Get the help information

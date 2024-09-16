@@ -1774,7 +1774,7 @@
                     "engine": {
                         "type": "string",
                         "description": "The engine used to run the model.",
-                        "example": "cortex.llamacpp"
+                        "example": "llamacpp"
                     },
                     "owned_by": {
                         "type": "string",
@@ -1887,7 +1887,7 @@
                     },
                     "engine": {
                         "type": "string",
-                        "example": "cortex.llamacpp",
+                        "example": "llamacpp",
                         "description": "The engine to use."
                     }
                 }
@@ -2024,7 +2024,7 @@
                     "engine": {
                         "type": "string",
                         "description": "The engine to use.",
-                        "example": "cortex.llamacpp"
+                        "example": "llamacpp"
                     }
                 },
                 "required": [
@@ -2544,7 +2544,7 @@
                 "properties": {
                     "name": {
                         "type": "string",
-                        "example": "cortex.llamacpp",
+                        "example": "llamacpp",
                         "description": "The name of the engine that you want to retrieve."
                     },
                     "productName": {

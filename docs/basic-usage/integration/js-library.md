@@ -5,10 +5,10 @@ slug: "ts-library"
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-Cortex can be used in a Typescript application with the `cortex.js` library. Cortex provides a Typescript client library as a **fork of OpenAI's [Typescript library](https://github.com/openai/openai-node)** with additional methods for Local AI.
+Cortex.cpp can be used in a Typescript application with the `cortex.js` library. Cortex.cpp provides a Typescript client library as a **fork of OpenAI's [Typescript library](https://github.com/openai/openai-node)** with additional methods for Local AI.
 
 ## Installation
 
@@ -18,19 +18,19 @@ npm install @janhq/cortexso-node
 
 ## Usage
 
-1. Replace the OpenAI import with Cortex in your application:
+1. Replace the OpenAI import with Cortex.cpp in your application:
 
 ```diff
 - import OpenAI from 'openai';
 + import Cortex from '@janhq/cortexso-node';
 ```
 
-2. Modify the initialization of the client to use Cortex:
+2. Modify the initialization of the client to use Cortex.cpp:
 
 ```diff
 - const openai = new OpenAI({
 + const cortex = new Cortex({
-    baseURL: "BASE_URL", // The default base URL for Cortex is 'http://localhost:1337'
+    baseURL: "BASE_URL", // The default base URL for Cortex is 'http://localhost:3928'
     apiKey: "OPENAI_API_KEY", // This can be omitted if using the default
 });
 
@@ -43,7 +43,7 @@ import Cortex from "@janhq/cortexso-node";
 
 async function inference() {
   const cortex = new Cortex({
-    baseURL: "http://localhost:1337/v1",
+    baseURL: "http://localhost:3928/v1",
     apiKey: "",
   });
 

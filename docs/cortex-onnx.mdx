@@ -5,7 +5,7 @@ slug: "cortex-onnx"
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 ## Introduction
@@ -40,7 +40,7 @@ The command will check, download, and install these dependencies for Windows:
    - vcruntime140_1.dll
 ```
 :::info
-To include `cortex.onnx` in your own server implementation, follow the steps [here](https://github.com/janhq/cortex.onnx/tree/main/examples/server).
+To include `onnx` in your own server implementation, follow the steps [here](https://github.com/janhq/onnx/tree/main/examples/server).
 :::
 
 #### Get ONNX Models
@@ -49,7 +49,7 @@ You can download precompiled ONNX models from the [Cortex Hub](https://huggingfa
 
 ## Interface
 
-`cortex.onnx` has the following Interfaces:
+`onnx` has the following Interfaces:
 
 - **HandleChatCompletion:** Processes chat completion tasks.
   ```cpp
@@ -92,7 +92,7 @@ import Diagram from "../src/components/Diagram"
 These are the main components that interact to provide an API for `inference` tasks using the `onnxruntime-genai` library:
 - **cortex-cpp**: Responsible for handling API requests and responses.
 - **enginei**: Engine interface for inference.
-- **cortex.onnx**: It makes APIs accessible through an engine interface, allowing others to use its features easily.
+- **onnx**: It makes APIs accessible through an engine interface, allowing others to use its features easily.
 - **onnx_engine**:  Exposes APIs for inference. It loads and unloads models and simplifies API calls to **`onnxruntime_genai`**.
 - **onnxruntime_genai**: A submodule from the **`onnxruntime_genai`** repository that provides the core functionality for inferences.
 
@@ -116,7 +116,7 @@ sequenceDiagram
 
 ```
 
-The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.onnx` when using the `onnx` engine in Cortex:
+The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `onnx` when using the `onnx` engine in Cortex:
 
 1. **HTTP Request from cortex-js to cortex-cpp**:
    - `cortex-js` sends an HTTP request to `cortex-cpp` to load a model.
@@ -124,17 +124,17 @@ The diagram above illustrates the interaction between three components: `cortex-
 2. **Engine Loading in cortex-cpp**:
    - Upon receiving the HTTP request, `cortex-cpp` initiates the loading of the engine.
 
-3. **Model Loading from cortex-cpp to cortex.onnx**:
-   - `cortex-cpp` then requests `cortex.onnx` to load the model.
+3. **Model Loading from cortex-cpp to onnx**:
+   - `cortex-cpp` then requests `onnx` to load the model.
 
-4. **Model Preparation in cortex.onnx**:
-   - `cortex.onnx` performs the following tasks:
+4. **Model Preparation in onnx**:
+   - `onnx` performs the following tasks:
      - **Create Tokenizer**: Initializes a tokenizer for the model.
      - **Create ONNX Model**: Sets up the ONNX model for inference.
      - **Cache Chat Template**: Caches the chat template for future use.
 
-5. **Callback from cortex.onnx to cortex-cpp**:
-   - Once the model is loaded and ready, `cortex.onnx` sends a callback to `cortex-cpp` to indicate the completion of the model loading process.
+5. **Callback from onnx to cortex-cpp**:
+   - Once the model is loaded and ready, `onnx` sends a callback to `cortex-cpp` to indicate the completion of the model loading process.
 
 6. **HTTP Response from cortex-cpp to cortex-js**:
    - `cortex-cpp` sends an HTTP response back to `cortex-js`, indicating that the model has been successfully loaded and is ready for use.
@@ -162,29 +162,29 @@ sequenceDiagram
 
 ```
 
-The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.onnx` when using the `onnx` engine to call the `chat completions endpoint` with the stream inference option:
+The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `onnx` when using the `onnx` engine to call the `chat completions endpoint` with the stream inference option:
 
 1. **HTTP Request from cortex-js to `cortex-cpp`**:
    - `cortex-js` sends an HTTP request to `cortex-cpp` for chat completion.
 
-2. **Request Chat Completion from `cortex-cpp` to `cortex.onnx`**:
-   - `cortex-cpp` forwards the request to `cortex.onnx` to process the chat completion.
+2. **Request Chat Completion from `cortex-cpp` to `onnx`**:
+   - `cortex-cpp` forwards the request to `onnx` to process the chat completion.
 
-3. **Chat Processing in `cortex.onnx`**:
-   - `cortex.onnx` performs the following tasks:
+3. **Chat Processing in `onnx`**:
+   - `onnx` performs the following tasks:
      - **Apply Chat Template**: Applies the chat template.
      - **Encode**: Encodes the input data.
      - **Set Search Options**: Configures search options for inference.
      - **Create Generator**: Creates a generator for token generation.
 
-4. **Token Generation in `cortex.onnx`**:
-   - `cortex.onnx` executes the following steps in a loop to generate the response:
+4. **Token Generation in `onnx`**:
+   - `onnx` executes the following steps in a loop to generate the response:
      - **Compute Logits**: Computes the logits.
      - **Generate Next Token**: Generates the next token.
      - **Decode New Token**: Decodes the newly generated token.
 
-5. **Callback from `cortex.onnx` to `cortex-cpp`**:
-   - Once a token is generated, `cortex.onnx` sends a callback to `cortex-cpp`.
+5. **Callback from `onnx` to `cortex-cpp`**:
+   - Once a token is generated, `onnx` sends a callback to `cortex-cpp`.
 
 6. **HTTP Stream Response from `cortex-cpp` to `cortex-js`**:
    - `cortex-cpp` streams the response back to `cortex-js` as the tokens are generated.
@@ -212,28 +212,28 @@ sequenceDiagram
     CPP-->>JS: HTTP response
 
 ```
-The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `cortex.onnx` when using the `onnx` engine to call the `chat completions endpoint` with the non-stream inference option:
+The diagram above illustrates the interaction between three components: `cortex-js`, `cortex-cpp`, and `onnx` when using the `onnx` engine to call the `chat completions endpoint` with the non-stream inference option:
 
 1. **HTTP Request from `cortex-js` to `cortex-cpp`**:
    - `cortex-js` sends an HTTP request to `cortex-cpp` for chat completion.
 
-2. **Request Chat Completion from `cortex-cpp` to `cortex.onnx`**:
-   - `cortex-cpp` forwards the request to `cortex.onnx` to process the chat completion.
+2. **Request Chat Completion from `cortex-cpp` to `onnx`**:
+   - `cortex-cpp` forwards the request to `onnx` to process the chat completion.
 
-3. **Chat Processing in `cortex.onnx`**:
-   - `cortex.onnx` performs the following tasks:
+3. **Chat Processing in `onnx`**:
+   - `onnx` performs the following tasks:
      - **Apply Chat Template**: Applies the chat template.
      - **Encode**: Encodes the input data.
      - **Set Search Options**: Configures search options for inference.
      - **Create Generator**: Creates a generator to process the request.
 
-4. **Output Generation in `cortex.onnx`**:
-   - `cortex.onnx` executes the following steps to generate the response:
+4. **Output Generation in `onnx`**:
+   - `onnx` executes the following steps to generate the response:
      - **Generate Output**: Generates the output based on the processed data.
      - **Decode Output**: Decodes the generated output.
 
-5. **Callback from `cortex.onnx` to `cortex-cpp`**:
-   - Once the output is generated and ready, `cortex.onnx` sends a callback to `cortex-cpp` to indicate the completion of the chat completion process.
+5. **Callback from `onnx` to `cortex-cpp`**:
+   - Once the output is generated and ready, `onnx` sends a callback to `cortex-cpp` to indicate the completion of the chat completion process.
 
 6. **HTTP Response from `cortex-cpp` to `cortex-js`**:
    - `cortex-cpp` sends an HTTP response back to `cortex-js`, providing the generated output.
@@ -252,7 +252,7 @@ The diagram above illustrates the interaction between three components: `cortex-
 │   ├── chat_completion_request.h     # OpenAI compatible request handling
 │   ├── onnx_engine.h                   # Implementation onnx engine of model loading and inference 
 |   ├── onnx_engine.cc
-├── third-party                       # Dependencies of the cortex.onnx project
+├── third-party                       # Dependencies of the onnx project
     └── (list of third-party dependencies)
 
 ```

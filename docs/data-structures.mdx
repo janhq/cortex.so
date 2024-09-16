@@ -1,0 +1,66 @@
+---
+title: Data Structures
+description: Cortex.cpp's data structures.
+slug: "data-structures"
+---
+
+:::warning
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+:::
+
+When you install Cortex.cpp, three types of files will be generated on your device:
+
+- **Binary Files**
+- **Configuration Files**
+- **Data Folder**
+
+## Binary Files
+These are the executable files of the Cortex.cpp application. The file format varies depending on the operating system:
+
+- **Windows**: `.exe` located at `C:\Users\<username>\AppData\Local\cortexcpp\cortex<env>.exe`
+- **Linux**: `.deb` or `.fedora` located at `/usr/bin/cortexcpp<env>`
+- **macOS**: `.pkg` located at `/usr/local/bin/cortexcpp<env>`
+
+## Configuration Files
+This file stores the path to the user data folder and the port for the Cortex.cpp application, allowing you to modify the data folder path and port settings.. The configuration file is named `.cortexrc` and is stored in the following locations:
+
+- **Windows**: `C:\Users\<username>\.cortexrc<env>`
+- **Linux**: `/home/<username>/.cortexrc<env>`
+- **macOS**: `/Users/<username>/.cortexrc<env>`
+
+The following is the sample of the configuration file:
+```
+dataFolderPath: /Users/<user>/cortexcpp
+apiServerHost: 127.0.0.1
+apiServerPort: 3928
+```
+
+## Cortex.cpp Data Folder
+The data folder stores the engines, models, and logs required by Cortex.cpp. This folder is located at:
+
+- **Windows**: `C:\Users\<username>\.cortexcpp<env>`
+- **Linux**: `/home/<username>/.cortexcpp<env>`
+- **macOS**: `/Users/<username>\.cortexcpp<env>`
+
+### Folder Structure
+The Cortex.cpp data folder typically follows this structure:
+
+```yaml
+~/.cortexcpp<env>
+  ├── models/
+  │   └── model_id.yaml
+  │   └── model_id
+  │       └── model_id.yaml
+  ├── logs/
+  │   └── logs.txt
+  └── engines/
+      └── llamacpp
+```
+#### `.cortexcpp<env>`
+The main directory that stores all Cortex-related files, located in the user's home directory.
+#### `models/`
+Contains the AI models used by Cortex for processing and generating responses.
+#### `logs/`
+Stores log files, which are useful for troubleshooting and monitoring the application's performance.
+#### `engines/`
+Stores the necessary dependencies and engine files needed to run Cortex on supported engines.

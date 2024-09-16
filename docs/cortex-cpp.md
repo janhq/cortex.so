@@ -5,7 +5,7 @@ slug: "cortex-cpp"
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 Cortex.cpp is a stateless, C++ server that is 100% compatible with OpenAI API (stateless endpoints).
@@ -42,7 +42,7 @@ See [Quickstart](/docs/quickstart)
 │ └── ...
 ```
 
-`cortex-cpp` folder contains stateless implementations, most of which call into `cortex.llamacpp` and `cortex.tensorrt-llm`, depending on the engine at runtime.
+`cortex-cpp` folder contains stateless implementations, most of which call into `llamacpp` and `tensorrt-llm`, depending on the engine at runtime.
 
 Here you will find the implementations for stateless endpoints:
 

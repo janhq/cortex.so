@@ -5,7 +5,7 @@ slug: "ps"
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex ps`
@@ -33,7 +33,7 @@ For example, it returns the following table:
 ┌─────────┬──────────────────────┬───────────────────┬───────────┬──────────┬─────┬──────┐
 │ (index) │ modelId              │ engine            │ status    │ duration │ ram │ vram │
 ├─────────┼──────────────────────┼───────────────────┼───────────┼──────────┼─────┼──────┤
-│ 0       │ 'janhq/tinyllama/1b' │ 'cortex.llamacpp' │ 'running' │ '7s'     │ '-' │ '-'  │
+│ 0       │ 'janhq/tinyllama/1b' │ 'llamacpp' │ 'running' │ '7s'     │ '-' │ '-'  │
 └─────────┴──────────────────────┴───────────────────┴───────────┴──────────┴─────┴──────┘
 √ API server is offline
 ## The ps command also provides information on the percentage of system resources being used.

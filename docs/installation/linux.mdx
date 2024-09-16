@@ -9,49 +9,68 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-## Cortex Installation
+## Cortex.cpp Installation
 Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
+### .deb
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 
-```sh
-sudo apt install cortex-engine
-```
+### .appImage
+- Stable: https://github.com/janhq/cortex.cpp/releases
+- Beta: https://github.com/janhq/cortex.cpp/releases
+- Nightly: https://github.com/janhq/cortex.cpp/releases
 :::info
-You can also install Cortex using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
+You can also install Cortex.cpp using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
 :::
+### Data Folder
+By default, Cortex.cpp is installed in the following directory:
+```
+# Binary Location
+/usr/bin/cortexcpp<env>
 
-## Uninstall Cortex
+# Application Data (Engines, Models and Logs folders)
+/home/<username>/.cortexcpp<env>
+```
+## Uninstall Cortex.cpp
 ```sh
-sudo apt remove cortex-engine
+# Uninstall Jan
+sudo apt-get remove cortexcpp
+
+# Remove all user data
+rm -rf ~/.cortexcpp<env>
+
+# Delete the application data
+rm -rf ~/.cortexrc<env>
+
 ```
 :::info
-Delete the Cortex data folder located in your home folder.
+Delete the Cortex.cpp data folder located in your home folder.
 :::
 
 ## Build from Source
+1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).
+2. Navigate to the `engine > vcpkg` folder.
+3. Configure the vpkg:
 
-1. Clone the Cortex repository [here](https://github.com/janhq/cortex/tree/dev).
-2. Navigate to the `cortex-js` folder.
-3. Open the terminal and run the following command to build the Cortex project:
-
-```sh
-npx nest build
+```bash
+cd vcpkg
+./bootstrap-vcpkg.sh
+vcpkg install
 ```
+4. Build the Cortex.cpp inside the `build` folder:
 
-4. Make the `command.js` executable:
-
-```sh
-chmod +x '[path-to]/cortex/cortex-js/dist/src/command.js'
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_TOOLCHAIN_FILE=path_to_vcpkg_folder/vcpkg/scripts/buildsystems/vcpkg.cmake
+make -j4
 ```
-
-5. Link the package globally:
-
-```sh
-npm link
-```
-6. Verify that Cortex is installed correctly by getting help information.
+5. Use Visual Studio with the C++ development kit to build the project using the files generated in the `build` folder.
+6. Verify that Cortex.cpp is installed correctly by getting help information.
 
 ```sh
 # Get the help information
@@ -71,7 +90,7 @@ cortex -h
 - Ubuntu version 22.04 and higher
 #### CPU
 :::info
-- Cortex supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
+- Cortex.cpp supports a processor that can handle AVX2. For the full list, please see [here](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2).
 - We support older processors with AVX and AVX-512, though this is not recommended.
 :::
 ##### Intel CPU

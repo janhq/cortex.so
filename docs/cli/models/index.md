@@ -3,7 +3,7 @@ title: Cortex Models
 ---
 
 :::warning
-🚧 Cortex is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
+🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
 # `cortex models`
@@ -57,7 +57,7 @@ max_tokens: 4096
 stream: true
 ngl: 33
 ctx_len: 4096
-engine: cortex.llamacpp
+engine: llamacpp
 prompt_template:
 
 <|system|>
@@ -125,9 +125,9 @@ For example, it returns the following:
 +---------+----------------+-----------------+---------+
 | (Index) |       ID       |      engine     | version |
 +---------+----------------+-----------------+---------+
-|    1    | tinyllama-gguf | cortex.llamacpp |    1    |
+|    1    | tinyllama-gguf | llamacpp |    1    |
 +---------+----------------+-----------------+---------+
-|    2    | tinyllama      | cortex.llamacpp |    1    |
+|    2    | tinyllama      | llamacpp |    1    |
 +---------+----------------+-----------------+---------+
 
 ```
@@ -155,10 +155,10 @@ This command starts a model defined by a `model_id`.
 cortex models start <model_id>
 
 # Start a model with a preset
-cortex models start <model_id> [options]
+cortex models start [options] <model_id>
 
 # Start with a specified engine
-cortex models start <model_id>:[engine] [options]
+cortex models start [options] <model_id>:[engine]
 ```
 
 
@@ -170,7 +170,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 
 | Option                    | Description                                                               | Required | Default value                                | Example                |
 |---------------------------|---------------------------------------------------------------------------|----------|----------------------------------------------|------------------------|
-| `model_id`                | The identifier of the model you want to start.                            | No       | `Prompt to select from the available models` | `mistral`       |
+| `model_id`                | The identifier of the model you want to start.                            | Yes       | `Prompt to select from the available models` | `mistral`       |
 | `-h`, `--help`            | Display help information for the command.                                 | No       | -                                            | `-h`               |
 <!-- | `-a`, `--attach`          | Attach to an interactive chat session.                                    | No       | `false`                                      | `-a`             |
 | `-p`, `--preset <preset>` | Apply a chat preset to the chat session.                                  | No       | `false`                                      | `-p friendly`    | -->
@@ -224,7 +224,7 @@ This command uses a `model_id` from the model that you have downloaded or availa
 | `-c`, `--options <options...>` | Specify the options to update the model. Syntax: `-c option1=value1 option2=value2`.  | Yes      | -                    | `-c max_tokens=100 temperature=0.5`                        |
 | `-h`, `--help`              | Display help information for the command.                                                             | No       | -                    | `-h`                                                  |
 
-## `cortex models remove`
+## `cortex models delete`
 :::info
 This CLI command calls the following API endpoint:
 - [Delete Model](/api-reference#tag/models/delete/v1/models/{id})
@@ -236,7 +236,7 @@ This command deletes a local model defined by a `model_id`.
 **Usage**:
 
 ```bash
-cortex models remove <model_id>
+cortex models delete <model_id>
 ```
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.
@@ -244,5 +244,5 @@ This command uses a `model_id` from the model that you have downloaded or availa
 **Options**:
 | Option                    | Description                                                                 | Required | Default value        | Example                |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
-| `model_id`                | The identifier of the model you want to remove.                             | Yes      | -                    | `mistral`       |
+| `model_id`                | The identifier of the model you want to delete.                             | Yes      | -                    | `mistral`       |
 | `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
