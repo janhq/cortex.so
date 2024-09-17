@@ -6,6 +6,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { ScalarOptions } from "@scalar/docusaurus";
 import { downloadFile, listModels, listFiles } from "@huggingface/hub";
 import { remarkCodeHike } from "@code-hike/mdx";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 const date = new Date();
 
@@ -45,9 +48,7 @@ function generateDates(startDate: string, numberOfDays: number): string[] {
   return dates;
 }
 
-// disbale this one for avoid date 19,20 may
 const dateArray = generateDates(formattedDate, 30);
-// const dateArray = generateDates("06-21-2024", 30);
 
 const config: Config = {
   title: "Cortex",
@@ -170,45 +171,52 @@ const config: Config = {
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
 
-          const apiUrl =
-            "https://api.github.com/repos/janhq/cortex.cpp/releases";
+          let changelog = [];
 
-          try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-              throw new Error("Failed to fetch releases");
+          const changelogDir = path.resolve(__dirname, "changelog");
+          const files = fs.readdirSync(changelogDir);
+
+          // Loop through all .mdx files in the changelog directory
+          files.forEach(async (file) => {
+            if (file.endsWith(".mdx")) {
+              const filePath = path.join(changelogDir, file);
+              const fileContent = fs.readFileSync(filePath, "utf-8");
+
+              const { data, content } = matter(fileContent);
+
+              const slug = file.replace(".mdx", "").toLocaleLowerCase();
+
+              changelog.push({
+                slug,
+                frontmatter: data, // Frontmatter metadata (e.g., title, date)
+                body: content, // The actual MDX content
+              });
+
+              await Promise.all(
+                changelog.map(async (page) => {
+                  return actions.addRoute({
+                    // this is the path slug
+                    // you can make it dynamic here
+                    path: `/changelog/${slug}`,
+                    // the page component used to render the page
+                    component: require.resolve(
+                      "./src/components/ChangelogPage/index.tsx"
+                    ),
+                    // will only match for exactly matching paths
+                    exact: true,
+                    // you can use this to optionally overwrite certain theme components
+                    // see here: https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-plugin-content-blog/src/index.ts#L343
+                    modules: {},
+                    // any extra custom data keys are passed to the page
+                    // in this case, we merge the page data together with the loaded content data
+                    customData: { ...page },
+                  });
+                })
+              );
             }
-            const releases = await response.json();
-            const filteredReleases = releases.filter(
-              (release) => !release.draft && !release.prerelease
-            );
+          });
 
-            setGlobalData(filteredReleases);
-
-            await Promise.all(
-              filteredReleases.map(async (page) => {
-                return actions.addRoute({
-                  // this is the path slug
-                  // you can make it dynamic here
-                  path: `/changelog/${page.name.toLowerCase()}`,
-                  // the page component used to render the page
-                  component: require.resolve(
-                    "./src/components/ChangelogPage/index.tsx"
-                  ),
-                  // will only match for exactly matching paths
-                  exact: true,
-                  // you can use this to optionally overwrite certain theme components
-                  // see here: https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-plugin-content-blog/src/index.ts#L343
-                  modules: {},
-                  // any extra custom data keys are passed to the page
-                  // in this case, we merge the page data together with the loaded content data
-                  customData: { ...page },
-                });
-              })
-            );
-          } catch (error) {
-            console.error("Error fetching changelog:", error);
-          }
+          setGlobalData(changelog);
         },
       };
     },

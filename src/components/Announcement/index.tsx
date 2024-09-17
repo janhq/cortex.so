@@ -2,12 +2,12 @@ import React from "react";
 
 const Announcement = () => {
   return (
-    <div className="inline-flex items-center justify-center alert p-4 rounded-xl mx-auto bg-yellow-50">
+    <div className="inline-flex items-center justify-center alert px-4 py-3 rounded-xl mx-auto bg-indigo-500 border border-solid border-indigo-800">
       {/* Please change this when cortex stable we can use from latest release endpoint */}
       <div className="flex items-center gap-2">
         <span>🚧</span>
-        <p className="mb-0 text-neutral-800">
-          Cortex.cpp v1.0 is comming soon.
+        <p className="mb-0 text-neutral-100 font-medium">
+          Cortex.cpp v1.0 is coming soon.
           <a href="/docs" className="no-underline hover:no-underline">
             {" "}
             Read more

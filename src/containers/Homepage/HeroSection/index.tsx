@@ -8,7 +8,6 @@ import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { FlipWords } from "@site/src/components/FlipWord";
 import Announcement from "@site/src/components/Announcement";
-import { FaGithub } from "react-icons/fa";
 
 const HeroSection = () => {
   const userAgent = navigator.userAgent;
@@ -71,16 +70,7 @@ const HeroSection = () => {
           Powers <span className="text-black dark:text-white">👋</span> Jan
         </p>
         <div className="mt-8 flex flex-col md:flex-row gap-8 justify-center items-center">
-          {/* temporary comment download */}
-          {/* <DropdownDownload lastRelease={latestRelease} /> */}
-          <Link href="https://github.com/janhq/cortex" target="_blank">
-            <Button>
-              <div className="flex items-center">
-                <FaGithub className="mr-2" size={20} />
-                <span className="mb-0">Github</span>
-              </div>
-            </Button>
-          </Link>
+          <DropdownDownload lastRelease={latestRelease} />
           <Link href="/docs/quickstart" target="_blank">
             <Button theme="secondary">Quickstart</Button>
           </Link>

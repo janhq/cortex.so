@@ -43,7 +43,7 @@ const ChangelogPage = (props: { route: any }) => {
   return (
     <Layout>
       <div className="container mt-20 models-detail">
-        <h1 className="mb-8">v{data.name}</h1>
+        <h1 className="mb-8">{data.frontmatter.title}</h1>
         <div
           dangerouslySetInnerHTML={{
             __html: result,
