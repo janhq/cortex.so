@@ -6,9 +6,6 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { ScalarOptions } from "@scalar/docusaurus";
 import { downloadFile, listModels, listFiles } from "@huggingface/hub";
 import { remarkCodeHike } from "@code-hike/mdx";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 
 const date = new Date();
 
@@ -61,14 +58,6 @@ const config: Config = {
   staticDirectories: ["static"],
 
   plugins: [
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "changelog",
-        path: "changelog",
-        routeBasePath: "changelog",
-      },
-    ],
     "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
       return {
@@ -180,38 +169,47 @@ const config: Config = {
         name: "changelog-list",
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
-          const getChangelog = fs
-            .readdirSync(path.join(process.cwd(), "changelog"))
-            .filter((file) => {
-              return (
-                path.extname(file).toLowerCase() === ".mdx" &&
-                !file.startsWith("index")
-              );
-            });
-          const changelog = [];
 
-          for (const item of getChangelog) {
-            const content = fs.readFileSync(
-              path.join(process.cwd(), `changelog/${item}`),
-              "utf8"
-            );
-            const frontmatter = matter(content);
+          const apiUrl =
+            "https://api.github.com/repos/janhq/cortex.cpp/releases";
 
-            if (!frontmatter.data.unlisted) {
-              changelog.push({
-                url: item.replace(".mdx", ""),
-                title: frontmatter?.data?.title || "",
-                ogImage: frontmatter?.data?.ogImage || null,
-                version: frontmatter?.data?.version || null,
-                description: frontmatter?.data?.description || null,
-                date: String(frontmatter?.data?.date) || null,
-              });
+          try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+              throw new Error("Failed to fetch releases");
             }
-            changelog.sort(
-              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            const releases = await response.json();
+            const filteredReleases = releases.filter(
+              (release) => !release.draft && !release.prerelease
             );
+
+            console.log(filteredReleases);
+            setGlobalData(filteredReleases);
+
+            await Promise.all(
+              filteredReleases.map(async (page) => {
+                return actions.addRoute({
+                  // this is the path slug
+                  // you can make it dynamic here
+                  path: `/changelog/${page.name.toLowerCase()}`,
+                  // the page component used to render the page
+                  component: require.resolve(
+                    "./src/components/ChangelogPage/index.tsx"
+                  ),
+                  // will only match for exactly matching paths
+                  exact: true,
+                  // you can use this to optionally overwrite certain theme components
+                  // see here: https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-plugin-content-blog/src/index.ts#L343
+                  modules: {},
+                  // any extra custom data keys are passed to the page
+                  // in this case, we merge the page data together with the loaded content data
+                  customData: { ...page },
+                });
+              })
+            );
+          } catch (error) {
+            console.error("Error fetching changelog:", error);
           }
-          setGlobalData(changelog);
         },
       };
     },
@@ -222,20 +220,20 @@ const config: Config = {
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
           const fetchRepoInfo = await fetch(
-            "https://api.github.com/repos/janhq/cortex"
+            "https://api.github.com/repos/janhq/cortex.cpp"
           );
           const repoInfo = await fetchRepoInfo.json();
           setGlobalData(repoInfo);
         },
       };
     },
-    async function getRepoInfo(context, options) {
+    async function getRepoLatestReleaseInfo(context, options) {
       return {
         name: "latest-release",
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
           const fetchLatestRelease = await fetch(
-            "https://api.github.com/repos/janhq/cortex/releases/latest"
+            "https://api.github.com/repos/janhq/cortex.cpp/releases/latest"
           );
           const latestRelease = await fetchLatestRelease.json();
           setGlobalData(latestRelease);
@@ -336,10 +334,6 @@ const config: Config = {
     [
       "classic",
       {
-        // gtag: {
-        //   trackingID: process.env.GTM_ID,
-        // },
-
         docs: {
           beforeDefaultRemarkPlugins: [
             [
@@ -420,9 +414,11 @@ const config: Config = {
         width: 116,
       },
       items: [
+        { to: "/models", label: "Models", position: "left" },
+        { to: "/changelog", label: "Changelog", position: "right" },
         {
           type: "doc",
-          position: "left",
+          position: "right",
           docId: "overview",
           label: "Docs",
         },
@@ -431,13 +427,6 @@ const config: Config = {
           label: "API Reference",
           position: "right",
         },
-        // { to: "/docs/cli", label: "CLI", position: "left" },
-        { to: "/changelog", label: "Changelog", position: "right" },
-        {
-          type: "custom-productMegaMenu",
-          position: "left",
-        },
-        { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
           position: "right",

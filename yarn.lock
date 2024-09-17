@@ -8156,6 +8156,11 @@ markdown-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/markdown-extensions/-/markdown-extensions-2.0.0.tgz#34bebc83e9938cae16e0e017e4a9814a8330d3c4"
   integrity sha512-o5vL7aDWatOTX8LzaS1WMoaoxIiLRQJuIKKe2wAw6IeULDHaqbiqiggmx+pKvZDb1Sj+pE46Sn1T7lCqfFtg1Q==
 
+markdown-it-link-attributes@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-link-attributes/-/markdown-it-link-attributes-4.0.1.tgz#25751f2cf74fd91f0a35ba7b3247fa45f2056d88"
+  integrity sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==
+
 markdown-it@^14.1.0:
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-14.1.0.tgz#3c3c5992883c633db4714ccb4d7b5935d98b7d45"
