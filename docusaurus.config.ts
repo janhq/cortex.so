@@ -183,7 +183,6 @@ const config: Config = {
               (release) => !release.draft && !release.prerelease
             );
 
-            console.log(filteredReleases);
             setGlobalData(filteredReleases);
 
             await Promise.all(

@@ -7,8 +7,6 @@ const ChangelogPage = (props: { route: any }) => {
   const { route } = props;
   const { customData: data } = route;
 
-  console.log(data.body);
-
   const md = markdownit({
     linkify: true,
     highlight: function (str: string, lang: string) {
@@ -41,8 +39,6 @@ const ChangelogPage = (props: { route: any }) => {
   });
 
   const result = md.render(data.body);
-
-  console.log(result);
 
   return (
     <Layout>
