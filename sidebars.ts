@@ -51,8 +51,18 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: "html",
+      value: "BASIC USAGE",
+
+      className: "sidebar-divider",
+    },
+    { type: "doc", id: "basic-usage/overview", label: "Overview" },
+    { type: "doc", id: "basic-usage/cortexrc", label: ".cortexrc" },
+    { type: "doc", id: "model-yaml", label: "model.yaml" },
+    { type: "doc", id: "data-structures", label: "Data Folder" },
+    {
       type: "category",
-      label: "Integration",
+      label: "Libraries",
       link: {
         type: "generated-index",
       },
@@ -70,7 +80,21 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    { type: "doc", id: "data-structures", label: "Data Structures" },
+    {
+      type: "category",
+      label: "Model Sources",
+      link: { type: "doc", id: "hub/index" },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Repos" },
+        { type: "doc", id: "hub/hugging-face", label: "HuggingFace Repos" },
+        {
+          type: "doc",
+          id: "hub/nvidia-ngc",
+          label: "Nvidia Catalog (Coming Soon)",
+        },
+      ],
+    },
     // {
     //   type: "category",
     //   label: "Basic Usage",
@@ -105,13 +129,13 @@ const sidebars: SidebarsConfig = {
     // },
     // { type: "doc", id: "telemetry", label: "Telemetry" },
     // MODELs
-    {
-      type: "html",
-      value: "MODELS",
-      className: "sidebar-divider",
-    },
-    { type: "doc", id: "model-overview", label: "Overview" },
-    { type: "doc", id: "model-yaml", label: "model.yaml" },
+    // {
+    //   type: "html",
+    //   value: "MODELS",
+    //   className: "sidebar-divider",
+    // },
+    // { type: "doc", id: "model-overview", label: "Overview" },
+    // { type: "doc", id: "model-yaml", label: "model.yaml" },
     // { type: "doc", id: "built-in-models", label: "Built-in Models" },
     // {
     //   type: "category",
@@ -135,21 +159,6 @@ const sidebars: SidebarsConfig = {
     //     { type: "doc", id: "formats/onnx", label: "ONNX" },
     //   ],
     // },
-    {
-      type: "category",
-      label: "Model Sources",
-      link: { type: "doc", id: "hub/index" },
-      collapsed: true,
-      items: [
-        { type: "doc", id: "hub/cortex-hub", label: "Cortex Model Repos" },
-        { type: "doc", id: "hub/hugging-face", label: "HuggingFace Repos" },
-        {
-          type: "doc",
-          id: "hub/nvidia-ngc",
-          label: "Nvidia Catalog (Coming Soon)",
-        },
-      ],
-    },
     // BASIC USAGE
     // {
     //   type: "html",

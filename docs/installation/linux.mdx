@@ -36,20 +36,17 @@ By default, Cortex.cpp is installed in the following directory:
 /home/<username>/.cortexcpp<env>
 ```
 ## Uninstall Cortex.cpp
-```sh
-# Uninstall Jan
-sudo apt-get remove cortexcpp
+Run the uninstaller script:
+```bash
+# Stable version
+sudo apt remove cortexcpp
 
-# Remove all user data
-rm -rf ~/.cortexcpp<env>
+# Beta version
+sudo apt remove cortexcpp-beta
 
-# Delete the application data
-rm -rf ~/.cortexrc<env>
-
+# Nightly version
+sudo apt remove cortexcpp-nightly
 ```
-:::info
-Delete the Cortex.cpp data folder located in your home folder.
-:::
 
 ## Build from Source
 1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).

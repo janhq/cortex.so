@@ -13,7 +13,7 @@ slug: /cli
 This is the initial command you need to run to start using Cortex.cpp.
 :::
 
-This command starts the Cortex.cpp process and the API server, which runs on port `1337` by default.
+This command starts the Cortex.cpp API server, which runs on port `3928` by default.
 
 ## Usage
 
@@ -50,4 +50,5 @@ For example:
 - [cortex engines](/docs/cli/engines): Manage Cortex.cpp engines.
 - [cortex pull|download](/docs/cli/pull): Download a model.
 - [cortex run](/docs/cli/run): Shortcut to start a model and chat.
-- [cortex update](/docs/cli/stop): Update the Cortex.cpp version.
+- [cortex update](/docs/cli/update): Update the Cortex.cpp version.
+- [cortex stop](/docs/cli/stop): Stop the Cortex.cpp API server.

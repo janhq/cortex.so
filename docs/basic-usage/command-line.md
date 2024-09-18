@@ -11,13 +11,13 @@ slug: "command-line"
 Cortex has a [Docker](https://docs.docker.com/engine/reference/commandline/cli/) and [Ollama](https://ollama.com/)-inspired [CLI syntax](/docs/cli) for running model operations. 
 
 ## How It Works
-Cortex’s CLI invokes the Cortex Engine’s API, which runs in the background on port `1337`. 
+Cortex’s CLI invokes the Cortex Engine’s API, which runs in the background on port `3928`. 
 
 
 ## Basic Usage
 ### [Start Cortex Server](/docs/cli)
 ```bash
-# By default the server will be started on port `1337`
+# By default the server will be started on port `3928`
 cortex
 ```
 ### [Run Model](/docs/cli/run)
