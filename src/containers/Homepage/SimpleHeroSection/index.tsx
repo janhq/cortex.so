@@ -35,7 +35,7 @@ const SimpleHeroSection = () => {
             </Button>
           </Link>
           <Link href="/docs/quickstart" target="_blank">
-            <Button theme="secondary">Documentations</Button>
+            <Button theme="secondary">Documentation</Button>
           </Link>
         </div>
       </div>
