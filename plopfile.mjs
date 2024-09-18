@@ -49,7 +49,7 @@ export default async function (plop) {
       {
         type: "input",
         name: "description",
-        message: "Enter the description of the blog post:",
+        message: "Enter the description of the changelog post:",
         validate: (input) => (input ? true : "Description is required."),
       },
     ],

@@ -59,6 +59,14 @@ const config: Config = {
   staticDirectories: ["static"],
 
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "changelog",
+        path: "changelog",
+        routeBasePath: "changelog",
+      },
+    ],
     "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
       return {
@@ -184,35 +192,10 @@ const config: Config = {
 
               const { data, content } = matter(fileContent);
 
-              const slug = file.replace(".mdx", "").toLocaleLowerCase();
-
               changelog.push({
-                slug,
                 frontmatter: data, // Frontmatter metadata (e.g., title, date)
                 body: content, // The actual MDX content
               });
-
-              await Promise.all(
-                changelog.map(async (page) => {
-                  return actions.addRoute({
-                    // this is the path slug
-                    // you can make it dynamic here
-                    path: `/changelog/${slug}`,
-                    // the page component used to render the page
-                    component: require.resolve(
-                      "./src/components/ChangelogPage/index.tsx"
-                    ),
-                    // will only match for exactly matching paths
-                    exact: true,
-                    // you can use this to optionally overwrite certain theme components
-                    // see here: https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-plugin-content-blog/src/index.ts#L343
-                    modules: {},
-                    // any extra custom data keys are passed to the page
-                    // in this case, we merge the page data together with the loaded content data
-                    customData: { ...page },
-                  });
-                })
-              );
             }
           });
 
@@ -464,7 +447,7 @@ const config: Config = {
           items: [
             {
               label: "Github",
-              href: "https://github.com/janhq/cortex",
+              href: "https://github.com/janhq/cortex.cpp",
             },
             {
               label: "Discord",
