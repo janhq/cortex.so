@@ -4,6 +4,9 @@ description: Cortex.cpp's data folder.
 slug: "data-folder"
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -17,45 +20,96 @@ When you install Cortex.cpp, three types of files will be generated on your devi
 ## Binary Files
 These are the executable files of the Cortex.cpp application. The file format varies depending on the operating system:
 
-- **Windows**: `.exe` located at `C:\Users\<username>\AppData\Local\cortexcpp\cortex<env>.exe`
-- **Linux**: `.deb` or `.fedora` located at `/usr/bin/cortexcpp<env>`
-- **macOS**: `.pkg` located at `/usr/local/bin/cortexcpp<env>`
+- **Windows**: `.exe`
+  - Stable: `C:\Users\<username>\AppData\Local\cortexcpp\cortex.exe`
+  - Beta: `C:\Users\<username>\AppData\Local\cortexcpp-beta\cortex-beta.exe`
+  - Nighty: `C:\Users\<username>\AppData\Local\cortexcpp-nightly\cortex-nightly.exe`
+- **Linux**: `.deb` or `.fedora`
+  - Stable: `/usr/bin/cortexcpp`
+  - Beta: `/usr/bin/cortexcpp-beta`
+  - Nighty: `/usr/bin/cortexcpp-nightly`
+- **macOS**: `.pkg`
+  - Stable: `/usr/local/bin/cortexcpp`
+  - Beta: `/home/<username>/.cortexrc-beta`
+  - Nighty: `/home/<username>/.cortexrc-nightly`
 
 ## Configuration Files
 This file stores the path to the user data folder and the port for the Cortex.cpp application, allowing you to modify the data folder path and port settings.. The configuration file is named `.cortexrc` and is stored in the following locations:
 
-- **Windows**: `C:\Users\<username>\.cortexrc<env>`
-- **Linux**: `/home/<username>/.cortexrc<env>`
-- **macOS**: `/Users/<username>/.cortexrc<env>`
-
-The following is the sample of the configuration file:
-```
-dataFolderPath: /Users/<user>/cortexcpp
-apiServerHost: 127.0.0.1
-apiServerPort: 3928
-```
+- **Windows**:
+  - Stable: `C:\Users\<username>\.cortexrc`
+  - Beta: `C:\Users\<username>\.cortexrc-beta`
+  - Nighty: `C:\Users\<username>\.cortexrc-nightly`
+- **Linux**:
+  - Stable: `/home/<username>/.cortexrc`
+  - Beta: `/home/<username>/.cortexrc-beta`
+  - Nighty: `/home/<username>/.cortexrc-nightly`
+- **macOS**:
+  - Stable: `/Users/<username>/.cortexrc`
+  - Beta: `/Users/<username>/.cortexrc-beta`
+  - Nighty: `/Users/<username>/.cortexrc-nightly`
 
 ## Cortex.cpp Data Folder
 The data folder stores the engines, models, and logs required by Cortex.cpp. This folder is located at:
 
-- **Windows**: `C:\Users\<username>\.cortexcpp<env>`
-- **Linux**: `/home/<username>/.cortexcpp<env>`
-- **macOS**: `/Users/<username>\.cortexcpp<env>`
+- **Windows**:
+  - Stable: `C:\Users\<username>\.cortexcpp`
+  - Beta: `C:\Users\<username>\.cortexcpp-beta`
+  - Nighty: `C:\Users\<username>\.cortexcpp-nightly`
+- **Linux**:
+  - Stable: `/home/<username>/.cortexcpp<env>`
+  - Beta: `/home/<username>/.cortexcpp-beta`
+  - Nighty: `/home/<username>/.cortexcpp-nightly`
+- **macOS**:
+  - Stable: `/Users/<username>\.cortexcpp<env>`
+  - Beta: `/Users/<username>/.cortexcpp-beta`
+  - Nighty: `/Users/<username>/.cortexcpp-nightly`
 
 ### Folder Structure
 The Cortex.cpp data folder typically follows this structure:
 
-```yaml
-~/.cortexcpp<env>
-  ├── models/
-  │   └── model_id.yaml
-  │   └── model_id
-  │       └── model_id.yaml
-  ├── logs/
-  │   └── logs.txt
-  └── engines/
-      └── llamacpp
-```
+<Tabs>
+  <TabItem value="Stable" label="Stable">
+  ```yaml
+  ~/.cortex
+    ├── models/
+    │   └── model_id.yaml
+    │   └── model_id
+    │       └── model_id.yaml
+    ├── logs/
+    │   └── logs.txt
+    └── engines/
+        └── llamacpp
+  ```
+  </TabItem>
+  <TabItem value="Beta" label="Beta">
+  ```yaml
+  ~/.cortex-beta
+    ├── models/
+    │   └── model_id.yaml
+    │   └── model_id
+    │       └── model_id.yaml
+    ├── logs/
+    │   └── logs.txt
+    └── engines/
+        └── llamacpp
+  ```
+  </TabItem>
+  <TabItem value="Nightly" label="Nightly">
+  ```yaml
+  ~/.cortexc-nightly
+    ├── models/
+    │   └── model_id.yaml
+    │   └── model_id
+    │       └── model_id.yaml
+    ├── logs/
+    │   └── logs.txt
+    └── engines/
+        └── llamacpp
+  ```
+  </TabItem>
+</Tabs>
+
 #### `.cortexcpp<env>`
 The main directory that stores all Cortex-related files, located in the user's home directory.
 #### `models/`
