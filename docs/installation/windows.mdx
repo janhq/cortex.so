@@ -19,7 +19,12 @@ For Windows, Cortex.cpp can be installed in two ways:
 
 ## Windows
 ### Install Cortex.cpp
-Before installation, make sure that you have met the required [dependencies](#windows) and [hardware](#hardware) to run Cortex.
+Cortex.cpp offers two installer types:
+- Network Installers download a minimal system and require an internet connection to fetch packages during installation.
+- Local Installers include all necessary packages, enabling offline installation without internet access.
+:::info
+Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
+:::
 - Stable: https://github.com/janhq/cortex.cpp/releases
 - Beta: https://github.com/janhq/cortex.cpp/releases
 - Nightly: https://github.com/janhq/cortex.cpp/releases
@@ -43,11 +48,27 @@ To uninstall Cortex.cpp:
 Windows Subsystem Linux allows running Linux tools and workflows seamlessly alongside Windows applications. For more information, please see this [article](https://learn.microsoft.com/en-us/windows/wsl/faq).
 :::
 ### Install Cortex.cpp
-Before installation, make sure that you have met the required [dependencies](#windows-subsystem-for-linux) and [hardware](#hardware) to run Cortex.
+Cortex.cpp offers two installer types:
+- Network Installers download a minimal system and require an internet connection to fetch packages during installation.
+- Local Installers include all necessary packages, enabling offline installation without internet access.
+:::info
+Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
+:::
+1. Download the Windows installer:
+    - Stable: https://github.com/janhq/cortex.cpp/releases
+    - Beta: https://github.com/janhq/cortex.cpp/releases
+    - Nightly: https://github.com/janhq/cortex.cpp/releases
+2. Ensure that Cortex.cpp is sucessfulyy installed:
+```bash
+# Stable
+cortex.exe
 
-- Stable: https://github.com/janhq/cortex.cpp/releases
-- Beta: https://github.com/janhq/cortex.cpp/releases
-- Nightly: https://github.com/janhq/cortex.cpp/releases
+# Beta
+cortex-beta.exe
+
+# Nightly
+cortex-nightly.exe
+```
 
 #### Data Folder
 By default, Cortex.cpp is installed in the following directory:

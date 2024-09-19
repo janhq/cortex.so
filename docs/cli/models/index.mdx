@@ -2,6 +2,9 @@
 title: Cortex Models
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -12,10 +15,32 @@ This command allows you to start, stop, and manage various local or remote model
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models [options]
 
-```bash
-cortex models [options]
-```
+  # Beta
+  cortex-beta models [options]
+
+  # Nightly
+  cortex-nightly models [options]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models [options]
+  
+  # Beta
+  cortex-beta.exe models [options]
+
+  # Nightly
+  cortex-nightly.exe models [options]
+  ```
+  </TabItem>
+</Tabs>
 
 **Options**:
 
@@ -35,10 +60,33 @@ This command returns a model detail defined by a `model_id`.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models get <model_id>
 
-```bash
-cortex models get <model_id>
-```
+  # Beta
+  cortex-beta models get <model_id>
+
+  # Nightly
+  cortex-nightly models get <model_id>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models get <model_id>
+  
+  # Beta
+  cortex-beta.exe models get <model_id>
+
+  # Nightly
+  cortex-nightly.exe models get <model_id>
+  ```
+  </TabItem>
+</Tabs>
+
 For example, it returns the following:
 
 ```bash
@@ -116,10 +164,33 @@ This command lists all the downloaded local and remote models.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models list [options]
 
-```bash
-cortex models list [options]
-```
+  # Beta
+  cortex-beta models list [options]
+
+  # Nightly
+  cortex-nightly models list [options]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models list [options]
+  
+  # Beta
+  cortex-beta.exe models list [options]
+
+  # Nightly
+  cortex-nightly.exe models list [options]
+  ```
+  </TabItem>
+</Tabs>
+
 For example, it returns the following:
 ```bash
 +---------+----------------+-----------------+---------+
@@ -149,17 +220,32 @@ This command starts a model defined by a `model_id`.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models start [options] <model_id>
 
-```bash
-# Start a model
-cortex models start <model_id>
+  # Beta
+  cortex-beta models start [options] <model_id>
 
-# Start a model with a preset
-cortex models start [options] <model_id>
+  # Nightly
+  cortex-nightly models start [options] <model_id>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models start [options] <model_id>
+  
+  # Beta
+  cortex-beta.exe models start [options] <model_id>
 
-# Start with a specified engine
-cortex models start [options] <model_id>:[engine]
-```
+  # Nightly
+  cortex-nightly.exe models start [options] <model_id>
+  ```
+  </TabItem>
+</Tabs>
 
 
 :::info
@@ -185,10 +271,33 @@ This command stops a model defined by a `model_id`.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models stop <model_id>
 
-```bash
-cortex models stop <model_id>
-```
+  # Beta
+  cortex-beta models stop <model_id>
+
+  # Nightly
+  cortex-nightly models stop <model_id>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models stop <model_id>
+  
+  # Beta
+  cortex-beta.exe models stop <model_id>
+
+  # Nightly
+  cortex-nightly.exe models stop <model_id>
+  ```
+  </TabItem>
+</Tabs>
+
 :::info
 This command uses a `model_id` from the model that you have started before.
 :::
@@ -209,10 +318,33 @@ This command updates a model configuration defined by a `model_id`.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models update [options] <model_id>
 
-```bash
-cortex models update [options] <model_id>
-```
+  # Beta
+  cortex-beta models update [options] <model_id>
+
+  # Nightly
+  cortex-nightly models update [options] <model_id>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models update [options] <model_id>
+  
+  # Beta
+  cortex-beta.exe models update [options] <model_id>
+
+  # Nightly
+  cortex-nightly.exe models update [options] <model_id>
+  ```
+  </TabItem>
+</Tabs>
+
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.
 :::
@@ -234,13 +366,37 @@ This command deletes a local model defined by a `model_id`.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models delete <model_id>
 
-```bash
-cortex models delete <model_id>
-```
+  # Beta
+  cortex-beta models delete <model_id>
+
+  # Nightly
+  cortex-nightly models delete <model_id>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models delete <model_id>
+  
+  # Beta
+  cortex-beta.exe models delete <model_id>
+
+  # Nightly
+  cortex-nightly.exe models delete <model_id>
+  ```
+  </TabItem>
+</Tabs>
+
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.
 :::
+
 **Options**:
 | Option                    | Description                                                                 | Required | Default value        | Example                |
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|

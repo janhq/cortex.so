@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
     { type: "doc", id: "basic-usage/overview", label: "Overview" },
     { type: "doc", id: "basic-usage/cortexrc", label: ".cortexrc" },
     { type: "doc", id: "model-yaml", label: "model.yaml" },
-    { type: "doc", id: "data-structures", label: "Data Folder" },
+    { type: "doc", id: "data-folder", label: "Data Folder" },
     {
       type: "category",
       label: "Libraries",

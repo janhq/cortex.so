@@ -4,6 +4,9 @@ description: Cortex ps command.
 slug: "ps"
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -19,10 +22,33 @@ This command shows the running model and its status.
 
 
 ## Usage
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex ps [options]
 
-```bash
-cortex ps [options]
-```
+  # Beta
+  cortex-beta ps [options]
+
+  # Nightly
+  cortex-nightly ps [options]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe ps [options]
+  
+  # Beta
+  cortex-beta.exe ps [options]
+
+  # Nightly
+  cortex-nightly.exe ps [options]
+  ```
+  </TabItem>
+</Tabs>
+
 
 For example, it returns the following table:
 

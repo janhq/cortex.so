@@ -12,13 +12,28 @@ import TabItem from '@theme/TabItem';
 :::
 
 ## Cortex.cpp Installation
-Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
-- Stable: https://github.com/janhq/cortex.cpp/releases
-- Beta: https://github.com/janhq/cortex.cpp/releases
-- Nightly: https://github.com/janhq/cortex.cpp/releases
+Cortex.cpp offers two installer types:
+- Network Installers download a minimal system and require an internet connection to fetch packages during installation.
+- Local Installers include all necessary packages, enabling offline installation without internet access.
 :::info
-You can also install Cortex.cpp using the Cortex.cpp Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
+Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
 :::
+1. Download the MacOs installer:
+    - Stable: https://github.com/janhq/cortex.cpp/releases
+    - Beta: https://github.com/janhq/cortex.cpp/releases
+    - Nightly: https://github.com/janhq/cortex.cpp/releases
+2. Ensure that Cortex.cpp is sucessfulyy installed:
+```bash
+# Stable
+cortex
+
+# Beta
+cortex-beta
+
+# Nightly
+cortex-nightly
+```
+
 ### Data Folder
 By default, Cortex.cpp is installed in the following directory:
 ```

@@ -2,6 +2,9 @@
 title: Cortex Engines
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -13,10 +16,33 @@ This command allows you to manage various engines available within Cortex.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex engines [options] [subcommand]
 
-```bash
-cortex engines <command|parameter> [options] [subcommand] 
-```
+  # Beta
+  cortex-beta engines [options] [subcommand]
+
+  # Nightly
+  cortex-nightly engines [options] [subcommand]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe engines [options] [subcommand]
+  
+  # Beta
+  cortex-beta.exe engines [options] [subcommand]
+
+  # Nightly
+  cortex-nightly.exe engines [options] [subcommand]
+  ```
+  </TabItem>
+</Tabs>
+
 
 **Options**:
 
@@ -35,10 +61,33 @@ This command returns an engine detail defined by an engine `engine_name`.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex engines get <engine_name>
 
-```bash
-cortex engines get <engine_name>
-```
+  # Beta
+  cortex-beta engines get <engine_name>
+
+  # Nightly
+  cortex-nightly engines get <engine_name>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe engines get <engine_name>
+  
+  # Beta
+  cortex-beta.exe engines get <engine_name>
+
+  # Nightly
+  cortex-nightly.exe engines get <engine_name>
+  ```
+  </TabItem>
+</Tabs>
+
 For example, it returns the following:
 ```bash
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────┐
@@ -72,10 +121,33 @@ This command lists all the Cortex's engines.
 
 
 **Usage**:
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex engines list [options]
 
-```bash
-cortex engines list [options]
-```
+  # Beta
+  cortex-beta engines list [options]
+
+  # Nightly
+  cortex-nightly engines list [options]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe engines list [options]
+  
+  # Beta
+  cortex-beta.exe engines list [options]
+
+  # Nightly
+  cortex-nightly.exe engines list [options]
+  ```
+  </TabItem>
+</Tabs>
+
 For example, it returns the following:
 ```bash
 +---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
@@ -110,9 +182,33 @@ This command downloads the required dependencies and installs the engine within 
 - `Tensorrt-llm`
 
 **Usage**:
-```bash
-cortex engines install [options] <engine_name>
-```
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex engines install [options] <engine_name>
+
+  # Beta
+  cortex-beta engines install [options] <engine_name>
+
+  # Nightly
+  cortex-nightly engines install [options] <engine_name>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe engines install [options] <engine_name>
+  
+  # Beta
+  cortex-beta.exe engines install [options] <engine_name>
+
+  # Nightly
+  cortex-nightly.exe engines install [options] <engine_name>
+  ```
+  </TabItem>
+</Tabs>
+
 For Example:
 ```bash
 ## Llama.cpp engine
@@ -138,9 +234,33 @@ cortex engines install tensorrt-llm
 This command uninstalls the engine within Cortex.
 
 **Usage**:
-```bash
-cortex engines uninstall [options] <engine_name>
-```
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex engines uninstall [options] <engine_name>
+
+  # Beta
+  cortex-beta engines uninstall [options] <engine_name>
+
+  # Nightly
+  cortex-nightly engines uninstall [options] <engine_name>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe engines uninstall [options] <engine_name>
+  
+  # Beta
+  cortex-beta.exe engines uninstall [options] <engine_name>
+
+  # Nightly
+  cortex-nightly.exe engines uninstall [options] <engine_name>
+  ```
+  </TabItem>
+</Tabs>
+
 For Example:
 ```bash
 ## Llama.cpp engine
