@@ -95,6 +95,17 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: "category",
+      label: "Engines",
+      link: { type: "doc", id: "engines/index" },
+      collapsed: true,
+      items: [
+        { type: "doc", id: "engines/llamacpp", label: "Llama.cpp" },
+        // { type: "doc", id: "engines/tensorrt-llm", label: "TensorRT-LLM" },
+        // { type: "doc", id: "engines/onnx", label: "ONNX" },
+      ],
+    },
     // {
     //   type: "category",
     //   label: "Basic Usage",
@@ -146,17 +157,6 @@ const sidebars: SidebarsConfig = {
     //     { type: "doc", id: "model-yaml", label: "model.yaml" },
     //     // { type: "doc", id: "model-presets", label: "Model Presets" },
     //     { type: "doc", id: "built-in-models", label: "Built-in Models" },
-    //   ],
-    // },
-    // {
-    //   type: "category",
-    //   label: "Model Formats",
-    //   link: { type: "doc", id: "formats/index" },
-    //   collapsed: true,
-    //   items: [
-    //     { type: "doc", id: "formats/gguf", label: "GGUF" },
-    //     { type: "doc", id: "formats/tensorrt-llm", label: "TensorRT-LLM" },
-    //     { type: "doc", id: "formats/onnx", label: "ONNX" },
     //   ],
     // },
     // BASIC USAGE
