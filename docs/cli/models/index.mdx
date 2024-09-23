@@ -15,17 +15,20 @@ This command allows you to start, stop, and manage various local or remote model
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
   # Stable
-  cortex models [options]
+  cortex models [options] [subcommand]
 
   # Beta
-  cortex-beta models [options]
+  cortex-beta models [options] [subcommand]
 
   # Nightly
-  cortex-nightly models [options]
+  cortex-nightly models [options] [subcommand]
   ```
   </TabItem>
   <TabItem value="Windows" label="Windows">
@@ -60,6 +63,9 @@ This command returns a model detail defined by a `model_id`.
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -164,6 +170,9 @@ This command lists all the downloaded local and remote models.
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -220,6 +229,9 @@ This command starts a model defined by a `model_id`.
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -271,6 +283,9 @@ This command stops a model defined by a `model_id`.
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -318,6 +333,9 @@ This command updates a model configuration defined by a `model_id`.
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -366,6 +384,9 @@ This command deletes a local model defined by a `model_id`.
 
 
 **Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -402,3 +423,129 @@ This command uses a `model_id` from the model that you have downloaded or availa
 |---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
 | `model_id`                | The identifier of the model you want to delete.                             | Yes      | -                    | `mistral`       |
 | `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
+
+## `cortex models alias`
+This command adds an alias to a local model that function the same as `model_id`.
+
+
+**Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models alias --model_id <model_id> --alias <new_model_id_or_model_alias>
+
+  # Beta
+  cortex-beta models alias --model_id <model_id> --alias <new_model_id_or_model_alias>
+
+  # Nightly
+  cortex-nightly models alias --model_id <model_id> --alias <new_model_id_or_model_alias>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models alias --model_id <model_id> --alias <new_model_id_or_model_alias>
+  
+  # Beta
+  cortex-beta.exe models alias --model_id <model_id> --alias <new_model_id_or_model_alias>
+
+  # Nightly
+  cortex-nightly.exe models alias --model_id <model_id> --alias <new_model_id_or_model_alias>
+  ```
+  </TabItem>
+</Tabs>
+
+
+**Options**:
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `--model_id`                | The identifier of the model.                             | Yes      | -                    | `mistral`       |
+| `-alias`            | The new identifier for the model.                                                   | Yes       | -                    | `mistral_2`               |
+
+## `cortex models update`
+This command updates the `model.yaml` file of a local model.
+
+
+**Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models update [options]
+
+  # Beta
+  cortex-beta models update [options]
+
+  # Nightly
+  cortex-nightly models update [options]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models update [options]
+  
+  # Beta
+  cortex-beta.exe models update [options]
+
+  # Nightly
+  cortex-nightly.exe models update [options]
+  ```
+  </TabItem>
+</Tabs>
+
+
+**Options**:
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
+
+## `cortex models import`
+This command imports the local model using the model's `gguf` file.
+
+
+**Usage**:
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex models import --model_id <model_id> --model_path </path/to/your/model.gguf>
+
+  # Beta
+  cortex-beta models import --model_id <model_id> --model_path </path/to/your/model.gguf>
+
+  # Nightly
+  cortex-nightly models import --model_id <model_id> --model_path </path/to/your/model.gguf>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe models import --model_id <model_id> --model_path </path/to/your/model.gguf>
+  
+  # Beta
+  cortex-beta.exe models import --model_id <model_id> --model_path </path/to/your/model.gguf>
+
+  # Nightly
+  cortex-nightly.exe models import --model_id <model_id> --model_path </path/to/your/model.gguf>
+  ```
+  </TabItem>
+</Tabs>
+
+
+**Options**:
+| Option                    | Description                                                                 | Required | Default value        | Example                |
+|---------------------------|-----------------------------------------------------------------------------|----------|----------------------|------------------------|
+| `-h`, `--help`            | Display help for command.                                                   | No       | -                    | `-h`               |
+| `--model_id`                | The identifier of the model.                             | Yes      | -                    | `mistral`       |
+| `--model_path`                | The path of the model source file.                             | Yes      | -                    | `/path/to/your/model.gguf`       |
