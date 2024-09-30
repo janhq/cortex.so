@@ -7,6 +7,7 @@ import { usePluginData } from "@docusaurus/useGlobalData";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { FlipWords } from "@site/src/components/FlipWord";
+import Announcement from "@site/src/components/Announcement";
 
 const HeroSection = () => {
   const userAgent = navigator.userAgent;
@@ -53,6 +54,10 @@ const HeroSection = () => {
 
   return (
     <div className="container">
+      <div className="text-center mb-10">
+        <Announcement />
+      </div>
+
       <div className="text-center">
         <h1 className="text-6xl font-grotesk">
           {/* <FlipWords words={words} /> */}

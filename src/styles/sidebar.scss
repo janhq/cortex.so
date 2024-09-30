@@ -26,3 +26,10 @@
 .menu__list-item {
   margin-top: 0 !important;
 }
+
+.plugin-id-changelog {
+  .menu,
+  .theme-doc-toc-desktop {
+    display: none;
+  }
+}

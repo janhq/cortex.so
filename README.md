@@ -39,3 +39,17 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+## Changelog Generator
+
+To generate a changelog post, run:
+
+```bash
+  yarn create:changelog
+```
+
+- **Title & Slug**: Generate changelog post files with a title and a slug.
+- **Description**: Add a description for the changelog post.
+- **Version**: Add a version for the changelog post.
+
+The pages will be generated in `changelog/${slug}`. You can start writing your changelog post here.

@@ -6,6 +6,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { ScalarOptions } from "@scalar/docusaurus";
 import { downloadFile, listModels, listFiles } from "@huggingface/hub";
 import { remarkCodeHike } from "@code-hike/mdx";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 const date = new Date();
 
@@ -45,9 +48,7 @@ function generateDates(startDate: string, numberOfDays: number): string[] {
   return dates;
 }
 
-// disbale this one for avoid date 19,20 may
 const dateArray = generateDates(formattedDate, 30);
-// const dateArray = generateDates("06-21-2024", 30);
 
 const config: Config = {
   title: "Cortex",
@@ -58,6 +59,14 @@ const config: Config = {
   staticDirectories: ["static"],
 
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "changelog",
+        path: "changelog",
+        routeBasePath: "changelog",
+      },
+    ],
     "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
       return {
@@ -70,6 +79,7 @@ const config: Config = {
         },
       };
     },
+
     async function modelsPagesGenPlugin(context, options) {
       return {
         name: "list-models",
@@ -162,26 +172,62 @@ const config: Config = {
         },
       };
     },
+
+    async function getChangelogList(context, options) {
+      return {
+        name: "changelog-list",
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+
+          let changelog = [];
+
+          const changelogDir = path.resolve(__dirname, "changelog");
+          const files = fs.readdirSync(changelogDir);
+
+          // Loop through all .mdx files in the changelog directory
+          files.forEach(async (file) => {
+            if (file.endsWith(".mdx")) {
+              const filePath = path.join(changelogDir, file);
+              const fileContent = fs.readFileSync(filePath, "utf-8");
+
+              const { data, content } = matter(fileContent);
+
+              changelog.push({
+                frontmatter: data, // Frontmatter metadata (e.g., title, date)
+                body: content, // The actual MDX content
+              });
+            }
+          });
+          changelog.sort(
+            (a, b) =>
+              new Date(b.frontmatter.date).getTime() -
+              new Date(a.frontmatter.date).getTime()
+          );
+          setGlobalData(changelog);
+        },
+      };
+    },
+
     async function getRepoInfo(context, options) {
       return {
         name: "repo-info",
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
           const fetchRepoInfo = await fetch(
-            "https://api.github.com/repos/janhq/cortex"
+            "https://api.github.com/repos/janhq/cortex.cpp"
           );
           const repoInfo = await fetchRepoInfo.json();
           setGlobalData(repoInfo);
         },
       };
     },
-    async function getRepoInfo(context, options) {
+    async function getRepoLatestReleaseInfo(context, options) {
       return {
         name: "latest-release",
         async contentLoaded({ content, actions }) {
           const { setGlobalData } = actions;
           const fetchLatestRelease = await fetch(
-            "https://api.github.com/repos/janhq/cortex/releases/latest"
+            "https://api.github.com/repos/janhq/cortex.cpp/releases/latest"
           );
           const latestRelease = await fetchLatestRelease.json();
           setGlobalData(latestRelease);
@@ -229,7 +275,7 @@ const config: Config = {
         route: "/api-reference",
         configuration: {
           spec: {
-            url: "https://raw.githubusercontent.com/janhq/cortex-web/main/static/openapi/jan.json",
+            url: "https://raw.githubusercontent.com/janhq/cortex.so/main/static/openapi/jan.json",
           },
           hideModels: true,
         },
@@ -282,10 +328,6 @@ const config: Config = {
     [
       "classic",
       {
-        // gtag: {
-        //   trackingID: process.env.GTM_ID,
-        // },
-
         docs: {
           beforeDefaultRemarkPlugins: [
             [
@@ -300,7 +342,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/janhq/cortex-web/tree/main/",
+          editUrl: "https://github.com/janhq/cortex.so/tree/main/",
         },
         sitemap: {
           changefreq: "daily",
@@ -366,23 +408,19 @@ const config: Config = {
         width: 116,
       },
       items: [
+        { to: "/models", label: "Models", position: "left" },
+        { to: "/changelog", label: "Changelog", position: "right" },
         {
           type: "doc",
-          position: "left",
+          position: "right",
           docId: "overview",
           label: "Docs",
         },
         {
           to: "/api-reference",
           label: "API Reference",
-          position: "left",
+          position: "right",
         },
-        // { to: "/docs/cli", label: "CLI", position: "left" },
-        // {
-        //   type: "custom-productMegaMenu",
-        //   position: "left",
-        // },
-        { to: "/models", label: "Models", position: "left" },
         {
           type: "search",
           position: "right",
@@ -405,6 +443,7 @@ const config: Config = {
             { to: "/docs/cli", label: "CLI" },
             { href: "/api-reference", label: "API Reference" },
             { to: "/models", label: "Models" },
+            { to: "/changelog", label: "Changelog" },
           ],
         },
         {
@@ -412,7 +451,7 @@ const config: Config = {
           items: [
             {
               label: "Github",
-              href: "https://github.com/janhq/cortex",
+              href: "https://github.com/janhq/cortex.cpp",
             },
             {
               label: "Discord",
