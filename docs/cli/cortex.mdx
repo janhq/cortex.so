@@ -12,51 +12,38 @@ import TabItem from "@theme/TabItem";
 :::
 
 # Cortex
-:::info
-This is the initial command you need to run to start using Cortex.cpp.
-:::
-
-This command starts the Cortex.cpp API server, which runs on port `3928` by default.
+This command list all the available commands within the Cortex.cpp commands.
 
 ## Usage
+:::info
+You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
+:::
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
   # Stable
-  cortex [command] [options]
+  cortex
 
   # Beta
-  cortex-beta [command] [options]
+  cortex-beta
 
   # Nightly
-  cortex-nightly [command] [options]
+  cortex-nightly
   ```
   </TabItem>
   <TabItem value="Windows" label="Windows">
   ```sh
   # Stable
-  cortex.exe [command] [options]
+  cortex.exe
 
   # Beta
-  cortex-beta.exe [command] [options]
+  cortex-beta.exe
 
   # Nightly
-  cortex-nightly.exe [command] [options]
+  cortex-nightly.exe
   ```
   </TabItem>
 </Tabs>
-
-
-## Options
-
-| Option                       | Description                               | Required | Default value | Example                       |
-| ---------------------------- | ----------------------------------------- | -------- | ------------- | ----------------------------- |
-| `-v`, `--version`            | Show version.                              | No       | -       | `-v`                          |
-| `-h`, `--help`               | Display help information for the command.  | No       | -             | `-h`                          |
-| `--verbose`               | Show the detailed command logs                                 | No       | -       | `--verbose`                          |
-<!-- | `-a`, `--address <address>`  | Address to use.                            | No       | -             | `-a 192.168.1.1`              |
-| `-p`, `--port <port>`        | Port to serve the application.             | No       | -             | `-p 1337`                     | -->
-<!--| `--dataFolder <dataFolder>`  | Set the data folder directory             | No       | -             | `--dataFolder /path/to/data`  | -->
 
 
 ## Command Chaining
@@ -77,4 +64,5 @@ For example:
 - [cortex pull|download](/docs/cli/pull): Download a model.
 - [cortex run](/docs/cli/run): Shortcut to start a model and chat.
 - [cortex update](/docs/cli/update): Update the Cortex.cpp version.
+- [cortex start](/docs/cli/start): Start the Cortex.cpp API server.
 - [cortex stop](/docs/cli/stop): Stop the Cortex.cpp API server.

@@ -184,6 +184,7 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-divider",
     },
     { type: "doc", id: "cli/cortex", label: "cortex" },
+    { type: "doc", id: "cli/start", label: "cortex start" },
     { type: "doc", id: "cli/chat", label: "cortex chat" },
     { type: "doc", id: "cli/embeddings", label: "cortex embeddings" },
     // { type: "doc", id: "cli/presets", label: "cortex presets" },
