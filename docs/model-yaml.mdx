@@ -11,29 +11,61 @@ import TabItem from "@theme/TabItem";
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-Cortex.cpp uses a `model.yaml` file to specify the configuration for running a model. Models can be downloaded from the Cortex Model Hub or Hugging Face repositories. Once downloaded, the model data is parsed and stored in two locations:
-- `/cortexcpp/models/<model_id>/<model>.yml`: Contains the original model data.
-- `/cortexcpp/models/<model>.yaml`: Manages model settings for Cortex.cpp.
+Cortex.cpp uses a `model.yaml` file to specify the configuration for running a model. Models can be downloaded from the Cortex Model Hub or Hugging Face repositories. Once downloaded, the model data is parsed and stored in the `models` folder.
 
+## `model.list`
+The `model.list` file acts as a registry for all model files used by Cortex.cpp. It keeps track of every downloaded and imported model by listing their details in a structured format. Each time a model is downloaded or imported, Cortex.cpp will automatically append an entry to `model.list` with the following format:
+```
+# Downloaded model
+<model-id> <author_repo-id> <branch-name> <path-to-model.yaml> <model-alias>
 
+# Imported model
+<model-id> local imported <path-to-model-id.yaml> <model-alias>
+
+```
 ## `model.yaml` High Level Structure
 Here is an example of `model.yaml` format:
 ```yaml
-# Cortex Meta
-name: 
-model: 
-version: 
+# BEGIN GENERAL METADATA
+model: gemma-2-9b-it-Q8_0 ## Model ID which is used for request construct - should be unique between models (author / quantization)
+name: Llama 3.1      ## metadata.general.name
+version: 1           ## metadata.version
+sources:             ## can be universal protocol (models://) OR absolute local file path (file://) OR https remote URL (https://)
+  - models://huggingface/bartowski/Mixtral-8x22B-v0.1/main/Mixtral-8x22B-v0.1-IQ3_M-00001-of-00005.gguf # for downloaded model from HF
+  - files://C:/Users/user/Downloads/Mixtral-8x22B-v0.1-IQ3_M-00001-of-00005.gguf # for imported model
+# END GENERAL METADATA
 
-# Engine / Model Settings
-engine: 
-ngl:  
-ctx_len: 
-prompt_template: 
+# BEGIN INFERENCE PARAMETERS
+## BEGIN REQUIRED
+stop:                ## tokenizer.ggml.eos_token_id
+  - <|end_of_text|>
+  - <|eot_id|>
+  - <|eom_id|>
+## END REQUIRED
+## BEGIN OPTIONAL
+stream: true         # Default true?
+top_p: 0.9           # Ranges: 0 to 1
+temperature: 0.6     # Ranges: 0 to 1
+frequency_penalty: 0 # Ranges: 0 to 1
+presence_penalty: 0  # Ranges: 0 to 1
+max_tokens: 8192     # Should be default to context length
+## END OPTIONAL
+# END INFERENCE PARAMETERS
 
-# Results Preferences
-stop:
-max_tokens: 
-stream: 
+# BEGIN MODEL LOAD PARAMETERS
+## BEGIN REQUIRED
+prompt_template: |+  # tokenizer.chat_template
+  <|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+  {system_message}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+  {prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+## END REQUIRED
+## BEGIN OPTIONAL
+ctx_len: 0          # llama.context_length | 0 or undefined = loaded from model
+ngl: 33             # Undefined = loaded from model
+## END OPTIONAL
+# END MODEL LOAD PARAMETERS
 
 ```
 
@@ -41,174 +73,65 @@ The `model.yaml` is composed of three high-level sections:
 
 ### Cortex Meta
 ```yaml
-# Cortex Meta
-name: openhermes-2.5
-model: openhermes-2.5:7B
-version: 1
+model: gemma-2-9b-it-Q8_0 
+name: Llama 3.1      
+version: 1          
+sources:             
+  - models://huggingface/bartowski/Mixtral-8x22B-v0.1/main/Mixtral-8x22B-v0.1-IQ3_M-00001-of-00005.gguf 
+  - files://C:/Users/user/Downloads/Mixtral-8x22B-v0.1-IQ3_M-00001-of-00005.gguf 
 ```
 Cortex Meta consists of essential metadata that identifies the model within Cortex.cpp. The required parameters include:
-| **Parameter** | **Description** |
-|---------------|-----------------|
-| `name`        | The identifier name of the model, used as the `model_id`. |
-| `model`       | Details specifying the variant of the model, including size or quantization. |
-| `version`     | The version number of the model. |
+| **Parameter**          | **Description**                                                                      | **Required** |
+|------------------------|--------------------------------------------------------------------------------------|--------------|
+| `name`        | The identifier name of the model, used as the `model_id`. |Yes          |
+| `model`       | Details specifying the variant of the model, including size or quantization. |Yes          |
+| `version`     | The version number of the model. |Yes          |
+| `sources`     | The source file of the model. |Yes          |
 
-### Engine / Model Settings
+### Inference Parameters
 ```yaml
-# Engine / Model Settings
-engine: llamacpp
+stop:                
+  - <|end_of_text|>
+  - <|eot_id|>
+  - <|eom_id|>
+stream: true         
+top_p: 0.9           
+temperature: 0.6     
+frequency_penalty: 0 
+presence_penalty: 0  
+max_tokens: 8192     
+```
+Inference parameters define how the results will be produced. The required parameters include:
+| **Parameter**          | **Description**                                                                      | **Required** |
+|------------------------|--------------------------------------------------------------------------------------|--------------|
+| `top_p`                | The cumulative probability threshold for token sampling.                             | No  |
+| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    | No   |
+| `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       | No   |
+| `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            | No   |
+| `max_tokens`           | Maximum number of tokens in the output.              | No   |
+| `stream`               | Enables or disables streaming mode for the output (true or false).                   | No   |
+| `stop`               | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. | Yes   |
+
+
+### Model Load Parameters
+```yaml
+prompt_template: |+  
+  <|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+  {system_message}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+  {prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+ctx_len: 0          
 ngl: 33 
-ctx_len: 4096 
-prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
-
 ```
-Engine/Model Settings include the options that control how Cortex.cpp runs the model. The required parameters include:
-| **Parameter** | **Description** |
-|---------------|-----------------|
-| `engine`               | Specifies the engine to be used for model execution.         |
-| `ngl`                  | Number of attention heads.                            |
-| `ctx_len`              | Context length (maximum number of tokens).            |
-| `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      |
-
-### Result Preferences
-```yaml
-# Results Preferences
-stop:
-  - </s>
-max_tokens: 4096 
-stream: true 
-```
-Result Preferences define how the results will be produced. The required parameters include:
-| **Parameter** | **Description** |
-|---------------|-----------------|
-| `max_tokens`           | Maximum number of tokens in the output.              |
-| `stream`               | Enables or disables streaming mode for the output (true or false).                   |
-| `stop`               | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. |
-
-## Model Formats
-The `model.yaml` parameters vary for each supported model formats.
-
-### GGUF
-Example of `model.yaml` for GGUF format:
-```yaml
-name: openhermes-2.5
-model: openhermes-2.5:7B
-version: 1
-
-# Engine / Model Settings
-engine: llamacpp
-ngl: 33 # Infer from base config.json -> num_attention_heads
-ctx_len: 4096 # Infer from base config.json -> max_position_embeddings
-prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
-
-# Results Preferences
-stop:
-  - </s>
-top_p: 0.95
-temperature: 0.7
-frequency_penalty: 0
-presence_penalty: 0
-max_tokens: 4096 # Infer from base config.json -> max_position_embeddings
-stream: true # true | false
-
-```
-#### Model Parameters
+Model load parameters include the options that control how Cortex.cpp runs the model. The required parameters include:
 | **Parameter**          | **Description**                                                                      | **Required** |
 |------------------------|--------------------------------------------------------------------------------------|--------------|
-| `top_p`                | The cumulative probability threshold for token sampling.                             | No  |
-| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    | No   |
-| `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       | No   |
-| `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            | No   |
-| `max_tokens`           | Maximum number of tokens in the output.                                              | Yes          |
-| `stream`               | Enables or disables streaming mode for the output (true or false).                   | Yes          |
-| `ngl`                  | Number of attention heads.                                                           | Yes          |
-| `ctx_len`              | Context length (maximum number of tokens).                                           | Yes          |
-| `engine`               | Specifies the engine to be used for model execution.                                 | Yes          |
-| `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      | Yes          |
-| `stop`                 | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. | Yes          |
-
-### ONNX
-Example of `model.yaml` for ONNX format:
-```yaml
-name: openhermes-2.5
-model: openhermes
-version: 1
-
-# Engine / Model Settings
-engine: onnx
-prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
-
-# Results Preferences
-top_p: 1.0
-temperature: 1.0
-frequency_penalty: 0
-presence_penalty: 0
-max_tokens: 2048 
-stream: true # true | false
-
-```
-#### Model Parameters
-
-| **Parameter**          | **Description**                                                                      | **Required** |
-|------------------------|--------------------------------------------------------------------------------------|--------------|
-| `top_p`                | The cumulative probability threshold for token sampling.                             | No  |
-| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    | No   |
-| `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       | No   |
-| `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            | No   |
-| `stop`                 | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. | No          |
-| `max_tokens`           | Maximum number of tokens in the output.                                              | Yes          |
-| `stream`               | Enables or disables streaming mode for the output (true or false).                   | Yes          |
-| `ngl`                  | Number of attention heads.                                                           | Yes          |
-| `ctx_len`              | Context length (maximum number of tokens).                                           | Yes          |
-| `engine`               | Specifies the engine to be used for model execution.                                 | Yes          |
+| `ngl`                  | Number of attention heads.                                                           | No          |
+| `ctx_len`              | Context length (maximum number of tokens).                                           | No          |
 | `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      | Yes          |
 
-### TensorRT-LLM
-Example of `model.yaml` for TensorRT-LLM format:
-```yaml
-name: Openhermes-2.5 7b Linux Ada
-model: openhermes-2.5:7B-tensorrt-llm
-version: 1
-
-# Engine / Model Settings
-engine: tensorrt-llm
-os: linux
-gpu_arch: ada
-quantization_method: awq
-precision: int4
-tp: 1
-trtllm_version: 0.9.0
-ctx_len: 2048 # Infer from base config.json -> max_position_embeddings
-text_model: false
-prompt_template: "<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"
-
-# Results Preferences
-temperature: 0.7
-max_tokens: 2048
-stream: true # true | false
-
-```
-#### Model Parameters
-
-| **Parameter**          | **Description**                                                                      | **Required** |
-|------------------------|--------------------------------------------------------------------------------------|--------------|
-| `top_p`                | The cumulative probability threshold for token sampling.                             | No           |
-| `temperature`          | Controls the randomness of predictions by scaling logits before applying softmax.    | No           |
-| `frequency_penalty`    | Penalizes new tokens based on their existing frequency in the sequence so far.       | No           |
-| `presence_penalty`     | Penalizes new tokens based on whether they appear in the sequence so far.            | No           |
-| `stop`                 | Specifies the stopping condition for the model, which can be a word, a letter, or a specific text. | No           |
-| `max_tokens`           | Maximum number of tokens in the output.                                              | Yes          |
-| `stream`               | Enables or disables streaming mode for the output (true or false).                   | Yes          |
-| `engine`               | Specifies the engine to be used for model execution.                                 | Yes          |
-| `os`                   | Operating system used.                                                               | Yes          |
-| `gpu_arch`             | GPU architecture used.                                                               | Yes          |
-| `quantization_method`  | Method used for quantization.                                                        | Yes          |
-| `precision`            | Precision level used.                                                                | Yes          |
-| `tp`                   | Number of tensor parallelism partitions.                                             | Yes          |
-| `trtllm_version`       | Version of TensorRT-LLM being used.                                                  | Yes          |
-| `ctx_len`              | Context length (maximum number of tokens).                                           | Yes          |
-| `text_model`           | Indicates if the text model is being used (true or false).                           | Yes          |
-| `prompt_template`      | Template for formatting the prompt, including system messages and instructions.      | Yes          |
 
 :::info
 You can download all the supported model formats from the following:

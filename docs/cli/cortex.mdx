@@ -4,6 +4,9 @@ description: Cortex CLI.
 slug: /cli
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -13,13 +16,36 @@ slug: /cli
 This is the initial command you need to run to start using Cortex.cpp.
 :::
 
-This command starts the Cortex.cpp process and the API server, which runs on port `1337` by default.
+This command starts the Cortex.cpp API server, which runs on port `3928` by default.
 
 ## Usage
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex [command] [options]
 
-```bash
-cortex [command] [options]
-```
+  # Beta
+  cortex-beta [command] [options]
+
+  # Nightly
+  cortex-nightly [command] [options]
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe [command] [options]
+
+  # Beta
+  cortex-beta.exe [command] [options]
+
+  # Nightly
+  cortex-nightly.exe [command] [options]
+  ```
+  </TabItem>
+</Tabs>
+
 
 ## Options
 
@@ -50,4 +76,5 @@ For example:
 - [cortex engines](/docs/cli/engines): Manage Cortex.cpp engines.
 - [cortex pull|download](/docs/cli/pull): Download a model.
 - [cortex run](/docs/cli/run): Shortcut to start a model and chat.
-- [cortex update](/docs/cli/stop): Update the Cortex.cpp version.
+- [cortex update](/docs/cli/update): Update the Cortex.cpp version.
+- [cortex stop](/docs/cli/stop): Stop the Cortex.cpp API server.

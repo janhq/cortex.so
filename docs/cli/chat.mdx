@@ -4,6 +4,9 @@ description: Cortex chat command.
 slug: "chat"
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -18,10 +21,33 @@ This CLI command calls the following API endpoint:
 This command starts a chat session with a specified model, allowing you to interact directly with it through an interactive chat interface.
 
 ## Usage
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex chat [options] <model_id> <message>
 
-```bash
-cortex chat [options] <model_id> <message>
-```
+  # Beta
+  cortex-beta chat [options] <model_id> <message>
+
+  # Nightly
+  cortex-nightly chat [options] <model_id> <message>
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe chat [options] <model_id> <message>
+
+  # Beta
+  cortex-beta.exe chat [options] <model_id> <message>
+
+  # Nightly
+  cortex-nightly.exe chat [options] <model_id> <message>
+  ```
+  </TabItem>
+</Tabs>
+
 :::info
 This command uses a `model_id` from the model that you have downloaded or available in your file system.
 :::

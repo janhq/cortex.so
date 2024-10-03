@@ -12,13 +12,28 @@ import TabItem from '@theme/TabItem';
 :::
 
 ## Cortex.cpp Installation
-Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
-- Stable: https://github.com/janhq/cortex.cpp/releases
-- Beta: https://github.com/janhq/cortex.cpp/releases
-- Nightly: https://github.com/janhq/cortex.cpp/releases
+Cortex.cpp offers two installer types:
+- Network Installers download a minimal system and require an internet connection to fetch packages during installation.
+- Local Installers include all necessary packages, enabling offline installation without internet access.
 :::info
-You can also install Cortex.cpp using the Cortex.cpp Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
+Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
 :::
+1. Download the MacOs installer:
+    - Stable: https://github.com/janhq/cortex.cpp/releases
+    - Beta: https://github.com/janhq/cortex.cpp/releases
+    - Nightly: https://github.com/janhq/cortex.cpp/releases
+2. Ensure that Cortex.cpp is sucessfulyy installed:
+```bash
+# Stable
+cortex
+
+# Beta
+cortex-beta
+
+# Nightly
+cortex-nightly
+```
+
 ### Data Folder
 By default, Cortex.cpp is installed in the following directory:
 ```
@@ -29,23 +44,19 @@ By default, Cortex.cpp is installed in the following directory:
 /Users/<username>/.cortexcpp<env>
 ```
 ## Uninstall Cortex.cpp
-1. Open the Finder menu.
-2. Click the Applications option from the sidebar.
-3. Find the Jan app or type in the search bar.
-4. Use any of these ways to move the Jan app to the Trash:
-    - Drag the app to the Trash.
-    - Select the app and choose the Move to Trash option.
-    - Select the app and press Command-Delete on your keyboard.
-5. Use the following command to delete Jan's user data and app cache:
+Run the uninstaller script:
 ```bash
-# Remove all user data
-rm -rf ~/.cortexcpp<env>
+# Stable version
+sudo sh cortex-uninstall.sh
 
-# Delete the application data
-rm -rf ~/.cortexrc<env>
+# Beta version
+sudo sh cortex-beta-uninstall.sh
+
+# Stable version
+sudo sh cortex-nightly-uninstall.sh
 ```
 :::info
-Delete the Cortex.cpp data folder located in your home folder.
+The script requires sudo permission.
 :::
 ## Build from Source
 1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).

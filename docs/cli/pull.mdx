@@ -4,6 +4,9 @@ description: Cortex CLI.
 slug: "pull"
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::warning
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
@@ -19,10 +22,33 @@ The downloaded model will be stored in the Cortex folder in your home data direc
 
 
 ## Usage
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex pull [options] <model_id> 
 
-```bash
-cortex pull [options] <model_id> 
-```
+  # Beta
+  cortex-beta pull [options] <model_id> 
+
+  # Nightly
+  cortex-nightly pull [options] <model_id> 
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe pull [options] <model_id> 
+  
+  # Beta
+  cortex-beta.exe pull [options] <model_id> 
+
+  # Nightly
+  cortex-nightly.exe pull [options] <model_id> 
+  ```
+  </TabItem>
+</Tabs>
+
 
 ## Options
 

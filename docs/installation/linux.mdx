@@ -13,19 +13,34 @@ import Admonition from '@theme/Admonition';
 :::
 
 ## Cortex.cpp Installation
-Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
-### .deb
-- Stable: https://github.com/janhq/cortex.cpp/releases
-- Beta: https://github.com/janhq/cortex.cpp/releases
-- Nightly: https://github.com/janhq/cortex.cpp/releases
-
-### .appImage
-- Stable: https://github.com/janhq/cortex.cpp/releases
-- Beta: https://github.com/janhq/cortex.cpp/releases
-- Nightly: https://github.com/janhq/cortex.cpp/releases
+Cortex.cpp offers two installer types:
+- Network Installers download a minimal system and require an internet connection to fetch packages during installation.
+- Local Installers include all necessary packages, enabling offline installation without internet access.
 :::info
-You can also install Cortex.cpp using the Cortex Installer available on [GitHub Releases](https://github.com/janhq/cortex/releases).
+Before installation, make sure that you have met the required [dependencies](#dependencies) and [hardware](#hardware) to run Cortex.
 :::
+1. Download the Linux installer:
+    - `.deb`:
+        - Stable: https://github.com/janhq/cortex.cpp/releases
+        - Beta: https://github.com/janhq/cortex.cpp/releases
+        - Nightly: https://github.com/janhq/cortex.cpp/releases
+    - `.appImage`:
+        - Stable: https://github.com/janhq/cortex.cpp/releases
+        - Beta: https://github.com/janhq/cortex.cpp/releases
+        - Nightly: https://github.com/janhq/cortex.cpp/releases
+
+2. Ensure that Cortex.cpp is sucessfulyy installed:
+```bash
+# Stable
+cortex
+
+# Beta
+cortex-beta
+
+# Nightly
+cortex-nightly
+```
+
 ### Data Folder
 By default, Cortex.cpp is installed in the following directory:
 ```
@@ -36,20 +51,16 @@ By default, Cortex.cpp is installed in the following directory:
 /home/<username>/.cortexcpp<env>
 ```
 ## Uninstall Cortex.cpp
-```sh
-# Uninstall Jan
-sudo apt-get remove cortexcpp
+```bash
+# Stable version
+sudo apt remove cortexcpp
 
-# Remove all user data
-rm -rf ~/.cortexcpp<env>
+# Beta version
+sudo apt remove cortexcpp-beta
 
-# Delete the application data
-rm -rf ~/.cortexrc<env>
-
+# Nightly version
+sudo apt remove cortexcpp-nightly
 ```
-:::info
-Delete the Cortex.cpp data folder located in your home folder.
-:::
 
 ## Build from Source
 1. Clone the Cortex.cpp repository [here](https://github.com/janhq/cortex.cpp).

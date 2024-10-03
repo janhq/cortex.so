@@ -1,7 +1,7 @@
 ---
 title: API
 description: Cortex Server Overview.
-slug: "server"
+slug: "basic-usage"
 ---
 
 import Tabs from "@theme/Tabs";
@@ -15,15 +15,33 @@ Cortex has an [API server](https://cortex.so/api-reference) that runs at `localh
 
 
 ## Usage
-### Start Cortex Server
-```bash
-# By default the server will be started on port `3928`
-cortex
-# Start a server with different port number
-cortex -a <address> -p <port_number>
-# Set the data folder directory
-cortex --dataFolder <dataFolderPath>
-```
+### Start Cortex.cpp Server
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex
+
+  # Beta
+  cortex-beta
+
+  # Nightly
+  cortex-nightly
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe
+
+  # Beta
+  cortex-beta.exe
+
+  # Nightly
+  cortex-nightly.exe
+  ```
+  </TabItem>
+</Tabs>
 ### Run Model
 ```bash
 # Pull a model
@@ -93,3 +111,30 @@ curl --request POST \
 curl --request POST \
   --url http://localhost:3928/v1/models/mistral/pull
 ```
+### Stop Cortex.cpp Server
+<Tabs>
+  <TabItem value="MacOs/Linux" label="MacOs/Linux">
+  ```sh
+  # Stable
+  cortex stop
+
+  # Beta
+  cortex-beta stop
+
+  # Nightly
+  cortex-nightly stop
+  ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows">
+  ```sh
+  # Stable
+  cortex.exe stop
+
+  # Beta
+  cortex-beta.exe stop
+
+  # Nightly
+  cortex-nightly.exe stop
+  ```
+  </TabItem>
+</Tabs>
