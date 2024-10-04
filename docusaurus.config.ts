@@ -54,7 +54,7 @@ const config: Config = {
   title: "Cortex",
   titleDelimiter: "-",
   tagline:
-    "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
+    "Cortex is an Local AI engine for developers to run and customize Local LLMs. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library. Cortex's roadmap is to eventually support full OpenAI API-equivalence.",
   favicon: "img/favicons/favicon.ico",
   staticDirectories: ["static"],
 
@@ -373,12 +373,12 @@ const config: Config = {
       {
         name: "description",
         content:
-          "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
+          "Cortex is an Local AI engine for developers to run and customize Local LLMs. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library. Cortex's roadmap is to eventually support full OpenAI API-equivalence.",
       },
       {
         name: "og:description",
         content:
-          "Cortex is an openAI-compatible local AI server that developers can use to build LLM apps. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library.",
+          "Cortex is an Local AI engine for developers to run and customize Local LLMs. It is packaged with a Docker-inspired command-line interface and a Typescript client library. It can be used as a standalone server, or imported as a library. Cortex's roadmap is to eventually support full OpenAI API-equivalence.",
       },
     ],
 
