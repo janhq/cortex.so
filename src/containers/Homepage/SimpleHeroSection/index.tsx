@@ -19,9 +19,6 @@ const SimpleHeroSection = () => {
           </h1>
         </div>
         <p className="text-xl w-full mx-auto lg:w-2/3 text-black/60 dark:text-white/60">
-          Self-hosted alternative to the OpenAI Platform.
-        </p>
-        <p className="text-xl w-full mx-auto lg:w-2/3 text-black/60 dark:text-white/60">
           Powers <span className="text-black dark:text-white">👋</span> Jan
         </p>
 
