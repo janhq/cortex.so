@@ -409,7 +409,7 @@ const config: Config = {
       },
       items: [
         { to: "/models", label: "Models", position: "left" },
-        { to: "/changelog", label: "Changelog", position: "right" },
+        { to: "/changelog", label: "Changelog", position: "left" },
         {
           type: "doc",
           position: "right",
