@@ -3,9 +3,13 @@ import { Button } from "@site/src/components/Button";
 import Link from "@docusaurus/Link";
 
 import Announcement from "@site/src/components/Announcement";
+
 import { FaGithub } from "react-icons/fa";
+import DropdownDownload from "@site/src/components/DropdownDownload";
+import { usePluginData } from "@docusaurus/useGlobalData";
 
 const SimpleHeroSection = () => {
+  const latestRelease = usePluginData("latest-release");
   return (
     <div className="container">
       <div className="text-center mb-10">
@@ -23,14 +27,7 @@ const SimpleHeroSection = () => {
         </p>
 
         <div className="mt-8 flex gap-8 justify-center items-center">
-          <Link href="https://github.com/janhq/cortex" target="_blank">
-            <Button>
-              <div className="flex items-center">
-                <FaGithub className="mr-2" size={24} />
-                <span className="mb-0">Github</span>
-              </div>
-            </Button>
-          </Link>
+          <DropdownDownload lastRelease={latestRelease} />
           <Link href="/docs/quickstart" target="_blank">
             <Button theme="secondary">Documentation</Button>
           </Link>
