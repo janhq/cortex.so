@@ -1112,6 +1112,46 @@
           }
         },
         "tags": ["Engines"]
+      },
+      "delete": {
+        "operationId": "EnginesController_deleteEngine",
+        "summary": "Uninstall an engine",
+        "description": "Uninstall an installed engine with the given name.",
+        "parameters": [
+          {
+            "name": "name",
+            "required": true,
+            "in": "path",
+            "description": "The unique identifier of the engine.",
+            "schema": {
+              "type": "string",
+              "enum": ["onnxruntime", "llama-cpp", "tensorrt-llm"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EngineUninstallationResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Engines"]
       }
     }
   },
@@ -1795,6 +1835,20 @@
           }
         },
         "required": ["message"]
+      },
+      "EngineUninstallationResponseDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Engine my_engine uninstalled successfully!",
+            "enum": [
+              "Engine onnxruntime uninstalled successfully!",
+              "Engine llama-cpp uninstalled successfully!",
+              "Engine tensorrt-llm uninstalled successfully!"
+            ]
+          }
+        }
       },
       "SimpleErrorResponse": {
         "type": "object",
