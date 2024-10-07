@@ -114,7 +114,7 @@ To get an engine name, run the [`engines list`](/docs/cli/engines/list) command 
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `engine_name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `llamacpp`|
+| `engine_name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `llama-cpp`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
 ## `cortex engines list`
@@ -159,18 +159,15 @@ You can use the `--verbose` flag to display more detailed output of the internal
 
 For example, it returns the following:
 ```bash
-+---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-| (Index) |         name        |                                  description                                  | version |         product name         |      status     |
-+---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-|    1    | onnx         | This extension enables chat completion API calls using the Onnx engine        | 0.0.1
-  | Onnx Inference Engine        | not_initialized |
-+---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-|    2    | llamacpp     | This extension enables chat completion API calls using the LlamaCPP engine    | 0.0.1
-  | LlamaCPP Inference Engine    | ready           |
-+---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
-|    3    | tensorrt-llm | This extension enables chat completion API calls using the TensorrtLLM engine | 0.0.1
-  | TensorrtLLM Inference Engine | not_initialized |
-+---------+---------------------+-------------------------------------------------------------------------------+---------+------------------------------+-----------------+
++---+--------------+-------------------+---------+----------------------------+---------------+
+| # | Name         | Supported Formats | Version | Variant                    | Status        |
++---+--------------+-------------------+---------+----------------------------+---------------+
+| 1 | onnxruntime  | ONNX              |         |                            | Incompatible  |
++---+--------------+-------------------+---------+----------------------------+---------------+
+| 2 | llama-cpp    | GGUF              | 0.1.34  | linux-amd64-avx2-cuda-12-0 | Ready         |
++---+--------------+-------------------+---------+----------------------------+---------------+
+| 3 | tensorrt-llm | TensorRT Engines  |         |                            | Not Installed |
++---+--------------+-------------------+---------+----------------------------+---------------+
 ```
 
 **Options**:
@@ -186,9 +183,9 @@ This CLI command calls the following API endpoint:
 - [Init Engine](/api-reference#tag/engines/post/v1/engines/{name}/init)
 :::
 This command downloads the required dependencies and installs the engine within Cortex. Currently, Cortex supports three engines:
-- `Llama.cpp`
-- `Onnx`
-- `Tensorrt-llm`
+- `llama-cpp`
+- `onnxruntime`
+- `tensorrt-llm`
 
 **Usage**:
 :::info
@@ -224,10 +221,10 @@ You can use the `--verbose` flag to display more detailed output of the internal
 For Example:
 ```bash
 ## Llama.cpp engine
-cortex engines install llamacpp
+cortex engines install llama-cpp
 
 ## ONNX engine
-cortex engines install onnx
+cortex engines install onnxruntime
 
 ## Tensorrt-LLM engine
 cortex engines install tensorrt-llm
@@ -279,10 +276,10 @@ You can use the `--verbose` flag to display more detailed output of the internal
 For Example:
 ```bash
 ## Llama.cpp engine
-cortex engines uninstall llamacpp
+cortex engines uninstall llama-cpp
 
 ## ONNX engine
-cortex engines uninstall onnx
+cortex engines uninstall onnxruntime
 
 ## Tensorrt-LLM engine
 cortex engines uninstall tensorrt-llm

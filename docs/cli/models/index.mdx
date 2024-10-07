@@ -323,57 +323,6 @@ This command uses a `model_id` from the model that you have started before.
 | `model_id`                | The identifier of the model you want to stop.                               | Yes      | -                    | `mistral`       |
 | `-h`, `--help`            | Display help information for the command.                                   | No       | -                    | `-h`               |
 
-## `cortex models update`
-:::info
-This CLI command calls the following API endpoint:
-- [Update Model](/api-reference#tag/models/patch/v1/models/{model})
-:::
-This command updates a model configuration defined by a `model_id`.
-
-
-
-**Usage**:
-:::info
-You can use the `--verbose` flag to display more detailed output of the internal processes. To apply this flag, use the following format: `cortex --verbose [subcommand]`.
-:::
-<Tabs>
-  <TabItem value="MacOs/Linux" label="MacOs/Linux">
-  ```sh
-  # Stable
-  cortex models update [options] <model_id>
-
-  # Beta
-  cortex-beta models update [options] <model_id>
-
-  # Nightly
-  cortex-nightly models update [options] <model_id>
-  ```
-  </TabItem>
-  <TabItem value="Windows" label="Windows">
-  ```sh
-  # Stable
-  cortex.exe models update [options] <model_id>
-  
-  # Beta
-  cortex-beta.exe models update [options] <model_id>
-
-  # Nightly
-  cortex-nightly.exe models update [options] <model_id>
-  ```
-  </TabItem>
-</Tabs>
-
-:::info
-This command uses a `model_id` from the model that you have downloaded or available in your file system.
-:::
-**Options**:
-
-| Option                      | Description                                                                                           | Required | Default value        | Example                                                   |
-|-----------------------------|-------------------------------------------------------------------------------------------------------|----------|----------------------|-----------------------------------------------------------|
-| `model_id`                  | The identifier of the model you want to update.                                                       | Yes      | -                    | `mistral`                                          |
-| `-c`, `--options <options...>` | Specify the options to update the model. Syntax: `-c option1=value1 option2=value2`.  | Yes      | -                    | `-c max_tokens=100 temperature=0.5`                        |
-| `-h`, `--help`              | Display help information for the command.                                                             | No       | -                    | `-h`                                                  |
-
 ## `cortex models delete`
 :::info
 This CLI command calls the following API endpoint:
