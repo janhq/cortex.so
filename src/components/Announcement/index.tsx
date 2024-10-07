@@ -7,7 +7,7 @@ const Announcement = () => {
       <div className="flex items-center gap-2">
         <span>🚧</span>
         <p className="mb-0 text-neutral-100 font-medium">
-          Cortex.cpp v1.0 is coming soon.
+          Cortex.cpp v1.0 is now live on github.
           <a href="/docs" className="no-underline hover:no-underline">
             {" "}
             Read more
