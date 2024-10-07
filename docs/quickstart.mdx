@@ -20,7 +20,7 @@ To install Cortex, download the installer for your operating system from the fol
   - [Linux (Debian)](https://github.com/janhq/cortex.cpp/releases)
   - [Linux (Fedora)](https://github.com/janhq/cortex.cpp/releases)
 ## Start Cortex.cpp Processes and API Server
-This command starts the Cortex.cpp API server at `localhost:3928`.
+This command starts the Cortex.cpp API server at `localhost:39281`.
 <Tabs>
   <TabItem value="MacOs/Linux" label="MacOs/Linux">
   ```sh
@@ -81,7 +81,7 @@ All model files are stored in the `~users/cortex/models` folder.
 ## Using the Model
 ### API
 ```curl
-curl http://localhost:3928/v1/chat/completions \
+curl http://localhost:39281/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
   "model": "",

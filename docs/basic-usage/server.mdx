@@ -11,13 +11,13 @@ import TabItem from "@theme/TabItem";
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-Cortex has an [API server](https://cortex.so/api-reference) that runs at `localhost:3928`.
+Cortex has an [API server](https://cortex.so/api-reference) that runs at `localhost:39281`.
 
 
 ## Usage
 ### Start Cortex Server
 ```bash
-# By default the server will be started on port `3928`
+# By default the server will be started on port `39281`
 cortex
 # Start a server with different port number
 cortex -a <address> -p <port_number>
@@ -28,10 +28,10 @@ cortex --dataFolder <dataFolderPath>
 ```bash
 # Pull a model
 curl --request POST \
-  --url http://localhost:3928/v1/models/mistral/pull
+  --url http://localhost:39281/v1/models/mistral/pull
 # Start the model
 curl --request POST \
-  --url http://localhost:3928/v1/models/mistral/start \
+  --url http://localhost:39281/v1/models/mistral/start \
   --header 'Content-Type: application/json' \
   --data '{
   "prompt_template": "system\n{system_message}\nuser\n{prompt}\nassistant",
@@ -54,12 +54,12 @@ curl --request POST \
 ```bash
 # Check the model status
 curl --request GET \
-  --url http://localhost:3928/v1/system/events/model
+  --url http://localhost:39281/v1/system/events/model
 ```
 ### Chat with Model
 ```bash
 # Invoke the chat completions endpoint
-curl http://localhost:3928/v1/chat/completions \
+curl http://localhost:39281/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
   "model": "",
@@ -85,11 +85,11 @@ curl http://localhost:3928/v1/chat/completions \
 ```bash
 # Stop a model
 curl --request POST \
-  --url http://localhost:3928/v1/models/mistral/stop
+  --url http://localhost:39281/v1/models/mistral/stop
 ```
 ### Pull Model
 ```bash
 # Pull a model
 curl --request POST \
-  --url http://localhost:3928/v1/models/mistral/pull
+  --url http://localhost:39281/v1/models/mistral/pull
 ```
