@@ -275,7 +275,7 @@ const config: Config = {
         route: "/api-reference",
         configuration: {
           spec: {
-            url: "https://raw.githubusercontent.com/janhq/cortex.so/main/static/openapi/jan.json",
+            url: "/openapi/jan.json",
           },
           hideModels: true,
         },
