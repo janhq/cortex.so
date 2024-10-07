@@ -8,11 +8,13 @@ slug: "cortex-cpp"
 🚧 Cortex.cpp is currently under development. Our documentation outlines the intended behavior of Cortex, which may not yet be fully implemented in the codebase.
 :::
 
-Cortex.cpp is a stateless, C++ server that is 100% compatible with OpenAI API (stateless endpoints).
+Cortex.cpp is a Local AI engine that is used to run and customize LLMs. Cortex can be deployed as a standalone server, or integrated into apps like [Jan.ai](https://jan.ai/)
+
+Cortex's roadmap is to eventually support full OpenAI API-equivalence.
 
 It includes a Drogon server, with request queues, model orchestration logic, and hardware telemetry, and more, for prod environments.
 
-This guide walks you through how Cortex.CPP is designed, the codebase structure, and future plans.
+This guide walks you through how Cortex.cpp is designed, the codebase structure, and future plans.
 
 ## Usage
 

@@ -1176,7 +1176,7 @@
     },
     "info": {
         "title": "Cortex API",
-        "description": "Cortex API provides a command-line interface (CLI) for seamless interaction with Large Language Models (LLMs). It is fully compatible with the [OpenAI API](https://platform.openai.com/docs/api-reference) and enables straightforward command execution and management of LLM interactions.",
+        "description": "Cortex API enables API commands for seamless interaction with LLMs.",
         "version": "1.0",
         "contact": {}
     },
