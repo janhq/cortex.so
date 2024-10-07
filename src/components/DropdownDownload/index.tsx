@@ -26,17 +26,17 @@ const systemsTemplate: SystemType[] = [
   {
     name: "Download for Mac",
     logo: FaApple,
-    fileFormat: "{appname}-{tag}-mac-universal-local-installer.pkg",
+    fileFormat: "mac-universal-local",
   },
   {
     name: "Download for Windows",
     logo: FaWindows,
-    fileFormat: "{appname}-{tag}-windows-amd64-local-installer.exe",
+    fileFormat: "windows-amd64-local",
   },
   {
     name: "Download for Linux",
     logo: FaLinux,
-    fileFormat: "{appname}-{tag}-linux-amd64-local-installer.deb",
+    fileFormat: "linux-amd64-local",
   },
 ];
 
@@ -153,7 +153,7 @@ const DropdownDownload = ({ lastRelease }: Props) => {
             .replace("{tag}", tag);
           return {
             ...system,
-            href: `https://github.com/janhq/cortex/releases/download/${lastRelease.tag_name}/${downloadUrl}`,
+            href: `https://app.cortexcpp.com/download/latest/${downloadUrl}`,
           };
         });
         setSystems(updatedSystems);
