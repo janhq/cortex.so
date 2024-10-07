@@ -175,67 +175,47 @@
         "tags": ["Inference"]
       }
     },
-    "/v1/embeddings": {
+    "/v1/models/pull": {
       "post": {
-        "operationId": "EmbeddingsController_create",
-        "summary": "Create embedding vector",
-        "description": "Creates an embedding vector representing the input text.",
-        "parameters": [],
+        "operationId": "ModelsController_pullModel",
+        "summary": "Pull a model",
+        "description": "Pull a model from a remote source.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateEmbeddingsDto"
+                "$ref": "#/components/schemas/PullModelRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmbeddingsResponseDto"
+                  "$ref": "#/components/schemas/PullModelResponse"
                 }
               }
             }
-          }
-        },
-        "tags": ["Embeddings"]
-      }
-    },
-    "/v1/models": {
-      "post": {
-        "operationId": "ModelsController_create",
-        "summary": "Create model",
-        "description": "Creates a model `.json` instance file manually.",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateModelDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "The model has been successfully created.",
+          },
+          "400": {
+            "description": "Bad request",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StartModelSuccessDto"
+                  "$ref": "#/components/schemas/SimpleErrorResponse"
                 }
               }
             }
           }
         },
         "tags": ["Models"]
-      },
+      }
+    },
+    "/v1/models": {
       "get": {
         "operationId": "ModelsController_findAll",
         "summary": "List models",
@@ -256,28 +236,20 @@
         "tags": ["Models"]
       }
     },
-    "/v1/models/{modelId}/start": {
+    "/v1/models/start": {
       "post": {
         "operationId": "ModelsController_startModel",
         "summary": "Start model",
-        "description": "Starts a model operation defined by a model `id`.",
-        "parameters": [
-          {
-            "name": "modelId",
-            "required": true,
-            "in": "path",
-            "description": "The unique identifier of the model.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Load a model into memory.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ModelSettingsDto"
+                "$ref": "#/components/schemas/ModelStartDto"
+              },
+              "example": {
+                "model": "llama3:8b-gguf-q6-k"
               }
             }
           }
@@ -287,8 +259,8 @@
             "description": "The model has been successfully started.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StartModelSuccessDto"
+                "example": {
+                  "message": "Started successfully!"
                 }
               }
             }
@@ -297,97 +269,31 @@
         "tags": ["Models"]
       }
     },
-    "/v1/models/{modelId}/stop": {
+    "/v1/models/stop": {
       "post": {
         "operationId": "ModelsController_stopModel",
         "summary": "Stop model",
-        "description": "Stops a model operation defined by a model `id`.",
-        "parameters": [
-          {
-            "name": "modelId",
-            "required": true,
-            "in": "path",
-            "description": "The unique identifier of the model.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The model has been successfully stopped.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StartModelSuccessDto"
-                }
+        "description": "Unload model from memory",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModelStartDto"
+              },
+              "example": {
+                "model": "llama3:8b-gguf-q6-k"
               }
             }
           }
         },
-        "tags": ["Models"]
-      }
-    },
-    "/v1/models/{pull_id}/pull": {
-      "delete": {
-        "operationId": "ModelsController_abortPullModel",
-        "summary": "Abort model pull",
-        "description": "Abort the model pull operation.",
-        "parameters": [
-          {
-            "name": "pull_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
-            "description": ""
-          }
-        },
-        "tags": ["Models"]
-      }
-    },
-    "/v1/models/{modelId}/pull": {
-      "post": {
-        "operationId": "ModelsController_pullModel",
-        "summary": "Pull a model",
-        "description": "Pulls a model from cortex hub or huggingface and downloads it.",
-        "parameters": [
-          {
-            "name": "modelId",
-            "required": true,
-            "in": "path",
-            "description": "The unique identifier of the model.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "persistedModelId",
-            "required": false,
-            "in": "path",
-            "description": "The unique identifier of the model in your local storage.",
-            "schema": {}
-          },
-          {
-            "name": "fileName",
-            "required": false,
-            "in": "path",
-            "description": "The file name of the model to download.",
-            "schema": {}
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ok",
+            "description": "The model has been successfully started.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CommonResponseDto"
+                "example": {
+                  "message": "Stopped successfully!"
                 }
               }
             }
@@ -1152,10 +1058,6 @@
       "description": "These endpoints handle the creation, retrieval, updating, and deletion of conversation threads."
     },
     {
-      "name": "Embeddings",
-      "description": "Endpoint for creating and retrieving embedding vectors from text inputs using specified models."
-    },
-    {
       "name": "Engines",
       "description": "Endpoints for managing the available engines within Cortex."
     },
@@ -1169,17 +1071,12 @@
       "name": "CORTEX",
       "tags": [
         "Inference",
-        "Embeddings",
         "Engines",
         "Events",
         "Models",
         "Processes",
         "Status"
       ]
-    },
-    {
-      "name": "CORTEX PLATFORM",
-      "tags": ["Assistants", "Messages", "Threads"]
     }
   ],
   "servers": [
@@ -1587,6 +1484,33 @@
         },
         "required": ["object", "model", "embedding", "usage"]
       },
+      "PullModelRequest": {
+        "type": "object",
+        "required": ["model"],
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "The identifier or URL of the model to use. It can be a model ID on Cortexso (https://huggingface.co/cortexso) or a HuggingFace URL pointing to the model file. For example: 'gpt2' or 'https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/blob/main/mistral-7b-instruct-v0.1.Q2_K.gguf'",
+            "examples": [
+              {
+                "value": "tinyllama:gguf"
+              },
+              {
+                "value": "https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/blob/main/mistral-7b-instruct-v0.1.Q2_K.gguf"
+              }
+            ]
+          }
+        }
+      },
+      "PullModelResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Model start downloading!"
+          }
+        }
+      },
       "CreateModelDto": {
         "type": "object",
         "properties": {
@@ -1708,90 +1632,13 @@
         },
         "required": ["message", "modelId"]
       },
-      "ModelSettingsDto": {
+      "ModelStartDto": {
         "type": "object",
         "properties": {
-          "prompt_template": {
+          "model": {
             "type": "string",
-            "example": "system\n{system_message}\nuser\n{prompt}\nassistant",
-            "description": "A predefined text or framework that guides the AI model's response generation."
-          },
-          "stop": {
-            "example": [],
-            "description": "Defines specific tokens or phrases that signal the model to stop producing further output.",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "ngl": {
-            "type": "number",
-            "description": "Determines GPU layer usage.",
-            "example": 4096
-          },
-          "ctx_len": {
-            "type": "number",
-            "description": "The context length for model operations varies; the maximum depends on the specific model used.",
-            "example": 4096
-          },
-          "cpu_threads": {
-            "type": "number",
-            "minimum": 1,
-            "description": "Determines CPU inference threads, limited by hardware and OS. ",
-            "example": 10
-          },
-          "pre_prompt": {
-            "type": "string",
-            "description": "The prompt to use for internal configuration"
-          },
-          "n_batch": {
-            "type": "number",
-            "description": "The batch size for prompt eval step",
-            "example": 2048
-          },
-          "caching_enabled": {
-            "type": "boolean",
-            "description": "To enable prompt caching or not",
-            "example": true
-          },
-          "grp_attn_n": {
-            "type": "number",
-            "description": "Group attention factor in self-extend",
-            "example": 1
-          },
-          "grp_attn_w": {
-            "type": "number",
-            "description": "Group attention width in self-extend",
-            "example": 512
-          },
-          "mlock": {
-            "type": "boolean",
-            "description": "Prevent system swapping of the model to disk in macOS",
-            "example": false
-          },
-          "grammar_file": {
-            "type": "string",
-            "description": "You can constrain the sampling using GBNF grammars by providing path to a grammar file"
-          },
-          "flash_attn": {
-            "type": "boolean",
-            "description": "To enable Flash Attention, default is true",
-            "example": true
-          },
-          "cache_type": {
-            "type": "string",
-            "description": "KV cache type: f16, q8_0, q4_0, default is f16",
-            "example": "f16"
-          },
-          "use_mmap": {
-            "type": "boolean",
-            "description": "To enable mmap, default is true",
-            "example": true
-          },
-          "engine": {
-            "type": "string",
-            "example": "llamacpp",
-            "description": "The engine to use."
+            "example": "llama3:8b-gguf-q6-k",
+            "description": "A downloaded model name."
           }
         }
       },
