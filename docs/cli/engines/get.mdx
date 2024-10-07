@@ -20,14 +20,11 @@ cortex engines get <name>
 ```
 For example, it returns the following:
 ```bash
-┌─────────────┬────────────────────────────────────────────────────────────────────────────┐
-│ (index)     │ Values                                                                     │
-├─────────────┼────────────────────────────────────────────────────────────────────────────┤
-│ name        │ 'onnx'                                                              │
-│ description │ 'This extension enables chat completion API calls using the Cortex engine' │
-│ version     │ '0.0.1'                                                                    │
-│ productName │ 'Cortex Inference Engine'                                                  │
-└─────────────┴────────────────────────────────────────────────────────────────────────────┘
++-----------+-------------------+---------+----------------------------+--------+
+| Name      | Supported Formats | Version | Variant                    | Status |
++-----------+-------------------+---------+----------------------------+--------+
+| llama-cpp | GGUF              | 0.1.34  | linux-amd64-avx2-cuda-12-0 | Ready  |
++-----------+-------------------+---------+----------------------------+--------+
 ```
 :::info
 To get an engine name, run the [`engines list`](/docs/cli/engines/list) command first.
@@ -38,6 +35,6 @@ To get an engine name, run the [`engines list`](/docs/cli/engines/list) command 
 
 | Option            | Description                                           | Required | Default value | Example         |
 |-------------------|-------------------------------------------------------|----------|---------------|-----------------|
-| `name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `llamacpp`|
+| `name`        | The name of the engine that you want to retrieve.     | Yes      | -             | `llama-cpp`|
 | `-h`, `--help`    | Display help information for the command.             | No       | -             | `-h`        |
 
