@@ -14,8 +14,10 @@ import TabItem from "@theme/TabItem";
 # `cortex chat`
 :::info
 This CLI command calls the following API endpoint:
-- [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
-- [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions)
+- [Download Model](/api-reference#tag/models/post/v1/models/pull) (The command only calls this endpoint if the specified model is not downloaded yet.)
+- Install Engine (The command only calls this endpoint if the specified engine is not downloaded yet.)
+- [Start Model](/api-reference#tag/models/post/v1/models/start)
+- [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions) (The command makes a call to this endpoint if the `-c` option is used.)
 :::
 
 This command starts a chat session with a specified model, allowing you to interact directly with it through an interactive chat interface.
