@@ -30,7 +30,7 @@ cortex embeddings [options] [model_id] "Hello World"
   To generate an embedding, send a text string and the embedding model name **(e.g., 'nomic-embed-text-v1.5.f16')** to the Embeddings API endpoint.
   The Cortex-cpp server will return a list of floating-point numbers, which can be stored in a vector database for later use.
   ```bash
-curl http://127.0.0.1:3928/v1/embeddings \
+curl http://127.0.0.1:39281/v1/embeddings \
   -H "Content-Type: application/json" \
   -d '{
     "input": "Your text string goes here",
