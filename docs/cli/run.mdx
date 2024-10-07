@@ -14,10 +14,9 @@ import TabItem from "@theme/TabItem";
 # `cortex run`
 :::info
 This CLI command calls the following API endpoint:
-- [Download Model](/api-reference#tag/models/post/v1/models/{modelId}/pull) (The command only calls this endpoint if the specified model is not downloaded yet.)
+- [Download Model](/api-reference#tag/models/post/v1/models/pull) (The command only calls this endpoint if the specified model is not downloaded yet.)
 - Install Engine (The command only calls this endpoint if the specified engine is not downloaded yet.)
-- [Start Model](/api-reference#tag/models/post/v1/models/{modelId}/start)
-- [Chat Completions](/api-reference#tag/inference/post/v1/chat/completions) (The command makes a call to this endpoint if the `-c` option is used.)
+- [Start Model](/api-reference#tag/models/post/v1/models/start)
 :::
 
 This command facilitates the initiation of an interactive chat shell with a specified machine-learning model.
@@ -80,4 +79,3 @@ This command downloads and installs the model if not already available in your f
 1. [`cortex pull`](/docs/cli/models/): This command pulls the specified model if the model is not yet downloaded.
 2. [`cortex engines install`](/docs/cli/engines/): This command installs the specified engines if not yet downloaded.
 3. [`cortex models start`](/docs/cli/models/): This command starts the specified model, making it active and ready for interactions.
-4. [`cortex chat`](/docs/cli/chat): Following model activation, this command opens an interactive chat shell where users can directly communicate with the model.

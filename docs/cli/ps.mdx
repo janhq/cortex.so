@@ -56,22 +56,11 @@ You can use the `--verbose` flag to display more detailed output of the internal
 For example, it returns the following table:
 
 ```bash
-√ Dependencies loaded in 2882ms
-√ Getting models...
-√ Running PS command...
-┌─────────┬──────────────────────┬───────────────────┬───────────┬──────────┬─────┬──────┐
-│ (index) │ modelId              │ engine            │ status    │ duration │ ram │ vram │
-├─────────┼──────────────────────┼───────────────────┼───────────┼──────────┼─────┼──────┤
-│ 0       │ 'janhq/tinyllama/1b' │ 'llamacpp' │ 'running' │ '7s'     │ '-' │ '-'  │
-└─────────┴──────────────────────┴───────────────────┴───────────┴──────────┴─────┴──────┘
-√ API server is offline
-## The ps command also provides information on the percentage of system resources being used.
-┌─────────┬───────────┬──────────────┬────────────────────────┐
-│ (index) │ CPU Usage │ Memory Usage │ VRAM                   │
-├─────────┼───────────┼──────────────┼────────────────────────┤
-│ 0       │ '4.13%'   │ '83.11%'     │                        │
-│ 1       │           │              │ [ [Object], [Object] ] │
-└─────────┴───────────┴──────────────┴────────────────────────┘
++----------------+-----------+----------+-----------+-----------+
+| Model          | Engine    | RAM      | VRAM      | Up time   |
++----------------+-----------+----------+-----------+-----------+
+| tinyllama:gguf | llama-cpp | 35.16 MB | 601.02 MB | 5 seconds |
++----------------+-----------+----------+-----------+-----------+
 ```
 ## Options
 
