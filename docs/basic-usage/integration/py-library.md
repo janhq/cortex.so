@@ -36,7 +36,7 @@ pip install @janhq/cortex-python
 ```py
 from @janhq/cortex-python import Cortex
 
-client = OpenAI(base_url="http://localhost:3928", api_key="cortex")
+client = Cortex(base_url="http://localhost:3928", api_key="cortex")
 
 model = "TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF"
 client.models.start(model=model)
