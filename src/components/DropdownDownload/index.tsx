@@ -61,18 +61,18 @@ const DropdownDownload = ({ lastRelease }: Props) => {
       const userAgent = navigator.userAgent;
       if (userAgent.includes("Windows")) {
         // windows user
-        setDefaultSystem(systems[2]);
+        setDefaultSystem(systems[1]);
       } else if (userAgent.includes("Linux")) {
         // linux user
-        setDefaultSystem(systems[3]);
+        setDefaultSystem(systems[2]);
       } else if (userAgent.includes("Mac OS")) {
         if (gpuInfo.type === "Apple Silicon") {
           setDefaultSystem(systems[0]);
         } else {
-          setDefaultSystem(systems[1]);
+          setDefaultSystem(systems[0]);
         }
       } else {
-        setDefaultSystem(systems[1]);
+        setDefaultSystem(systems[0]);
       }
     },
     [gpuInfo.type]
@@ -188,7 +188,7 @@ const DropdownDownload = ({ lastRelease }: Props) => {
         )}
       >
         <a
-          href={defaultSystem.href || "/"}
+          href={defaultSystem?.href || "/"}
           className="dark:border-r-0 dark:nx-bg-neutral-900 bg-black dark:bg-white text-white dark:text-black hover:text-white justify-center dark:border dark:border-neutral-800 flex-shrink-0 pl-4 pr-6 py-4 rounded-l-lg inline-flex items-center !no-underline	"
         >
           <defaultSystem.logo className="h-4 mr-2" />
